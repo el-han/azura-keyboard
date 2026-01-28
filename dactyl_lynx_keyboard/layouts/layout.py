@@ -70,10 +70,10 @@ class Layout:
         self.web_post_size = 0.1
         self.web_thickness = keyswitch.keyswitch_depth
 
-        #self.offset_per_row = self.keyswitch.plate_size().y + 0.5
+        # self.offset_per_row = self.keyswitch.plate_size().y
         self.offset_per_row = 17.5
-        #self.offset_per_col = self.keyswitch.plate_size().x + 2.0
-        self.offset_per_col = 19
+        # self.offset_per_col = self.keyswitch.plate_size().x
+        self.offset_per_col = 20
 
         self.positions_to_skip: Sequence[Tuple[float, float]] = ()
         "A sequence of positions in the layout to skip when generating positions."

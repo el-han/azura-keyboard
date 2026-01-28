@@ -22,9 +22,9 @@ class FingerWellLayout(Layout):
 
         self.use_1_5u_keys = use_1_5u_keys
 
-        self.placement_transform = (0, 0, 30.5)
+        self.placement_transform = (0, 0, 1.6 + 13.0)
 
-        self.positions_to_skip = ((0, 4), )
+        self.positions_to_skip = ((0, 4), (1, 4))
 
     def column_adjust(self, column: float) -> float:
         """Adjust the effective column number of a given column to account for 1.5u keys on the
@@ -49,7 +49,7 @@ class FingerWellLayout(Layout):
 
         :param column: the row number to rotate for
         """
-        return math.degrees(self.rad_per_col * (2 - column))
+        return math.degrees(self.rad_per_col * (2.5 - column))
 
     def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
         """Adjust the position of the given key/location in the layout.
@@ -58,12 +58,37 @@ class FingerWellLayout(Layout):
         :param row: the row to place the key in
         :param shape: the shape to place
         """
+        shape = shape.down(self.row_radius)
+        shape = shape.rotate(-self.row_angle(3), (1, 0, 0))
+        shape = shape.up(self.row_radius)
+        shape = shape.translate((0.0, -1*self.offset_per_row, 0.0))
+
+        shape = shape.down(self.column_radius)
+        shape = shape.rotate(-self.column_angle(4), (0, 1, 0))
+        shape = shape.up(self.column_radius)
+        shape = shape.translate((1.5*self.offset_per_col, 0.0, 0.0))
+
+        # shape = shape.rotate(10, (0,0,1))
+        
+        return shape.translate((0.5*self.offset_per_col, 0.0, 0.0))
+
+    def key_place(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
+        """Place a key (or other shape) in the layout.
+
+        :param column: the column to place the key in
+
+        :param row: the row to place the key in
+
+        :param shape: the shape to place
+        """
+
+        # shift rows for middle finger and pinky
         if column == 2:
-            return shape.translate((0, 6.82, -4.0))
-        elif column >= 4:
-            return shape.translate((0, -20.8, 7.64))
-        else:
-            return shape
+            row += -0.25
+        elif column >=4:
+            row += 0.25
+
+        return super().key_place(column, row, shape)
 
     def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
         """Place the layout.
@@ -71,9 +96,7 @@ class FingerWellLayout(Layout):
         :param shape: the shape to place
         """
         return shape \
-            .up(3) \
-            .rotate(math.degrees(math.pi / 10), (0, 1, 0)) \
-            .rotate(math.degrees(math.pi / 10), (1, 0, 0)) \
+            .up(self.web_thickness) \
             .translate(self.placement_transform)
 
     def web_all(self, z_offset: float = 0, thickness: Optional[float] = None, size_adjust: Optional[XYAdjustCallback] = None, position_adjust: Optional[XYAdjustCallback] = None) -> OpenSCADObject:
@@ -97,12 +120,12 @@ class FingerWellLayout(Layout):
                 (
                     self.web_top_left_of(column, row, **web_kwargs)
                     for (column, row) in self.generate_positions()
-                    if column > 0 and row > 0 and (column != 1 or row != 4)
+                    if column > 0 and row > 0 and (column > 2 or row != 4)
                 ),
                 (
                     self.web_left_of(column, row, **web_kwargs)
                     for (column, row) in self.generate_positions()
-                    if column > 0 and (column != 1 or row != 4)
+                    if column > 0 and (column > 2 or row != 4)
                 ),
                 (
                     self.web_above(column, row, **web_kwargs)

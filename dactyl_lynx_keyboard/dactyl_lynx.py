@@ -68,12 +68,13 @@ lynx_layout = {
             ['8', 'C', 'T', 'W', '↓'],
             ['9', 'R', 'N', 'V', '↑'],
             ['0', 'L', 'S', 'Z', '→'],
-            ['\\', '/', '-', shift_legend, command_legend],
+            ['\\\\', '/', '-', shift_legend, command_legend],
         ],
         True: {  # thumb well
-            2: { -1: command_legend, 0: 'Alt', 1: 'Ctrl' },
-            1: { -1: 'Fn', 0: enter_legend, 1: shift_legend },
-            0: { -1: 'NOP', 0.5: '' },
+            0: { 0: command_legend, 1: 'Alt', 2: 'Ctrl' },
+            1: { 0: 'Fn', 1: enter_legend },
+            2: { 0: 'NOP', 1: shift_legend },
+            1.5: {2: ''},
         },
     },
     True: {  # left side
@@ -86,9 +87,10 @@ lynx_layout = {
             ['Menu', tab_legend, esc_legend, shift_legend, 'Ctrl'],
         ],
         True: {  # thumb well
-            2: { 1: 'Ctrl', 0: 'Alt', -1: command_legend },
-            1: { 1: shift_legend, 0: delete_legend, -1: 'Fn' },
-            0: { 0.5: backspace_legend, -1: 'NOP' },
+            0: { 2: 'Ctrl', 1: 'Alt', 0: command_legend },
+            1: { 1: delete_legend, 0: 'Fn' },
+            2: { 1: shift_legend, 0: 'NOP' },
+            1.5: {2: backspace_legend},
         },
     },
 }
@@ -139,20 +141,20 @@ if __name__ == "__main__":
     )
 
     combined_colors = {
-        'combined': (0.03, 0.03, 0.03),
-        #'combined': (0.33, 0.33, 0.33),
-        'finger_part': (0.1, 0.1, 0.9),
-        'thumb_part': (0.1, 0.1, 0.1),
-        'connector': (0.4, 0.1, 0.1),
+        'combined': (1.0, 0.98, 0.95),
+        #'combined': (1.0, 0.98, 0.95),
+        'finger_part': (1.0, 0.98, 0.95),
+        'thumb_part': (1.0, 0.98, 0.95),
+        'connector': (1.0, 0.98, 0.95),
         'keycaps': (1.0, 0.98, 0.95),
         'keycap_text': (0, 0, 0),
         'keyswitches': (0.02, 0.02, 0.02),
         'pcbs': (0.02, 0.02, 0.02),
         #'pcbs': (0.02, 0.5, 0.02),
-        'bottom': (0.027, 0.027, 0.027),
+        'bottom': (1.0, 0.98, 0.95),
         'lcd_mount': (0.1, 0.3, 0.1),
     }
-    combined_parts = ('trackpoint', 'keycaps', 'keyswitches', 'pcbs', 'bottom_with_feet_and_tripod_mount')
+    combined_parts = ('keycaps', 'keyswitches', 'pcbs')
 
     # Choose your keycap legends!
     # No keycap legends
@@ -162,7 +164,7 @@ if __name__ == "__main__":
     # The wiring matrix coordinates for each key
     #keycap_text = lambda left_side, thumb, column, row, **kwargs: matrix_coords[left_side][thumb][column][row]
     # The key mapping at each position in my `lynx` layout
-    keycap_text = lambda left_side, thumb, column, row, **kwargs: lynx_layout[left_side][thumb][column][row]
+    keycap_text = lambda left_side, thumb, column, row, **kwargs: ""  # lynx_layout[left_side][thumb][column][row]
 
     lcdMount = LCDMount()
 
@@ -175,8 +177,8 @@ if __name__ == "__main__":
             shape = sa_cap(1)
             if (column == 1 and row == 0) if thumb else (row == 2 and 1 <= column <= 4):
                 shape -= sphere(_fn=50, r=30).up(48)
-            elif isinstance(row, float) and not row.is_integer():
-                shape = sa_cap(2)
+            # elif isinstance(row, float) and not row.is_integer():
+            #     shape = sa_cap(2)
             elif isinstance(column, float) and not column.is_integer():
                 shape = sa_cap(2).rotate((0, 0, 90))
 
@@ -215,6 +217,7 @@ if __name__ == "__main__":
     right_bottom_with_feet = (
         right_bottom
         + assembly.finger_bottom_cover_feet()
+        + assembly.single_piece()
     )
     right_bottom_with_nuts = (
         right_bottom
@@ -520,7 +523,7 @@ if __name__ == "__main__":
 
     def build_filepath():
         return join(
-            dirname(dirname(dirname(abspath(__file__)))),
+            dirname(dirname(abspath(__file__))),
             "things",
             args.output
             or f"dactyl-lynx-{args.finger_columns}x{args.finger_rows}.scad",
