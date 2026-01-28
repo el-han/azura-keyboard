@@ -23,7 +23,7 @@ class ThumbWellLayout(Layout):
 
         # Cupping amounts, in radians per row/column
         self.rad_per_row = math.pi / 8
-        self.rad_per_col = math.pi / 12
+        self.rad_per_col = math.pi / 3
 
         self.placement_transform = (-65, -45, 40)
 
@@ -46,16 +46,12 @@ class ThumbWellLayout(Layout):
         """
         return (
             # (column, row)
+            (0, -2),
+            (0, -1),
             (0, 0),
             (0, 1),
             (0, 2),
-            (1, 0),
-            (1, 1),
-            # (2, 0),
-            (2, 1),
-            (1.5, 2), # 2u key
-            # (3, 1),
-            (3, 2),
+            (0, 3.5),
         )
 
     def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
