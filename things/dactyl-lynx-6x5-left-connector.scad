@@ -42,7 +42,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 		}
-		translate(v = [-65, -45, 40]) {
+		translate(v = [-35, -45, 10]) {
 			rotate(a = 10, v = [1, 1, 1]) {
 				translate(v = [-3, 57, 33.2]) {
 					rotate(a = -10, v = [0, 1, 0]) {
@@ -70,7 +70,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 			}
-			translate(v = [-65, -45, 40]) {
+			translate(v = [-35, -45, 10]) {
 				rotate(a = 10, v = [1, 1, 1]) {
 					translate(v = [-3, 57, 33.2]) {
 						rotate(a = -10, v = [0, 1, 0]) {

@@ -22,36 +22,33 @@ class ThumbWellLayout(Layout):
         super(ThumbWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
 
         # Cupping amounts, in radians per row/column
-        self.rad_per_row = math.pi / 8
-        self.rad_per_col = math.pi / 3
+        # self.rad_per_row = 2 * math.pi / 3
+        self.rad_per_col = 2 * math.pi / 8
 
-        self.placement_transform = (-65, -45, 40)
+        # self.offset_per_row = self.keyswitch.plate_size().y
+        # self.offset_per_row = 17.5
+        # self.offset_per_col = self.keyswitch.plate_size().x
+        self.offset_per_col = 14
 
-    def row_angle(self, row: float) -> float:
-        """Calculate the X rotation angle for the given row.
-
-        :param row: the row number to rotate for
-        """
-        return math.degrees(self.rad_per_row * (1 - row))
+        self.placement_transform = (-35, -45, 10)
 
     def column_angle(self, column: float) -> float:
         """Calculate the Y rotation angle for the given column.
 
         :param column: the row number to rotate for
         """
-        return math.degrees(self.rad_per_col * (1 - column))
+        return math.degrees(self.rad_per_col * (2 - column))
 
     def generate_positions(self) -> Iterable[Tuple[float, float]]:
         """Generate the list of locations within the layout.
         """
         return (
             # (column, row)
-            (0, -2),
-            (0, -1),
+            (-1, 0),
             (0, 0),
-            (0, 1),
-            (0, 2),
-            (0, 3.5),
+            (1, 0),
+            (2, 0),
+            (3, 0),
         )
 
     def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
@@ -62,7 +59,7 @@ class ThumbWellLayout(Layout):
         :param shape: the shape to place
         """
         if (isinstance(row, float) and not row.is_integer()) or (isinstance(column, float) and not column.is_integer()):
-            return shape.translate((0, 0, 1))
+            return shape.translate((0, 0, -1))
         else:
             return shape
 
@@ -72,9 +69,9 @@ class ThumbWellLayout(Layout):
         :param shape: the shape to place
         """
         # shape = shape.up(self.row_radius)
-        shape = shape.rotate(90-self.row_angle(0), (1, 0, 0))
-        shape = shape.rotate(self.column_angle(0), (0, 0, 1))
-        shape = shape.rotate(15, (0, 1, 0))
+        # shape = shape.rotate(90-self.row_angle(0), (1, 0, 0))
+        # shape = shape.rotate(self.column_angle(0), (0, 0, 1))
+        shape = shape.rotate(15, (0, 0, 1))
         shape = shape.translate(self.placement_transform)
         return shape
 
@@ -96,63 +93,47 @@ class ThumbWellLayout(Layout):
         return reduce(
             operator.add,
             chain(
-                (
-                    self.web_top_left_of(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if column > 0 and row > 0 and (column, row) not in (
-                        (1.5, 2),
-                        # (1, 1),
-                        (2, 1),
-                        (3, 2),
-                    )
-                ),
+                # (
+                #     self.web_top_left_of(column, row, **web_kwargs)
+                #     for (column, row) in self.generate_positions()
+                #     if column > 0 and row > 0 and (column, row) not in (
+                #         (1.5, 2),
+                #         # (1, 1),
+                #         (2, 1),
+                #         (3, 2),
+                #     )
+                # ),
                 (
                     self.web_left_of(column, row, **web_kwargs)
                     for (column, row) in self.generate_positions()
-                    if column > 0 and (column, row) not in (
-                        (1.5, 2),
-                        # (1, 0),
+                    if (column, row) not in (
+                        (-1, 0),
+                        (3.5, 0),
                     )
                 ),
-                (
-                    self.web_above(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if row > 0 and (column, row) not in (
-                        (1.5, 2),
-                        # (0, 1),
-                        (2, 1),
-                        (3, 2),
-                    )
-                ),
-                [
-                    hull()(
-                        self.web_corner(1.5, 2, left=True, top=False, column_span=2, **web_kwargs),
-                        self.web_corner(1.5, 2, left=True, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(0, 2, left=False, top=True, **web_kwargs),
-                        self.web_corner(0, 2, left=False, top=False, **web_kwargs),
-                    ),
-                    hull()(
-                        self.web_corner(1.5, 2, left=True, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(1, 1, left=True, top=False, **web_kwargs),
-                        self.web_corner(0, 1, left=False, top=False, **web_kwargs),
-                        self.web_corner(0, 2, left=False, top=True, **web_kwargs),
-                    ),
-                    hull()(
-                        self.web_corner(1.5, 2, left=True, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(1, 1, left=False, top=False, **web_kwargs),
-                        self.web_corner(1, 1, left=True, top=False, **web_kwargs),
-                    ),
-                    hull()(
-                        self.web_corner(1.5, 2, left=True, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(1.5, 2, left=False, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(2, 1, left=True, top=False, **web_kwargs),
-                        self.web_corner(1, 1, left=False, top=False, **web_kwargs),
-                    ),
-                    hull()(
-                        self.web_corner(1.5, 2, left=False, top=True, column_span=2, **web_kwargs),
-                        self.web_corner(2, 1, left=False, top=False, **web_kwargs),
-                        self.web_corner(2, 1, left=True, top=False, **web_kwargs),
-                    ),
-                ],
+                # (
+                #     self.web_above(column, row, **web_kwargs)
+                #     for (column, row) in self.generate_positions()
+                #     if row > 0 and (column, row) not in (
+                #         (1.5, 2),
+                #         # (0, 1),
+                #         (2, 1),
+                #         (3, 2),
+                #     )
+                # ),
+                # [
+                #     hull()(
+                #         self.web_corner(3.5, 0, left=True, top=False, column_span=2, **web_kwargs),
+                #         self.web_corner(3.5, 0, left=True, top=True, column_span=2, **web_kwargs),
+                #         self.web_corner(2, 0, left=False, top=True, **web_kwargs),
+                #         self.web_corner(2, 0, left=False, top=False, **web_kwargs),
+                #     ),
+                #     hull()(
+                #         self.web_corner(3.5, 0, left=False, top=False, column_span=2, **web_kwargs),
+                #         self.web_corner(3.5, 0, left=False, top=True, column_span=2, **web_kwargs),
+                #         self.web_corner(-1, 0, left=True, top=True, **web_kwargs),
+                #         self.web_corner(-1, 0, left=True, top=False, **web_kwargs),
+                #     ),
+                # ],
             )
         )

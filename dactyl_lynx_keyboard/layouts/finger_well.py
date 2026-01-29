@@ -22,9 +22,9 @@ class FingerWellLayout(Layout):
 
         self.use_1_5u_keys = use_1_5u_keys
 
-        self.placement_transform = (0, 0, 1.6 + 13.0)
+        self.placement_transform = (0, 0, 1.6 + 3.0)
 
-        self.positions_to_skip = ((0, 4), (1, 4))
+        self.positions_to_skip = ((0, 4), (1, 4), (2, 4))
 
     def column_adjust(self, column: float) -> float:
         """Adjust the effective column number of a given column to account for 1.5u keys on the

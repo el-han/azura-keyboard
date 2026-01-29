@@ -7,7 +7,7 @@ from functools import reduce
 from itertools import chain
 from typing import Optional, Protocol, Tuple, Union
 
-from solid2 import cube, hull
+from solid2 import cube, hull, sphere
 from solid2.core.object_base import OpenSCADObject
 
 from spkb.keyswitch import Keyswitch, MX
@@ -232,6 +232,9 @@ class Layout:
             (self.web_post_size, self.web_post_size, thickness),
             center=True
         ).down(thickness / 2)
+        # post = sphere(
+        #     d=thickness
+        # ).down(thickness / 2)
 
         x_adjust = 0
         y_adjust = 0
@@ -251,10 +254,10 @@ class Layout:
                 y_adjust -= y_pos_adjust
 
         x_move_amount = (
-            self.keyswitch.keyswitch_width + ((column_span - 1) * 24) - self.web_post_size
+            self.keyswitch.plate_size().x + ((column_span - 1) * 24) - self.web_post_size
         ) / 2 + self.keyswitch.wall_thickness + x_adjust
         y_move_amount = (
-            self.keyswitch.keyswitch_length + ((row_span - 1) * 24) - self.web_post_size
+            self.keyswitch.plate_size().y + ((row_span - 1) * 24) - self.web_post_size
         ) / 2 + self.keyswitch.wall_thickness + y_adjust
 
         return self.key_place(

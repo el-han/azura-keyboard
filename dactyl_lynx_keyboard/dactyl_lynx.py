@@ -5,7 +5,7 @@ from typing import List, Optional, Tuple
 
 from solid2 import cube, sphere, text
 
-from spkb.keyswitch import Keyswitch, MX, Choc
+from spkb.keyswitch import Keyswitch, MX
 from spkb.keycaps import sa_cap
 from spkb.single_key_pcb import single_key_board
 from spkb.types import HoleDef, Offset2D

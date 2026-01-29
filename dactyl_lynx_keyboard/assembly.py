@@ -11,7 +11,7 @@ from spkb.switch_plate import (
 )
 from spkb.board_mount import stm32_blackpill
 from spkb.keycaps import sa_double_length
-from spkb.keyswitch import Keyswitch, MX
+from spkb.keyswitch import Keyswitch, MX, Choc
 from spkb.single_key_pcb import single_key_board
 from spkb.utils import cylinder_outer, fudge_radius, nothing
 
@@ -41,7 +41,7 @@ class KeyboardAssembly:
             use_1_5u_keys=use_1_5u_keys,
             keyswitch=keyswitch,
         )
-        self.thumb_layout = ThumbWellLayout(keyswitch=keyswitch)
+        self.thumb_layout = ThumbWellLayout(keyswitch=MX())
 
         if socket_shape is None:
             self.socket_shape = lambda _column, _row: self.finger_layout.keyswitch.plate()
@@ -1003,26 +1003,26 @@ class KeyboardAssembly:
         """
         return (
             self.finger_part()
-            + hull()(
-                self.thumb_layout.web_left_of(2, 1),
-                self.finger_layout.web_left_of(0, 3)
-            )
             # + hull()(
-            #     self.thumb_layout.web_top_left_of(2, 1),
+            #     self.thumb_layout.web_left_of(2, 1),
+            #     self.finger_layout.web_left_of(0, 3)
+            # )
+            # # + hull()(
+            # #     self.thumb_layout.web_top_left_of(2, 1),
+            # #     self.finger_layout.web_top_left_of(0, 3)
+            # # )
+            # # + hull()(
+            # #     self.thumb_layout.web_left_of(2, 0),
+            # #     self.finger_layout.web_left_of(0, 2)
+            # # )
+            # + hull()(
+            #     self.thumb_layout.web_above(0, 1),
             #     self.finger_layout.web_top_left_of(0, 3)
             # )
             # + hull()(
-            #     self.thumb_layout.web_left_of(2, 0),
-            #     self.finger_layout.web_left_of(0, 2)
+            #     self.thumb_layout.web_top_left_of(1, 1),
+            #     self.finger_layout.web_top_left_of(0, 3)
             # )
-            + hull()(
-                self.thumb_layout.web_above(0, 1),
-                self.finger_layout.web_top_left_of(0, 3)
-            )
-            + hull()(
-                self.thumb_layout.web_top_left_of(1, 1),
-                self.finger_layout.web_top_left_of(0, 3)
-            )
             + self.thumb_part()
             # - self.place_cover_magnets(self.cover_magnet_hole(top_shell=False))
         )
