@@ -9,15 +9,16 @@ from typing import Optional, Tuple
 
 from solid2.core.object_base import OpenSCADObject
 
-from spkb.keyswitch import Keyswitch, MX
+from spkb.keyswitch import Keyswitch
 
 from .layout import Layout, XYAdjustCallback
+from .keys import Kailh
 
 
 class FingerWellLayout(Layout):
     """The layout of a finger well.
     """
-    def __init__(self, columns: int = 6, rows: int = 5, use_1_5u_keys: bool = True, keyswitch: Keyswitch = MX()):
+    def __init__(self, columns: int = 6, rows: int = 5, use_1_5u_keys: bool = True, keyswitch: Keyswitch = Kailh):
         super(FingerWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
 
         self.use_1_5u_keys = use_1_5u_keys

@@ -5,12 +5,12 @@ from typing import List, Optional, Tuple
 
 from solid2 import cube, sphere, text
 
-from spkb.keyswitch import Keyswitch, MX
-from spkb.keycaps import sa_cap
+from spkb.keyswitch import Keyswitch
 from spkb.single_key_pcb import single_key_board
 from spkb.types import HoleDef, Offset2D
 from spkb.utils import nothing
 
+from .layouts.keys import dsa_cap, Kailh
 from .layouts.layout import Layout
 from .lcd_mount import LCDMount
 from .assembly import KeyboardAssembly
@@ -102,14 +102,14 @@ if __name__ == "__main__":
 
     # Screw positions for single-key PCB
     board_screw_positions: List[HoleDef] = [
-        HoleDef(8, 8, 0.5),
-        HoleDef(-8, 8, 0.5),
-        HoleDef(8, -8, 0.5),
-        HoleDef(-8, -8, 0.5),
+        HoleDef(8, 8, 0.0),
+        HoleDef(-8, 8, 0.0),
+        HoleDef(8, -8, 0.0),
+        HoleDef(-8, -8, 0.0),
     ]
 
-    #keyswitch_type: Keyswitch = MX()
-    keyswitch_type: Keyswitch = MX.with_board(board_dimensions, *board_screw_positions)
+    # keyswitch_type: Keyswitch = Kailh()
+    keyswitch_type: Keyswitch = Kailh.with_board(board_dimensions, *board_screw_positions)
     #keyswitch_type: Keyswitch = Choc()
     #keyswitch_type: Keyswitch = Choc.with_board(board_dimensions, *board_screw_positions)
 
@@ -174,13 +174,13 @@ if __name__ == "__main__":
 
     def switch_cap(thumb):
         def _switch_cap_inner(column, row):
-            shape = sa_cap(1)
+            shape = dsa_cap(1)
             if (column == 1 and row == 0) if thumb else (row == 2 and 1 <= column <= 4):
                 shape -= sphere(_fn=50, r=30).up(48)
             # elif isinstance(row, float) and not row.is_integer():
-            #     shape = sa_cap(2)
+            #     shape = dsa_cap(2)
             elif isinstance(column, float) and not column.is_integer():
-                shape = sa_cap(2).rotate((0, 0, 90))
+                shape = dsa_cap(2).rotate((0, 0, 90))
 
             shape = shape.color(combined_colors['keycaps'])
 
@@ -311,7 +311,8 @@ if __name__ == "__main__":
             right_combined = (
                 right_finger_part.color(combined_colors['finger_part'])
                 + right_thumb_part.color(combined_colors['thumb_part'])
-                + right_connector.color(combined_colors['connector'])
+                + assembly.trackball_part(with_ball=True).color(combined_colors['finger_part'])
+                + assembly.thumb_connector().color(combined_colors['finger_part'])
             )
         if 'trackpoint' in parts:
             right_combined += assembly.transform_trackpoint_mount(assembly.trackpoint_mount.trackpoint_shape())
@@ -333,14 +334,14 @@ if __name__ == "__main__":
         elif 'bottom_with_feet_and_tripod_mount' in parts:
             right_combined += right_bottom_with_feet_and_tripod_mount.color(combined_colors['bottom']).down(0.01)
 
-        combined = right_combined.right(100)
+        combined = right_combined.right(100).rotate((0, 0, 15))
 
         left_combined = left_single_piece.color(combined_colors['combined'])
         if separate_pieces:
             left_combined = (
                 left_finger_part.color(combined_colors['finger_part'])
                 + left_thumb_part.color(combined_colors['thumb_part'])
-                + left_connector.color(combined_colors['connector'])
+                + assembly.thumb_connector().color(combined_colors['finger_part'])
             )
         if 'keycaps' in parts:
             left_combined += left_keycaps
@@ -360,7 +361,7 @@ if __name__ == "__main__":
         elif 'bottom_with_feet_and_tripod_mount' in parts:
             left_combined += left_bottom_with_feet_and_tripod_mount.color(combined_colors['bottom']).down(0.01)
 
-        combined += left_combined.left(100)
+        combined += left_combined.left(100).rotate((0, 0, -15))
 
         if 'lcd_mount' in parts:
             combined += assembled_lcd_mount.color(combined_colors['lcd_mount'])
@@ -459,7 +460,7 @@ if __name__ == "__main__":
     combined_filepath = output_filepath()
     print(f"Writing combined output to {combined_filepath} . . .")
     build_combined_output(
-        separate_pieces=False,
+        separate_pieces=True,
         parts=combined_parts,
     ).save_as_scad(combined_filepath)
 

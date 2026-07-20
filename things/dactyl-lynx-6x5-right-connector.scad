@@ -41,7 +41,7 @@ union() {
 			}
 		}
 	}
-	translate(v = [-35, -45, 10]) {
+	translate(v = [-30, -45, 10]) {
 		rotate(a = 10, v = [1, 1, 1]) {
 			translate(v = [-3, 57, 33.2]) {
 				rotate(a = -10, v = [0, 1, 0]) {
@@ -69,7 +69,7 @@ union() {
 				}
 			}
 		}
-		translate(v = [-35, -45, 10]) {
+		translate(v = [-30, -45, 10]) {
 			rotate(a = 10, v = [1, 1, 1]) {
 				translate(v = [-3, 57, 33.2]) {
 					rotate(a = -10, v = [0, 1, 0]) {

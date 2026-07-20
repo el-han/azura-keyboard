@@ -32,7 +32,7 @@ mirror(v = [1, 0, 0]) {
 	difference() {
 		union() {
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -50,12 +50,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -76,17 +76,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -108,7 +108,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -126,12 +126,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -152,17 +152,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -184,7 +184,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -202,12 +202,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -228,17 +228,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -260,7 +260,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -278,12 +278,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -304,17 +304,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -336,7 +336,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -354,12 +354,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -380,17 +380,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -412,7 +412,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -430,12 +430,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -456,17 +456,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -488,7 +488,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -506,12 +506,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -532,17 +532,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -564,7 +564,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -582,12 +582,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -608,17 +608,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -640,7 +640,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -658,12 +658,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -684,17 +684,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -716,7 +716,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -734,12 +734,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -760,17 +760,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -792,7 +792,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -810,12 +810,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -836,17 +836,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -868,7 +868,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -886,12 +886,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -912,17 +912,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -944,7 +944,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -962,12 +962,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -988,17 +988,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1020,7 +1020,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1038,12 +1038,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1064,17 +1064,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1096,7 +1096,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1114,12 +1114,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1140,17 +1140,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1172,7 +1172,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1190,12 +1190,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1216,17 +1216,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1248,7 +1248,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1266,12 +1266,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1292,17 +1292,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1324,7 +1324,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1342,12 +1342,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1368,17 +1368,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1400,7 +1400,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1418,12 +1418,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1444,17 +1444,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1476,7 +1476,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1494,12 +1494,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1520,17 +1520,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1552,7 +1552,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1570,12 +1570,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1596,17 +1596,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1628,7 +1628,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1646,12 +1646,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1672,17 +1672,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1704,7 +1704,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1722,12 +1722,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1748,17 +1748,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1780,7 +1780,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1798,12 +1798,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1824,17 +1824,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1856,7 +1856,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1874,12 +1874,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1900,17 +1900,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -1932,7 +1932,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -1950,12 +1950,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -1976,17 +1976,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -2008,7 +2008,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -2026,12 +2026,12 @@ mirror(v = [1, 0, 0]) {
 																			translate(v = [0, 0, -79.73635378597841]) {
 																				mirror(v = [1, 0, 0]) {
 																					difference() {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [20.0, 20.0, 5.08]);
+																						translate(v = [0, 0, -1.5]) {
+																							cube(center = true, size = [19.0, 19.0, 3]);
 																						}
 																						union() {
-																							translate(v = [0, 0, -2.04]) {
-																								cube(center = true, size = [14.0, 14.0, 7.08]);
+																							translate(v = [0, 0, -1.0]) {
+																								cube(center = true, size = [14.0, 14.0, 5]);
 																							}
 																							translate(v = [0, 7.0, -5.3]) {
 																								hull() {
@@ -2052,175 +2052,17 @@ mirror(v = [1, 0, 0]) {
 																								}
 																							}
 																						}
-																						translate(v = [8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, 8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [-8, 8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
+																						translate(v = [8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
-																						translate(v = [-8, -8, -5.54]) {
-																							cylinder($fn = 16, center = true, h = 6.58, r = 0.5097955791041592);
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			hull() {
-				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
-						translate(v = [10.0, 0.0, 0.0]) {
-							translate(v = [30.0, 0.0, 0.0]) {
-								translate(v = [0, 0, 241.95585626053347]) {
-									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-										translate(v = [0, 0, -241.95585626053347]) {
-											translate(v = [0.0, -17.5, 0.0]) {
-												translate(v = [0, 0, 79.73635378597841]) {
-													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-														translate(v = [0, 0, -79.73635378597841]) {
-															translate(v = [0, 0, 241.95585626053347]) {
-																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-																	translate(v = [0, 0, -241.95585626053347]) {
-																		translate(v = [0, 0, 79.73635378597841]) {
-																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
-						translate(v = [10.0, 0.0, 0.0]) {
-							translate(v = [30.0, 0.0, 0.0]) {
-								translate(v = [0, 0, 241.95585626053347]) {
-									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-										translate(v = [0, 0, -241.95585626053347]) {
-											translate(v = [0.0, -17.5, 0.0]) {
-												translate(v = [0, 0, 79.73635378597841]) {
-													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-														translate(v = [0, 0, -79.73635378597841]) {
-															translate(v = [0, 0, 241.95585626053347]) {
-																rotate(a = 12.5, v = [0, 1, 0]) {
-																	translate(v = [0, 0, -241.95585626053347]) {
-																		translate(v = [0, 0, 79.73635378597841]) {
-																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
-						translate(v = [10.0, 0.0, 0.0]) {
-							translate(v = [30.0, 0.0, 0.0]) {
-								translate(v = [0, 0, 241.95585626053347]) {
-									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-										translate(v = [0, 0, -241.95585626053347]) {
-											translate(v = [0.0, -17.5, 0.0]) {
-												translate(v = [0, 0, 79.73635378597841]) {
-													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-														translate(v = [0, 0, -79.73635378597841]) {
-															translate(v = [0, 0, 241.95585626053347]) {
-																rotate(a = 12.5, v = [0, 1, 0]) {
-																	translate(v = [0, 0, -241.95585626053347]) {
-																		translate(v = [0, 0, 79.73635378597841]) {
-																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
-																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
-						translate(v = [10.0, 0.0, 0.0]) {
-							translate(v = [30.0, 0.0, 0.0]) {
-								translate(v = [0, 0, 241.95585626053347]) {
-									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-										translate(v = [0, 0, -241.95585626053347]) {
-											translate(v = [0.0, -17.5, 0.0]) {
-												translate(v = [0, 0, 79.73635378597841]) {
-													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
-														translate(v = [0, 0, -79.73635378597841]) {
-															translate(v = [0, 0, 241.95585626053347]) {
-																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
-																	translate(v = [0, 0, -241.95585626053347]) {
-																		translate(v = [0, 0, 79.73635378597841]) {
-																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
-																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																						translate(v = [-8, -8, -4.5]) {
+																							cylinder($fn = 16, center = true, h = 4.5, r = 0.0);
 																						}
 																					}
 																				}
@@ -2243,7 +2085,165 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2259,9 +2259,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2282,7 +2282,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2298,9 +2298,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2321,7 +2321,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2337,9 +2337,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2360,7 +2360,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2376,9 +2376,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2401,7 +2401,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2417,9 +2417,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2440,7 +2440,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2456,9 +2456,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2479,7 +2479,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2495,9 +2495,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2518,7 +2518,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2534,9 +2534,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2559,7 +2559,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2575,9 +2575,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2598,7 +2598,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2614,9 +2614,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2637,7 +2637,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2653,9 +2653,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2676,7 +2676,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2692,9 +2692,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2717,7 +2717,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2733,9 +2733,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2756,7 +2756,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2772,9 +2772,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2795,7 +2795,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2811,9 +2811,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2834,7 +2834,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2850,9 +2850,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2875,7 +2875,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2891,9 +2891,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2914,7 +2914,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2930,9 +2930,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2953,7 +2953,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -2969,9 +2969,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -2992,7 +2992,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3008,9 +3008,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3033,7 +3033,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3049,9 +3049,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3072,7 +3072,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3088,9 +3088,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3111,7 +3111,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3127,9 +3127,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3150,7 +3150,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3166,9 +3166,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3191,7 +3191,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3207,9 +3207,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3230,7 +3230,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3246,9 +3246,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3269,7 +3269,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3285,9 +3285,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3308,7 +3308,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3324,9 +3324,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3349,7 +3349,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3365,9 +3365,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3388,7 +3388,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3404,9 +3404,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3427,7 +3427,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3443,9 +3443,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3466,7 +3466,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3482,9 +3482,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3507,7 +3507,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3523,9 +3523,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3546,7 +3546,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3562,9 +3562,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3585,7 +3585,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3601,9 +3601,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3624,7 +3624,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3640,9 +3640,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3665,7 +3665,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3681,9 +3681,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3704,7 +3704,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3720,9 +3720,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3743,7 +3743,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3759,9 +3759,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3782,7 +3782,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3798,9 +3798,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3823,7 +3823,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3839,9 +3839,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3862,7 +3862,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3878,9 +3878,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3901,7 +3901,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3917,9 +3917,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3940,7 +3940,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3956,9 +3956,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -3981,7 +3981,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -3997,9 +3997,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4020,7 +4020,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4036,9 +4036,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4059,7 +4059,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4075,9 +4075,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4098,7 +4098,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4114,9 +4114,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4139,7 +4139,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4155,9 +4155,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4178,7 +4178,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4194,9 +4194,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4217,7 +4217,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4233,9 +4233,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4256,7 +4256,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4272,9 +4272,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4297,7 +4297,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4313,9 +4313,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4336,7 +4336,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4352,9 +4352,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4375,7 +4375,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4391,9 +4391,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4414,7 +4414,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4430,9 +4430,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4455,7 +4455,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4471,9 +4471,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4494,7 +4494,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4510,9 +4510,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4533,7 +4533,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4549,9 +4549,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4572,7 +4572,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4588,9 +4588,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4613,7 +4613,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4629,9 +4629,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4652,7 +4652,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4668,9 +4668,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4691,7 +4691,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4707,9 +4707,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4730,7 +4730,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4746,9 +4746,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4771,7 +4771,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4787,9 +4787,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4810,7 +4810,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4826,9 +4826,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4849,7 +4849,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4865,9 +4865,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4888,7 +4888,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4904,9 +4904,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4929,7 +4929,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4945,9 +4945,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -4968,7 +4968,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -4984,9 +4984,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5007,7 +5007,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5023,9 +5023,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5046,7 +5046,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5062,9 +5062,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5087,7 +5087,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5103,9 +5103,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5126,7 +5126,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5142,9 +5142,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5165,7 +5165,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5181,9 +5181,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5204,7 +5204,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5220,9 +5220,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5245,7 +5245,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5261,9 +5261,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5284,7 +5284,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5300,9 +5300,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5323,7 +5323,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5339,9 +5339,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5362,7 +5362,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5378,9 +5378,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5403,7 +5403,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5419,9 +5419,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5442,7 +5442,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5458,9 +5458,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5481,7 +5481,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5497,9 +5497,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5520,7 +5520,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5536,9 +5536,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5561,7 +5561,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5577,9 +5577,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5600,7 +5600,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5616,9 +5616,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5639,7 +5639,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5655,9 +5655,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5678,7 +5678,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5694,9 +5694,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5719,7 +5719,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5735,9 +5735,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5758,7 +5758,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5774,9 +5774,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5797,7 +5797,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5813,9 +5813,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5836,7 +5836,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5852,9 +5852,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5877,7 +5877,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5893,9 +5893,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5916,7 +5916,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5932,9 +5932,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5955,7 +5955,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -5971,9 +5971,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -5994,7 +5994,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6010,9 +6010,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6035,7 +6035,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6051,9 +6051,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6074,7 +6074,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6090,9 +6090,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6113,7 +6113,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6129,9 +6129,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6152,7 +6152,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6168,9 +6168,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6193,7 +6193,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6209,9 +6209,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6232,7 +6232,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6248,9 +6248,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6271,7 +6271,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6287,9 +6287,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6310,7 +6310,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6326,9 +6326,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6351,7 +6351,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6367,9 +6367,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6390,7 +6390,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6406,9 +6406,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6429,7 +6429,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6445,9 +6445,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6468,7 +6468,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6484,9 +6484,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6509,7 +6509,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6525,9 +6525,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6548,7 +6548,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6564,9 +6564,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6587,7 +6587,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6603,9 +6603,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6626,7 +6626,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6642,9 +6642,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6667,7 +6667,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6683,9 +6683,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6706,7 +6706,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6722,9 +6722,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6745,7 +6745,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6761,9 +6761,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6784,7 +6784,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6800,9 +6800,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6825,7 +6825,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6841,9 +6841,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6864,7 +6864,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6880,9 +6880,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6903,7 +6903,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6919,9 +6919,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6942,7 +6942,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6958,9 +6958,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -6983,7 +6983,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -6999,9 +6999,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7022,7 +7022,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7038,9 +7038,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7061,7 +7061,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7077,9 +7077,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7100,7 +7100,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7116,9 +7116,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7141,7 +7141,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7157,9 +7157,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7180,7 +7180,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7196,9 +7196,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7219,7 +7219,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7235,9 +7235,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7258,7 +7258,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7274,9 +7274,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7299,7 +7299,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7315,9 +7315,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7338,7 +7338,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7354,9 +7354,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7377,7 +7377,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7393,9 +7393,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7416,7 +7416,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7432,9 +7432,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7457,7 +7457,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7473,9 +7473,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7496,7 +7496,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7512,9 +7512,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7535,7 +7535,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7551,9 +7551,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7574,7 +7574,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7590,9 +7590,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7615,7 +7615,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7631,9 +7631,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7654,7 +7654,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7670,9 +7670,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7693,7 +7693,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7709,9 +7709,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7732,7 +7732,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7748,9 +7748,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7773,7 +7773,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7789,9 +7789,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7812,7 +7812,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7828,9 +7828,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7851,7 +7851,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7867,9 +7867,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7890,7 +7890,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7906,9 +7906,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7931,7 +7931,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7947,9 +7947,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -7970,7 +7970,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -7986,9 +7986,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8009,7 +8009,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8025,9 +8025,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8048,7 +8048,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8064,9 +8064,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8089,7 +8089,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8105,9 +8105,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8128,7 +8128,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8144,9 +8144,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8167,7 +8167,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8183,9 +8183,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8206,7 +8206,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8222,9 +8222,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8247,7 +8247,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8263,9 +8263,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8286,7 +8286,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8302,9 +8302,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8325,7 +8325,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8341,9 +8341,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8364,7 +8364,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8380,9 +8380,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8405,7 +8405,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8421,9 +8421,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8444,7 +8444,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8460,9 +8460,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8483,7 +8483,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8499,9 +8499,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8522,7 +8522,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8538,9 +8538,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8563,7 +8563,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8579,9 +8579,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8602,7 +8602,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8618,9 +8618,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8641,7 +8641,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8657,9 +8657,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8680,7 +8680,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8696,9 +8696,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8721,7 +8721,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8737,9 +8737,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8760,7 +8760,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8776,9 +8776,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8799,7 +8799,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8815,9 +8815,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8838,7 +8838,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8854,9 +8854,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8879,7 +8879,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8895,9 +8895,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8918,7 +8918,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8934,9 +8934,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8957,7 +8957,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -8973,9 +8973,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -8996,7 +8996,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9012,9 +9012,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9037,7 +9037,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9053,9 +9053,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9076,7 +9076,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9092,9 +9092,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9115,7 +9115,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9131,9 +9131,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9154,7 +9154,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9170,9 +9170,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9195,7 +9195,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9211,9 +9211,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9234,7 +9234,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9250,9 +9250,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9273,7 +9273,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9289,9 +9289,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9312,7 +9312,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9328,9 +9328,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9353,7 +9353,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9369,9 +9369,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9392,7 +9392,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9408,9 +9408,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9431,7 +9431,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9447,9 +9447,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9470,7 +9470,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9486,9 +9486,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 26.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9511,7 +9511,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9527,9 +9527,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9550,7 +9550,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9566,9 +9566,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9589,7 +9589,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9605,9 +9605,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9628,7 +9628,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9644,9 +9644,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9669,7 +9669,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9685,9 +9685,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9708,7 +9708,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9724,9 +9724,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9747,7 +9747,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9763,9 +9763,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9786,7 +9786,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9802,9 +9802,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9827,7 +9827,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9843,9 +9843,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9866,7 +9866,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9882,9 +9882,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9905,7 +9905,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9921,9 +9921,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9944,7 +9944,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -9960,9 +9960,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -9985,7 +9985,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10001,9 +10001,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10024,7 +10024,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10040,9 +10040,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10063,7 +10063,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10079,9 +10079,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10102,7 +10102,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10118,9 +10118,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10143,7 +10143,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10159,9 +10159,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10182,7 +10182,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10198,9 +10198,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10221,7 +10221,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10237,9 +10237,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10260,7 +10260,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10276,9 +10276,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10301,7 +10301,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10317,9 +10317,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10340,7 +10340,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10356,9 +10356,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10379,7 +10379,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10395,9 +10395,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10418,7 +10418,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10434,9 +10434,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10459,7 +10459,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10475,9 +10475,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10498,7 +10498,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10514,9 +10514,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10537,7 +10537,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10553,9 +10553,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10576,7 +10576,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10592,9 +10592,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10617,7 +10617,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10633,9 +10633,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10656,7 +10656,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10672,9 +10672,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10695,7 +10695,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10711,9 +10711,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10734,7 +10734,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10750,9 +10750,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10775,7 +10775,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10791,9 +10791,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10814,7 +10814,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10830,9 +10830,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -11.25, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10853,7 +10853,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10869,9 +10869,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10892,7 +10892,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10908,9 +10908,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10933,7 +10933,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10949,9 +10949,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -10972,7 +10972,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -10988,9 +10988,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11011,7 +11011,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11027,9 +11027,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11050,7 +11050,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11066,9 +11066,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = 0.0, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11091,7 +11091,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11107,9 +11107,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11130,7 +11130,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11146,9 +11146,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11169,7 +11169,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11185,9 +11185,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11208,7 +11208,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11224,9 +11224,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11249,7 +11249,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11265,9 +11265,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11288,7 +11288,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11304,9 +11304,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11327,7 +11327,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11343,9 +11343,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11366,7 +11366,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11382,9 +11382,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11407,7 +11407,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11423,9 +11423,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11446,7 +11446,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11462,9 +11462,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11485,7 +11485,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11501,9 +11501,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11524,7 +11524,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11540,9 +11540,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11565,7 +11565,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11581,9 +11581,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11604,7 +11604,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11620,9 +11620,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11643,7 +11643,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11659,9 +11659,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11682,7 +11682,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11698,9 +11698,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11723,7 +11723,7 @@ mirror(v = [1, 0, 0]) {
 			}
 			hull() {
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11739,9 +11739,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11762,7 +11762,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11778,9 +11778,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -33.75, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, 12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, 9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11801,7 +11801,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11817,9 +11817,9 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
 																						}
 																					}
 																				}
@@ -11840,7 +11840,7 @@ mirror(v = [1, 0, 0]) {
 					}
 				}
 				translate(v = [0, 0, 4.6]) {
-					translate(v = [0, 0, 5.08]) {
+					translate(v = [0, 0, 3]) {
 						translate(v = [10.0, 0.0, 0.0]) {
 							translate(v = [30.0, 0.0, 0.0]) {
 								translate(v = [0, 0, 241.95585626053347]) {
@@ -11856,9 +11856,15053 @@ mirror(v = [1, 0, 0]) {
 																		translate(v = [0, 0, 79.73635378597841]) {
 																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
 																				translate(v = [0, 0, -79.73635378597841]) {
-																					translate(v = [-12.95, -12.95, 0]) {
-																						translate(v = [0, 0, -2.54]) {
-																							cube(center = true, size = [0.1, 0.1, 5.08]);
+																					translate(v = [-9.45, -9.45, 0]) {
+																						translate(v = [0, 0, -1.5]) {
+																							sphere($fn = 20, d = 3);
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			difference() {
+				cube(center = true, size = [1, 1, 1]);
+				cube(center = true, size = [2, 2, 2]);
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -18.749999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -3.7499999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 11.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 11.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 26.25, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 26.25, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = -2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = -2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 2.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 33.75, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 2.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 33.75, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [0, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [0, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 29.999999999999996, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 0.0, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 0.0, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 0.0, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = 0.0, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = 0.0, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -9.5, 0]) {
+																						translate(v = [-9.5, 0, 0]) {
+																							translate(v = [0, 0, -1.5]) {
+																								sphere(d = 3);
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			hull() {
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, 0, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, 9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				translate(v = [0, 0, 4.6]) {
+					translate(v = [0, 0, 3]) {
+						translate(v = [10.0, 0.0, 0.0]) {
+							translate(v = [30.0, 0.0, 0.0]) {
+								translate(v = [0, 0, 241.95585626053347]) {
+									rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+										translate(v = [0, 0, -241.95585626053347]) {
+											translate(v = [0.0, -17.5, 0.0]) {
+												translate(v = [0, 0, 79.73635378597841]) {
+													rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+														translate(v = [0, 0, -79.73635378597841]) {
+															translate(v = [0, 0, 241.95585626053347]) {
+																rotate(a = 12.5, v = [0, 1, 0]) {
+																	translate(v = [0, 0, -241.95585626053347]) {
+																		translate(v = [0, 0, 79.73635378597841]) {
+																			rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																				translate(v = [0, 0, -79.73635378597841]) {
+																					translate(v = [0, -3, 0]) {
+																						translate(v = [-3, 0, 0]) {
+																							translate(v = [0, 0, -6]) {
+																								translate(v = [0, -9.5, 0]) {
+																									translate(v = [-9.5, 0, 0]) {
+																										translate(v = [0, 0, -1.5]) {
+																											sphere(d = 3);
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, 0, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, 9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				linear_extrude(height = 0.1) {
+					projection() {
+						translate(v = [0, 0, 4.6]) {
+							translate(v = [0, 0, 3]) {
+								translate(v = [10.0, 0.0, 0.0]) {
+									translate(v = [30.0, 0.0, 0.0]) {
+										translate(v = [0, 0, 241.95585626053347]) {
+											rotate(a = 7.499999999999999, v = [0, 1, 0]) {
+												translate(v = [0, 0, -241.95585626053347]) {
+													translate(v = [0.0, -17.5, 0.0]) {
+														translate(v = [0, 0, 79.73635378597841]) {
+															rotate(a = 14.999999999999998, v = [1, 0, 0]) {
+																translate(v = [0, 0, -79.73635378597841]) {
+																	translate(v = [0, 0, 241.95585626053347]) {
+																		rotate(a = 12.5, v = [0, 1, 0]) {
+																			translate(v = [0, 0, -241.95585626053347]) {
+																				translate(v = [0, 0, 79.73635378597841]) {
+																					rotate(a = -14.999999999999998, v = [1, 0, 0]) {
+																						translate(v = [0, 0, -79.73635378597841]) {
+																							translate(v = [0, -3, 0]) {
+																								translate(v = [-3, 0, 0]) {
+																									translate(v = [0, 0, -6]) {
+																										translate(v = [0, -9.5, 0]) {
+																											translate(v = [-9.5, 0, 0]) {
+																												translate(v = [0, 0, -1.5]) {
+																													sphere(d = 3);
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
 																						}
 																					}
 																				}
@@ -11882,7 +26926,7 @@ mirror(v = [1, 0, 0]) {
 		}
 		union() {
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -11919,7 +26963,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -11956,7 +27000,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -11993,7 +27037,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12030,7 +27074,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12067,7 +27111,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12104,7 +27148,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12141,7 +27185,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12178,7 +27222,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12215,7 +27259,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12252,7 +27296,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12289,7 +27333,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12326,7 +27370,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12363,7 +27407,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12400,7 +27444,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12437,7 +27481,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12474,7 +27518,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12511,7 +27555,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12548,7 +27592,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12585,7 +27629,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12622,7 +27666,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12659,7 +27703,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12696,7 +27740,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12733,7 +27777,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12770,7 +27814,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12807,7 +27851,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {
@@ -12844,7 +27888,7 @@ mirror(v = [1, 0, 0]) {
 				}
 			}
 			translate(v = [0, 0, 4.6]) {
-				translate(v = [0, 0, 5.08]) {
+				translate(v = [0, 0, 3]) {
 					translate(v = [10.0, 0.0, 0.0]) {
 						translate(v = [30.0, 0.0, 0.0]) {
 							translate(v = [0, 0, 241.95585626053347]) {

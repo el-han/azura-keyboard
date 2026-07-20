@@ -11,15 +11,17 @@ from spkb.switch_plate import (
 )
 from spkb.board_mount import stm32_blackpill
 from spkb.keycaps import sa_double_length
-from spkb.keyswitch import Keyswitch, MX, Choc
+from spkb.keyswitch import Keyswitch
 from spkb.single_key_pcb import single_key_board
 from spkb.utils import cylinder_outer, fudge_radius, nothing
 
+from .layouts.keys import Kailh
 from .layouts.layout import ShapeForLocationCallback
 from .layouts.finger_well import FingerWellLayout
 from .layouts.thumb_well import ThumbWellLayout
 from .mini_din_connector_mount import MiniDINConnectorMount
 from .trackpoint_mount import TrackPointMount
+from .trackball import TrackBall
 
 
 class KeyboardAssembly:
@@ -30,7 +32,7 @@ class KeyboardAssembly:
         use_1_5u_keys: bool = False,
         use_color: bool = False,
         socket_shape: Optional[ShapeForLocationCallback] = None,
-        keyswitch: Keyswitch = MX(),
+        keyswitch: Keyswitch = Kailh(),
     ):
         self.use_color = use_color
         self.socket_shape = socket_shape
@@ -41,7 +43,8 @@ class KeyboardAssembly:
             use_1_5u_keys=use_1_5u_keys,
             keyswitch=keyswitch,
         )
-        self.thumb_layout = ThumbWellLayout(keyswitch=MX())
+        self.thumb_layout = ThumbWellLayout(keyswitch=keyswitch)
+        self.trackball = TrackBall()
 
         if socket_shape is None:
             self.socket_shape = lambda _column, _row: self.finger_layout.keyswitch.plate()
@@ -323,7 +326,7 @@ class KeyboardAssembly:
         shape = (
             self.finger_layout.place_all(self.switch_socket)
             + self.finger_layout.web_all()
-            # + self.finger_cover_edge(top_shell=True)
+            + self.finger_cover_edge(top_shell=True)
             # - self.place_cover_magnets(self.cover_magnet_hole(top_shell=True))
         )
 
@@ -439,12 +442,52 @@ class KeyboardAssembly:
             + self.finger_layout.key_place(column=5, row=2, shape=shape.right(offset))
             + self.finger_layout.key_place(column=5, row=0, shape=shape.forward(offset).left(1.5))
         )
+    
+    def cover_node(self,
+                          column: float,
+                          row: float,
+                          left: bool,
+                          top: bool,
+                          left_offset: float = 0.0,
+                          top_offset: float = 0.0
+                          ):
+
+        edge_post = sphere(
+            d=self.finger_layout.web_thickness
+        ).down(self.finger_layout.web_thickness / 2)
+
+        upper = (
+            edge_post
+            .left(
+                (
+                    self.finger_layout.keyswitch.plate_size().x / 2
+                )
+                * (1 if left else -1)
+            )
+            .forward(
+                (
+                    self.finger_layout.keyswitch.plate_size().y / 2
+                )
+                * (1 if top else -1)
+            )
+        )
+        lower = upper.down(6)
+        lower = lower.left(left_offset)
+        lower = lower.forward(top_offset)
+
+        edge = self.finger_layout.key_place(column, row, upper)
+        lower_edge = self.finger_layout.key_place(column, row, lower)
+        ground = lower_edge.projection().linear_extrude(0.1)
+
+        return (edge, lower_edge, ground)
 
     def cover_edge_corner(self,
                           column: float,
                           row: float,
                           left: bool,
                           top: bool,
+                          left_offset: float = 0.0,
+                          top_offset: float = 0.0
                           ):
         """Generate a corner post for generating the edges of the top shell or bottom cover.
 
@@ -469,27 +512,15 @@ class KeyboardAssembly:
         :param top_shell: whether this is for the top shell (True) or for the bottom cover (False)
         :type top_shell: bool
         """
-        edge_post = sphere(
-            d=self.finger_layout.web_thickness
-        ).down(self.finger_layout.web_thickness / 2)
-
-        post = (
-            edge_post
-            .left(
-                (
-                    self.finger_layout.keyswitch.plate_size().x / 2
-                )
-                * (1 if left else -1)
-            )
-            .forward(
-                (
-                    self.finger_layout.keyswitch.plate_size().y / 2
-                )
-                * (1 if top else -1)
-            )
+        edge, lower_edge, bottom = self.cover_node(
+            column,
+            row,
+            left,
+            top,
+            left_offset=left_offset,
+            top_offset=top_offset
         )
-
-        return self.finger_layout.key_place(column, row, post)
+        return edge, lower_edge, bottom
 
     def bottom_cover_web_kwargs(self):
         """Generate kwargs for passing to Layout.web_*() when generating the bottom cover.
@@ -516,168 +547,47 @@ class KeyboardAssembly:
             web_kwargs = self.bottom_cover_web_kwargs()
 
         return (
-            (
-                (
-                    self.cover_edge_corner(column=1, row=3, left=True, top=False),
-                    # self.finger_layout.web_corner(column=1, row=3, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=1, row=3, left=False, top=False),
-                    # self.finger_layout.web_corner(column=1, row=3, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=2, row=4, left=True, top=False),
-                    # self.finger_layout.web_corner(column=2, row=4, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=2, row=4, left=False, top=False),
-                    # self.finger_layout.web_corner(column=2, row=4, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=3, row=4, left=True, top=False),
-                    # self.finger_layout.web_corner(column=3, row=4, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=3, row=4, left=False, top=False),
-                    # self.finger_layout.web_corner(column=3, row=4, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=4, row=4, left=True, top=False),
-                    # self.finger_layout.web_corner(column=4, row=4, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=4, row=4, left=False, top=False),
-                    # self.finger_layout.web_corner(column=4, row=4, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=4, left=True, top=False),
-                    # self.finger_layout.web_corner(column=5, row=4, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=4, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=4, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=4, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=4, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=4, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=4, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=3, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=3, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=3, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=3, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=2, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=2, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=2, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=2, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=1, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=1, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=1, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=1, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=0, left=False, top=False),
-                    # self.finger_layout.web_corner(column=5, row=0, left=False, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=5, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=5, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=5, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=4, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=4, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=4, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=4, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=3, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=3, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=3, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=3, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=2, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=2, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=2, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=2, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=1, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=1, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=1, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=1, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=0, left=False, top=True),
-                    # self.finger_layout.web_corner(column=0, row=0, left=False, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=0, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=0, left=True, top=True),
-                    # self.finger_layout.web_corner(column=0, row=0, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=0, left=True, top=False),
-                    # self.finger_layout.web_corner(column=0, row=0, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=1, left=True, top=True),
-                    # self.finger_layout.web_corner(column=0, row=1, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=1, left=True, top=False),
-                    # self.finger_layout.web_corner(column=0, row=1, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=2, left=True, top=True),
-                    # self.finger_layout.web_corner(column=0, row=2, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=2, left=True, top=False),
-                    # self.finger_layout.web_corner(column=0, row=2, left=True, top=False, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=3, left=True, top=True),
-                    # self.finger_layout.web_corner(column=0, row=3, left=True, top=True, **web_kwargs),
-                ),
-                (
-                    self.cover_edge_corner(column=0, row=3, left=True, top=False),
-                    # self.finger_layout.web_corner(column=0, row=3, left=True, top=False, **web_kwargs),
-                ),
-            ),
+            self.cover_edge_corner(column=0, row=3, left=True, top=False, left_offset=3, top_offset=-3), # unten links
+            self.cover_edge_corner(column=0, row=3, left=False, top=False, left_offset=0, top_offset=-3),
+            self.cover_edge_corner(column=1, row=3, left=True, top=False, left_offset=0, top_offset=-3),
+            self.cover_edge_corner(column=1, row=3, left=False, top=False, left_offset=-3, top_offset=-3),
+            self.cover_edge_corner(column=2, row=3, left=True, top=False, left_offset=-3, top_offset=-3),
+            self.cover_edge_corner(column=2, row=3, left=False, top=False, left_offset=3, top_offset=-3),
+            self.cover_edge_corner(column=3, row=4, left=True, top=True, left_offset=3, top_offset=-3),
+            self.cover_edge_corner(column=3, row=4, left=True, top=False, left_offset=3, top_offset=-3),
+            self.cover_edge_corner(column=3, row=4, left=False, top=False, left_offset=3, top_offset=-3),
+            self.cover_edge_corner(column=4, row=4, left=True, top=False, left_offset=0, top_offset=-3),
+            self.cover_edge_corner(column=4, row=4, left=False, top=False, left_offset=0, top_offset=-3),
+            self.cover_edge_corner(column=5, row=4, left=True, top=False, left_offset=0, top_offset=-3),
+            self.cover_edge_corner(column=5, row=4, left=False, top=False, left_offset=-3, top_offset=-3), # unten rechts
+            self.cover_edge_corner(column=5, row=4, left=False, top=False, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=4, left=False, top=True, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=3, left=False, top=False, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=3, left=False, top=True, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=2, left=False, top=False, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=2, left=False, top=True, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=1, left=False, top=False, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=1, left=False, top=True, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=0, left=False, top=False, left_offset=-3, top_offset=0),
+            self.cover_edge_corner(column=5, row=0, left=False, top=True, left_offset=-3, top_offset=3),  # open rechts
+            self.cover_edge_corner(column=5, row=0, left=True, top=True, left_offset=0, top_offset=3),
+            self.cover_edge_corner(column=4, row=0, left=False, top=True, left_offset=0, top_offset=3),
+            self.cover_edge_corner(column=4, row=0, left=True, top=True, left_offset=-3, top_offset=3),
+            self.cover_edge_corner(column=3, row=0, left=False, top=True, left_offset=-3, top_offset=3),
+            self.cover_edge_corner(column=3, row=0, left=True, top=True, left_offset=-3, top_offset=3),
+            self.cover_edge_corner(column=2, row=0, left=False, top=True, left_offset=-3, top_offset=3),
+            self.cover_edge_corner(column=2, row=0, left=True, top=True, left_offset=3, top_offset=3),
+            self.cover_edge_corner(column=1, row=0, left=False, top=True, left_offset=3, top_offset=3),
+            self.cover_edge_corner(column=1, row=0, left=True, top=True, left_offset=0, top_offset=3),
+            self.cover_edge_corner(column=0, row=0, left=False, top=True, left_offset=0, top_offset=3),
+            self.cover_edge_corner(column=0, row=0, left=True, top=True, left_offset=3, top_offset=3),  # oben links
+            self.cover_edge_corner(column=0, row=0, left=True, top=False, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=1, left=True, top=True, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=1, left=True, top=False, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=2, left=True, top=True, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=2, left=True, top=False, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=3, left=True, top=True, left_offset=3, top_offset=0),
+            self.cover_edge_corner(column=0, row=3, left=True, top=False, left_offset=3, top_offset=-3), # unten links
         )
 
     def finger_cover_edge(self, top_shell):
@@ -688,17 +598,46 @@ class KeyboardAssembly:
         """
         edge_groups = self.generate_cover_edge_corners(top_shell=top_shell)
 
+        shape = nothing
+
+        for ((le, ll, lb), (re, rl, rb)) in pairwise(edge_groups):
+            shape += hull()(le, re, ll, rl)
+            shape += hull()(ll, rl, lb, rb)
+
+        return shape
+
         return (
             union()(
                 *chain(
                     *(
-                        (hull()(*edge1, *edge2) for (edge1, edge2) in pairwise(edges))
-                        for edges in edge_groups
+                        (hull()(*edge1, *edge2) + hull()(*edge2, *edge3) for (edge1, edge2, edge3) in pairwise(edge_groups))
                     )
                 )
             )
             # + self.place_cover_magnets(self.cover_magnet_mount(top_shell=top_shell))
         )
+    
+    def thumb_connector(self):
+        shape = nothing
+        shape += hull()(
+            self.thumb_layout.web_corner(2, 0, left=True, top=True),
+            self.thumb_layout.web_corner(2, 0, left=False, top=True),
+            self.finger_layout.web_corner(0, 3, left=False, top=False),
+            self.finger_layout.web_corner(1, 3, left=True, top=False),
+        )
+        shape += hull()(
+            self.thumb_layout.web_corner(2, 0, left=False, top=True),
+            self.thumb_layout.web_corner(3, 0, left=True, top=True),
+            self.finger_layout.web_corner(1, 3, left=False, top=False),
+            self.finger_layout.web_corner(1, 3, left=True, top=False),
+        )
+        shape += hull()(
+            self.thumb_layout.web_corner(1, 0, left=False, top=True),
+            self.thumb_layout.web_corner(2, 0, left=True, top=True),
+            self.finger_layout.web_corner(0, 3, left=False, top=False),
+            self.finger_layout.web_corner(0, 3, left=True, top=False),
+        )
+        return shape
 
     def finger_bottom_cover(self):
         """Generate the bottom cover.
@@ -972,6 +911,13 @@ class KeyboardAssembly:
             return shape.color((0.1, 0.1, 0.1))
 
         return shape
+    
+    def trackball_part(self, with_ball=False):
+        shape = self.trackball.trackball_well()
+        if with_ball:
+            shape = shape + self.trackball.trackball()
+        shape = shape.translate((-72, -25, 0))
+        return shape
 
     def connector(self):
         """Generate the separate connector piece between the finger and thumb wells.
@@ -1024,5 +970,7 @@ class KeyboardAssembly:
             #     self.finger_layout.web_top_left_of(0, 3)
             # )
             + self.thumb_part()
+            + self.trackball_part()
+            + self.thumb_connector()
             # - self.place_cover_magnets(self.cover_magnet_hole(top_shell=False))
         )

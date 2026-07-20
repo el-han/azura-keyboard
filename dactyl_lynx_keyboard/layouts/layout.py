@@ -10,7 +10,8 @@ from typing import Optional, Protocol, Tuple, Union
 from solid2 import cube, hull, sphere
 from solid2.core.object_base import OpenSCADObject
 
-from spkb.keyswitch import Keyswitch, MX
+from spkb.keyswitch import Keyswitch
+from .keys import Kailh
 from spkb.utils import nothing
 
 
@@ -39,7 +40,7 @@ class Layout:
 
     This can generate a grid of key positions.
     """
-    def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = MX()):
+    def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = Kailh()):
         """Create a layout manager.
 
         :param columns: the number of columns in the layout
@@ -64,11 +65,12 @@ class Layout:
         right 2x key and the top right 1x key"""
 
         self.keyswitch = keyswitch
+        print(keyswitch)
 
         self.cap_top_height = self.sa_profile_key_height
 
         self.web_post_size = 0.1
-        self.web_thickness = keyswitch.keyswitch_depth
+        self.web_thickness = self.keyswitch.keyswitch_depth
 
         # self.offset_per_row = self.keyswitch.plate_size().y
         self.offset_per_row = 17.5
@@ -228,13 +230,14 @@ class Layout:
         """
         if thickness is None:
             thickness = self.web_thickness
-        post = cube(
-            (self.web_post_size, self.web_post_size, thickness),
-            center=True
-        ).down(thickness / 2)
-        # post = sphere(
-        #     d=thickness
+        # post = cube(
+        #     (self.web_post_size, self.web_post_size, thickness),
+        #     center=True
         # ).down(thickness / 2)
+        post = sphere(
+            d=thickness,
+            _fn=20
+        ).down(thickness / 2)
 
         x_adjust = 0
         y_adjust = 0
@@ -255,10 +258,10 @@ class Layout:
 
         x_move_amount = (
             self.keyswitch.plate_size().x + ((column_span - 1) * 24) - self.web_post_size
-        ) / 2 + self.keyswitch.wall_thickness + x_adjust
+        ) / 2 + x_adjust
         y_move_amount = (
             self.keyswitch.plate_size().y + ((row_span - 1) * 24) - self.web_post_size
-        ) / 2 + self.keyswitch.wall_thickness + y_adjust
+        ) / 2 + y_adjust
 
         return self.key_place(
             column,
