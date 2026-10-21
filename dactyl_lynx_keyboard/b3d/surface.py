@@ -8,6 +8,8 @@ Offsetting the surface by `d` along the key normals gives the concentric torus w
 This only holds while the layout's `placement_adjust()` and `layout_place()` are the same for every key, which is
 the case for `FingerWellLayout` but not for `ThumbWellLayout`.
 """
+from collections.abc import Sequence
+
 from build123d import Face, Location, Polygon, Pos, Rot, Solid, Torus
 
 from ..layouts.layout import Layout
@@ -33,13 +35,50 @@ def torus(layout: Layout, depth: float = 0) -> Solid:
     )
 
 
-def outline(layout: Layout) -> Face:
-    """The footprint of the layout's plate (from `Layout.plate_edge_nodes()`), projected onto the XY plane."""
-    points = []
+def _straighten(points: list[tuple[float, float]], run: list[int]) -> None:
+    """Replace the points at the (cyclically consecutive) indices `run` with a straight segment.
+
+    The segment is parallel to the chord between the run's end points, moved outward just enough to enclose all of
+    them, so the footprint never shrinks.
+    """
+    (x0, y0), (x1, y1) = points[run[0]], points[run[-1]]
+    length = ((x1 - x0) ** 2 + (y1 - y0) ** 2) ** 0.5
+    # Outward normal of a counter-clockwise polygon is to the right of the direction of travel.
+    nx, ny = (y1 - y0) / length, -(x1 - x0) / length
+    if _signed_area(points) < 0:
+        nx, ny = -nx, -ny
+    shift = max((px - x0) * nx + (py - y0) * ny for (px, py) in (points[i] for i in run))
+    start = (x0 + nx * shift, y0 + ny * shift)
+    end = (x1 + nx * shift, y1 + ny * shift)
+    for i in run[1:-1]:
+        points[i] = None  # type: ignore[call-overload]
+    points[run[0]], points[run[-1]] = start, end
+
+
+def _signed_area(points: list[tuple[float, float]]) -> float:
+    return sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(points, points[1:] + points[:1])) / 2
+
+
+def outline(layout: Layout, straight_columns: Sequence[float] = ()) -> Face:
+    """The footprint of the layout's plate (from `Layout.plate_edge_nodes()`), projected onto the XY plane.
+
+    :param straight_columns: edge columns (e.g. -0.5 for the left edge of column 0) whose boundary should be a straight
+        line instead of following the projected key surface
+    """
+    nodes: list[tuple[float, float]] = []
+    points: list[tuple[float, float]] = []
     for (column, row, *_) in layout.plate_edge_nodes():
         x, y, _ = layout.key_transform(column, row).apply((0, 0, 0))
-        if not points or (abs(points[-1][0] - x) > 1e-6 or abs(points[-1][1] - y) > 1e-6):
+        if (column, row) not in nodes:
+            nodes.append((column, row))
             points.append((x, y))
-    if points[0] == points[-1]:
-        points.pop()
-    return Polygon(*points, align=None)
+
+    for straight_column in straight_columns:
+        on_edge = [i for i, (column, _) in enumerate(nodes) if column == straight_column]
+        # Rotate so the run is consecutive even if it wraps around the start of the loop.
+        start = next(i for i in on_edge if (i - 1) % len(nodes) not in on_edge)
+        run = [(start + j) % len(nodes) for j in range(len(on_edge))]
+        assert set(run) == set(on_edge), f"column {straight_column} edge is not one consecutive run"
+        _straighten(points, run)
+
+    return Polygon(*(p for p in points if p is not None), align=None)
