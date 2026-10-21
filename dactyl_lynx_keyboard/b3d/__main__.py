@@ -5,7 +5,7 @@ Run with `poetry run python -m dactyl_lynx_keyboard.b3d`.
 from os import makedirs
 from os.path import abspath, dirname, join
 
-from build123d import export_step, export_stl
+from build123d import Compound, export_step, export_stl
 
 from .assembly import KeyboardAssembly
 
@@ -19,6 +19,7 @@ if __name__ == "__main__":
         "finger": assembly.finger_part(),
         "thumb": assembly.thumb_part(),
     }
+    parts["combined"] = Compound([parts["finger"], parts["thumb"]])
 
     for name, part in parts.items():
         path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")
