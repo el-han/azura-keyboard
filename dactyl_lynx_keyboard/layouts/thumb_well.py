@@ -67,7 +67,7 @@ class ThumbWellLayout(Layout):
         if column >= 3:
             transform = transform.translate((19*0.25, 0, 0))
         elif column == 2:
-            transform = transform.translate((19*0.125, 0, 0.4))
+            transform = transform.translate((19*0.125, 0, 0))
         return transform
 
     def layout_place(self, transform: Transform) -> Transform:
