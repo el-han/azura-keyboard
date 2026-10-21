@@ -13,6 +13,7 @@ from solid2.core.object_base import OpenSCADObject
 from spkb.keyswitch import Keyswitch
 
 from .keys import Kailh
+from .transform import Transform
 from .layout import Layout, XYAdjustCallback
 
 
@@ -52,31 +53,31 @@ class ThumbWellLayout(Layout):
             (3, 0),
         )
 
-    def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
+    def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
         """Adjust the position of the given key/location in the layout.
 
         :param column: the column to place the key in
         :param row: the row to place the key in
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
         # if (isinstance(row, float) and not row.is_integer()) or (isinstance(column, float) and not column.is_integer()):
-        #     return shape.translate((0, 0, -1))
+        #     return transform.translate((0, 0, -1))
         # else:
-        #     return shape
+        #     return transform
         if column >= 3:
-            shape = shape.translate((19*0.25, 0, 0))
+            transform = transform.translate((19*0.25, 0, 0))
         elif column == 2:
-            shape = shape.translate((19*0.125, 0, 0.4))
-        return shape
+            transform = transform.translate((19*0.125, 0, 0.4))
+        return transform
 
-    def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
+    def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.
 
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
-        # shape = shape.up(self.row_radius)
-        # shape = shape.rotate(90-self.row_angle(0), (1, 0, 0))
-        # shape = shape.rotate(self.column_angle(0), (0, 0, 1))
-        shape = shape.rotate(15, (0, 0, 1))
-        shape = shape.translate(self.placement_transform)
-        return shape
+        # transform = transform.up(self.row_radius)
+        # transform = transform.rotate(90-self.row_angle(0), (1, 0, 0))
+        # transform = transform.rotate(self.column_angle(0), (0, 0, 1))
+        transform = transform.rotate(15, (0, 0, 1))
+        transform = transform.translate(self.placement_transform)
+        return transform

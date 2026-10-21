@@ -7,11 +7,12 @@ from functools import reduce
 from itertools import chain
 from typing import Optional, Protocol, Tuple, Union
 
-from solid2 import cube, hull, sphere
+from solid2 import cube, hull, multmatrix, sphere
 from solid2.core.object_base import OpenSCADObject
 
 from spkb.keyswitch import Keyswitch
 from .keys import Kailh
+from .transform import Transform
 from spkb.utils import nothing
 
 
@@ -134,16 +135,16 @@ class Layout:
         """
         return row
 
-    def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
+    def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
         """Override this method to adjust the position of the given key/location in the layout.
 
         :param column: the column to place the key in
 
         :param row: the row to place the key in
 
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
-        return shape
+        return transform
 
     def row_angle(self, row: float) -> float:
         """Calculate the X rotation angle for the given row.
@@ -159,6 +160,33 @@ class Layout:
         """
         return math.degrees(self.rad_per_col * -column)
 
+    def key_transform(self, column: float, row: float) -> Transform:
+        """Return the placement of a key (or other shape) in the layout.
+
+        :param column: the column to place the key in
+
+        :param row: the row to place the key in
+        """
+        row = self.row_adjust(row)
+        row_angle = self.row_angle(row)
+
+        row_placed = Transform() \
+            .down(self.row_radius) \
+            .rotate(row_angle, (1, 0, 0)) \
+            .up(self.row_radius)
+
+        column = self.column_adjust(column)
+        column_angle = self.column_angle(column)
+
+        column_placed = row_placed \
+            .down(self.column_radius) \
+            .rotate(column_angle, (0, 1, 0)) \
+            .up(self.column_radius)
+
+        return self.layout_place(
+            self.placement_adjust(column, row, column_placed)
+        )
+
     def key_place(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
         """Place a key (or other shape) in the layout.
 
@@ -168,34 +196,16 @@ class Layout:
 
         :param shape: the shape to place
         """
-        row = self.row_adjust(row)
-        row_angle = self.row_angle(row)
+        return multmatrix(self.key_transform(column, row).as_lists())(shape)
 
-        row_placed_shape = shape \
-            .down(self.row_radius) \
-            .rotate(row_angle, (1, 0, 0)) \
-            .up(self.row_radius)
-
-        column = self.column_adjust(column)
-        column_angle = self.column_angle(column)
-
-        column_placed_shape = row_placed_shape \
-            .down(self.column_radius) \
-            .rotate(column_angle, (0, 1, 0)) \
-            .up(self.column_radius) \
-
-        return self.layout_place(
-            self.placement_adjust(column, row, column_placed_shape)
-        )
-
-    def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
+    def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.
 
         Override to adjust the placement of the entire layout.
 
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
-        return shape
+        return transform
 
     def plate(self) -> OpenSCADObject:
         """Return the complete "web" between all key positions in this layout.

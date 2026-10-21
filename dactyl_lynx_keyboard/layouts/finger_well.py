@@ -12,6 +12,7 @@ from solid2 import sphere, hull
 
 from spkb.keyswitch import Keyswitch
 
+from .transform import Transform
 from .layout import Layout, XYAdjustCallback
 from .keys import Kailh
 
@@ -53,26 +54,26 @@ class FingerWellLayout(Layout):
         """
         return math.degrees(self.rad_per_col * (2.5 - column))
 
-    def placement_adjust(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
+    def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
         """Adjust the position of the given key/location in the layout.
 
         :param column: the column to place the key in
         :param row: the row to place the key in
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
-        shape = shape.down(self.row_radius)
-        shape = shape.rotate(-self.row_angle(3), (1, 0, 0))
-        shape = shape.up(self.row_radius)
-        shape = shape.translate((0.0, -1*self.offset_per_row, 0.0))
+        transform = transform.down(self.row_radius)
+        transform = transform.rotate(-self.row_angle(3), (1, 0, 0))
+        transform = transform.up(self.row_radius)
+        transform = transform.translate((0.0, -1*self.offset_per_row, 0.0))
 
-        shape = shape.down(self.column_radius)
-        shape = shape.rotate(-self.column_angle(4), (0, 1, 0))
-        shape = shape.up(self.column_radius)
-        shape = shape.translate((1.5*self.offset_per_col, 0.0, 0.0))
+        transform = transform.down(self.column_radius)
+        transform = transform.rotate(-self.column_angle(4), (0, 1, 0))
+        transform = transform.up(self.column_radius)
+        transform = transform.translate((1.5*self.offset_per_col, 0.0, 0.0))
 
-        # shape = shape.rotate(10, (0,0,1))
+        # transform = transform.rotate(10, (0,0,1))
         
-        return shape.translate((0.5*self.offset_per_col, 0.0, 0.0))
+        return transform.translate((0.5*self.offset_per_col, 0.0, 0.0))
 
     def generate_positions(self) -> Iterable[Tuple[float, float]]:
         """Generate the list of locations within the layout.
@@ -96,12 +97,12 @@ class FingerWellLayout(Layout):
 
         return positions
 
-    def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
+    def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.
 
-        :param shape: the shape to place
+        :param transform: the placement so far
         """
-        return shape \
+        return transform \
             .up(self.web_thickness) \
             .translate(self.placement_transform)
 
