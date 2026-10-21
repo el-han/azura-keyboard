@@ -63,12 +63,10 @@ class ThumbWellLayout(Layout):
         #     return shape.translate((0, 0, -1))
         # else:
         #     return shape
-        if column <= 1:
-            shape = shape.translate((-19*0.125, 0, 0))
-        elif column >= 3:
-            shape = shape.translate((19*0.125, 0, 0))
+        if column >= 3:
+            shape = shape.translate((19*0.25, 0, 0))
         elif column == 2:
-            shape = shape.translate((0, 0, 0.4))
+            shape = shape.translate((19*0.125, 0, 0.4))
         return shape
 
     def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
@@ -82,66 +80,3 @@ class ThumbWellLayout(Layout):
         shape = shape.rotate(15, (0, 0, 1))
         shape = shape.translate(self.placement_transform)
         return shape
-
-    def web_all(self, z_offset: float = 0, thickness: Optional[float] = None, size_adjust: Optional[XYAdjustCallback] = None, position_adjust: Optional[XYAdjustCallback] = None) -> OpenSCADObject:
-        """Return the complete "web" between all key positions in this layout.
-
-        :param z_offset: the offset in the Z direction of the corner blocks (before placing at the key positions)
-        :param thickness: the thickness of the web; if None, default to self.web_thickness
-        :param size_adjust: a callback to adjust the size of the key at this column and row
-        :param position_adjust: a callback to adjust the position of the key at this column and row
-        """
-        web_kwargs = {
-            'z_offset': z_offset,
-            'thickness': thickness,
-            'size_adjust': size_adjust,
-            'position_adjust': position_adjust,
-        }
-
-        return reduce(
-            operator.add,
-            chain(
-                # (
-                #     self.web_top_left_of(column, row, **web_kwargs)
-                #     for (column, row) in self.generate_positions()
-                #     if column > 0 and row > 0 and (column, row) not in (
-                #         (1.5, 2),
-                #         # (1, 1),
-                #         (2, 1),
-                #         (3, 2),
-                #     )
-                # ),
-                (
-                    self.web_left_of(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if (column, row) not in (
-                        (-1, 0),
-                        (3.5, 0),
-                    )
-                ),
-                # (
-                #     self.web_above(column, row, **web_kwargs)
-                #     for (column, row) in self.generate_positions()
-                #     if row > 0 and (column, row) not in (
-                #         (1.5, 2),
-                #         # (0, 1),
-                #         (2, 1),
-                #         (3, 2),
-                #     )
-                # ),
-                # [
-                #     hull()(
-                #         self.web_corner(3.5, 0, left=True, top=False, column_span=2, **web_kwargs),
-                #         self.web_corner(3.5, 0, left=True, top=True, column_span=2, **web_kwargs),
-                #         self.web_corner(2, 0, left=False, top=True, **web_kwargs),
-                #         self.web_corner(2, 0, left=False, top=False, **web_kwargs),
-                #     ),
-                #     hull()(
-                #         self.web_corner(3.5, 0, left=False, top=False, column_span=2, **web_kwargs),
-                #         self.web_corner(3.5, 0, left=False, top=True, column_span=2, **web_kwargs),
-                #         self.web_corner(-1, 0, left=True, top=True, **web_kwargs),
-                #         self.web_corner(-1, 0, left=True, top=False, **web_kwargs),
-                #     ),
-                # ],
-            )
-        )

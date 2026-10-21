@@ -65,7 +65,6 @@ class Layout:
         right 2x key and the top right 1x key"""
 
         self.keyswitch = keyswitch
-        print(keyswitch)
 
         self.cap_top_height = self.sa_profile_key_height
 
@@ -79,6 +78,8 @@ class Layout:
 
         self.positions_to_skip: Sequence[Tuple[float, float]] = ()
         "A sequence of positions in the layout to skip when generating positions."
+
+        self.web_sphere = sphere(d=self.web_thickness, _fn=20).down(self.web_thickness / 2)
 
     @property
     def row_radius(self) -> float:
@@ -105,6 +106,19 @@ class Layout:
             for column in range(self.columns)
             if (column, row) not in self.positions_to_skip
         )
+
+    def plate_node_positions(self) -> List[Tuple[float, float]]:
+        key_positions = self.generate_positions()
+        #return key_positions
+
+        positions = []
+        for (column, row) in key_positions:
+            for col_offset in (-0.5, -0.25, 0, 0.25, 0.5):
+                for row_offset in (-0.5, -0.25, 0, 0.25, 0.5):
+                    if (column+col_offset, row+row_offset) in positions:
+                        continue
+                    positions.append((column+col_offset, row+row_offset))
+        return positions
 
     def column_adjust(self, column: float) -> float:
         """Override this method to adjust the effective column number of a given column.
@@ -183,6 +197,108 @@ class Layout:
         """
         return shape
 
+    def plate(self) -> OpenSCADObject:
+        """Return the complete "web" between all key positions in this layout.
+        """
+
+        sphere_shape = self.web_sphere
+
+        connectors = []
+        plate_nodes = self.plate_node_positions()
+
+        for (column, row) in plate_nodes:
+            if (column+0.25, row) in plate_nodes and (column+0.25, row+0.25) in plate_nodes and (column, row+0.25) in plate_nodes:
+                connectors.append(hull()(
+                    self.key_place(column, row, sphere_shape),
+                    self.key_place(column+0.25, row, sphere_shape),
+                    self.key_place(column+0.25, row+0.25, sphere_shape),
+                    self.key_place(column, row+0.25, sphere_shape),
+                ))
+
+        return reduce(
+            operator.add,
+            chain(
+                connectors
+            )
+        )
+
+    def plate_edge_nodes(self) -> Iterable[Tuple[float, float, bool, bool, bool, bool]]:
+        edge_nodes = []
+        plate_nodes = self.plate_node_positions()
+
+        # Find first corner node (top left)
+        for (column, row) in plate_nodes:
+            if (column-0.25, row-0.25) not in plate_nodes:
+                edge_nodes.append((column, row, True, True, False, False))
+                break
+
+        def node_is_top(column, row) -> bool:
+            if (column, row) in plate_nodes and (column, row-0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column-0.25, row-0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column+0.25, row-0.25) not in plate_nodes:
+                return True
+            return False
+
+        def node_is_bottom(column, row) -> bool:
+            if (column, row) in plate_nodes and (column, row+0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column-0.25, row+0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column+0.25, row+0.25) not in plate_nodes:
+                return True
+            return False
+
+        def node_is_left(column, row) -> bool:
+            if (column, row) in plate_nodes and (column-0.25, row) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column-0.25, row-0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column-0.25, row+0.25) not in plate_nodes:
+                return True
+            return False
+
+        def node_is_right(column, row) -> bool:
+            if (column, row) in plate_nodes and (column+0.25, row) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column+0.25, row-0.25) not in plate_nodes:
+                return True
+            if (column, row) in plate_nodes and (column+0.25, row+0.25) not in plate_nodes:
+                return True
+            return False
+
+        def find_next_edge_node(column, row) -> Tuple[float, float, bool, bool, bool, bool]:
+            try_nodes = [
+                (column+0.25, row),
+                (column, row+0.25),
+                (column-0.25, row),
+                (column, row-0.25),
+            ]
+
+            for (column, row) in try_nodes:
+                if node_is_top(column, row) or node_is_bottom(column, row) or node_is_left(column, row) or node_is_right(column, row):
+                    found_node = (column, row, node_is_left(column, row), node_is_top(column, row), node_is_right(column, row), node_is_bottom(column, row))
+                    if found_node in edge_nodes:
+                        continue
+                    return found_node
+
+        while True:
+            (current_column, current_row, _, _, _, _) = edge_nodes[-1]
+            next_node = find_next_edge_node(current_column, current_row)
+
+            if next_node is None:
+                break
+
+            if next_node == edge_nodes[0]:
+                break
+
+            edge_nodes.append(next_node)
+
+        edge_nodes.append(edge_nodes[0])
+
+        return edge_nodes
+
     def place_all(self, shape_or_callback: Union[OpenSCADObject, ShapeForLocationCallback]) -> OpenSCADObject:
         """Place the given shape (or the shape returned by the given callback) at every location
         in the layout.
@@ -245,32 +361,19 @@ class Layout:
             x_size_adjust, y_size_adjust = size_adjust(column, row)
             x_adjust += x_size_adjust / 2
             y_adjust += y_size_adjust / 2
-        if position_adjust is not None:
-            x_pos_adjust, y_pos_adjust = position_adjust(column, row)
-            if left:
-                x_adjust -= x_pos_adjust
-            else:
-                x_adjust += x_pos_adjust
-            if top:
-                y_adjust += y_pos_adjust
-            else:
-                y_adjust -= y_pos_adjust
-
-        x_move_amount = (
-            self.keyswitch.plate_size().x + ((column_span - 1) * 24) - self.web_post_size
-        ) / 2 + x_adjust
-        y_move_amount = (
-            self.keyswitch.plate_size().y + ((row_span - 1) * 24) - self.web_post_size
-        ) / 2 + y_adjust
+        if left:
+            column -= 0.5
+        else:
+            column += 0.5
+        if top:
+            row += 0.5
+        else:
+            row -= 0.5
 
         return self.key_place(
             column,
             row,
-            post.translate((
-                -x_move_amount if left else x_move_amount,
-                y_move_amount if top else -y_move_amount,
-                z_offset
-            ))
+            post
         )
 
     def web_left_of(self, column: float, row: float, z_offset: float = 0, thickness: Optional[float] = None, size_adjust: Optional[XYAdjustCallback] = None, position_adjust: Optional[XYAdjustCallback] = None) -> OpenSCADObject:

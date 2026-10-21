@@ -8,6 +8,7 @@ from itertools import chain
 from typing import Optional, Tuple
 
 from solid2.core.object_base import OpenSCADObject
+from solid2 import sphere, hull
 
 from spkb.keyswitch import Keyswitch
 
@@ -73,23 +74,27 @@ class FingerWellLayout(Layout):
         
         return shape.translate((0.5*self.offset_per_col, 0.0, 0.0))
 
-    def key_place(self, column: float, row: float, shape: OpenSCADObject) -> OpenSCADObject:
-        """Place a key (or other shape) in the layout.
+    def generate_positions(self) -> Iterable[Tuple[float, float]]:
+        """Generate the list of locations within the layout.
 
-        :param column: the column to place the key in
-
-        :param row: the row to place the key in
-
-        :param shape: the shape to place
+        Override this to change the list of locations, or set `positions_to_skip` to filter out certain positions.
         """
+        positions = []
+        
+        for column in range(self.columns):
+            for row in range(self.rows):
+                if (column, row) in self.positions_to_skip:
+                    continue
+                    
+                # shift rows for middle finger and pinky
+                if column == 2:
+                    row += -0.25
+                elif column >=4:
+                    row += 0.25
+                    
+                positions.append((column, row))
 
-        # shift rows for middle finger and pinky
-        if column == 2:
-            row += -0.25
-        elif column >=4:
-            row += 0.25
-
-        return super().key_place(column, row, shape)
+        return positions
 
     def layout_place(self, shape: OpenSCADObject) -> OpenSCADObject:
         """Place the layout.
@@ -100,38 +105,56 @@ class FingerWellLayout(Layout):
             .up(self.web_thickness) \
             .translate(self.placement_transform)
 
-    def web_all(self, z_offset: float = 0, thickness: Optional[float] = None, size_adjust: Optional[XYAdjustCallback] = None, position_adjust: Optional[XYAdjustCallback] = None) -> OpenSCADObject:
-        """Return the complete "web" between all key positions in this layout.
 
-        :param z_offset: the offset in the Z direction of the corner blocks (before placing at the key positions)
-        :param thickness: the thickness of the web; if None, default to self.web_thickness
-        :param size_adjust: a callback to adjust the size of the key at this column and row
-        :param position_adjust: a callback to adjust the position of the key at this column and row
-        """
-        web_kwargs = {
-            'z_offset': z_offset,
-            'thickness': thickness,
-            'size_adjust': size_adjust,
-            'position_adjust': position_adjust,
-        }
-
-        return reduce(
-            operator.add,
-            chain(
-                (
-                    self.web_top_left_of(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if column > 0 and row > 0 and (column > 2 or row != 4)
-                ),
-                (
-                    self.web_left_of(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if column > 0 and (column > 2 or row != 4)
-                ),
-                (
-                    self.web_above(column, row, **web_kwargs)
-                    for (column, row) in self.generate_positions()
-                    if row > 0
-                ),
-            )
-        )
+    def plate_node_positions(self) -> Iterable[Tuple[float, float]]:
+        positions = super().plate_node_positions()
+        positions.extend([
+            (-0.75, -0.75),
+            (-0.50, -0.75),
+            (-0.25, -0.75),
+            (0.00, -0.75),
+            (0.25, -0.75),
+            (0.50, -0.75),
+            (0.75, -0.75),
+            (1.00, -0.75),
+            (1.25, -0.75),
+            (1.50, -0.75),
+        ])
+        positions.extend([
+            (3.50, -0.50),
+            (3.75, -0.50),
+            (4.00, -0.50),
+            (4.25, -0.50),
+            (4.50, -0.50),
+            (4.75, -0.50),
+            (5.00, -0.50),
+            (5.25, -0.50),
+            (5.50, -0.50),
+        ])
+        positions.extend([
+            (2.50, -0.75),
+            (2.75, -0.75),
+            (3.00, -0.75),
+            (3.25, -0.75),
+            (3.50, -0.75),
+            (3.75, -0.75),
+            (4.00, -0.75),
+            (4.25, -0.75),
+            (4.50, -0.75),
+            (4.75, -0.75),
+            (5.00, -0.75),
+            (5.25, -0.75),
+            (5.50, -0.75),
+        ])
+        positions.extend([
+            (1.75, 3.50),
+            (2.00, 3.50),
+            (2.25, 3.50),
+        ])
+        positions.extend([
+            (2.50, 4.75),
+            (2.75, 4.75),
+            (3.00, 4.75),
+            (3.25, 4.75),
+        ])
+        return positions
