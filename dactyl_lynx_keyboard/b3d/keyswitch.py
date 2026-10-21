@@ -20,10 +20,12 @@ def _frustum_z(sections: list[tuple[float, float, float]]) -> Solid:
     return loft([Plane.XY.offset(z) * Rectangle(w, l) for (w, l, z) in sections], ruled=True)
 
 
-def mounting_socket(k: Keyswitch, extra_depth: float = 0) -> Part:
-    """The negative shape for mounting the switch, including notches for its clips."""
-    # Extra height above the top of the plate to ensure subtraction doesn't leave stray faces.
-    extra_height = 1
+def mounting_socket(k: Keyswitch, extra_depth: float = 0, extra_height: float = 1) -> Part:
+    """The negative shape for mounting the switch, including notches for its clips.
+
+    :param extra_depth: extra depth to add below the hole
+    :param extra_height: how far the hole extends above the top of the plate, so subtraction doesn't leave stray faces
+    """
     hole_height = k.keyswitch_depth + extra_height + extra_depth
     hole = Pos(0, 0, extra_height - hole_height / 2) * Box(k.keyswitch_width, k.keyswitch_length, hole_height)
 

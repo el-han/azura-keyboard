@@ -16,6 +16,7 @@ if __name__ == "__main__":
     assembly = KeyboardAssembly()
     parts = {
         "switch-plates": assembly.switch_plates(),
+        "finger": assembly.finger_part(),
     }
 
     for name, part in parts.items():
