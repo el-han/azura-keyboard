@@ -28,7 +28,12 @@ if __name__ == "__main__":
     def not_printed():
         ball = assembly.trackball_ball()
         ball.label = "trackball"
-        return assembly.switch_models() + assembly.keycap_models() + assembly.pcb_models() + [ball]
+        return [
+            Compound(label="keycaps", children=assembly.keycap_models()),
+            Compound(label="keyswitches", children=assembly.switch_models()),
+            Compound(label="PCBs", children=assembly.pcb_models()),
+            ball,
+        ]
 
     printed = [copy.copy(parts[name]) for name in ("finger", "thumb", "trackball")]
     parts["switches"] = Compound(label="switches", children=not_printed())

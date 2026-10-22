@@ -5,7 +5,7 @@ import math
 from collections.abc import Iterable
 from typing import Optional
 
-from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, Shape, Sphere, extrude
+from build123d import Box, Compound, Cylinder, Location, Part, Plane, Polygon, Pos, Rot, Shape, Sphere, extrude
 
 from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Kailh
@@ -15,6 +15,15 @@ from . import keyswitch, surface
 from ..layouts.transform import Transform
 from ..trackball import TrackBall
 from .placement import key_location, to_location
+
+
+def _instance(shape: Shape, location: Location) -> Shape:
+    """A copy of `shape` at `location`, sharing its geometry; models with children get copies of each child."""
+    if shape.children:
+        return Compound(label=shape.label, children=[_instance(child, location) for child in shape.children])
+    instance = copy.copy(shape)
+    instance.location = location * shape.location
+    return instance
 
 
 def place_instances(
@@ -27,8 +36,7 @@ def place_instances(
     """
     instances = []
     for (column, row) in layout.generate_positions() if positions is None else positions:
-        instance = copy.copy(shape)
-        instance.location = key_location(layout, column, row) * shape.location
+        instance = _instance(shape, key_location(layout, column, row))
         instance.label = f"{name} c{column:g} r{row:g}"
         instances.append(instance)
     return instances

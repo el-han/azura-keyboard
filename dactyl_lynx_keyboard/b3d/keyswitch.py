@@ -5,9 +5,10 @@ All shapes are in the key's local frame: the top of the plate is at Z=0 and the 
 from functools import cache
 from os.path import abspath, dirname, join
 
-from build123d import Box, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, import_step, loft
+from build123d import Box, Color, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, loft
 
 from ..layouts.keys import Keyswitch
+from .step import import_step_colored, transformed
 
 MX_SWITCH_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "SW_Cherry_MX_Plate.stp")
 "Cherry MX plate-mount switch from https://github.com/kiswitch/kiswitch (MIT / CC-BY-SA 4.0)"
@@ -85,14 +86,16 @@ PCB_TOP_BELOW_PLATE = 5.08
 def single_key_board(extra_spacing: float = 0) -> Box:
     """Simplified single-key PCB (a rectangular prism)."""
     size = PCB_SIZE + extra_spacing * 2
-    return Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE + extra_spacing / 2)) * Box(
+    pcb = Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE + extra_spacing / 2)) * Box(
         size, size, PCB_THICKNESS + extra_spacing
     )
+    pcb.color = Color(0.0, 0.4, 0.15)
+    return pcb
 
 
 @cache
 def _mx_switch_step() -> Compound:
-    return import_step(MX_SWITCH_STEP)
+    return import_step_colored(MX_SWITCH_STEP, label="Cherry MX")
 
 
 @cache
@@ -101,7 +104,7 @@ def _dsa_keycap_step(size: float) -> Compound:
         file_name = DSA_KEYCAP_FILES[size]
     except KeyError:
         raise ValueError(f"No DSA keycap model for {size}u keys") from None
-    return import_step(join(DSA_KEYCAP_DIR, file_name))
+    return import_step_colored(join(DSA_KEYCAP_DIR, file_name), label=f"DSA {size:g}u")
 
 
 def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:
@@ -109,9 +112,9 @@ def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:
     bottomed out. The wide side runs along X.
     """
     bottom = MX_STEM_TOP - DSA_SOCKET_DEPTH - (MX_TRAVEL if pressed else 0)
-    return Pos(0, 0, bottom) * Rot(90, 0, 0) * _dsa_keycap_step(size)
+    return transformed(_dsa_keycap_step(size), Pos(0, 0, bottom) * Rot(90, 0, 0))
 
 
 def mx_switch_model() -> Compound:
     """A Cherry MX switch for collision checks (not printed), in the key's local frame."""
-    return Pos(0, 0, -MX_SWITCH_STEP_PLATE_Z) * _mx_switch_step()
+    return transformed(_mx_switch_step(), Pos(0, 0, -MX_SWITCH_STEP_PLATE_Z))
