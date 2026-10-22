@@ -114,11 +114,17 @@ class KeyboardAssembly:
         # Wider keys sit on a flat strip at the bottom of the circle, as wide as their combined extra width; the part of
         # the arc past them is shifted by that much (see `ThumbWellLayout.placement_adjust()`).
         shift = sum(layout.extra_width(column, row) for (column, row) in layout.generate_positions())
-        left = self._thumb_arc(0, 0, layout.column_angle(min(columns) - 0.5), length)
-        right = self._thumb_arc(shift, layout.column_angle(max(columns) + 0.5), 0, length)
-        flat = Pos(shift / 2, 0, -self.plate_thickness / 2) * Box(shift, length, self.plate_thickness)
+        # Each arc ends half a key past the outermost key on its side; the part past the bottom of the circle (angle 0)
+        # and the flat strip only exist if keys reach there.
+        start_angle = layout.column_angle(max(columns) + 0.5)
+        end_angle = layout.column_angle(min(columns) - 0.5)
+        shape = self._thumb_arc(0, max(start_angle, 0), end_angle, length)
+        if start_angle < 0:
+            shape += self._thumb_arc(shift, start_angle, 0, length)
+        if shift > 0:
+            shape += Pos(shift / 2, 0, -self.plate_thickness / 2) * Box(shift, length, self.plate_thickness)
 
-        shape = to_location(layout.layout_place(Transform())) * (left + right + flat)
+        shape = to_location(layout.layout_place(Transform())) * shape
 
         shape -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
         shape -= place_all(layout, keyswitch.switch(k))
