@@ -25,7 +25,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, use_1_5u_keys=False, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-72, -25, 0)
+        self.trackball_position = (-74, -25, 5)
 
         self.plate_thickness = self.finger_layout.web_thickness
         self.max_height = 120
