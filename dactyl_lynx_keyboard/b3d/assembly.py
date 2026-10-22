@@ -5,7 +5,10 @@ import math
 from collections.abc import Iterable
 from typing import Optional
 
-from build123d import Box, Compound, Cylinder, Location, Part, Plane, Polygon, Pos, Rot, Shape, Sphere, extrude
+from build123d import (
+    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Plane, Polygon, Pos, Rot, Shape, Solid, Sphere,
+    extrude, offset,
+)
 
 from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Kailh
@@ -42,6 +45,24 @@ def place_instances(
     return instances
 
 
+def _convex_hull_2d(points: list[tuple[float, float]]) -> list[tuple[float, float]]:
+    """Counter-clockwise convex hull of 2D points (Andrew's monotone chain)."""
+    points = sorted(set(points))
+
+    def half(pts):
+        chain: list[tuple[float, float]] = []
+        for p in pts:
+            while len(chain) >= 2 and (
+                (chain[-1][0] - chain[-2][0]) * (p[1] - chain[-2][1])
+                - (chain[-1][1] - chain[-2][1]) * (p[0] - chain[-2][0])
+            ) <= 0:
+                chain.pop()
+            chain.append(p)
+        return chain[:-1]
+
+    return half(points) + half(points[::-1])
+
+
 def place_all(layout: Layout, shape: Part) -> list[Part]:
     """Place a copy of `shape` at every key position of the layout."""
     return [key_location(layout, column, row) * shape for (column, row) in layout.generate_positions()]
@@ -59,29 +80,87 @@ class KeyboardAssembly:
         self.max_height = 120
         "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
         self.finger_straight_columns = (-0.5,)
+
+        self.cavity_depth = 12
+        "Depth of the case's inside below the key plane (switch pins end 8.3 mm below it)"
+        self.case_wall = 3
+        "Thickness of the case's walls and floor"
+        self.case_clearance = 0.5
+        "Gap between the case's walls and the PCBs under the switches"
         "Edges of the finger well that should be straight in top view (see `surface.outline()`)"
         "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
 
-    def finger_part(self) -> Part:
-        """The finger well: plate on the key surface with switch sockets."""
-        layout = self.finger_layout
-        k = layout.keyswitch
-        footprint = surface.outline(layout, straight_columns=self.finger_straight_columns)
-
-        plate = (
-            extrude(footprint, self.max_height)
-            & (surface.torus(layout, depth=self.plate_thickness) - surface.torus(layout))
+    def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
+        """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
+        slab = extrude(footprint, self.max_height) & (
+            surface.torus(layout, depth=depth + 1) - surface.torus(layout, depth=depth)
         )
         # Drop slivers from where the torus turns over beyond the footprint; keep the key surface itself.
-        shape = max(plate.solids(), key=lambda solid: solid.volume)
+        slab = max(slab.solids(), key=lambda solid: solid.volume)
+        minor_radius = layout.row_radius + depth
+        return next(
+            face for face in slab.faces()
+            if face.geom_type == GeomType.TORUS
+            and abs(face.geom_adaptor().Torus().MinorRadius() - minor_radius) < 1e-6
+        )
 
-        # Extend the hole well beyond both sides of the shell: when it ends close to the curved surfaces, OCCT
-        # sometimes keeps the cut-out piece as a separate solid.
-        shape -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
-        shape -= place_all(layout, keyswitch.switch(k))
-        shape -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
-        shape -= self.trackball_clearance()
-        return shape
+    def _thicken_down(self, face: Face, amount: float) -> Solid:
+        """Thicken a key surface face by `amount` along its normals, away from the keycaps."""
+        solid = Solid.thicken(face, amount)
+        upward = Solid.thicken(face, -amount)
+        return solid if solid.center().Z < upward.center().Z else upward
+
+    def _case_inner_footprint(self, layout: Layout) -> Face:
+        """The inside of the case in top view: the plate outline, grown to hold every key's PCB.
+
+        The PCBs hang below the keys along the surface normals, just like the case walls, so their squares projected
+        from the key plane are what has to fit.
+        """
+        half = keyswitch.PCB_SIZE / 2 + self.case_clearance
+        corners = [(sx * half, sy * half, 0) for sx in (-1, 1) for sy in (-1, 1)]
+        # Convex hulls give every square the same (counter-clockwise) orientation, so they fuse into one face.
+        squares = [
+            Polygon(*_convex_hull_2d([layout.key_transform(column, row).apply(c)[:2] for c in corners]), align=None)
+            for (column, row) in layout.generate_positions()
+        ]
+        footprint = surface.outline(layout, straight_columns=self.finger_straight_columns).fuse(*squares).clean()
+        # Fill the small notches between neighbouring squares
+        smoothing = 3
+        return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
+
+    def finger_case(self) -> tuple[Part, Part]:
+        """The finger well's case as (top, bottom).
+
+        The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
+        joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
+        surface. Screws will go into the rim later.
+        """
+        layout = self.finger_layout
+        k = layout.keyswitch
+        inner_footprint = self._case_inner_footprint(layout)
+        footprint = offset(inner_footprint, self.case_wall, kind=Kind.ARC)
+
+        # Everything is trimmed on the key plane and then thickened along the surface normals, so all edges follow
+        # the normals and the two halves meet flush.
+        plate = self._thicken_down(self._surface_face(layout, footprint, 0), self.plate_thickness)
+        plate_underside = next(
+            face for face in plate.faces()
+            if face.geom_type == GeomType.TORUS
+            and abs(face.geom_adaptor().Torus().MinorRadius() - (layout.row_radius + self.plate_thickness)) < 1e-6
+        )
+
+        top = plate
+        top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
+        top -= place_all(layout, keyswitch.switch(k))
+        top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
+        top -= self.trackball_clearance()
+
+        # Below the plate down to the outside of the floor, hollowed out by the space inside the walls. The cavity
+        # starts at the key plane, above the plate's underside, so the two never share a face.
+        bottom = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
+        bottom -= self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
+        bottom -= self.trackball_clearance()
+        return top, bottom
 
     def _thumb_arc(self, center_x: float, start_angle: float, end_angle: float, length: float) -> Part:
         """A plate-thick arc of the thumb well's cylinder, in the layout's base frame.
