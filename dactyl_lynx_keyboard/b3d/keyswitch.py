@@ -18,8 +18,17 @@ MX_STEM_TOP = 10.44
 MX_TRAVEL = 4.0
 "Total travel of an MX switch"
 
-DSA_KEYCAP_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "dsa-keycap", "DSA 1u.step")
-"DSA 1u keycap from https://github.com/anhthang/dsa-keycap (MIT); modelled Y-up with its bottom at Y=0"
+DSA_KEYCAP_DIR = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "dsa-keycap")
+"DSA keycaps from https://github.com/anhthang/dsa-keycap (MIT); modelled Y-up, bottom at Y=0, wide side along X"
+DSA_KEYCAP_FILES = {
+    1.0: "DSA 1u.step",
+    1.25: "DSA 1.25u.step",
+    1.5: "DSA 1.5u.step",
+    1.75: "DSA 1.75u.step",
+    2.0: "DSA 2u.step",
+    2.25: "DSA 2.25u.step",
+    2.75: "DSA 2.75u.step",
+}
 DSA_SOCKET_DEPTH = 4.7
 "Depth of the keycap's stem socket above its bottom edge (measured from the STEP model)"
 
@@ -87,14 +96,20 @@ def _mx_switch_step() -> Compound:
 
 
 @cache
-def _dsa_keycap_step() -> Compound:
-    return import_step(DSA_KEYCAP_STEP)
+def _dsa_keycap_step(size: float) -> Compound:
+    try:
+        file_name = DSA_KEYCAP_FILES[size]
+    except KeyError:
+        raise ValueError(f"No DSA keycap model for {size}u keys") from None
+    return import_step(join(DSA_KEYCAP_DIR, file_name))
 
 
-def dsa_keycap_model(pressed: bool = False) -> Compound:
-    """A DSA 1u keycap on an MX stem for collision checks (not printed), at rest or bottomed out."""
+def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:
+    """A DSA keycap of the given width (in units) on an MX stem for collision checks (not printed), at rest or
+    bottomed out. The wide side runs along X.
+    """
     bottom = MX_STEM_TOP - DSA_SOCKET_DEPTH - (MX_TRAVEL if pressed else 0)
-    return Pos(0, 0, bottom) * Rot(90, 0, 0) * _dsa_keycap_step()
+    return Pos(0, 0, bottom) * Rot(90, 0, 0) * _dsa_keycap_step(size)
 
 
 def mx_switch_model() -> Compound:

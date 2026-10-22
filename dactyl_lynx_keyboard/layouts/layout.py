@@ -48,6 +48,9 @@ class Layout:
         # self.offset_per_col = self.keyswitch.plate_size().x
         self.offset_per_col = 20
 
+        self.unit_width = 19
+        "The width of a 1u key position (mm), used to space out wider keys"
+
         self.positions_to_skip: Sequence[Tuple[float, float]] = ()
         "A sequence of positions in the layout to skip when generating positions."
 
@@ -89,6 +92,14 @@ class Layout:
                         continue
                     positions.append((column+col_offset, row+row_offset))
         return positions
+
+    def key_size(self, column: float, row: float) -> float:
+        """Override this method to give the key at the given position a different width, in keyboard units (1u).
+
+        :param column: the column of the key
+        :param row: the row of the key
+        """
+        return 1.0
 
     def column_adjust(self, column: float) -> float:
         """Override this method to adjust the effective column number of a given column.

@@ -45,22 +45,30 @@ class ThumbWellLayout(Layout):
             (3, 0),
         )
 
+    def key_size(self, column: float, row: float) -> float:
+        """The bottom key (column 2) is 1.25u wide."""
+        return 1.25 if column == 2 else 1.0
+
+    def extra_width(self, column: float, row: float) -> float:
+        """How much wider than 1u the key at the given position is (mm)."""
+        return (self.key_size(column, row) - 1) * self.unit_width
+
     def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
-        """Adjust the position of the given key/location in the layout.
+        """Make room for wider keys at the bottom of the arc.
+
+        Wider keys sit on a flat strip at the bottom of the circle: each one shifts itself by half its extra width, and
+        every key after it in the row by its full extra width.
 
         :param column: the column to place the key in
         :param row: the row to place the key in
         :param transform: the placement so far
         """
-        # if (isinstance(row, float) and not row.is_integer()) or (isinstance(column, float) and not column.is_integer()):
-        #     return transform.translate((0, 0, -1))
-        # else:
-        #     return transform
-        if column >= 3:
-            transform = transform.translate((19*0.25, 0, 0))
-        elif column == 2:
-            transform = transform.translate((19*0.125, 0, 0))
-        return transform
+        shift = self.extra_width(column, row) / 2 + sum(
+            self.extra_width(other_column, other_row)
+            for (other_column, other_row) in self.generate_positions()
+            if other_row == row and other_column < column
+        )
+        return transform.translate((shift, 0, 0))
 
     def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.

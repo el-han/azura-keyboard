@@ -2,6 +2,8 @@
 """
 import copy
 import math
+from collections.abc import Iterable
+from typing import Optional
 
 from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, Shape, Sphere, extrude
 
@@ -15,14 +17,16 @@ from ..trackball import TrackBall
 from .placement import key_location, to_location
 
 
-def place_instances(layout: Layout, shape: Shape, name: str) -> list[Shape]:
-    """Place an instance of `shape` at every key position, sharing its geometry.
+def place_instances(
+    layout: Layout, shape: Shape, name: str, positions: Optional[Iterable[tuple[float, float]]] = None
+) -> list[Shape]:
+    """Place an instance of `shape` at every key position (or the given ones), sharing its geometry.
 
     Exported as children of an assembly, the geometry is written to STEP only once. Each instance is labelled
     "<name> c<column> r<row>".
     """
     instances = []
-    for (column, row) in layout.generate_positions():
+    for (column, row) in layout.generate_positions() if positions is None else positions:
         instance = copy.copy(shape)
         instance.location = key_location(layout, column, row) * shape.location
         instance.label = f"{name} c{column:g} r{row:g}"
@@ -99,8 +103,9 @@ class KeyboardAssembly:
         columns = [column for (column, _) in layout.generate_positions()]
         length = layout.offset_per_row
 
-        # The bottom key (column 2) sits on the flat strip; columns past it are shifted by its width.
-        shift = layout.placement_adjust(3, 0, Transform()).apply((0, 0, 0))[0]
+        # Wider keys sit on a flat strip at the bottom of the circle, as wide as their combined extra width; the part of
+        # the arc past them is shifted by that much (see `ThumbWellLayout.placement_adjust()`).
+        shift = sum(layout.extra_width(column, row) for (column, row) in layout.generate_positions())
         left = self._thumb_arc(0, 0, layout.column_angle(min(columns) - 0.5), length)
         right = self._thumb_arc(shift, layout.column_angle(max(columns) + 0.5), 0, length)
         flat = Pos(shift / 2, 0, -self.plate_thickness / 2) * Box(shift, length, self.plate_thickness)
@@ -139,12 +144,17 @@ class KeyboardAssembly:
 
     def keycap_models(self, pressed: bool = False) -> list[Shape]:
         """DSA keycaps on every switch, at rest or bottomed out, for collision checks (not printed)."""
-        model = keyswitch.dsa_keycap_model(pressed)
         suffix = " pressed" if pressed else ""
-        return (
-            place_instances(self.finger_layout, model, f"finger keycap{suffix}")
-            + place_instances(self.thumb_layout, model, f"thumb keycap{suffix}")
-        )
+        keycaps = []
+        for layout, name in ((self.finger_layout, "finger"), (self.thumb_layout, "thumb")):
+            # One shared model per key size
+            by_size: dict[float, list[tuple[float, float]]] = {}
+            for (column, row) in layout.generate_positions():
+                by_size.setdefault(layout.key_size(column, row), []).append((column, row))
+            for size, positions in by_size.items():
+                model = keyswitch.dsa_keycap_model(size, pressed)
+                keycaps += place_instances(layout, model, f"{name} keycap {size:g}u{suffix}", positions)
+        return keycaps
 
     def pcb_models(self) -> list[Part]:
         """Single-key PCBs under every switch, for collision checks (not printed)."""
