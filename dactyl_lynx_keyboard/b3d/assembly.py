@@ -119,3 +119,13 @@ class KeyboardAssembly:
     def trackball_ball(self) -> Part:
         """The ball itself, for previews."""
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(self.trackball.diameter / 2)
+
+    def switch_models(self) -> list[Part]:
+        """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed)."""
+        model = keyswitch.mx_switch_model(self.finger_layout.keyswitch)
+        return place_all(self.finger_layout, model) + place_all(self.thumb_layout, model)
+
+    def pcb_models(self) -> list[Part]:
+        """Single-key PCBs under every switch, for collision checks (not printed)."""
+        pcb = keyswitch.single_key_board()
+        return place_all(self.finger_layout, pcb) + place_all(self.thumb_layout, pcb)

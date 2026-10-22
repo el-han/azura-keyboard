@@ -21,6 +21,9 @@ if __name__ == "__main__":
         "trackball": assembly.trackball_part(),
     }
     parts["combined"] = Compound([parts["finger"], parts["thumb"], parts["trackball"]])
+    # Not printed: only for checking fit and collisions.
+    parts["switches"] = Compound(assembly.switch_models() + assembly.pcb_models())
+    parts["combined-with-switches"] = Compound([parts["combined"], parts["switches"]])
 
     for name, part in parts.items():
         path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")

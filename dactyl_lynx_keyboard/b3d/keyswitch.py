@@ -2,7 +2,7 @@
 
 All shapes are in the key's local frame: the top of the plate is at Z=0 and the switch points up (+Z).
 """
-from build123d import Box, Part, Pos, Rot, Solid, Rectangle, Plane, loft
+from build123d import Box, Cylinder, Part, Plane, Pos, Rectangle, Rot, Solid, loft
 
 from spkb.keyswitch import Keyswitch
 
@@ -68,4 +68,27 @@ def single_key_board(extra_spacing: float = 0) -> Box:
     size = PCB_SIZE + extra_spacing * 2
     return Pos(0, 0, -(PCB_THICKNESS / 2 + SPKB_KEYSWITCH_DEPTH + extra_spacing / 2)) * Box(
         size, size, PCB_THICKNESS + extra_spacing
+    )
+
+
+def mx_switch_model(k: Keyswitch) -> Part:
+    """A simplified Cherry MX switch for collision checks (not printed).
+
+    Dimensions from the Cherry MX datasheet: the top of the plate is at Z=0, the bottom housing ends 5 mm below it,
+    and the pins stick out another 3.3 mm.
+    """
+    bottom_housing_depth = 5
+    stem_height = 3.6
+    pin_length = 3.3
+    bottom_z = -bottom_housing_depth
+    return (
+        switch(k)
+        # Stem, at rest
+        + Pos(0, 0, k.switch_height_above_plate + stem_height / 2) * Box(7.2, 5.5, stem_height)
+        # Bottom housing, a hair smaller than the plate hole so it doesn't touch the hole's walls
+        + Pos(0, 0, bottom_z / 2) * Box(k.keyswitch_width - 0.1, k.keyswitch_length - 0.1, bottom_housing_depth)
+        # Center post and the two contact pins
+        + Pos(0, 0, bottom_z - pin_length / 2) * Cylinder(2, pin_length)
+        + Pos(-3.81, 2.54, bottom_z - pin_length / 2) * Cylinder(0.75, pin_length)
+        + Pos(2.54, 5.08, bottom_z - pin_length / 2) * Cylinder(0.75, pin_length)
     )
