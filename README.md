@@ -65,38 +65,11 @@ poetry install
 #### Generating
 
 ```bash
-poetry run python -m dactyl_lynx_keyboard.dactyl_lynx
+poetry run python -m dactyl_lynx_keyboard.b3d
 ```
 
-To view the available options:
-```bash
-poetry run python -m dactyl_lynx_keyboard.dactyl_lynx --help
-```
-
-You can then generate STL files from the OpenSCAD files with:
-```bash
-scripts/render-stls.sh
-```
-
-You can also generate an image of the whole assembly:
-```bash
-openscad --camera=2,12,10,69.7,0,30,480 --autocenter --colorscheme BeforeDawn --imgsize 3840,1800 -o things/dactyl-lynx-6x5.png things/dactyl-lynx-6x5.scad
-```
-
-Or generate a much higher-quality image using [POV-Ray][] by running:
-```bash
-openscad --enable lazy-union --enable predictible-output --backend Manifold -o things/dactyl-lynx-6x5.pov things/dactyl-lynx-6x5.scad
-povray +L/usr/share/povray-3.7/include dactyl-lynx-6x5-1920x950.ini
-```
-or using any of the other `.ini` files.
-
-[an issue rendering some files this way]: https://github.com/openscad/openscad/issues/5447
-[POV-Ray]: https://www.povray.org/
-
-
-### Printing
-
-Pregenerated STL files are available in the [things/](things/) directory.
+This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/b3d/`, plus
+models with Cherry MX switches and PCBs in place for checking collisions (not meant for printing).
 
 
 ### Bill of Materials

@@ -34,13 +34,6 @@ class KeyboardAssembly:
         "Edges of the finger well that should be straight in top view (see `surface.outline()`)"
         "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
 
-    def switch_plates(self) -> Compound:
-        """All switch plates of the finger and thumb wells, without any web between them."""
-        plate = keyswitch.plate(self.finger_layout.keyswitch)
-        return Compound(
-            place_all(self.finger_layout, plate) + place_all(self.thumb_layout, plate)
-        )
-
     def finger_part(self) -> Part:
         """The finger well: plate on the key surface with switch sockets."""
         layout = self.finger_layout
