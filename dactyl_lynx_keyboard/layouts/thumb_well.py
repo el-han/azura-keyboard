@@ -31,7 +31,7 @@ class ThumbWellLayout(Layout):
 
         :param column: the row number to rotate for
         """
-        return math.degrees(self.rad_per_col * (2 - column))
+        return math.degrees(self.rad_per_col * column)
 
     def generate_positions(self) -> Iterable[Tuple[float, float]]:
         """Generate the list of locations within the layout.
@@ -41,34 +41,48 @@ class ThumbWellLayout(Layout):
             (-1, 0),
             (0, 0),
             (1, 0),
-            (2, 0),
-            (3, 0),
+            #(2, 0),
+            #(3, 0),
         )
 
     def key_size(self, column: float, row: float) -> float:
-        """The bottom key (column 2) is 1.25u wide."""
-        return 1.25 if column == 2 else 1.0
+        """The bottom key (column 0) is 1.25u wide."""
+        return 1.25 if column == 0 else 1.0
 
     def extra_width(self, column: float, row: float) -> float:
         """How much wider than 1u the key at the given position is (mm)."""
         return (self.key_size(column, row) - 1) * self.unit_width
 
+    def key_angle(self, column: float, row: float) -> float:
+        """The angle of the key around the thumb arc (degrees); 0 is the bottom, positive angles go toward -X."""
+        return self.column_angle(self.column_adjust(column))
+
+    def flat_width(self, row: float = 0) -> float:
+        """Width of the flat strip at the bottom of the arc (mm): the combined extra width of the keys sitting there."""
+        return sum(
+            self.extra_width(column, key_row)
+            for (column, key_row) in self.generate_positions()
+            if key_row == row and abs(self.key_angle(column, key_row)) < 1e-9
+        )
+
+    def side_shift(self, column: float, row: float) -> float:
+        """X shift of the key's side of the arc: the arc is split at the bottom and pulled apart by the flat strip."""
+        angle = self.key_angle(column, row)
+        if abs(angle) < 1e-9:
+            return 0
+        return math.copysign(self.flat_width(row) / 2, -angle)
+
     def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
         """Make room for wider keys at the bottom of the arc.
 
-        Wider keys sit on a flat strip at the bottom of the circle: each one shifts itself by half its extra width, and
-        every key after it in the row by its full extra width.
+        Keys at the bottom of the circle sit centered on a flat strip as wide as their extra width; the two halves of
+        the arc on either side are moved apart by that much.
 
         :param column: the column to place the key in
         :param row: the row to place the key in
         :param transform: the placement so far
         """
-        shift = self.extra_width(column, row) / 2 + sum(
-            self.extra_width(other_column, other_row)
-            for (other_column, other_row) in self.generate_positions()
-            if other_row == row and other_column < column
-        )
-        return transform.translate((shift, 0, 0))
+        return transform.translate((self.side_shift(column, row), 0, 0))
 
     def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.

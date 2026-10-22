@@ -103,26 +103,29 @@ class KeyboardAssembly:
         return tube & sector
 
     def thumb_part(self) -> Part:
-        """The thumb well: a cylindrical arc of keys, split at the bottom by a flat strip where the right part of the
-        arc is shifted outward.
+        """The thumb well: a cylindrical arc of keys, split at the bottom by a flat strip under any wider keys there.
         """
         layout = self.thumb_layout
         k = layout.keyswitch
-        columns = [column for (column, _) in layout.generate_positions()]
         length = layout.offset_per_row
 
-        # Wider keys sit on a flat strip at the bottom of the circle, as wide as their combined extra width; the part of
-        # the arc past them is shifted by that much (see `ThumbWellLayout.placement_adjust()`).
-        shift = sum(layout.extra_width(column, row) for (column, row) in layout.generate_positions())
-        # Each arc ends half a key past the outermost key on its side; the part past the bottom of the circle (angle 0)
-        # and the flat strip only exist if keys reach there.
-        start_angle = layout.column_angle(max(columns) + 0.5)
-        end_angle = layout.column_angle(min(columns) - 0.5)
-        shape = self._thumb_arc(0, max(start_angle, 0), end_angle, length)
-        if start_angle < 0:
-            shape += self._thumb_arc(shift, start_angle, 0, length)
-        if shift > 0:
-            shape += Pos(shift / 2, 0, -self.plate_thickness / 2) * Box(shift, length, self.plate_thickness)
+        # The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
+        # under the keys sitting there (see `ThumbWellLayout.placement_adjust()`). Each half reaches half a key
+        # spacing past its outermost key.
+        half_step = math.degrees(layout.rad_per_col) / 2
+        angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
+        flat = layout.flat_width()
+        left_end = max(angles) + half_step  # toward -X
+        right_end = min(angles) - half_step  # toward +X
+
+        pieces = []
+        if left_end > 0:
+            pieces.append(self._thumb_arc(-flat / 2, max(right_end, 0), left_end, length))
+        if right_end < 0:
+            pieces.append(self._thumb_arc(flat / 2, right_end, min(left_end, 0), length))
+        if flat > 0:
+            pieces.append(Pos(0, 0, -self.plate_thickness / 2) * Box(flat, length, self.plate_thickness))
+        shape = pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
 
         shape = to_location(layout.layout_place(Transform())) * shape
 
