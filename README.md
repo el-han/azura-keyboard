@@ -3,7 +3,7 @@
 The Dactyl Lynx is a parameterized, split-hand, concave, columnar, ergonomic keyboard.
 
 This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
-* Rewrote the generating code in [Python][] instead of Clojure, using [SolidPython2][] and [spkb][].
+* Rewrote the generating code in [Python][] instead of Clojure, now using [build123d][] (originally [SolidPython2][] and [spkb][]).
 * Rotated thumb clusters to be close to vertical (inspired by [the Dactyl-ManuForm][] and the way my thumbs move; see also Viktor Eikman's [DMOTE][] and [Concertina][] keyboards)
 * Steeper tenting angle
 * 1U or 2U keycaps - easy to source (look for ortholinear keycap sets, or possibly Ergodox sets with a few extra keycaps)
@@ -17,6 +17,7 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 [Python]: https://www.python.org/
 [SolidPython2]: https://github.com/jeff-dh/SolidPython/tree/master-2.0.0-beta-dev
 [spkb]: https://github.com/whitelynx/spkb
+[build123d]: https://github.com/gumyr/build123d
 [the Dactyl-ManuForm]: https://github.com/tshort/dactyl-keyboard
 [DMOTE]: https://viktor.eikman.se/article/the-dmote/
 [Concertina]: https://viktor.eikman.se/article/the-concertina/
@@ -68,6 +69,9 @@ poetry run python -m dactyl_lynx_keyboard.b3d
 
 This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/b3d/`, plus
 models with Cherry MX switches and PCBs in place for checking collisions (not meant for printing).
+The Cherry MX model in `resources/SW_Cherry_MX_Plate.stp` is from [kiswitch](https://github.com/kiswitch/kiswitch)
+(MIT / CC-BY-SA 4.0); the DSA keycaps come from the [dsa-keycap](https://github.com/anhthang/dsa-keycap) submodule
+(MIT), so clone with `--recursive` or run `git submodule update --init`.
 
 
 ### Bill of Materials
@@ -162,11 +166,6 @@ See [the corresponding firmware in my `whitelynx/dactyl_lynx` QMK branch][QMK fi
 When customizing your keyboard, you might want to look at API docs for the classes in `dactyl_lynx_keyboard`. You can use `pdoc` for this:
 ```bash
 pdoc -t templates dactyl_lynx_keyboard
-```
-
-If you have cloned the source for [spkb][] and/or [SolidPython2][], you can also include them:
-```bash
-pdoc -t templates dactyl_lynx_keyboard ../../spkb ../SolidPython/solid2
 ```
 
 

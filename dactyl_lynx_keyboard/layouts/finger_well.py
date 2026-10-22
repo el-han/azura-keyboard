@@ -1,26 +1,18 @@
 """The layout of a finger well.
 """
 import math
-import operator
 from collections.abc import Iterable
-from functools import reduce
-from itertools import chain
-from typing import Optional, Tuple
+from typing import Tuple
 
-from solid2.core.object_base import OpenSCADObject
-from solid2 import sphere, hull
-
-from spkb.keyswitch import Keyswitch
-
+from .keys import Kailh, Keyswitch
+from .layout import Layout
 from .transform import Transform
-from .layout import Layout, XYAdjustCallback
-from .keys import Kailh
 
 
 class FingerWellLayout(Layout):
     """The layout of a finger well.
     """
-    def __init__(self, columns: int = 6, rows: int = 5, use_1_5u_keys: bool = True, keyswitch: Keyswitch = Kailh):
+    def __init__(self, columns: int = 6, rows: int = 5, use_1_5u_keys: bool = True, keyswitch: Keyswitch = Kailh()):
         super(FingerWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
 
         self.use_1_5u_keys = use_1_5u_keys

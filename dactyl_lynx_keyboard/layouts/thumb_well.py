@@ -1,20 +1,12 @@
 """The layout of a thumb well.
 """
 import math
-import operator
 from collections.abc import Iterable
-from functools import reduce
-from itertools import chain
-from typing import Optional, Tuple
+from typing import Tuple
 
-from solid2 import hull
-from solid2.core.object_base import OpenSCADObject
-
-from spkb.keyswitch import Keyswitch
-
-from .keys import Kailh
+from .keys import Kailh, Keyswitch
+from .layout import Layout
 from .transform import Transform
-from .layout import Layout, XYAdjustCallback
 
 
 class ThumbWellLayout(Layout):

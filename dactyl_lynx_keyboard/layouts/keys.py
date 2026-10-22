@@ -1,111 +1,62 @@
-from solid2 import hull, polygon
-from solid2.core.object_base import OpenSCADObject
+"""Keyswitch measurements (formerly from `spkb.keyswitch`).
+"""
+from typing import NamedTuple
 
-from spkb.keyswitch import MX
+
+class Offset2D(NamedTuple):
+    x: float
+    y: float
 
 
-class Kailh(MX):
-    """An encapsulation of all measurements and shapes related to Cherry MX-style switches.
+class Keyswitch:
+    """All measurements related to Cherry MX-style switches.
+
+    The top of the plate is at Z=0.
     """
-    keyswitch_depth: float = 3
+    keyswitch_length: float = 14.0
+    "The length (front to back) of the keyswitch mounting hole"
+    keyswitch_width: float = 14.0
+    "The width (left to right) of the keyswitch mounting hole"
+    keyswitch_depth: float = 5.08
     "From the base of the switch to the mounting plate face"
 
+    plate_thickness: float = 3
+    "The thickness of the plate above the origin"
+    notch_plate_thickness: float = 1.3
+    "The thickness of the plate at the notches where the switch's clips are located"
+    notch_width: float = 5
+    "The width of the notch for the switch's clips at the deepest part of the notch"
+    notch_width_outer: float = 6
+    "The width of the notch for the switch's clips at the edge of the mounting hole"
+    notch_depth: float = 0.5
+    "The depth of the notch for the switch's clips"
+    notch_height: float = 8
+    "The height of the notch for the switch's clips at the deepest part of the notch"
+    notch_height_outer: float = 9
+    "The height of the notch for the switch's clips at the edge of the mounting hole"
+
+    wall_thickness: float = 1.5
+    "The thickness of the mounting hole walls"
+
+    switch_midline_width: float = 15.7
+    "The width (left to right) of the switch's housing flange on top of the plate, plus a little clearance"
+    switch_midline_length: float = 15.7
+    "The length (front to back) of the switch's housing flange on top of the plate, plus a little clearance"
+    switch_flange_height: float = 1.0
+    "How far the switch's housing flange rises straight up from the plate before it tapers"
+    switch_topline_width: float = 10.5
+    "The width (left to right) of the switch at its top"
+    switch_topline_length: float = 10.5
+    "The length (front to back) of the switch at its top"
+    switch_height_above_plate: float = 6.2
+    "The height of the switch body above the top of the plate"
+
+    def plate_size(self) -> Offset2D:
+        """The size of the plate segment around one switch."""
+        return Offset2D(self.keyswitch_width + self.wall_thickness * 2, self.keyswitch_length + self.wall_thickness * 2)
 
 
-"""Renderers for approximations of keycap shapes.
-"""
-dsa_length = 18.15
-dsa_1_5_length = 28
-dsa_double_length = 37.5
-dsa_mid_shrink = 0.15
-dsa_top_shrink = 2.9
-
-
-def dsa_cap(units: float) -> OpenSCADObject:
-    """Create an "SA" keycap shape.
-
-    (actually something akin to SA row 3, but with flat tops)
-
-    :param units: the size of the key, in key units
-    """
-    if units == 1:
-        bl2 = dsa_length / 2
-        ml2 = dsa_length / 2 - dsa_mid_shrink
-        tl2 = dsa_length / 2 - dsa_top_shrink
-        key_cap = hull()(
-            polygon(((bl2, bl2), (bl2, -bl2), (-bl2, -bl2), (-bl2, bl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 0.05)),
-            polygon(((ml2, ml2), (ml2, -ml2), (-ml2, -ml2), (-ml2, ml2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 2)),
-            polygon(((tl2, tl2), (tl2, -tl2), (-tl2, -tl2), (-tl2, tl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 8.3)),
-        )
-        return (
-            key_cap
-            .translate((0, 0, 5))
-            .color((220 / 255, 163 / 255, 163 / 255, 1))
-        )
-
-    elif units == 2:
-        bl2 = dsa_double_length / 2
-        bw2 = dsa_length / 2
-        ml2 = dsa_double_length / 2 - dsa_mid_shrink
-        mw2 = dsa_length / 2 - dsa_mid_shrink
-        tl2 = dsa_double_length / 2 - dsa_top_shrink
-        tw2 = dsa_length / 2 - dsa_top_shrink
-        key_cap = hull()(
-            polygon(((bw2, bl2), (bw2, -bl2), (-bw2, -bl2), (-bw2, bl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 0.05)),
-            polygon(((mw2, ml2), (mw2, -ml2), (-mw2, -ml2), (-mw2, ml2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 5)),
-            polygon(((tw2, tl2), (tw2, -tl2), (-tw2, -tl2), (-tw2, tl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 8.3)),
-        )
-        return (
-            key_cap
-            .translate((0, 0, 5))
-            .color((127 / 255, 159 / 255, 127 / 255, 1))
-        )
-
-    elif units == 1.5:
-        bl2 = dsa_1_5_length / 2
-        bw2 = dsa_length / 2
-        ml2 = dsa_1_5_length / 2 - dsa_mid_shrink
-        mw2 = dsa_length / 2 - dsa_mid_shrink
-        tl2 = dsa_1_5_length / 2 - dsa_top_shrink
-        tw2 = dsa_length / 2 - dsa_top_shrink
-        key_cap = hull()(
-            polygon(((bw2, bl2), (bw2, -bl2), (-bw2, -bl2), (-bw2, bl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 0.05)),
-            polygon(((mw2, ml2), (mw2, -ml2), (-mw2, -ml2), (-mw2, ml2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 5)),
-            polygon(((tw2, tl2), (tw2, -tl2), (-tw2, -tl2), (-tw2, tl2)))
-            .linear_extrude(height=0.1, twist=0, convexity=0)
-            .translate((0, 0, 8.3)),
-        )
-        return (
-            key_cap
-            .translate((0, 0, 5))
-            .color((240 / 255, 223 / 255, 175 / 255, 1))
-        )
-
-    else:
-        raise ValueError(f"Unrecognized key size: {units} units")
-
-
-# To test, use the command line: pipenv run python -m spkb.keycaps
-if __name__ == "__main__":
-    print("Rendering dsa_cap(1), dsa_cap(1.5), and dsa_cap(2) to keycaps.scad...")
-    (
-        dsa_cap(1).translate((-30, 0, 0))
-        + dsa_cap(1.5)
-        + dsa_cap(2).translate((30, 0, 0))
-    ).save_as_scad("keycaps.scad")
+class Kailh(Keyswitch):
+    """MX-style switches as used here; the plate-to-base depth doubles as the plate thickness."""
+    keyswitch_depth: float = 3
+    "From the base of the switch to the mounting plate face"

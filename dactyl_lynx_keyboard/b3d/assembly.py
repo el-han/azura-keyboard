@@ -1,8 +1,9 @@
 """Assembly of the keyboard parts with build123d.
 """
+import copy
 import math
 
-from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, Sphere, extrude
+from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, Shape, Sphere, extrude
 
 from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Kailh
@@ -12,6 +13,21 @@ from . import keyswitch, surface
 from ..layouts.transform import Transform
 from ..trackball import TrackBall
 from .placement import key_location, to_location
+
+
+def place_instances(layout: Layout, shape: Shape, name: str) -> list[Shape]:
+    """Place an instance of `shape` at every key position, sharing its geometry.
+
+    Exported as children of an assembly, the geometry is written to STEP only once. Each instance is labelled
+    "<name> c<column> r<row>".
+    """
+    instances = []
+    for (column, row) in layout.generate_positions():
+        instance = copy.copy(shape)
+        instance.location = key_location(layout, column, row) * shape.location
+        instance.label = f"{name} c{column:g} r{row:g}"
+        instances.append(instance)
+    return instances
 
 
 def place_all(layout: Layout, shape: Part) -> list[Part]:
@@ -113,12 +129,24 @@ class KeyboardAssembly:
         """The ball itself, for previews."""
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(self.trackball.diameter / 2)
 
-    def switch_models(self) -> list[Part]:
+    def switch_models(self) -> list[Shape]:
         """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed)."""
-        model = keyswitch.mx_switch_model(self.finger_layout.keyswitch)
-        return place_all(self.finger_layout, model) + place_all(self.thumb_layout, model)
+        model = keyswitch.mx_switch_model()
+        return (
+            place_instances(self.finger_layout, model, "finger switch")
+            + place_instances(self.thumb_layout, model, "thumb switch")
+        )
+
+    def keycap_models(self, pressed: bool = False) -> list[Shape]:
+        """DSA keycaps on every switch, at rest or bottomed out, for collision checks (not printed)."""
+        model = keyswitch.dsa_keycap_model(pressed)
+        suffix = " pressed" if pressed else ""
+        return (
+            place_instances(self.finger_layout, model, f"finger keycap{suffix}")
+            + place_instances(self.thumb_layout, model, f"thumb keycap{suffix}")
+        )
 
     def pcb_models(self) -> list[Part]:
         """Single-key PCBs under every switch, for collision checks (not printed)."""
         pcb = keyswitch.single_key_board()
-        return place_all(self.finger_layout, pcb) + place_all(self.thumb_layout, pcb)
+        return place_instances(self.finger_layout, pcb, "finger PCB") + place_instances(self.thumb_layout, pcb, "thumb PCB")

@@ -1,10 +1,27 @@
-"""Keyswitch sockets and related shapes, ported from `spkb.keyswitch`.
+"""Keyswitch sockets and related shapes (originally ported from `spkb.keyswitch`).
 
 All shapes are in the key's local frame: the top of the plate is at Z=0 and the switch points up (+Z).
 """
-from build123d import Box, Cylinder, Part, Plane, Pos, Rectangle, Rot, Solid, loft
+from functools import cache
+from os.path import abspath, dirname, join
 
-from spkb.keyswitch import Keyswitch
+from build123d import Box, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, import_step, loft
+
+from ..layouts.keys import Keyswitch
+
+MX_SWITCH_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "SW_Cherry_MX_Plate.stp")
+"Cherry MX plate-mount switch from https://github.com/kiswitch/kiswitch (MIT / CC-BY-SA 4.0)"
+MX_SWITCH_STEP_PLATE_Z = 5.0
+"Height of the plate's top surface in the STEP model's frame (whose origin is the bottom of the switch housing)"
+MX_STEM_TOP = 10.44
+"Height of the MX stem's top above the plate, at rest (measured from the STEP model)"
+MX_TRAVEL = 4.0
+"Total travel of an MX switch"
+
+DSA_KEYCAP_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "dsa-keycap", "DSA 1u.step")
+"DSA 1u keycap from https://github.com/anhthang/dsa-keycap (MIT); modelled Y-up with its bottom at Y=0"
+DSA_SOCKET_DEPTH = 4.7
+"Depth of the keycap's stem socket above its bottom edge (measured from the STEP model)"
 
 
 def _frustum_y(x0: float, z0: float, y0: float, x1: float, z1: float, y1: float) -> Solid:
@@ -41,54 +58,45 @@ def mounting_socket(k: Keyswitch, extra_depth: float = 0, extra_height: float = 
     return hole + notch + Rot(0, 0, 180) * notch
 
 
-def plate(k: Keyswitch, extra_depth: float = 0) -> Part:
-    """A segment of plate for mounting the switch (always plate-thickness deep; no screw support)."""
-    size = k.plate_size()
-    thickness = k.plate_thickness + extra_depth
-    return Pos(0, 0, -thickness / 2) * Box(size.x, size.y, thickness) - mounting_socket(k, extra_depth=extra_depth + 1)
-
-
 def switch(k: Keyswitch) -> Solid:
     """Approximation of the top half of an MX-style switch body (used as clearance above the plate)."""
     return _frustum_z([
         (k.switch_midline_width, k.switch_midline_length, 0),
-        (k.switch_midline_width, k.switch_midline_length, 0.1),
+        (k.switch_midline_width, k.switch_midline_length, k.switch_flange_height),
         (k.switch_topline_width, k.switch_topline_length, k.switch_height_above_plate),
     ])
 
 
 PCB_THICKNESS = 1.57
 PCB_SIZE = 19
-SPKB_KEYSWITCH_DEPTH = 5.08
-"spkb.single_key_pcb positions the board using the MX depth regardless of the switch definition."
+PCB_TOP_BELOW_PLATE = 5.08
+"Depth of the PCB's top below the plate's top: an MX switch housing ends 5 mm below the plate."
 
 
 def single_key_board(extra_spacing: float = 0) -> Box:
-    """Simplified single-key PCB (a rectangular prism), as `spkb.single_key_pcb.single_key_board(simple=True)`."""
+    """Simplified single-key PCB (a rectangular prism)."""
     size = PCB_SIZE + extra_spacing * 2
-    return Pos(0, 0, -(PCB_THICKNESS / 2 + SPKB_KEYSWITCH_DEPTH + extra_spacing / 2)) * Box(
+    return Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE + extra_spacing / 2)) * Box(
         size, size, PCB_THICKNESS + extra_spacing
     )
 
 
-def mx_switch_model(k: Keyswitch) -> Part:
-    """A simplified Cherry MX switch for collision checks (not printed).
+@cache
+def _mx_switch_step() -> Compound:
+    return import_step(MX_SWITCH_STEP)
 
-    Dimensions from the Cherry MX datasheet: the top of the plate is at Z=0, the bottom housing ends 5 mm below it,
-    and the pins stick out another 3.3 mm.
-    """
-    bottom_housing_depth = 5
-    stem_height = 3.6
-    pin_length = 3.3
-    bottom_z = -bottom_housing_depth
-    return (
-        switch(k)
-        # Stem, at rest
-        + Pos(0, 0, k.switch_height_above_plate + stem_height / 2) * Box(7.2, 5.5, stem_height)
-        # Bottom housing, a hair smaller than the plate hole so it doesn't touch the hole's walls
-        + Pos(0, 0, bottom_z / 2) * Box(k.keyswitch_width - 0.1, k.keyswitch_length - 0.1, bottom_housing_depth)
-        # Center post and the two contact pins
-        + Pos(0, 0, bottom_z - pin_length / 2) * Cylinder(2, pin_length)
-        + Pos(-3.81, 2.54, bottom_z - pin_length / 2) * Cylinder(0.75, pin_length)
-        + Pos(2.54, 5.08, bottom_z - pin_length / 2) * Cylinder(0.75, pin_length)
-    )
+
+@cache
+def _dsa_keycap_step() -> Compound:
+    return import_step(DSA_KEYCAP_STEP)
+
+
+def dsa_keycap_model(pressed: bool = False) -> Compound:
+    """A DSA 1u keycap on an MX stem for collision checks (not printed), at rest or bottomed out."""
+    bottom = MX_STEM_TOP - DSA_SOCKET_DEPTH - (MX_TRAVEL if pressed else 0)
+    return Pos(0, 0, bottom) * Rot(90, 0, 0) * _dsa_keycap_step()
+
+
+def mx_switch_model() -> Compound:
+    """A Cherry MX switch for collision checks (not printed), in the key's local frame."""
+    return Pos(0, 0, -MX_SWITCH_STEP_PLATE_Z) * _mx_switch_step()

@@ -1,0 +1,3 @@
+[submodule "resources/dsa-keycap"]
+	path = resources/dsa-keycap
+	url = https://github.com/anhthang/dsa-keycap.git

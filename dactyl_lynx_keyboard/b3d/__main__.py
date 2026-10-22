@@ -2,6 +2,7 @@
 
 Run with `poetry run python -m dactyl_lynx_keyboard.b3d`.
 """
+import copy
 from os import makedirs
 from os.path import abspath, dirname, join
 
@@ -19,10 +20,19 @@ if __name__ == "__main__":
         "thumb": assembly.thumb_part(),
         "trackball": assembly.trackball_part(),
     }
-    parts["combined"] = Compound([parts["finger"], parts["thumb"], parts["trackball"]])
-    # Not printed: only for checking fit and collisions.
-    parts["switches"] = Compound(assembly.switch_models() + assembly.pcb_models())
-    parts["combined-with-switches"] = Compound([parts["combined"], parts["switches"]])
+    labels = {"finger": "finger well", "thumb": "thumb well", "trackball": "trackball well"}
+    for name, part in parts.items():
+        part.label = labels[name]
+    parts["combined"] = Compound(label="combined", children=[copy.copy(part) for part in parts.values()])
+    # Not printed: only for checking fit and collisions (switches, keycaps, PCBs, the ball). Assemblies store each model once.
+    def not_printed():
+        ball = assembly.trackball_ball()
+        ball.label = "trackball"
+        return assembly.switch_models() + assembly.keycap_models() + assembly.pcb_models() + [ball]
+
+    printed = [copy.copy(parts[name]) for name in ("finger", "thumb", "trackball")]
+    parts["switches"] = Compound(label="switches", children=not_printed())
+    parts["combined-with-switches"] = Compound(label="combined-with-switches", children=printed + not_printed())
 
     for name, part in parts.items():
         path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")

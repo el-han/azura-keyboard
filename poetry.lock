@@ -1330,18 +1330,6 @@ files = [
 ]
 
 [[package]]
-name = "ply"
-version = "3.11"
-description = "Python Lex & Yacc"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "ply-3.11-py2.py3-none-any.whl", hash = "sha256:096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"},
-    {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
-]
-
-[[package]]
 name = "prompt-toolkit"
 version = "3.0.53"
 description = "Library for building powerful interactive command lines in Python"
@@ -1702,59 +1690,6 @@ numpy = ">=2.0.0,<2.8"
 dev = ["click (<8.3.0)", "cython-lint (>=0.12.2)", "mypy (==1.19.1)", "pycodestyle", "pyrefly (==0.63.0)", "ruff (>=0.12.0)", "spin", "types-psutil", "typing_extensions"]
 doc = ["intersphinx_registry", "jupyterlite-pyodide-kernel", "jupyterlite-sphinx (>=0.19.1)", "jupytext", "linkify-it-py", "matplotlib (>=3.5)", "myst-nb (>=1.2.0)", "numpydoc", "pooch", "pydata-sphinx-theme (>=0.15.2)", "sphinx (>=5.0.0,<8.2.0)", "sphinx-copybutton", "sphinx-design (>=0.4.0)", "tabulate"]
 test = ["Cython", "array-api-strict (>=2.3.1)", "asv", "gmpy2", "hypothesis (>=6.30)", "meson", "mpmath", "ninja ; sys_platform != \"emscripten\"", "pooch", "pytest (>=8.0.0)", "pytest-cov", "pytest-timeout", "pytest-xdist", "scikit-umfpack", "scipy-doctest (>=2.0.0)", "threadpoolctl"]
-
-[[package]]
-name = "setuptools"
-version = "75.6.0"
-description = "Easily download, build, install, upgrade, and uninstall Python packages"
-optional = false
-python-versions = ">=3.9"
-groups = ["main"]
-files = [
-    {file = "setuptools-75.6.0-py3-none-any.whl", hash = "sha256:ce74b49e8f7110f9bf04883b730f4765b774ef3ef28f722cce7c273d253aaf7d"},
-    {file = "setuptools-75.6.0.tar.gz", hash = "sha256:8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"},
-]
-
-[package.extras]
-check = ["pytest-checkdocs (>=2.4)", "pytest-ruff (>=0.2.1) ; sys_platform != \"cygwin\"", "ruff (>=0.7.0) ; sys_platform != \"cygwin\""]
-core = ["importlib_metadata (>=6) ; python_version < \"3.10\"", "jaraco.collections", "jaraco.functools (>=4)", "jaraco.text (>=3.7)", "more_itertools", "more_itertools (>=8.8)", "packaging", "packaging (>=24.2)", "platformdirs (>=4.2.2)", "tomli (>=2.0.1) ; python_version < \"3.11\"", "wheel (>=0.43.0)"]
-cover = ["pytest-cov"]
-doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "pyproject-hooks (!=1.1)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier", "towncrier (<24.7)"]
-enabler = ["pytest-enabler (>=2.2)"]
-test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
-type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (>=1.12,<1.14)", "pytest-mypy"]
-
-[[package]]
-name = "solidpython2"
-version = "2.1.0"
-description = "Python interface to the OpenSCAD declarative geometry language"
-optional = false
-python-versions = ">=3.7"
-groups = ["main"]
-files = [
-    {file = "solidpython2-2.1.0-py3-none-any.whl", hash = "sha256:2e3fd835554cf578aa1518168dad91c5d454b1d714599daad3514c91ad929a95"},
-    {file = "solidpython2-2.1.0.tar.gz", hash = "sha256:6658d8fb3416b3356dc701606143dcfd9ed14c63f3c2a8c48400c330c57424bf"},
-]
-
-[package.dependencies]
-ply = ">=3.11,<4.0"
-setuptools = ">=65.6.3"
-
-[[package]]
-name = "spkb"
-version = "0.1.1"
-description = "A SolidPython-based library for building custom keyboards with Python and OpenSCAD."
-optional = false
-python-versions = "<4.0,>=3.12"
-groups = ["main"]
-files = [
-    {file = "spkb-0.1.1-py3-none-any.whl", hash = "sha256:eaa3a57ffe93242b4493c032ce88c841ce5041109605ab11f3d3a85c8350af17"},
-    {file = "spkb-0.1.1.tar.gz", hash = "sha256:430ccff75bfdb6ceea3210168fcf09f24973b58252df3040ffc939db0679fc54"},
-]
-
-[package.dependencies]
-solidpython2 = ">=2.1.0,<3.0.0"
-typing-extensions = ">=4.12.2,<5.0.0"
 
 [[package]]
 name = "stack-data"
@@ -2280,4 +2215,4 @@ dev = ["pytest", "setuptools"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.15"
-content-hash = "318b2cd4155507cff5c6d850b8fed51b4af032e9f3fbd8d1dd0f290aa0fdd303"
+content-hash = "19a9342b0a81cfa5434eec1a93d9c4a0b9418d896341d08f4ede7d0d913508f6"

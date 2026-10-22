@@ -9,8 +9,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.12,<3.15"
-solidpython2 = "^2.1.0"
-spkb = "^0.1.0"
 build123d = "^0.13.0"
 
 
