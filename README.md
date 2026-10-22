@@ -51,10 +51,8 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 
 #### Prerequisites
 
-* [Python][] version 3.11 or newer
+* [Python][] version 3.12–3.14
 * [Poetry](https://python-poetry.org/)
-* [OpenSCAD](https://openscad.org/downloads.html#snapshots) development snapshot 2024.12.06 or newer
-* [POV-Ray][] *(optional, for rendering high-quality images)*
 
 #### Installing dependencies
 
