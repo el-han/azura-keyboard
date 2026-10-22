@@ -15,24 +15,23 @@ if __name__ == "__main__":
     makedirs(out_dir, exist_ok=True)
 
     assembly = KeyboardAssembly()
-    finger_top, finger_bottom = assembly.finger_case()
+    case_top, case_bottom = assembly.case()
     parts = {
-        "finger": finger_top,
-        "finger-bottom": finger_bottom,
-        "thumb": assembly.thumb_part(),
+        "top": case_top,
+        "bottom": case_bottom,
         "trackball": assembly.trackball_part(),
     }
     labels = {
-        "finger": "finger well top",
-        "finger-bottom": "finger well bottom",
-        "thumb": "thumb well",
+        "top": "case top",
+        "bottom": "case bottom",
         "trackball": "trackball well",
     }
     # Three shades of slate blue for the printed parts
     colors = {
-        "finger": Color(0.24, 0.33, 0.45),
-        "finger-bottom": Color(0.17, 0.23, 0.31),
-        "thumb": Color(0.36, 0.47, 0.60), "trackball": Color(0.55, 0.64, 0.74)}
+        "top": Color(0.36, 0.47, 0.60),
+        "bottom": Color(0.24, 0.33, 0.45),
+        "trackball": Color(0.55, 0.64, 0.74),
+    }
     for name, part in parts.items():
         part.label = labels[name]
         part.color = colors[name]
@@ -50,7 +49,7 @@ if __name__ == "__main__":
             ball,
         ]
 
-    printed = [copy.copy(parts[name]) for name in ("finger", "finger-bottom", "thumb", "trackball")]
+    printed = [copy.copy(parts[name]) for name in ("top", "bottom", "trackball")]
     parts["switches"] = Compound(label="switches", children=not_printed())
     parts["combined-with-switches"] = Compound(label="combined-with-switches", children=printed + not_printed())
 

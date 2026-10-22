@@ -104,6 +104,19 @@ class KeyboardAssembly:
             and abs(face.geom_adaptor().Torus().MinorRadius() - minor_radius) < 1e-6
         )
 
+    def case(self) -> tuple[Part, Part]:
+        """The keyboard's case as (top, bottom): the finger and thumb wells' cases merged into one.
+
+        The top half is both key plates. The bottom half is both cases' outsides, hollowed out by both cavities so
+        their insides run into each other, and without anything the top half occupies.
+        """
+        finger_top, finger_outer, finger_cavity = self._finger_case()
+        thumb_top, thumb_outer, thumb_cavity = self._thumb_case()
+        top = finger_top + thumb_top
+        bottom = (finger_outer + thumb_outer) - finger_cavity - thumb_cavity - top
+        bottom -= self.trackball_clearance()
+        return top, bottom
+
     def _thicken_down(self, face: Face, amount: float) -> Solid:
         """Thicken a key surface face by `amount` along its normals, away from the keycaps."""
         solid = Solid.thicken(face, amount)
@@ -128,8 +141,8 @@ class KeyboardAssembly:
         smoothing = 3
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
 
-    def finger_case(self) -> tuple[Part, Part]:
-        """The finger well's case as (top, bottom).
+    def _finger_case(self) -> tuple[Part, Part, Part]:
+        """The finger well's case as (top, bottom outside, cavity).
 
         The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
         joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
@@ -157,20 +170,22 @@ class KeyboardAssembly:
 
         # Below the plate down to the outside of the floor, hollowed out by the space inside the walls. The cavity
         # starts at the key plane, above the plate's underside, so the two never share a face.
-        bottom = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
-        bottom -= self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
-        bottom -= self.trackball_clearance()
-        return top, bottom
+        outer = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
+        cavity = self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
+        return top, outer, cavity
 
-    def _thumb_arc(self, center_x: float, start_angle: float, end_angle: float, length: float) -> Part:
-        """A plate-thick arc of the thumb well's cylinder, in the layout's base frame.
+    def _thumb_arc(
+        self, center_x: float, start_angle: float, end_angle: float, length: float, top_depth: float, bottom_depth: float
+    ) -> Part:
+        """An arc of the thumb well's cylinder between two depths below the key plane, in the layout's base frame.
 
-        Angles are column angles (degrees): 0 is the bottom of the circle, positive angles go toward -X.
+        Angles are column angles (degrees): 0 is the bottom of the circle, positive angles go toward -X. The arc's
+        ends are radial planes, so they follow the surface normals.
         """
         layout = self.thumb_layout
         radius = layout.column_radius
         tube = Pos(center_x, 0, radius) * Rot(90, 0, 0) * (
-            Cylinder(radius + self.plate_thickness, length) - Cylinder(radius, length)
+            Cylinder(radius + bottom_depth, length) - Cylinder(radius + top_depth, length)
         )
         steps = max(2, math.ceil(abs(end_angle - start_angle) / 15))
         far = 3 * radius
@@ -181,17 +196,15 @@ class KeyboardAssembly:
         sector = extrude(Plane.XZ * Polygon((center_x, radius), *rays, align=None), length, both=True)
         return tube & sector
 
-    def thumb_part(self) -> Part:
-        """The thumb well: a cylindrical arc of keys, split at the bottom by a flat strip under any wider keys there.
+    def _thumb_band(self, top_depth: float, bottom_depth: float, length: float, inset: float = 0) -> Part:
+        """The thumb well's surface thickened between two depths along its normals, in the layout's base frame.
+
+        The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
+        under the keys sitting there (see `ThumbWellLayout.placement_adjust()`). Each half reaches half a key
+        spacing past its outermost key, less `inset` (mm, measured on the key plane).
         """
         layout = self.thumb_layout
-        k = layout.keyswitch
-        length = layout.offset_per_row
-
-        # The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
-        # under the keys sitting there (see `ThumbWellLayout.placement_adjust()`). Each half reaches half a key
-        # spacing past its outermost key.
-        half_step = math.degrees(layout.rad_per_col) / 2
+        half_step = math.degrees(layout.rad_per_col) / 2 - math.degrees(inset / layout.column_radius)
         angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
         flat = layout.flat_width()
         left_end = max(angles) + half_step  # toward -X
@@ -199,19 +212,37 @@ class KeyboardAssembly:
 
         pieces = []
         if left_end > 0:
-            pieces.append(self._thumb_arc(-flat / 2, max(right_end, 0), left_end, length))
+            pieces.append(self._thumb_arc(-flat / 2, max(right_end, 0), left_end, length, top_depth, bottom_depth))
         if right_end < 0:
-            pieces.append(self._thumb_arc(flat / 2, right_end, min(left_end, 0), length))
+            pieces.append(self._thumb_arc(flat / 2, right_end, min(left_end, 0), length, top_depth, bottom_depth))
         if flat > 0:
-            pieces.append(Pos(0, 0, -self.plate_thickness / 2) * Box(flat, length, self.plate_thickness))
-        shape = pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
+            pieces.append(
+                Pos(0, 0, -(top_depth + bottom_depth) / 2) * Box(flat, length, bottom_depth - top_depth)
+            )
+        return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
 
-        shape = to_location(layout.layout_place(Transform())) * shape
+    def _thumb_case(self) -> tuple[Part, Part, Part]:
+        """The thumb well's case as (top, bottom outside, cavity), built like `_finger_case()`.
 
-        shape -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
-        shape -= place_all(layout, keyswitch.switch(k))
-        shape -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
-        return shape
+        The thumb surface is made of cylinder arcs and a flat strip, whose normals are radial or vertical, so moving
+        it along its normals just means larger radii and a lower strip.
+        """
+        layout = self.thumb_layout
+        k = layout.keyswitch
+        to_layout = to_location(layout.layout_place(Transform()))
+        # The case is as long as a PCB plus clearance and walls; along the arc, the walls sit inside the half key
+        # spacing past the outermost keys, which leaves room for the PCBs.
+        inner_length = keyswitch.PCB_SIZE + 2 * self.case_clearance
+        length = inner_length + 2 * self.case_wall
+
+        top = to_layout * self._thumb_band(0, self.plate_thickness, length)
+        top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
+        top -= place_all(layout, keyswitch.switch(k))
+        top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
+
+        outer = self._thumb_band(self.plate_thickness, self.cavity_depth + self.case_wall, length)
+        cavity = self._thumb_band(-1, self.cavity_depth, inner_length, inset=self.case_wall)
+        return top, to_layout * outer, to_layout * cavity
 
     def _trackball_center(self) -> Location:
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
