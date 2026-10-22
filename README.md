@@ -53,18 +53,18 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 #### Prerequisites
 
 * [Python][] version 3.12–3.14
-* [Poetry](https://python-poetry.org/)
+* [uv](https://docs.astral.sh/uv/)
 
 #### Installing dependencies
 
 ```bash
-poetry install
+uv sync
 ```
 
 #### Generating
 
 ```bash
-poetry run python -m dactyl_lynx_keyboard.b3d
+uv run python -m dactyl_lynx_keyboard.b3d
 ```
 
 This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/b3d/`, plus
