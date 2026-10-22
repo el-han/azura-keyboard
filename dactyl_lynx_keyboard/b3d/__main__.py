@@ -18,8 +18,9 @@ if __name__ == "__main__":
         "switch-plates": assembly.switch_plates(),
         "finger": assembly.finger_part(),
         "thumb": assembly.thumb_part(),
+        "trackball": assembly.trackball_part(),
     }
-    parts["combined"] = Compound([parts["finger"], parts["thumb"]])
+    parts["combined"] = Compound([parts["finger"], parts["thumb"], parts["trackball"]])
 
     for name, part in parts.items():
         path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")

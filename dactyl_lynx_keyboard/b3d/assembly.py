@@ -2,7 +2,7 @@
 """
 import math
 
-from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, extrude
+from build123d import Box, Compound, Cylinder, Part, Plane, Polygon, Pos, Rot, Sphere, extrude
 
 from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Kailh
@@ -10,6 +10,7 @@ from ..layouts.layout import Layout
 from ..layouts.thumb_well import ThumbWellLayout
 from . import keyswitch, surface
 from ..layouts.transform import Transform
+from ..trackball import TrackBall
 from .placement import key_location, to_location
 
 
@@ -23,6 +24,8 @@ class KeyboardAssembly:
         k = Kailh()
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, use_1_5u_keys=False, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
+        self.trackball = TrackBall()
+        self.trackball_position = (-72, -25, 0)
 
         self.plate_thickness = self.finger_layout.web_thickness
         self.max_height = 120
@@ -56,6 +59,7 @@ class KeyboardAssembly:
         shape -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
         shape -= place_all(layout, keyswitch.switch(k))
         shape -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
+        shape -= self.trackball_clearance()
         return shape
 
     def _thumb_arc(self, center_x: float, start_angle: float, end_angle: float, length: float) -> Part:
@@ -98,3 +102,20 @@ class KeyboardAssembly:
         shape -= place_all(layout, keyswitch.switch(k))
         shape -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
         return shape
+
+    def trackball_part(self) -> Part:
+        """The trackball well: the lower half of a spherical shell around the ball (no supporting wall yet)."""
+        ball = self.trackball
+        shell = Sphere(ball.outer_diameter / 2) - Sphere(ball.inner_diameter / 2)
+        lower_half = Pos(0, 0, -ball.outer_diameter / 2) * Box(*(ball.outer_diameter,) * 3)
+        return Pos(*self.trackball_position) * Pos(0, 0, ball.z_offset) * (shell & lower_half)
+
+    def trackball_clearance(self) -> Part:
+        """The space the ball needs to turn freely (the well's inner sphere)."""
+        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(
+            self.trackball.inner_diameter / 2
+        )
+
+    def trackball_ball(self) -> Part:
+        """The ball itself, for previews."""
+        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(self.trackball.diameter / 2)
