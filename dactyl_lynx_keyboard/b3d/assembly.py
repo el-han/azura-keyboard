@@ -11,7 +11,7 @@ from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Kailh
 from ..layouts.layout import Layout
 from ..layouts.thumb_well import ThumbWellLayout
-from . import keyswitch, surface
+from . import keyswitch, sensor, surface
 from ..layouts.transform import Transform
 from ..trackball import TrackBall
 from .placement import key_location, to_location
@@ -134,12 +134,40 @@ class KeyboardAssembly:
         shape -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
         return shape
 
+    def _trackball_center(self) -> Location:
+        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
+
+    def _sensor_location(self) -> Location:
+        """The sensor frame: the bottom of the ball, with the board's long side along X."""
+        return self._trackball_center() * Pos(0, 0, -self.trackball.diameter / 2)
+
     def trackball_part(self) -> Part:
-        """The trackball well: the lower half of a spherical shell around the ball (no supporting wall yet)."""
+        """The trackball well: the lower half of a spherical shell around the ball, with an opening for the sensor's
+        lens and screw posts for its board (no supporting wall yet).
+        """
         ball = self.trackball
-        shell = Sphere(ball.outer_diameter / 2) - Sphere(ball.inner_diameter / 2)
-        lower_half = Pos(0, 0, -ball.outer_diameter / 2) * Box(*(ball.outer_diameter,) * 3)
-        return Pos(*self.trackball_position) * Pos(0, 0, ball.z_offset) * (shell & lower_half)
+        inner_radius, outer_radius = ball.inner_diameter / 2, ball.outer_diameter / 2
+        shell = Sphere(outer_radius) - Sphere(inner_radius)
+        lower_half = Pos(0, 0, -outer_radius) * Box(*(ball.outer_diameter,) * 3)
+        well = shell & lower_half
+
+        # Screw posts from the sensor board up into the middle of the shell wall above the screw holes.
+        r = sensor.HOLE_SPACING / 2
+        shell_middle = -(math.sqrt(inner_radius**2 - r**2) + math.sqrt(outer_radius**2 - r**2)) / 2
+        post_height = shell_middle + ball.diameter / 2 - sensor.board_face_z()
+        to_sensor = Pos(0, 0, -ball.diameter / 2)
+        well += to_sensor * sensor.standoffs(height=post_height)
+        well -= to_sensor * sensor.lens_opening()
+        well -= to_sensor * sensor.screw_holes()
+        well -= Sphere(inner_radius)
+        return self._trackball_center() * well
+
+    def sensor_model(self) -> Compound:
+        """The trackball's sensor module, for collision checks (not printed)."""
+        model = sensor.model()
+        return Compound(
+            label="sensor", children=[self._sensor_location() * child for child in model.children]
+        )
 
     def trackball_clearance(self) -> Part:
         """The space the ball needs to turn freely (the well's inner sphere)."""

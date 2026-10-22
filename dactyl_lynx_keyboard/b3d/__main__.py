@@ -27,7 +27,7 @@ if __name__ == "__main__":
         part.label = labels[name]
         part.color = colors[name]
     parts["combined"] = Compound(label="combined", children=[copy.copy(part) for part in parts.values()])
-    # Not printed: only for checking fit and collisions (switches, keycaps, PCBs, the ball). Assemblies store each model once.
+    # Not printed: only for checking fit and collisions (switches, keycaps, PCBs, sensor, the ball). Assemblies store each model once.
     def not_printed():
         ball = assembly.trackball_ball()
         ball.label = "trackball"
@@ -36,6 +36,7 @@ if __name__ == "__main__":
             Compound(label="keycaps", children=assembly.keycap_models()),
             Compound(label="keyswitches", children=assembly.switch_models()),
             Compound(label="PCBs", children=assembly.pcb_models()),
+            assembly.sensor_model(),
             ball,
         ]
 
