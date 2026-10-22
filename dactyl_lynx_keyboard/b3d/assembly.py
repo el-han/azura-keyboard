@@ -110,10 +110,20 @@ class KeyboardAssembly:
         The top half is both key plates. The bottom half is both cases' outsides, hollowed out by both cavities so
         their insides run into each other, and without anything the top half occupies.
         """
-        finger_top, finger_outer, finger_cavity = self._finger_case()
-        thumb_top, thumb_outer, thumb_cavity = self._thumb_case()
-        top = finger_top + thumb_top
-        bottom = (finger_outer + thumb_outer) - finger_cavity - thumb_cavity - top
+        finger_plate, finger_outer, finger_cavity, above_finger_keys = self._finger_case()
+        thumb_plate, thumb_outer, thumb_cavity = self._thumb_case()
+
+        # Where the thumb well's case runs into the finger well, it must stay below the finger keys.
+        top = finger_plate + (thumb_plate - above_finger_keys)
+        bottom = (finger_outer + thumb_outer) - finger_cavity - thumb_cavity - above_finger_keys - top
+
+        # Cut all holes only after merging, so no plate fills another one's holes.
+        for layout in (self.finger_layout, self.thumb_layout):
+            k = layout.keyswitch
+            top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
+            top -= place_all(layout, keyswitch.switch(k))
+            top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
+        top -= self.trackball_clearance()
         bottom -= self.trackball_clearance()
         return top, bottom
 
@@ -141,15 +151,14 @@ class KeyboardAssembly:
         smoothing = 3
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
 
-    def _finger_case(self) -> tuple[Part, Part, Part]:
-        """The finger well's case as (top, bottom outside, cavity).
+    def _finger_case(self) -> tuple[Part, Part, Part, Part]:
+        """The finger well's case as (plate, bottom outside, cavity, space above the keys), without any holes.
 
         The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
         joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
         surface. Screws will go into the rim later.
         """
         layout = self.finger_layout
-        k = layout.keyswitch
         inner_footprint = self._case_inner_footprint(layout)
         footprint = offset(inner_footprint, self.case_wall, kind=Kind.ARC)
 
@@ -162,17 +171,13 @@ class KeyboardAssembly:
             and abs(face.geom_adaptor().Torus().MinorRadius() - (layout.row_radius + self.plate_thickness)) < 1e-6
         )
 
-        top = plate
-        top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
-        top -= place_all(layout, keyswitch.switch(k))
-        top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
-        top -= self.trackball_clearance()
 
         # Below the plate down to the outside of the floor, hollowed out by the space inside the walls. The cavity
         # starts at the key plane, above the plate's underside, so the two never share a face.
         outer = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
         cavity = self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
-        return top, outer, cavity
+        above = extrude(footprint, self.max_height) & surface.torus(layout)
+        return plate, outer, cavity, above
 
     def _thumb_arc(
         self, center_x: float, start_angle: float, end_angle: float, length: float, top_depth: float, bottom_depth: float
@@ -222,27 +227,23 @@ class KeyboardAssembly:
         return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
 
     def _thumb_case(self) -> tuple[Part, Part, Part]:
-        """The thumb well's case as (top, bottom outside, cavity), built like `_finger_case()`.
+        """The thumb well's case as (plate, bottom outside, cavity), built like `_finger_case()`, without any holes.
 
         The thumb surface is made of cylinder arcs and a flat strip, whose normals are radial or vertical, so moving
         it along its normals just means larger radii and a lower strip.
         """
         layout = self.thumb_layout
-        k = layout.keyswitch
         to_layout = to_location(layout.layout_place(Transform()))
         # The case is as long as a PCB plus clearance and walls; along the arc, the walls sit inside the half key
         # spacing past the outermost keys, which leaves room for the PCBs.
         inner_length = keyswitch.PCB_SIZE + 2 * self.case_clearance
         length = inner_length + 2 * self.case_wall
 
-        top = to_layout * self._thumb_band(0, self.plate_thickness, length)
-        top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
-        top -= place_all(layout, keyswitch.switch(k))
-        top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
+        plate = to_layout * self._thumb_band(0, self.plate_thickness, length)
 
         outer = self._thumb_band(self.plate_thickness, self.cavity_depth + self.case_wall, length)
         cavity = self._thumb_band(-1, self.cavity_depth, inner_length, inset=self.case_wall)
-        return top, to_layout * outer, to_layout * cavity
+        return plate, to_layout * outer, to_layout * cavity
 
     def _trackball_center(self) -> Location:
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
