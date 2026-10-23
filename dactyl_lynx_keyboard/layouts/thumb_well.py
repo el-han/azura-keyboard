@@ -19,7 +19,7 @@ class ThumbWellLayout(Layout):
         "Angle between neighbouring keys on the arc"
         self.offset_per_col = 14
 
-        self.placement_transform = (-30, -45, 15)
+        self.placement_transform = (-30, -49, 15)
 
     def column_angle(self, column: float) -> float:
         """Calculate the Y rotation angle for the given column.
