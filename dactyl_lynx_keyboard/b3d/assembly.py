@@ -88,7 +88,8 @@ class KeyboardAssembly:
         The top half is both key plates. The bottom half is both cases' outsides, hollowed out by both cavities so
         their insides run into each other, and without anything the top half occupies.
         """
-        finger_plate, finger_outer, finger_cavity, above_finger_keys = self._finger_case()
+        finger_plate, finger_outer, finger_cavity, seam_region = self._finger_case()
+        above_finger_keys = seam_region & surface.torus(self.finger_layout)
         thumb_plate, thumb_outer, thumb_cavity, thumb_plate_region = self._thumb_case()
 
         # Where the two wells meet, their insides run into each other without a wall in between: neither plate may
@@ -97,9 +98,16 @@ class KeyboardAssembly:
         below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=self.plate_thickness)
         below_thumb_plate = thumb_cavity - thumb_plate_region
         # Trim the thumb well's case where it rises above the finger keys, except right around the thumb keys.
-        thumb_trim = above_finger_keys - self._thumb_key_zones()
-        top = (finger_plate - below_thumb_plate) + (thumb_plate - thumb_trim - below_finger_plate)
-        bottom = (finger_outer + (thumb_outer - thumb_trim)) - finger_cavity - thumb_cavity - top
+        thumb_key_zones = self._thumb_key_zones()
+        thumb_trim = above_finger_keys - thumb_key_zones
+        # Where that opens the thumb well's inside, close it with the finger plate carried over the thumb case.
+        finger_plate_level = surface.torus(self.finger_layout, depth=self.plate_thickness) - surface.torus(
+            self.finger_layout
+        )
+        lid = (thumb_outer + thumb_plate + thumb_cavity) & finger_plate_level & seam_region - thumb_key_zones
+        top = (finger_plate - below_thumb_plate) + (thumb_plate - thumb_trim - below_finger_plate) + lid
+        # Cut with a copy: OCCT can alter a boolean's tool shape, which broke the holes cut into `top` below.
+        bottom = (finger_outer + (thumb_outer - thumb_trim)) - finger_cavity - thumb_cavity - copy.deepcopy(top)
 
         # Cut all holes only after merging, so no plate fills another one's holes.
         for layout in (self.finger_layout, self.thumb_layout):
@@ -109,7 +117,7 @@ class KeyboardAssembly:
         top -= self.trackball_clearance()
         bottom -= self.trackball_clearance()
         # The cuts at the seam between the wells occasionally leave small topology errors.
-        return top.fix(), bottom
+        return top.fix(), bottom.fix()
 
     def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
         """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
@@ -151,8 +159,8 @@ class KeyboardAssembly:
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
 
     def _finger_case(self) -> tuple[Part, Part, Part, Part]:
-        """The finger well's case as (plate, bottom outside, cavity, space above the key surface, reaching
-        `seam_margin` past the case), without any holes.
+        """The finger well's case as (plate, bottom outside, cavity, seam region), without any holes. The seam region
+        is a vertical prism over the case's footprint grown by `seam_margin`.
 
         The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
         joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
@@ -172,8 +180,8 @@ class KeyboardAssembly:
         outer = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
         cavity = self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
         # Reaching a bit past the footprint, so the thumb well's case is trimmed flush with the finger well's edge.
-        above = extrude(offset(footprint, self.seam_margin, kind=Kind.ARC), self.max_height) & surface.torus(layout)
-        return plate, outer, cavity, above
+        seam_region = extrude(offset(footprint, self.seam_margin, kind=Kind.ARC), self.max_height)
+        return plate, outer, cavity, seam_region
 
     def _thumb_arc(
         self, center_x: float, start_angle: float, end_angle: float, length: float, top_depth: float, bottom_depth: float
