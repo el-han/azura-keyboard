@@ -15,11 +15,13 @@ if __name__ == "__main__":
     makedirs(out_dir, exist_ok=True)
 
     assembly = KeyboardAssembly()
-    case_top, case_bottom = assembly.case()
-    # file name: (part, label, color); three shades of slate blue for the printed parts
+    case = assembly.case()
+    # file name: (part, label, color); shades of slate blue for the printed parts
     printed = {
-        "top": (case_top, "case top", Color(0.36, 0.47, 0.60)),
-        "bottom": (case_bottom, "case bottom", Color(0.24, 0.33, 0.45)),
+        "finger-top": (case["finger top"], "finger well top", Color(0.36, 0.47, 0.60)),
+        "finger-bottom": (case["finger bottom"], "finger well bottom", Color(0.24, 0.33, 0.45)),
+        "thumb-top": (case["thumb top"], "thumb well top", Color(0.45, 0.56, 0.68)),
+        "thumb-bottom": (case["thumb bottom"], "thumb well bottom", Color(0.30, 0.40, 0.52)),
         "trackball": (assembly.trackball_part(), "trackball well", Color(0.55, 0.64, 0.74)),
     }
     parts = {}
