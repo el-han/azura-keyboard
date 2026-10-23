@@ -79,6 +79,8 @@ class KeyboardAssembly:
         "Thickness of the case's walls and floor"
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
+        self.seam_margin = 10
+        "How far past the finger well the thumb well's case is trimmed to stay below the finger keys"
 
     def case(self) -> tuple[Part, Part]:
         """The keyboard's case as (top, bottom): the finger and thumb wells' cases merged into one.
@@ -94,8 +96,10 @@ class KeyboardAssembly:
         # finger keys.
         below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=self.plate_thickness)
         below_thumb_plate = thumb_cavity - thumb_plate_region
-        top = (finger_plate - below_thumb_plate) + (thumb_plate - above_finger_keys - below_finger_plate)
-        bottom = (finger_outer + thumb_outer) - finger_cavity - thumb_cavity - above_finger_keys - top
+        # Trim the thumb well's case where it rises above the finger keys, except right around the thumb keys.
+        thumb_trim = above_finger_keys - self._thumb_key_zones()
+        top = (finger_plate - below_thumb_plate) + (thumb_plate - thumb_trim - below_finger_plate)
+        bottom = (finger_outer + (thumb_outer - thumb_trim)) - finger_cavity - thumb_cavity - top
 
         # Cut all holes only after merging, so no plate fills another one's holes.
         for layout in (self.finger_layout, self.thumb_layout):
@@ -147,7 +151,8 @@ class KeyboardAssembly:
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
 
     def _finger_case(self) -> tuple[Part, Part, Part, Part]:
-        """The finger well's case as (plate, bottom outside, cavity, space above the keys), without any holes.
+        """The finger well's case as (plate, bottom outside, cavity, space above the key surface, reaching
+        `seam_margin` past the case), without any holes.
 
         The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
         joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
@@ -166,7 +171,8 @@ class KeyboardAssembly:
         # starts at the key plane, above the plate's underside, so the two never share a face.
         outer = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
         cavity = self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
-        above = extrude(footprint, self.max_height) & surface.torus(layout)
+        # Reaching a bit past the footprint, so the thumb well's case is trimmed flush with the finger well's edge.
+        above = extrude(offset(footprint, self.seam_margin, kind=Kind.ARC), self.max_height) & surface.torus(layout)
         return plate, outer, cavity, above
 
     def _thumb_arc(
@@ -233,6 +239,14 @@ class KeyboardAssembly:
         # Everything from (almost) the arc's axis down to the plate's underside
         plate_region = self._thumb_band(1 - layout.column_radius, self.plate_thickness, length)
         return to_layout * plate, to_layout * outer, to_layout * cavity, to_layout * plate_region
+
+    def _thumb_key_zones(self) -> Part:
+        """The plate and case right around each thumb key (a PCB plus clearance wide), which must stay whole."""
+        width = keyswitch.PCB_SIZE + 2 * self.case_clearance
+        depth = self.cavity_depth + self.case_wall
+        zone = Pos(0, 0, -depth / 2) * Box(width, keyswitch.PCB_SIZE + 2 * (self.case_clearance + self.case_wall), depth + 20)
+        zones = place_all(self.thumb_layout, zone)
+        return zones[0].fuse(*zones[1:]) if len(zones) > 1 else zones[0]
 
     def _trackball_center(self) -> Location:
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
