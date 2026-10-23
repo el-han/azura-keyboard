@@ -87,10 +87,14 @@ class KeyboardAssembly:
         their insides run into each other, and without anything the top half occupies.
         """
         finger_plate, finger_outer, finger_cavity, above_finger_keys = self._finger_case()
-        thumb_plate, thumb_outer, thumb_cavity = self._thumb_case()
+        thumb_plate, thumb_outer, thumb_cavity, thumb_plate_region = self._thumb_case()
 
-        # Where the thumb well's case runs into the finger well, it must stay below the finger keys.
-        top = finger_plate + (thumb_plate - above_finger_keys)
+        # Where the two wells meet, their insides run into each other without a wall in between: neither plate may
+        # reach into the other well's cavity below that well's plate. And the thumb well's case must stay below the
+        # finger keys.
+        below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=self.plate_thickness)
+        below_thumb_plate = thumb_cavity - thumb_plate_region
+        top = (finger_plate - below_thumb_plate) + (thumb_plate - above_finger_keys - below_finger_plate)
         bottom = (finger_outer + thumb_outer) - finger_cavity - thumb_cavity - above_finger_keys - top
 
         # Cut all holes only after merging, so no plate fills another one's holes.
@@ -100,7 +104,8 @@ class KeyboardAssembly:
             top -= place_all(layout, keyswitch.switch(k))
         top -= self.trackball_clearance()
         bottom -= self.trackball_clearance()
-        return top, bottom
+        # The cuts at the seam between the wells occasionally leave small topology errors.
+        return top.fix(), bottom
 
     def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
         """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
@@ -208,8 +213,9 @@ class KeyboardAssembly:
             )
         return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
 
-    def _thumb_case(self) -> tuple[Part, Part, Part]:
-        """The thumb well's case as (plate, bottom outside, cavity), built like `_finger_case()`, without any holes.
+    def _thumb_case(self) -> tuple[Part, Part, Part, Part]:
+        """The thumb well's case as (plate, bottom outside, cavity, everything above the plate's underside), built like
+        `_finger_case()`, without any holes.
 
         The thumb surface is made of cylinder arcs and a flat strip, whose normals are radial or vertical, so moving
         it along its normals just means larger radii and a lower strip.
@@ -224,7 +230,9 @@ class KeyboardAssembly:
         plate = self._thumb_band(0, self.plate_thickness, length)
         outer = self._thumb_band(self.plate_thickness, self.cavity_depth + self.case_wall, length)
         cavity = self._thumb_band(-1, self.cavity_depth, inner_length, inset=self.case_wall)
-        return to_layout * plate, to_layout * outer, to_layout * cavity
+        # Everything from (almost) the arc's axis down to the plate's underside
+        plate_region = self._thumb_band(1 - layout.column_radius, self.plate_thickness, length)
+        return to_layout * plate, to_layout * outer, to_layout * cavity, to_layout * plate_region
 
     def _trackball_center(self) -> Location:
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
