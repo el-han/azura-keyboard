@@ -4,7 +4,7 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from .keys import Kailh, Keyswitch
+from .keys import Keyswitch
 from .layout import Layout
 from .transform import Transform
 
@@ -12,16 +12,11 @@ from .transform import Transform
 class ThumbWellLayout(Layout):
     """The layout of a thumb well.
     """
-    def __init__(self, columns: int = 3, rows: int = 3, keyswitch: Keyswitch = Kailh()):
-        super(ThumbWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
+    def __init__(self, keyswitch: Keyswitch = Keyswitch()):
+        super(ThumbWellLayout, self).__init__(keyswitch=keyswitch)
 
-        # Cupping amounts, in radians per row/column
-        # self.rad_per_row = 2 * math.pi / 3
         self.rad_per_col = 2 * math.pi / 8
-
-        # self.offset_per_row = self.keyswitch.plate_size().y
-        # self.offset_per_row = 17.5
-        # self.offset_per_col = self.keyswitch.plate_size().x
+        "Angle between neighbouring keys on the arc"
         self.offset_per_col = 14
 
         self.placement_transform = (-30, -45, 15)
@@ -55,7 +50,7 @@ class ThumbWellLayout(Layout):
 
     def key_angle(self, column: float, row: float) -> float:
         """The angle of the key around the thumb arc (degrees); 0 is the bottom, positive angles go toward -X."""
-        return self.column_angle(self.column_adjust(column))
+        return self.column_angle(column)
 
     def flat_width(self, row: float = 0) -> float:
         """Width of the flat strip at the bottom of the arc (mm): the combined extra width of the keys sitting there."""
@@ -89,9 +84,6 @@ class ThumbWellLayout(Layout):
 
         :param transform: the placement so far
         """
-        # transform = transform.up(self.row_radius)
-        # transform = transform.rotate(90-self.row_angle(0), (1, 0, 0))
-        # transform = transform.rotate(self.column_angle(0), (0, 0, 1))
         transform = transform.rotate(15, (0, 0, 1))
         transform = transform.translate(self.placement_transform)
         return transform

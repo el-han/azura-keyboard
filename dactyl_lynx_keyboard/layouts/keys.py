@@ -1,11 +1,5 @@
 """Keyswitch measurements (formerly from `spkb.keyswitch`).
 """
-from typing import NamedTuple
-
-
-class Offset2D(NamedTuple):
-    x: float
-    y: float
 
 
 class Keyswitch:
@@ -35,9 +29,6 @@ class Keyswitch:
     notch_height_outer: float = 9
     "The height of the notch for the switch's clips at the edge of the mounting hole"
 
-    wall_thickness: float = 1.5
-    "The thickness of the mounting hole walls"
-
     switch_midline_width: float = 15.7
     "The width (left to right) of the switch's housing flange on top of the plate, plus a little clearance"
     switch_midline_length: float = 15.7
@@ -50,13 +41,3 @@ class Keyswitch:
     "The length (front to back) of the switch at its top"
     switch_height_above_plate: float = 6.2
     "The height of the switch body above the top of the plate"
-
-    def plate_size(self) -> Offset2D:
-        """The size of the plate segment around one switch."""
-        return Offset2D(self.keyswitch_width + self.wall_thickness * 2, self.keyswitch_length + self.wall_thickness * 2)
-
-
-class Kailh(Keyswitch):
-    """MX-style switches as used here; the plate-to-base depth doubles as the plate thickness."""
-    keyswitch_depth: float = 3
-    "From the base of the switch to the mounting plate face"

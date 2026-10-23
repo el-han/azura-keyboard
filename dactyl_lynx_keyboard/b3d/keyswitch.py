@@ -83,12 +83,9 @@ PCB_TOP_BELOW_PLATE = 5.08
 "Depth of the PCB's top below the plate's top: an MX switch housing ends 5 mm below the plate."
 
 
-def single_key_board(extra_spacing: float = 0) -> Box:
+def single_key_board() -> Box:
     """Simplified single-key PCB (a rectangular prism)."""
-    size = PCB_SIZE + extra_spacing * 2
-    pcb = Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE + extra_spacing / 2)) * Box(
-        size, size, PCB_THICKNESS + extra_spacing
-    )
+    pcb = Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE)) * Box(PCB_SIZE, PCB_SIZE, PCB_THICKNESS)
     pcb.color = Color(0.0, 0.4, 0.15)
     return pcb
 

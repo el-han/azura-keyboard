@@ -49,10 +49,6 @@ class Transform:
     def __init__(self, matrix: Matrix = _IDENTITY):
         self.matrix = matrix
 
-    def then(self, other: "Transform") -> "Transform":
-        """Apply `other` after this transform."""
-        return Transform(_multiply(other.matrix, self.matrix))
-
     def _then_matrix(self, matrix: Matrix) -> "Transform":
         return Transform(_multiply(matrix, self.matrix))
 
@@ -88,6 +84,3 @@ class Transform:
             m[1][0] * x + m[1][1] * y + m[1][2] * z + m[1][3],
             m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3],
         )
-
-    def as_lists(self) -> list[list[float]]:
-        return [list(row) for row in self.matrix]

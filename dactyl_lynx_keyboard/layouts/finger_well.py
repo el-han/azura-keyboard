@@ -4,7 +4,7 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from .keys import Kailh, Keyswitch
+from .keys import Keyswitch
 from .layout import Layout
 from .transform import Transform
 
@@ -12,25 +12,22 @@ from .transform import Transform
 class FingerWellLayout(Layout):
     """The layout of a finger well.
     """
-    def __init__(self, columns: int = 6, rows: int = 5, use_1_5u_keys: bool = True, keyswitch: Keyswitch = Kailh()):
+    def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = Keyswitch()):
         super(FingerWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
-
-        self.use_1_5u_keys = use_1_5u_keys
 
         self.placement_transform = (0, 0, 1.6 + 3.0 + 5.0)
 
         self.positions_to_skip = ((0, 4), (1, 4), (2, 4))
+        "Grid positions without a key: the bottom row under the index and middle fingers, where the thumb goes"
 
-    def column_adjust(self, column: float) -> float:
-        """Adjust the effective column number of a given column to account for 1.5u keys on the
-        outside columns.
-
-        :param column: the column number to adjust
-        """
-        if self.use_1_5u_keys and column >= 5:
-            return column + (column - 4) * 0.25
-        else:
-            return column
+        self.outline_corners = (
+            (-0.5, -0.75),
+            (-0.5, 3.5),
+            (2.5, 3.5),
+            (2.5, 4.75),
+            (5.5, 4.75),
+            (5.5, -0.75),
+        )
 
     def row_angle(self, row: float) -> float:
         """Calculate the X rotation angle for the given row.
@@ -63,30 +60,22 @@ class FingerWellLayout(Layout):
         transform = transform.up(self.column_radius)
         transform = transform.translate((1.5*self.offset_per_col, 0.0, 0.0))
 
-        # transform = transform.rotate(10, (0,0,1))
-        
         return transform.translate((0.5*self.offset_per_col, 0.0, 0.0))
 
     def generate_positions(self) -> Iterable[Tuple[float, float]]:
-        """Generate the list of locations within the layout.
-
-        Override this to change the list of locations, or set `positions_to_skip` to filter out certain positions.
+        """Generate the list of locations within the layout, with the middle finger's column shifted up and the
+        pinky's columns shifted down by a quarter key.
         """
         positions = []
-        
         for column in range(self.columns):
             for row in range(self.rows):
                 if (column, row) in self.positions_to_skip:
                     continue
-                    
-                # shift rows for middle finger and pinky
                 if column == 2:
                     row += -0.25
-                elif column >=4:
+                elif column >= 4:
                     row += 0.25
-                    
                 positions.append((column, row))
-
         return positions
 
     def layout_place(self, transform: Transform) -> Transform:
@@ -95,59 +84,5 @@ class FingerWellLayout(Layout):
         :param transform: the placement so far
         """
         return transform \
-            .up(self.web_thickness) \
+            .up(self.plate_thickness) \
             .translate(self.placement_transform)
-
-
-    def plate_node_positions(self) -> Iterable[Tuple[float, float]]:
-        positions = super().plate_node_positions()
-        positions.extend([
-            (-0.75, -0.75),
-            (-0.50, -0.75),
-            (-0.25, -0.75),
-            (0.00, -0.75),
-            (0.25, -0.75),
-            (0.50, -0.75),
-            (0.75, -0.75),
-            (1.00, -0.75),
-            (1.25, -0.75),
-            (1.50, -0.75),
-        ])
-        positions.extend([
-            (3.50, -0.50),
-            (3.75, -0.50),
-            (4.00, -0.50),
-            (4.25, -0.50),
-            (4.50, -0.50),
-            (4.75, -0.50),
-            (5.00, -0.50),
-            (5.25, -0.50),
-            (5.50, -0.50),
-        ])
-        positions.extend([
-            (2.50, -0.75),
-            (2.75, -0.75),
-            (3.00, -0.75),
-            (3.25, -0.75),
-            (3.50, -0.75),
-            (3.75, -0.75),
-            (4.00, -0.75),
-            (4.25, -0.75),
-            (4.50, -0.75),
-            (4.75, -0.75),
-            (5.00, -0.75),
-            (5.25, -0.75),
-            (5.50, -0.75),
-        ])
-        positions.extend([
-            (1.75, 3.50),
-            (2.00, 3.50),
-            (2.25, 3.50),
-        ])
-        positions.extend([
-            (2.50, 4.75),
-            (2.75, 4.75),
-            (3.00, 4.75),
-            (3.25, 4.75),
-        ])
-        return positions

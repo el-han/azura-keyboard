@@ -6,17 +6,17 @@ from collections.abc import Iterable
 from typing import Optional
 
 from build123d import (
-    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Plane, Polygon, Pos, Rot, Shape, Solid, Sphere,
-    extrude, offset,
+    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
+    offset,
 )
 
 from ..layouts.finger_well import FingerWellLayout
-from ..layouts.keys import Kailh
+from ..layouts.keys import Keyswitch
 from ..layouts.layout import Layout
 from ..layouts.thumb_well import ThumbWellLayout
-from . import keyswitch, sensor, surface
 from ..layouts.transform import Transform
 from ..trackball import TrackBall
+from . import keyswitch, sensor, surface
 from .placement import key_location, to_location
 
 
@@ -45,38 +45,28 @@ def place_instances(
     return instances
 
 
-def _convex_hull_2d(points: list[tuple[float, float]]) -> list[tuple[float, float]]:
-    """Counter-clockwise convex hull of 2D points (Andrew's monotone chain)."""
-    points = sorted(set(points))
-
-    def half(pts):
-        chain: list[tuple[float, float]] = []
-        for p in pts:
-            while len(chain) >= 2 and (
-                (chain[-1][0] - chain[-2][0]) * (p[1] - chain[-2][1])
-                - (chain[-1][1] - chain[-2][1]) * (p[0] - chain[-2][0])
-            ) <= 0:
-                chain.pop()
-            chain.append(p)
-        return chain[:-1]
-
-    return half(points) + half(points[::-1])
-
-
 def place_all(layout: Layout, shape: Part) -> list[Part]:
     """Place a copy of `shape` at every key position of the layout."""
     return [key_location(layout, column, row) * shape for (column, row) in layout.generate_positions()]
 
 
+def _torus_face(solid: Shape, minor_radius: float) -> Face:
+    """The face of `solid` lying on the torus with the given minor radius."""
+    return next(
+        face for face in solid.faces()
+        if face.geom_type == GeomType.TORUS and abs(face.geom_adaptor().Torus().MinorRadius() - minor_radius) < 1e-6
+    )
+
+
 class KeyboardAssembly:
     def __init__(self, columns: int = 6, rows: int = 5):
-        k = Kailh()
-        self.finger_layout = FingerWellLayout(columns=columns, rows=rows, use_1_5u_keys=False, keyswitch=k)
+        k = Keyswitch()
+        self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
         self.trackball_position = (-74, -25, 5)
 
-        self.plate_thickness = self.finger_layout.web_thickness
+        self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
         "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
         self.finger_straight_columns = (-0.5,)
@@ -89,20 +79,6 @@ class KeyboardAssembly:
         "Thickness of the case's walls and floor"
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
-
-    def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
-        """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
-        slab = extrude(footprint, self.max_height) & (
-            surface.torus(layout, depth=depth + 1) - surface.torus(layout, depth=depth)
-        )
-        # Drop slivers from where the torus turns over beyond the footprint; keep the key surface itself.
-        slab = max(slab.solids(), key=lambda solid: solid.volume)
-        minor_radius = layout.row_radius + depth
-        return next(
-            face for face in slab.faces()
-            if face.geom_type == GeomType.TORUS
-            and abs(face.geom_adaptor().Torus().MinorRadius() - minor_radius) < 1e-6
-        )
 
     def case(self) -> tuple[Part, Part]:
         """The keyboard's case as (top, bottom): the finger and thumb wells' cases merged into one.
@@ -122,16 +98,24 @@ class KeyboardAssembly:
             k = layout.keyswitch
             top -= place_all(layout, keyswitch.mounting_socket(k, extra_depth=1, extra_height=3))
             top -= place_all(layout, keyswitch.switch(k))
-            top -= place_all(layout, keyswitch.single_key_board(extra_spacing=0.02))
         top -= self.trackball_clearance()
         bottom -= self.trackball_clearance()
         return top, bottom
 
-    def _thicken_down(self, face: Face, amount: float) -> Solid:
+    def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
+        """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
+        slab = extrude(footprint, self.max_height) & (
+            surface.torus(layout, depth=depth + 1) - surface.torus(layout, depth=depth)
+        )
+        # Drop slivers from where the torus turns over beyond the footprint; keep the key surface itself.
+        slab = max(slab.solids(), key=lambda solid: solid.volume)
+        return _torus_face(slab, layout.row_radius + depth)
+
+    @staticmethod
+    def _thicken_down(face: Face, amount: float) -> Solid:
         """Thicken a key surface face by `amount` along its normals, away from the keycaps."""
-        solid = Solid.thicken(face, amount)
-        upward = Solid.thicken(face, -amount)
-        return solid if solid.center().Z < upward.center().Z else upward
+        pointing_up = face.normal_at(face.center()).Z > 0
+        return Solid.thicken(face, -amount if pointing_up else amount)
 
     def _case_inner_footprint(self, layout: Layout) -> Face:
         """The inside of the case in top view: the plate outline, grown to hold every key's PCB.
@@ -140,20 +124,19 @@ class KeyboardAssembly:
         from the key plane are what has to fit.
         """
         half = keyswitch.PCB_SIZE / 2 + self.case_clearance
-        corners = [(sx * half, sy * half, 0) for sx in (-1, 1) for sy in (-1, 1)]
-        # Convex hulls give every square the same (counter-clockwise) orientation, so they fuse into one face.
+        # Counter-clockwise; the keys face up, so the projections stay counter-clockwise and fuse into one face.
+        corners = [(-half, -half, 0), (half, -half, 0), (half, half, 0), (-half, half, 0)]
         squares = [
-            Polygon(*_convex_hull_2d([layout.key_transform(column, row).apply(c)[:2] for c in corners]), align=None)
+            [layout.key_transform(column, row).apply(corner)[:2] for corner in corners]
             for (column, row) in layout.generate_positions()
         ]
         # Straight edges are moved out far enough to hold the PCBs, instead of bulging around them.
-        square_corners = [(vertex.X, vertex.Y) for square in squares for vertex in square.vertices()]
         footprint = surface.outline(
             layout,
             straight_columns=self.finger_straight_columns,
             straight_rows=self.finger_straight_rows,
-            enclose=square_corners,
-        ).fuse(*squares).clean()
+            enclose=[point for square in squares for point in square],
+        ).fuse(*[Polygon(*square, align=None) for square in squares]).clean()
         # Fill the small notches between neighbouring squares
         smoothing = 3
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
@@ -172,12 +155,7 @@ class KeyboardAssembly:
         # Everything is trimmed on the key plane and then thickened along the surface normals, so all edges follow
         # the normals and the two halves meet flush.
         plate = self._thicken_down(self._surface_face(layout, footprint, 0), self.plate_thickness)
-        plate_underside = next(
-            face for face in plate.faces()
-            if face.geom_type == GeomType.TORUS
-            and abs(face.geom_adaptor().Torus().MinorRadius() - (layout.row_radius + self.plate_thickness)) < 1e-6
-        )
-
+        plate_underside = _torus_face(plate, layout.row_radius + self.plate_thickness)
 
         # Below the plate down to the outside of the floor, hollowed out by the space inside the walls. The cavity
         # starts at the key plane, above the plate's underside, so the two never share a face.
@@ -194,19 +172,16 @@ class KeyboardAssembly:
         Angles are column angles (degrees): 0 is the bottom of the circle, positive angles go toward -X. The arc's
         ends are radial planes, so they follow the surface normals.
         """
-        layout = self.thumb_layout
-        radius = layout.column_radius
-        tube = Pos(center_x, 0, radius) * Rot(90, 0, 0) * (
-            Cylinder(radius + bottom_depth, length) - Cylinder(radius + top_depth, length)
+        radius = self.thumb_layout.column_radius
+        arc = end_angle - start_angle
+        # A cylinder's arc starts on its local +X axis; after turning its axis onto Y, local angle a points along
+        # (cos a, 0, sin a), and a column angle c along (-sin c, 0, -cos c), i.e. local angle -90 - c.
+        # (align=None keeps the cylinder's axis at the origin; otherwise a partial cylinder is centered on its bounds.)
+        tube = Pos(0, 0, -length / 2) * (
+            Cylinder(radius + bottom_depth, length, arc_size=arc, align=None)
+            - Cylinder(radius + top_depth, length, arc_size=arc, align=None)
         )
-        steps = max(2, math.ceil(abs(end_angle - start_angle) / 15))
-        far = 3 * radius
-        rays = [
-            (center_x - far * math.sin(math.radians(a)), radius - far * math.cos(math.radians(a)))
-            for a in (start_angle + (end_angle - start_angle) * i / steps for i in range(steps + 1))
-        ]
-        sector = extrude(Plane.XZ * Polygon((center_x, radius), *rays, align=None), length, both=True)
-        return tube & sector
+        return Pos(center_x, 0, radius) * Rot(90, 0, 0) * Rot(0, 0, -90 - end_angle) * tube
 
     def _thumb_band(self, top_depth: float, bottom_depth: float, length: float, inset: float = 0) -> Part:
         """The thumb well's surface thickened between two depths along its normals, in the layout's base frame.
@@ -246,11 +221,10 @@ class KeyboardAssembly:
         inner_length = keyswitch.PCB_SIZE + 2 * self.case_clearance
         length = inner_length + 2 * self.case_wall
 
-        plate = to_layout * self._thumb_band(0, self.plate_thickness, length)
-
+        plate = self._thumb_band(0, self.plate_thickness, length)
         outer = self._thumb_band(self.plate_thickness, self.cavity_depth + self.case_wall, length)
         cavity = self._thumb_band(-1, self.cavity_depth, inner_length, inset=self.case_wall)
-        return plate, to_layout * outer, to_layout * cavity
+        return to_layout * plate, to_layout * outer, to_layout * cavity
 
     def _trackball_center(self) -> Location:
         return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
@@ -282,20 +256,17 @@ class KeyboardAssembly:
 
     def sensor_model(self) -> Compound:
         """The trackball's sensor module, for collision checks (not printed)."""
-        model = sensor.model()
         return Compound(
-            label="sensor", children=[self._sensor_location() * child for child in model.children]
+            label="sensor", children=[self._sensor_location() * child for child in sensor.model().children]
         )
 
     def trackball_clearance(self) -> Part:
         """The space the ball needs to turn freely (the well's inner sphere)."""
-        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(
-            self.trackball.inner_diameter / 2
-        )
+        return self._trackball_center() * Sphere(self.trackball.inner_diameter / 2)
 
     def trackball_ball(self) -> Part:
         """The ball itself, for previews."""
-        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset) * Sphere(self.trackball.diameter / 2)
+        return self._trackball_center() * Sphere(self.trackball.diameter / 2)
 
     def switch_models(self) -> list[Shape]:
         """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed)."""

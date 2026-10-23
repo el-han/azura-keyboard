@@ -1,6 +1,6 @@
 """Build the keyboard parts with build123d and export them to `things/b3d/`.
 
-Run with `poetry run python -m dactyl_lynx_keyboard.b3d`.
+Run with `uv run python -m dactyl_lynx_keyboard.b3d`.
 """
 import copy
 from os import makedirs
@@ -16,31 +16,22 @@ if __name__ == "__main__":
 
     assembly = KeyboardAssembly()
     case_top, case_bottom = assembly.case()
-    parts = {
-        "top": case_top,
-        "bottom": case_bottom,
-        "trackball": assembly.trackball_part(),
+    # file name: (part, label, color); three shades of slate blue for the printed parts
+    printed = {
+        "top": (case_top, "case top", Color(0.36, 0.47, 0.60)),
+        "bottom": (case_bottom, "case bottom", Color(0.24, 0.33, 0.45)),
+        "trackball": (assembly.trackball_part(), "trackball well", Color(0.55, 0.64, 0.74)),
     }
-    labels = {
-        "top": "case top",
-        "bottom": "case bottom",
-        "trackball": "trackball well",
-    }
-    # Three shades of slate blue for the printed parts
-    colors = {
-        "top": Color(0.36, 0.47, 0.60),
-        "bottom": Color(0.24, 0.33, 0.45),
-        "trackball": Color(0.55, 0.64, 0.74),
-    }
-    for name, part in parts.items():
-        part.label = labels[name]
-        part.color = colors[name]
+    parts = {}
+    for name, (part, label, color) in printed.items():
+        part.label, part.color = label, color
+        parts[name] = part
     parts["combined"] = Compound(label="combined", children=[copy.copy(part) for part in parts.values()])
-    # Not printed: only for checking fit and collisions (switches, keycaps, PCBs, sensor, the ball). Assemblies store each model once.
+
     def not_printed():
+        """Only for checking fit and collisions. Assemblies store each model once."""
         ball = assembly.trackball_ball()
-        ball.label = "trackball"
-        ball.color = Color(0.5, 0.05, 0.05)
+        ball.label, ball.color = "trackball", Color(0.5, 0.05, 0.05)
         return [
             Compound(label="keycaps", children=assembly.keycap_models()),
             Compound(label="keyswitches", children=assembly.switch_models()),
@@ -49,9 +40,10 @@ if __name__ == "__main__":
             ball,
         ]
 
-    printed = [copy.copy(parts[name]) for name in ("top", "bottom", "trackball")]
     parts["switches"] = Compound(label="switches", children=not_printed())
-    parts["combined-with-switches"] = Compound(label="combined-with-switches", children=printed + not_printed())
+    parts["combined-with-switches"] = Compound(
+        label="combined-with-switches", children=[copy.copy(parts[name]) for name in printed] + not_printed()
+    )
 
     for name, part in parts.items():
         path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")
