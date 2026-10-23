@@ -15,7 +15,7 @@ class FingerWellLayout(Layout):
     def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = Keyswitch()):
         super(FingerWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
 
-        self.placement_transform = (0, 0, 1.6 + 3.0 + 5.0)
+        self.placement_transform = (0, 0, 1.6 + 3.0 + 5.0 + 9.0)
 
         self.positions_to_skip = ((0, 4), (1, 4), (2, 4))
         "Grid positions without a key: the bottom row under the index and middle fingers, where the thumb goes"

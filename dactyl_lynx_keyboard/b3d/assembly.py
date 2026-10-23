@@ -64,7 +64,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-74, -25, 5)
+        self.trackball_position = (-74, -25, 14)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
