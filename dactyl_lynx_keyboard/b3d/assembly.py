@@ -80,6 +80,8 @@ class KeyboardAssembly:
         self.max_height = 120
         "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
         self.finger_straight_columns = (-0.5,)
+        self.finger_straight_rows = (-0.75,)
+        "Edges of the finger well that should be straight in top view (see `surface.outline()`)"
 
         self.cavity_depth = 12
         "Depth of the case's inside below the key plane (switch pins end 8.3 mm below it)"
@@ -87,8 +89,6 @@ class KeyboardAssembly:
         "Thickness of the case's walls and floor"
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
-        "Edges of the finger well that should be straight in top view (see `surface.outline()`)"
-        "Upper bound for the height of any part (must stay below the far side of the key surface torus)"
 
     def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
         """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
@@ -146,7 +146,14 @@ class KeyboardAssembly:
             Polygon(*_convex_hull_2d([layout.key_transform(column, row).apply(c)[:2] for c in corners]), align=None)
             for (column, row) in layout.generate_positions()
         ]
-        footprint = surface.outline(layout, straight_columns=self.finger_straight_columns).fuse(*squares).clean()
+        # Straight edges are moved out far enough to hold the PCBs, instead of bulging around them.
+        square_corners = [(vertex.X, vertex.Y) for square in squares for vertex in square.vertices()]
+        footprint = surface.outline(
+            layout,
+            straight_columns=self.finger_straight_columns,
+            straight_rows=self.finger_straight_rows,
+            enclose=square_corners,
+        ).fuse(*squares).clean()
         # Fill the small notches between neighbouring squares
         smoothing = 3
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
