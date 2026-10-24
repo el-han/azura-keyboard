@@ -64,7 +64,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-80, -25, 14)
+        self.trackball_position = (-78.5, -26, 14)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -83,8 +83,7 @@ class KeyboardAssembly:
         "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
 
     def case(self) -> dict[str, Part]:
-        """The keyboard's case as separate parts: "top", "finger bottom" (including the trackball's cup) and "thumb
-        bottom".
+        """The keyboard's case as two parts, "top" and "bottom" (with the trackball's cup).
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
@@ -120,12 +119,16 @@ class KeyboardAssembly:
             + self._with_switch_holes(thumb_top, self.thumb_layout)
             + joint
         ).fix()
-        # The trackball's cup joins the finger well's bottom half; where they overlap, the walls fall away and their
-        # insides run into each other.
+        # The trackball's cup joins both wells' bottom halves into one; where they overlap, the walls fall away and
+        # their insides run into each other.
         cup, cup_inside = self._trackball_cup()
-        finger_bottom = (finger_bottom + (cup - finger_cavity)).fix() - cup_inside
+        bottom = (finger_bottom + thumb_bottom + (cup - finger_cavity - thumb_cavity)).fix() - cup_inside
+        bottom -= copy.deepcopy(top)
+        # The trackball well sits on the cup and just touches the top; that cut can leave a loose sliver of the plate's
+        # edge, which is dropped.
+        top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
 
-        parts = {"top": top, "finger bottom": finger_bottom, "thumb bottom": thumb_bottom}
+        parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:

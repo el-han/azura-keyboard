@@ -19,8 +19,7 @@ if __name__ == "__main__":
     # file name: (part, label, color); shades of slate blue for the printed parts
     printed = {
         "top": (case["top"], "case top", Color(0.36, 0.47, 0.60)),
-        "finger-bottom": (case["finger bottom"], "finger well bottom", Color(0.24, 0.33, 0.45)),
-        "thumb-bottom": (case["thumb bottom"], "thumb well bottom", Color(0.30, 0.40, 0.52)),
+        "bottom": (case["bottom"], "case bottom", Color(0.24, 0.33, 0.45)),
         "trackball": (assembly.trackball_part(), "trackball well", Color(0.55, 0.64, 0.74)),
     }
     parts = {}
