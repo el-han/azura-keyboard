@@ -22,6 +22,7 @@ if __name__ == "__main__":
         "finger-bottom": (case["finger bottom"], "finger well bottom", Color(0.24, 0.33, 0.45)),
         "thumb-bottom": (case["thumb bottom"], "thumb well bottom", Color(0.30, 0.40, 0.52)),
         "trackball": (assembly.trackball_part(), "trackball well", Color(0.55, 0.64, 0.74)),
+        "trackball-bottom": (assembly.trackball_bottom(), "trackball bottom", Color(0.40, 0.48, 0.58)),
     }
     parts = {}
     for name, (part, label, color) in printed.items():
