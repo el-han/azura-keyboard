@@ -79,15 +79,21 @@ class KeyboardAssembly:
         "Thickness of the case's walls and floor"
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
+        self.join_margin = 15
+        "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
 
     def case(self) -> dict[str, Part]:
-        """The keyboard's case as separate parts: "finger top", "finger bottom", "thumb top" and "thumb bottom".
+        """The keyboard's case as separate parts: "top", "finger bottom" and "thumb bottom".
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
         parts also give way to the finger parts.
+
+        The top joins both key plates: next to the finger well, everything of the thumb well's bottom half that rises
+        above the top edge of the finger well's bottom half belongs to the top as well, which ties the two plates
+        together.
         """
-        finger_plate, finger_outer, finger_cavity = self._finger_case()
+        finger_plate, finger_outer, finger_cavity, finger_footprint = self._finger_case()
         thumb_plate, thumb_outer, thumb_cavity, thumb_plate_region = self._thumb_case()
         below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=self.plate_thickness)
         below_thumb_plate = thumb_cavity - thumb_plate_region
@@ -99,12 +105,21 @@ class KeyboardAssembly:
         thumb_top = thumb_plate - below_finger_plate - finger_parts
         thumb_bottom = thumb_outer - thumb_cavity - finger_cavity - finger_parts - copy.deepcopy(thumb_top)
 
-        parts = {
-            "finger top": self._with_switch_holes(finger_top, self.finger_layout),
-            "finger bottom": finger_bottom,
-            "thumb top": self._with_switch_holes(thumb_top, self.thumb_layout),
-            "thumb bottom": thumb_bottom,
-        }
+        next_to_finger_well = extrude(
+            offset(finger_footprint, self.join_margin, kind=Kind.ARC), 2 * self.max_height, both=True
+        )
+        # Above the finger well's bottom half, i.e. above the finger plate's underside
+        above_finger_bottom = surface.torus(self.finger_layout, depth=self.plate_thickness)
+        joint = copy.deepcopy(thumb_bottom) & next_to_finger_well & above_finger_bottom
+        thumb_bottom -= copy.deepcopy(joint)
+
+        # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
+        top = (
+            self._with_switch_holes(finger_top, self.finger_layout)
+            + self._with_switch_holes(thumb_top, self.thumb_layout)
+            + joint
+        ).fix()
+        parts = {"top": top, "finger bottom": finger_bottom, "thumb bottom": thumb_bottom}
         return {name: (part - self.trackball_clearance()).fix() for name, part in parts.items()}
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
@@ -154,8 +169,8 @@ class KeyboardAssembly:
         smoothing = 3
         return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
 
-    def _finger_case(self) -> tuple[Part, Part, Part]:
-        """The finger well's case as (plate, bottom outside, cavity), without any holes.
+    def _finger_case(self) -> tuple[Part, Part, Part, Face]:
+        """The finger well's case as (plate, bottom outside, cavity, footprint in top view), without any holes.
 
         The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
         joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
@@ -175,7 +190,7 @@ class KeyboardAssembly:
         outer = self._thicken_down(plate_underside, self.cavity_depth + self.case_wall - self.plate_thickness)
         cavity = self._thicken_down(self._surface_face(layout, inner_footprint, 0), self.cavity_depth)
         # Reaching a bit past the footprint, so the thumb well's case is trimmed flush with the finger well's edge.
-        return plate, outer, cavity
+        return plate, outer, cavity, footprint
 
     def _thumb_arc(
         self, center_x: float, start_angle: float, end_angle: float, length: float, top_depth: float, bottom_depth: float
