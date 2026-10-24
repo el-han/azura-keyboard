@@ -64,7 +64,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-86, -25, 14)
+        self.trackball_position = (-80, -25, 14)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -83,7 +83,8 @@ class KeyboardAssembly:
         "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
 
     def case(self) -> dict[str, Part]:
-        """The keyboard's case as separate parts: "top", "finger bottom" and "thumb bottom".
+        """The keyboard's case as separate parts: "top", "finger bottom" (including the trackball's cup) and "thumb
+        bottom".
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
@@ -119,6 +120,11 @@ class KeyboardAssembly:
             + self._with_switch_holes(thumb_top, self.thumb_layout)
             + joint
         ).fix()
+        # The trackball's cup joins the finger well's bottom half; where they overlap, the walls fall away and their
+        # insides run into each other.
+        cup, cup_inside = self._trackball_cup()
+        finger_bottom = (finger_bottom + (cup - finger_cavity)).fix() - cup_inside
+
         parts = {"top": top, "finger bottom": finger_bottom, "thumb bottom": thumb_bottom}
         return {name: part.fix() for name, part in parts.items()}
 
@@ -285,8 +291,8 @@ class KeyboardAssembly:
         well -= Sphere(inner_radius)
         return self._trackball_center() * well
 
-    def trackball_bottom(self) -> Part:
-        """A cylindrical cup under the trackball well that encloses the sensor module.
+    def _trackball_cup(self) -> tuple[Part, Part]:
+        """A cylindrical cup under the trackball well that encloses the sensor module, as (cup, inside).
 
         It reaches from the well's equator down to a floor below the sensor's chip, wide enough for the sensor
         board, and hugs the outside of the well.
@@ -297,11 +303,9 @@ class KeyboardAssembly:
         outer_radius = inner_radius + self.case_wall
         inside_depth = ball.diameter / 2 + sensor.CHIP_TO_SURFACE + clearance
         depth = inside_depth + self.case_wall
-        cup = Pos(0, 0, -depth / 2) * Cylinder(outer_radius, depth) - Pos(0, 0, -inside_depth / 2) * Cylinder(
-            inner_radius, inside_depth
-        )
-        cup -= Sphere(ball.outer_diameter / 2)
-        return self._trackball_center() * cup
+        inside = Pos(0, 0, -inside_depth / 2) * Cylinder(inner_radius, inside_depth)
+        cup = Pos(0, 0, -depth / 2) * Cylinder(outer_radius, depth) - inside - Sphere(ball.outer_diameter / 2)
+        return self._trackball_center() * cup, self._trackball_center() * inside
 
     def sensor_model(self) -> Compound:
         """The trackball's sensor module, for collision checks (not printed)."""
