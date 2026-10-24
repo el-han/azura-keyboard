@@ -64,7 +64,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-74, -25, 14)
+        self.trackball_position = (-80, -25, 14)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -120,7 +120,7 @@ class KeyboardAssembly:
             + joint
         ).fix()
         parts = {"top": top, "finger bottom": finger_bottom, "thumb bottom": thumb_bottom}
-        return {name: (part - self.trackball_clearance()).fix() for name, part in parts.items()}
+        return {name: part.fix() for name, part in parts.items()}
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
         # Extend the hole well beyond both sides of the plate: when it ends close to the curved surfaces, OCCT
