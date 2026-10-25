@@ -37,9 +37,9 @@ def board_face_z() -> float:
 
 def _from_kicad() -> Location:
     """From the board's STEP frame to the sensor frame: turned over so the lens faces up, optical center at the
-    origin."""
+    origin, and turned around so the solder pads for the wires face +X (toward the finger well)."""
     x, y = OPTICAL_CENTER_KICAD
-    return Pos(0, 0, board_face_z()) * Rot(180, 0, 0) * Pos(-x, y, 0)
+    return Pos(0, 0, board_face_z()) * Rot(0, 0, 180) * Rot(180, 0, 0) * Pos(-x, y, 0)
 
 
 def _hole_positions() -> list[tuple[float, float]]:

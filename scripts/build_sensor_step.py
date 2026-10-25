@@ -3,8 +3,9 @@
 1. Model the PMW3610DM-SUDU sensor and its LM18-LSI lens (not part of KiCad's libraries) and write
    `resources/sensor/PMW3610DM-SUDU_LM18-LSI.step`, in the footprint's frame.
 2. Copy the board from the `resources/pmw3610-pcb` submodule to `resources/sensor/`, add that model to the sensor's
-   footprint, and point the other 3D models at KiCad's STEP library.
-3. Export the whole board with KiCad to `resources/sensor/pmw3610_pcb.step`.
+   footprint, mark the pin header "do not populate" (the wires are soldered straight to its pads), and point the
+   other 3D models at KiCad's STEP library.
+3. Export the board with KiCad, without do-not-populate parts, to `resources/sensor/pmw3610_pcb.step`.
 
 Run with `uv run python scripts/build_sensor_step.py` (needs `kicad-cli`).
 
@@ -21,6 +22,7 @@ ROOT = dirname(dirname(abspath(__file__)))
 SUBMODULE = join(ROOT, "resources", "pmw3610-pcb")
 OUT = join(ROOT, "resources", "sensor")
 MODEL_NAME = "PMW3610DM-SUDU_LM18-LSI.step"
+MODEL_PLACEHOLDER = "@@SENSOR_MODEL@@"
 
 # Assembly drawing (heights above the navigation surface, sensor on top of the PCB, lens below it)
 PCB_TOP_TO_SURFACE = 7.40
@@ -60,11 +62,16 @@ def patched_board() -> str:
     footprint = board.index('(footprint "pmw3610_pcb:PMW3610DM-SUDU 16Pin"')
     # The footprint's first pad marks where its own properties end; put the model right before it.
     first_pad = board.index("(pad ", footprint)
+    board = board[:first_pad] + MODEL_PLACEHOLDER + board[first_pad:]
+    header = board.index('(footprint "Connector_PinHeader_2.54mm:')
+    attr = board.index("(attr through_hole", header)
+    if not board.startswith("(attr through_hole dnp", attr):
+        board = board[:attr] + "(attr through_hole dnp" + board[attr + len("(attr through_hole"):]
     model = (
         f'(model "${{KIPRJMOD}}/{MODEL_NAME}"\n'
         "\t\t\t(offset (xyz 0 0 0))\n\t\t\t(scale (xyz 1 1 1))\n\t\t\t(rotate (xyz 0 0 0))\n\t\t)\n\t\t"
     )
-    return board[:first_pad] + model + board[first_pad:]
+    return board.replace(MODEL_PLACEHOLDER, model)
 
 
 if __name__ == "__main__":
@@ -73,6 +80,6 @@ if __name__ == "__main__":
     with open(board_path, "w") as f:
         f.write(patched_board())
     subprocess.run(
-        ["kicad-cli", "pcb", "export", "step", "-f", "-o", join(OUT, "pmw3610_pcb.step"), board_path],
+        ["kicad-cli", "pcb", "export", "step", "-f", "--no-dnp", "-o", join(OUT, "pmw3610_pcb.step"), board_path],
         check=True,
     )

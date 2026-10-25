@@ -4278,7 +4278,7 @@
 		(path "/34d4248d-cc20-4470-b205-be854b11e36c")
 		(sheetname "/")
 		(sheetfile "pmw3610_pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_line
 			(start -1.38 -1.38)
 			(end 0 -1.38)
