@@ -82,8 +82,8 @@ class KeyboardAssembly:
         self.join_margin = 15
 
         # Stand
-        self.table_z = -4
-        "Height of the table the stand rests on"
+        self.table_z = 0
+        "Height of the table the stand rests on: the thumb well touches it with the flat strip in its middle"
         self.electronics_box = ((-56, -6), (4, 50))
         "Corners (x, y) of the electronics box under the back left of the finger well; it holds an Adafruit Feather"
         " nRF52840 (51 x 23 mm) on its floor and a 503040 LiPo (50 x 30 x 5 mm)"
