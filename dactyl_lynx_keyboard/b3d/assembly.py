@@ -94,6 +94,12 @@ class KeyboardAssembly:
         self.thumb_floor_to_skirt = True
         "Whether the thumb well's floor reaches past its back wall to the finger well's skirt"
 
+        # Cable passages into the finger well, where the controller sits (in the skirt, at the back left)
+        self.thumb_passage = (10, 5)
+        "Width and height of the passage for the thumb keys' wires (about 10)"
+        self.trackball_passage = (8, 5)
+        "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
+
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
         "bottom" (the floors, the trackball's hemisphere and the skirt). Without `with_trackball`, there is no
@@ -169,8 +175,35 @@ class KeyboardAssembly:
         bottom = self._with_skirt(bottom, finger_outer)
         bottom = bottom - copy.deepcopy(top)
 
+        passages = self._cable_passages(finger_cavity, thumb_cavity)
+        top, bottom = top - copy.deepcopy(passages), bottom - passages
+
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
+
+    def _cable_passages(self, finger_cavity: Part, thumb_cavity: Part) -> Part:
+        """Slots through the walls where the thumb well's and the trackball cup's insides come closest to the finger
+        well's."""
+        def passage(point: Vector, direction: Vector, size: tuple[float, float], length: float) -> Part:
+            # Wide side horizontal
+            angle = math.degrees(math.atan2(direction.Y, direction.X))
+            tilt = math.degrees(math.asin(max(-1, min(1, direction.Z))))
+            return Pos(point) * Rot(0, 0, angle) * Rot(0, -tilt, 0) * Box(length, size[0], size[1])
+
+        _, p, q = copy.deepcopy(thumb_cavity).distance_to_with_closest_points(copy.deepcopy(finger_cavity))
+        p, q = Vector(p), Vector(q)
+        # Just through the thin wall between them, a little lower so it stays clear of the plates above
+        passages = passage((p + q) / 2 - Vector(0, 0, 2), (q - p).normalized(), self.thumb_passage, 2 * self.case_wall)
+        if self.with_trackball:
+            cup_inside = self._trackball_cup()[2]
+            _, p, q = cup_inside.distance_to_with_closest_points(copy.deepcopy(finger_cavity))
+            point = (Vector(p) + Vector(q)) / 2
+            outward = point - self._trackball_center().position
+            # Through the cup's wall and the finger well's
+            passages += passage(
+                point, Vector(outward.X, outward.Y, 0).normalized(), self.trackball_passage, 4 * self.case_wall
+            )
+        return passages
 
     def _skirt_outline(self, finger_outer: Part) -> Face:
         """The skirt's outside in top view: the finger well's underside's outline, shrunk by `skirt_inset`."""
