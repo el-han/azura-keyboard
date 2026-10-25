@@ -87,7 +87,7 @@ class KeyboardAssembly:
         "Height of the table: the thumb well touches it with the flat strip in its middle"
         self.skirt_inset = 10
         "How far the skirt under the finger well stays inside the outline of the finger well's underside"
-        self.dome_flat = 2
+        self.dome_flat = 6
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
     def case(self) -> dict[str, Part]:
