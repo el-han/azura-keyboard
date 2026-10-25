@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from typing import Optional
 
 from build123d import (
-    Box, Compound, Cone, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
+    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
     offset,
 )
 
@@ -80,19 +80,13 @@ class KeyboardAssembly:
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
         self.join_margin = 15
+        "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
 
         # Stand
         self.table_z = 0
-        "Height of the table the stand rests on: the thumb well touches it with the flat strip in its middle"
-        self.electronics_box = ((-56, -6), (4, 50))
-        "Corners (x, y) of the electronics box under the back left of the finger well; it holds an Adafruit Feather"
-        " nRF52840 (51 x 23 mm) on its floor and a 503040 LiPo (50 x 30 x 5 mm)"
-        self.stand_wall = 2
-        self.leg_diameters = (10, 6)
-        "Bottom (room for a 10 mm adhesive pad) and top diameter of the legs"
-        self.leg_positions = ((68, -48), (68, 44), (-75, -62), (-8, -48), (-80.25, -25))
-        "Legs: front and back right under the finger well, both ends of the thumb arc, under the trackball"
-        "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
+        "Height of the table: the thumb well touches it with the flat strip in its middle"
+        self.skirt_inset = 10
+        "How far the skirt under the finger well stays inside the outline of the finger well's underside"
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts, "top" and "bottom" (with the trackball's cup).
@@ -142,38 +136,27 @@ class KeyboardAssembly:
         # edge, which is dropped.
         top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
 
-        bottom = self._with_stand(bottom, finger_outer)
+        bottom = self._with_skirt(bottom, finger_outer)
 
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
 
-    def _with_stand(self, bottom: Part, finger_outer: Part) -> Part:
-        """Add the stand to the bottom half: an electronics box under the back left of the finger well and slim legs
-        elsewhere, all standing on the table plane and cut off where they reach the bottom half.
-
-        The box holds the controller on its floor and the battery; its inside opens into the case for the wires.
+    def _with_skirt(self, bottom: Part, finger_outer: Part) -> Part:
+        """Add a skirt under the finger well: a wall from the table up to the bottom half's underside, along the
+        underside's outline in top view, shrunk by `skirt_inset`.
         """
-        envelope = copy.deepcopy(bottom)
-
-        def standing(shape: Part) -> Part:
-            """The part of `shape` below the case: what is left after cutting the case away, nearest the table."""
-            return min((shape - envelope).solids(), key=lambda solid: solid.bounding_box().min.Z)
-
-        (x0, y0), (x1, y1) = self.electronics_box
-        height = 2 * self.max_height
-        outside = Pos((x0 + x1) / 2, (y0 + y1) / 2, self.table_z + height / 2) * Box(x1 - x0, y1 - y0, height)
-        wall = self.stand_wall
-        inside = Pos((x0 + x1) / 2, (y0 + y1) / 2, self.table_z + wall + height / 2) * Box(
-            x1 - x0 - 2 * wall, y1 - y0 - 2 * wall, height
+        underside = _torus_face(finger_outer, self.finger_layout.row_radius + self.cavity_depth + self.case_wall)
+        # The underside's outline in top view
+        outline = Polygon(
+            *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
         )
-        box = standing(outside) - inside
-        legs = [
-            standing(Pos(x, y, self.table_z + height / 2) * Cone(self.leg_diameters[0] / 2, self.leg_diameters[1] / 2, height))
-            for (x, y) in self.leg_positions
-        ]
-        # Open the finger well's floor into the box
-        bottom -= inside & finger_outer
-        return (bottom + box + legs).fix()
+        outside = offset(outline, -self.skirt_inset, kind=Kind.ARC)
+        ring = outside - offset(outside, -self.case_wall, kind=Kind.ARC)
+        skirt = Pos(0, 0, self.table_z) * extrude(ring, 2 * self.max_height, dir=(0, 0, 1)) - copy.deepcopy(bottom)
+        skirt -= surface.torus(self.finger_layout, depth=self.cavity_depth + self.case_wall)
+        # Keep only what stands on the table (not pieces beyond the case)
+        skirt = [solid for solid in skirt.solids() if solid.bounding_box().min.Z < self.table_z + 1e-3]
+        return (bottom + skirt).fix()
 
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
