@@ -87,6 +87,8 @@ class KeyboardAssembly:
         "Height of the table: the thumb well touches it with the flat strip in its middle"
         self.skirt_inset = 10
         "How far the skirt under the finger well stays inside the outline of the finger well's underside"
+        self.dome_flat = 2
+        "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts, "top" and "bottom" (with the trackball's cup).
@@ -137,6 +139,8 @@ class KeyboardAssembly:
         top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
 
         bottom = self._with_skirt(bottom, finger_outer)
+        # Near the trackball well's equator the finger well's bottom half can reach into the well and the top.
+        bottom = bottom - copy.deepcopy(top) - self.trackball_part()
 
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
@@ -323,23 +327,44 @@ class KeyboardAssembly:
         return self._trackball_center() * well
 
     def _trackball_cup(self) -> tuple[Part, Part]:
-        """A cylindrical cup under the trackball well that encloses the sensor module, as (cup, inside).
+        """The trackball well's bottom, enclosing the sensor module, as (shell, inside): a cylinder from the well's
+        equator down, ending in a hemisphere of the same radius that rests on the table.
 
-        It reaches from the well's equator down to a floor below the lowest part of the sensor board, is wide enough
-        for the board, and hugs the outside of the well.
+        The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc. The
+        radius is the smallest that clears the well and leaves the sensor board `case_clearance` of room.
         """
         ball = self.trackball
-        clearance = 2
+        center_height = self._trackball_center().position.Z - self.table_z
         board = sensor.model().bounding_box()
-        inner_radius = max(math.hypot(x, y) for x in (board.min.X, board.max.X) for y in (board.min.Y, board.max.Y))
+        # Board corners in the ball center's frame
+        corners = [(x, y, z - ball.diameter / 2) for x in (board.min.X, board.max.X)
+                   for y in (board.min.Y, board.max.Y) for z in (board.min.Z, board.max.Z)]
+
+        def hemisphere_center(radius: float) -> float:
+            """Height of the hemisphere's center relative to the ball's center."""
+            return radius - self.dome_flat - center_height
+
+        def room(radius: float) -> float:
+            """Smallest gap between the board's corners and the inside of the cylinder and hemisphere."""
+            inner, z0 = radius - self.case_wall, hemisphere_center(radius)
+            return min(
+                inner - (math.dist((x, y, z), (0, 0, z0)) if z < z0 else math.hypot(x, y)) for (x, y, z) in corners
+            )
+
         # Keep clear of the well's outer sphere too: nearly coincident curved faces break the booleans.
-        inner_radius = max(inner_radius + self.case_clearance, ball.outer_diameter / 2 + 1)
-        outer_radius = inner_radius + self.case_wall
-        inside_depth = ball.diameter / 2 - board.min.Z + clearance
-        depth = inside_depth + self.case_wall
-        inside = Pos(0, 0, -inside_depth / 2) * Cylinder(inner_radius, inside_depth)
-        cup = Pos(0, 0, -depth / 2) * Cylinder(outer_radius, depth) - inside - Sphere(ball.outer_diameter / 2)
-        return self._trackball_center() * cup, self._trackball_center() * inside
+        radius = ball.outer_diameter / 2 + 1 + self.case_wall
+        while room(radius) < self.case_clearance:
+            radius += 0.25
+        z0 = hemisphere_center(radius)
+
+        def capsule(r: float) -> Part:
+            cylinder = Pos(0, 0, z0 / 2) * Cylinder(r, -z0)
+            return cylinder + Pos(0, 0, z0) * Sphere(r)
+
+        above_table = Pos(0, 0, -center_height / 2) * Box(4 * radius, 4 * radius, center_height)
+        inside = capsule(radius - self.case_wall) & above_table
+        shell = (capsule(radius) & above_table) - copy.deepcopy(inside) - Sphere(ball.outer_diameter / 2)
+        return self._trackball_center() * shell, self._trackball_center() * inside
 
     def sensor_model(self) -> Compound:
         """The trackball's sensor module, for collision checks (not printed)."""
