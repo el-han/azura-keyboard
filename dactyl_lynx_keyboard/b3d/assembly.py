@@ -140,11 +140,13 @@ class KeyboardAssembly:
             + finger_walls
             + thumb_walls
         ).fix()
+        # The finger floor is open inside the skirt.
+        skirt_outline = self._skirt_outline(finger_outer)
+        inside_skirt = extrude(offset(skirt_outline, -self.case_wall), 2 * self.max_height, both=True)
+        finger_floor -= copy.deepcopy(inside_skirt)
         bottom = (finger_floor + thumb_floor).fix()
         if self.thumb_floor_to_skirt:
             # Up to the skirt, and no further toward -X than the skirt's outside on that side
-            skirt_outline = self._skirt_outline(finger_outer)
-            inside_skirt = extrude(offset(skirt_outline, -self.case_wall), 2 * self.max_height, both=True)
             extension = (self._thumb_floor_extension() & self._beside_skirt(skirt_outline)) - inside_skirt
             extension -= finger_cavity + thumb_cavity
             bottom = (bottom + extension).fix()
