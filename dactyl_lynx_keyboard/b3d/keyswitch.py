@@ -115,3 +115,14 @@ def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:
 def mx_switch_model() -> Compound:
     """A Cherry MX switch for collision checks (not printed), in the key's local frame."""
     return transformed(_mx_switch_step(), Pos(0, 0, -MX_SWITCH_STEP_PLATE_Z))
+
+
+def mx_switch_envelope() -> Part:
+    """A few boxes around a Cherry MX switch, for quick collision checks (not printed), in the key's local frame:
+    the top housing and stem above the plate, the bottom housing in the plate's 14 mm hole, and the pins below.
+    """
+    top_housing = Pos(0, 0, 4.65 / 2) * Box(15.6, 15.6, 4.65) + Pos(0, 0, 6.25 / 2) * Box(14.7, 14.7, 6.25)
+    stem = Pos(0, 0, MX_STEM_TOP / 2) * Box(8.9, 5.7, MX_STEM_TOP)
+    bottom_housing = Pos(0, 0, -7.46 / 2) * Box(14, 14, 7.46)
+    pins = Pos(0, 3.97, -7.81) * Box(9.8, 3.16, 0.7)
+    return top_housing + stem + bottom_housing + pins

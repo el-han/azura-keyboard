@@ -477,11 +477,11 @@ class KeyboardAssembly:
             for shape in (shell & copy.deepcopy(cylinder_part), shell - cylinder_part, inside)
         )
 
-    def sensor_model(self) -> Compound:
-        """The trackball's sensor module, for collision checks (not printed)."""
-        return Compound(
-            label="sensor", children=[self._sensor_location() * child for child in sensor.model().children]
-        )
+    def sensor_model(self, simple: bool = False) -> Compound:
+        """The trackball's sensor module, for collision checks (not printed); `simple` uses a few boxes around it
+        instead."""
+        model = sensor.envelope() if simple else sensor.model()
+        return Compound(label="sensor", children=[self._sensor_location() * child for child in model.children])
 
     def trackball_clearance(self) -> Part:
         """The space the ball needs to turn freely (the well's inner sphere)."""
@@ -491,9 +491,10 @@ class KeyboardAssembly:
         """The ball itself, for previews."""
         return self._trackball_center() * Sphere(self.trackball.diameter / 2)
 
-    def switch_models(self) -> list[Shape]:
-        """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed)."""
-        model = keyswitch.mx_switch_model()
+    def switch_models(self, simple: bool = False) -> list[Shape]:
+        """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed); `simple`
+        uses a few boxes around each switch instead."""
+        model = keyswitch.mx_switch_envelope() if simple else keyswitch.mx_switch_model()
         return (
             place_instances(self.finger_layout, model, "finger switch")
             + place_instances(self.thumb_layout, model, "thumb switch")

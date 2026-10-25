@@ -58,6 +58,22 @@ def model() -> Compound:
     return transformed(_board_step(), _from_kicad())
 
 
+def envelope() -> Compound:
+    """A few boxes around the sensor board, for quick collision checks (not printed): the lens (the topmost
+    part), the sensor package (the lowest) and everything else.
+    """
+    children = list(model().children)
+    lens = max(children, key=lambda child: child.bounding_box().max.Z)
+    package = min(children, key=lambda child: child.bounding_box().min.Z)
+    rest = Compound(children=[child for child in children if child is not lens and child is not package])
+
+    def box(shape) -> Part:
+        bb = shape.bounding_box()
+        return Pos(bb.center()) * Box(*bb.size)
+
+    return Compound(label="PMW3610 board envelope", children=[box(lens), box(package), box(rest)])
+
+
 def lens_opening(clearance: float = 0.3, depth: float = 20) -> Part:
     """The opening in the well for the lens (the board's topmost part), from the navigation surface downward."""
     lens = max(model().children, key=lambda child: child.bounding_box().max.Z).bounding_box()

@@ -4,7 +4,8 @@ Checks switches, keycaps (at rest and pressed), PCBs and the trackball sensor ag
 `things/b3d/` and the space the ball needs, and switches, keycaps and PCBs against each other.
 
 Run with `uv run python scripts/check_collisions.py` after `uv run python -m dactyl_lynx_keyboard.b3d`; add
-`--no-trackball` to both for the half without a trackball.
+`--no-trackball` to both for the half without a trackball. With `--simple`, switches and the sensor are checked as a
+few boxes around them, which is quicker but coarser (and shows no press fits).
 
 An MX switch's housing ribs press into its 14 mm hole by about 1 mm³; those press fits are counted but not listed.
 """
@@ -45,10 +46,11 @@ def key_of(shape: Shape) -> str:
 
 if __name__ == "__main__":
     with_trackball = "--no-trackball" not in sys.argv[1:]
+    simple = "--simple" in sys.argv[1:]
     assembly = KeyboardAssembly(with_trackball=with_trackball)
     variant = "right" if with_trackball else "right-no-trackball"
     kinds = {
-        "switch": assembly.switch_models(),
+        "switch": assembly.switch_models(simple=simple),
         "keycap": assembly.keycap_models(),
         "keycap pressed": assembly.keycap_models(pressed=True),
         "pcb": assembly.pcb_models(),
@@ -72,7 +74,7 @@ if __name__ == "__main__":
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
     if with_trackball:
-        sensor = assembly.sensor_model()
+        sensor = assembly.sensor_model(simple=simple)
         for name, part in obstacles.items():
             volume = overlap(sensor, part, boxes)
             if volume > 0.01:
