@@ -6,8 +6,8 @@ from collections.abc import Iterable
 from typing import Optional
 
 from build123d import (
-    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
-    offset,
+    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, Vector,
+    extrude, offset,
 )
 
 from ..layouts.finger_well import FingerWellLayout
@@ -142,11 +142,10 @@ class KeyboardAssembly:
         ).fix()
         bottom = (finger_floor + thumb_floor).fix()
         if self.thumb_floor_to_skirt:
-            # Only under the finger well, up to the skirt's inside
+            # Up to the skirt, and no further toward -X than the skirt's outside on that side
             skirt_outline = self._skirt_outline(finger_outer)
-            under_finger_well = extrude(offset(skirt_outline, self.skirt_inset), 2 * self.max_height, both=True)
             inside_skirt = extrude(offset(skirt_outline, -self.case_wall), 2 * self.max_height, both=True)
-            extension = (self._thumb_floor_extension() & under_finger_well) - inside_skirt
+            extension = (self._thumb_floor_extension() & self._beside_skirt(skirt_outline)) - inside_skirt
             extension -= finger_cavity + thumb_cavity
             bottom = (bottom + extension).fix()
         if self.with_trackball:
@@ -178,6 +177,20 @@ class KeyboardAssembly:
             *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
         )
         return offset(outline, -self.skirt_inset, kind=Kind.ARC)
+
+    def _beside_skirt(self, skirt_outline: Face) -> Part:
+        """Everything on the +X side of the line along the skirt's outside toward -X (from its front corner to its
+        back end)."""
+        points = [v.center() for v in skirt_outline.vertices()]
+        front = min(points, key=lambda p: p.X)
+        back_y = max(p.Y for p in points)
+        back = min((p for p in points if p.Y > back_y - 0.5), key=lambda p: p.X)
+        along = (back - front).normalized()
+        normal = Vector(along.Y, -along.X, 0)  # toward +X
+        size = 4 * self.max_height
+        return Pos(front + normal * (size / 2)) * Rot(0, 0, math.degrees(math.atan2(normal.Y, normal.X))) * Box(
+            size, size, size
+        )
 
     def _with_skirt(self, bottom: Part, finger_outer: Part) -> Part:
         """Add a skirt under the finger well: a wall from the table up to the bottom half's underside, along the
