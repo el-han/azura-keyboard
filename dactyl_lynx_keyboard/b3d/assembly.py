@@ -91,7 +91,7 @@ class KeyboardAssembly:
         "How far the skirt under the finger well stays inside the outline of the finger well's underside"
         self.dome_flat = 6
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
-        self.thumb_floor_to_skirt = not with_trackball
+        self.thumb_floor_to_skirt = True
         "Whether the thumb well's floor reaches past its back wall to the finger well's skirt"
 
     def case(self) -> dict[str, Part]:
