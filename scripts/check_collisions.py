@@ -19,7 +19,7 @@ sys.path.insert(0, ROOT)
 
 from dactyl_lynx_keyboard.b3d.assembly import KeyboardAssembly  # noqa: E402
 
-PRINTED = ("top", "bottom", "trackball")
+PRINTED = ("top", "bottom")
 
 
 def overlap(a: Shape, b: Shape, boxes: dict, tol: float = 0.01) -> float:

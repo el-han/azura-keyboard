@@ -91,8 +91,8 @@ class KeyboardAssembly:
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
     def case(self) -> dict[str, Part]:
-        """The keyboard's case as two parts: "top" (key plates and walls) and "bottom" (the floors, the trackball's
-        bottom and the stand).
+        """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
+        "bottom" (the floors, the trackball's hemisphere and the skirt).
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
@@ -130,6 +130,11 @@ class KeyboardAssembly:
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
 
+        # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they overlap
+        # the wells' cases, the walls fall away and the insides run into each other.
+        cylinder, hemisphere, cup_inside = self._trackball_cup()
+        trackball_well = self.trackball_part()
+
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
         top = (
             self._with_switch_holes(finger_top, self.finger_layout)
@@ -138,20 +143,17 @@ class KeyboardAssembly:
             + finger_walls
             + thumb_walls
         ).fix()
-        # The trackball's cup joins both wells' floors into one; where they overlap, the walls fall away and their
-        # insides run into each other.
-        cup, cup_inside = self._trackball_cup()
-        bottom = (finger_floor + thumb_floor + (cup - finger_cavity - thumb_cavity)).fix() - cup_inside
-        bottom -= copy.deepcopy(top)
-        # Where the cup's rim meets the finger well's wall, tiny loose slivers can be left; drop them.
-        bottom = max(bottom.solids(), key=lambda solid: solid.volume)
-        # The trackball well sits on the cup and just touches the top; that cut can leave a loose sliver of the plate's
-        # edge, which is dropped.
-        top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
+        top = (top - copy.deepcopy(cup_inside)).fix()
+        top = (top + (cylinder - finger_cavity - thumb_cavity) + copy.deepcopy(trackball_well)).fix()
+        # Cutting the cup's inside can leave loose slivers of the plates' edges; drop them.
+        top = max(top.solids(), key=lambda solid: solid.volume)
 
+        bottom = (finger_floor + thumb_floor + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
+        bottom -= copy.deepcopy(top)
+        # Where the cup meets the finger well's floor, tiny loose slivers can be left; drop them.
+        bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         bottom = self._with_skirt(bottom, finger_outer)
-        # Near the trackball well's equator the finger well's bottom half can reach into the well and the top.
-        bottom = bottom - copy.deepcopy(top) - self.trackball_part()
+        bottom = bottom - copy.deepcopy(top)
 
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
@@ -345,9 +347,9 @@ class KeyboardAssembly:
         well -= Sphere(inner_radius)
         return self._trackball_center() * well
 
-    def _trackball_cup(self) -> tuple[Part, Part]:
-        """The trackball well's bottom, enclosing the sensor module, as (shell, inside): a cylinder from the well's
-        equator down, ending in a hemisphere of the same radius that rests on the table.
+    def _trackball_cup(self) -> tuple[Part, Part, Part]:
+        """The trackball well's bottom, enclosing the sensor module, as (cylinder, hemisphere, inside): a cylinder
+        from the well's equator down, ending in a hemisphere of the same radius that rests on the table.
 
         The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc. The
         radius is the smallest that clears the well and leaves the sensor board `case_clearance` of room.
@@ -383,7 +385,12 @@ class KeyboardAssembly:
         above_table = Pos(0, 0, -center_height / 2) * Box(4 * radius, 4 * radius, center_height)
         inside = capsule(radius - self.case_wall) & above_table
         shell = (capsule(radius) & above_table) - copy.deepcopy(inside) - Sphere(ball.outer_diameter / 2)
-        return self._trackball_center() * shell, self._trackball_center() * inside
+        # Split at the hemisphere's center: the cylinder above, the hemisphere below
+        cylinder_part = Pos(0, 0, z0 + center_height / 2) * Box(4 * radius, 4 * radius, center_height)
+        return tuple(
+            self._trackball_center() * shape
+            for shape in (shell & copy.deepcopy(cylinder_part), shell - cylinder_part, inside)
+        )
 
     def sensor_model(self) -> Compound:
         """The trackball's sensor module, for collision checks (not printed)."""
