@@ -91,7 +91,8 @@ class KeyboardAssembly:
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
     def case(self) -> dict[str, Part]:
-        """The keyboard's case as two parts, "top" and "bottom" (with the trackball's cup).
+        """The keyboard's case as two parts: "top" (key plates and walls) and "bottom" (the floors, the trackball's
+        bottom and the stand).
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
@@ -121,16 +122,26 @@ class KeyboardAssembly:
         joint = copy.deepcopy(thumb_bottom) & next_to_finger_well & above_finger_bottom
         thumb_bottom -= copy.deepcopy(joint)
 
+        # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
+        above_finger_floor = surface.torus(self.finger_layout, depth=self.cavity_depth)
+        above_thumb_floor = self._thumb_above(self.cavity_depth)
+        finger_walls = copy.deepcopy(finger_bottom) & above_finger_floor
+        thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
+        finger_floor = finger_bottom - above_finger_floor
+        thumb_floor = thumb_bottom - above_thumb_floor
+
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
         top = (
             self._with_switch_holes(finger_top, self.finger_layout)
             + self._with_switch_holes(thumb_top, self.thumb_layout)
             + joint
+            + finger_walls
+            + thumb_walls
         ).fix()
-        # The trackball's cup joins both wells' bottom halves into one; where they overlap, the walls fall away and
-        # their insides run into each other.
+        # The trackball's cup joins both wells' floors into one; where they overlap, the walls fall away and their
+        # insides run into each other.
         cup, cup_inside = self._trackball_cup()
-        bottom = (finger_bottom + thumb_bottom + (cup - finger_cavity - thumb_cavity)).fix() - cup_inside
+        bottom = (finger_floor + thumb_floor + (cup - finger_cavity - thumb_cavity)).fix() - cup_inside
         bottom -= copy.deepcopy(top)
         # Where the cup's rim meets the finger well's wall, tiny loose slivers can be left; drop them.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
@@ -276,6 +287,14 @@ class KeyboardAssembly:
                 Pos(0, 0, -(top_depth + bottom_depth) / 2) * Box(flat, length, bottom_depth - top_depth)
             )
         return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
+
+    def _thumb_above(self, depth: float) -> Part:
+        """Everything of the thumb well (from almost its arc's axis) down to `depth` below its key plane."""
+        layout = self.thumb_layout
+        length = 2 * (keyswitch.PCB_SIZE + 2 * (self.case_clearance + self.case_wall))
+        return to_location(layout.layout_place(Transform())) * self._thumb_band(
+            1 - layout.column_radius, depth, length
+        )
 
     def _thumb_case(self) -> tuple[Part, Part, Part, Part]:
         """The thumb well's case as (plate, bottom outside, cavity, everything above the plate's underside), built like
