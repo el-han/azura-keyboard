@@ -95,8 +95,8 @@ class KeyboardAssembly:
         "bottom" (the floors, the trackball's hemisphere and the skirt).
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
-        loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the thumb
-        parts also give way to the finger parts.
+        loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the finger
+        parts also give way to the thumb parts.
 
         The top joins both key plates: next to the finger well, everything of the thumb well's bottom half that rises
         above the top edge of the finger well's floor belongs to the top as well, which ties the two plates
@@ -107,12 +107,12 @@ class KeyboardAssembly:
         below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=self.plate_thickness)
         below_thumb_plate = thumb_cavity - thumb_plate_region
 
-        finger_top = finger_plate - below_thumb_plate
-        finger_bottom = finger_outer - finger_cavity - thumb_cavity
+        thumb_top = thumb_plate - below_finger_plate
         # Cut with copies: OCCT can alter a boolean's tool shape.
-        finger_parts = copy.deepcopy(finger_top) + copy.deepcopy(finger_bottom)
-        thumb_top = thumb_plate - below_finger_plate - finger_parts
-        thumb_bottom = thumb_outer - thumb_cavity - finger_cavity - finger_parts - copy.deepcopy(thumb_top)
+        thumb_bottom = thumb_outer - thumb_cavity - finger_cavity - copy.deepcopy(thumb_top)
+        thumb_parts = copy.deepcopy(thumb_top) + copy.deepcopy(thumb_bottom)
+        finger_top = finger_plate - below_thumb_plate - thumb_parts
+        finger_bottom = finger_outer - finger_cavity - thumb_cavity - copy.deepcopy(thumb_parts)
 
         next_to_finger_well = extrude(
             offset(finger_footprint, self.join_margin, kind=Kind.ARC), 2 * self.max_height, both=True
