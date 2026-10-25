@@ -58,15 +58,27 @@ def _torus_face(solid: Shape, minor_radius: float) -> Face:
     )
 
 
+def _grid(shape: Shape, n: int) -> list[Vector]:
+    """Points of an n×n×n grid over the shape's bounding box that lie inside it."""
+    box = shape.bounding_box()
+    steps = [i / (n - 1) for i in range(n)]
+    points = [
+        box.min + Vector(box.size.X * u, box.size.Y * v, box.size.Z * w) for u in steps for v in steps for w in steps
+    ]
+    return [point for point in points if shape.is_inside(point)]
+
+
 class KeyboardAssembly:
     def __init__(self, columns: int = 6, rows: int = 5, with_trackball: bool = True):
         k = Keyswitch()
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
+        # Low enough that the finger well's bottom half rests on the table
+        self.finger_layout.placement_transform = (0, 0, 12.05)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
-        self.trackball_position = (-80.25, -25, 14)
+        self.trackball_position = (-80.25, -25, 10)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -177,6 +189,8 @@ class KeyboardAssembly:
 
         passages = self._cable_passages(finger_cavity, thumb_cavity)
         top, bottom = top - copy.deepcopy(passages), bottom - passages
+        # A passage can cut off the bit of wall between it and the bottom part; drop it.
+        top = max(top.solids(), key=lambda solid: solid.volume)
 
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
@@ -192,8 +206,18 @@ class KeyboardAssembly:
 
         _, p, q = copy.deepcopy(thumb_cavity).distance_to_with_closest_points(copy.deepcopy(finger_cavity))
         p, q = Vector(p), Vector(q)
-        # Just through the thin wall between them, a little lower so it stays clear of the plates above
-        passages = passage((p + q) / 2 - Vector(0, 0, 2), (q - p).normalized(), self.thumb_passage, 2 * self.case_wall)
+        # Just through the thin wall between them, lowered until it stays within the wells' walls and insides (and
+        # clear of the plates above)
+        finger_outer, thumb_outer = self._finger_case()[1], self._thumb_case()[1]
+        walls_and_insides = (finger_outer, thumb_outer, finger_cavity, thumb_cavity)
+        for drop in [0.5 * i for i in range(21)]:
+            center = (p + q) / 2 - Vector(0, 0, drop)
+            thumb = passage(center, (q - p).normalized(), self.thumb_passage, 2 * self.case_wall)
+            if all(any(shape.is_inside(point) for shape in walls_and_insides) for point in _grid(thumb, 5)):
+                break
+        else:
+            raise ValueError("No room for the thumb well's cable passage")
+        passages = thumb
         if self.with_trackball:
             cup_inside = self._trackball_cup()[2]
             _, p, q = cup_inside.distance_to_with_closest_points(copy.deepcopy(finger_cavity))
@@ -229,7 +253,7 @@ class KeyboardAssembly:
 
     def _with_skirt(self, bottom: Part, finger_outer: Part) -> Part:
         """Add a skirt under the finger well: a wall from the table up to the bottom half's underside, along the
-        underside's outline in top view, shrunk by `skirt_inset`.
+        underside's outline in top view, shrunk by `skirt_inset`, closed by a floor on the table.
         """
         outside = self._skirt_outline(finger_outer)
         ring = outside - offset(outside, -self.case_wall, kind=Kind.ARC)
@@ -237,7 +261,10 @@ class KeyboardAssembly:
         skirt -= surface.torus(self.finger_layout, depth=self.cavity_depth + self.case_wall)
         # Keep only what stands on the table (not pieces beyond the case)
         skirt = [solid for solid in skirt.solids() if solid.bounding_box().min.Z < self.table_z + 1e-3]
-        return (bottom + skirt).fix()
+        # Closed at the bottom by a floor of `case_wall`, which stays out of the finger well's inside
+        floor = Pos(0, 0, self.table_z) * extrude(outside, self.case_wall)
+        floor -= surface.torus(self.finger_layout, depth=self.cavity_depth)
+        return (bottom + skirt + floor).fix()
 
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
@@ -468,7 +495,11 @@ class KeyboardAssembly:
             return cylinder + Pos(0, 0, z0) * Sphere(r)
 
         above_table = Pos(0, 0, -center_height / 2) * Box(4 * radius, 4 * radius, center_height)
-        inside = capsule(radius - self.case_wall) & above_table
+        # A floor of `case_wall` on the table
+        above_floor = Pos(0, 0, (self.case_wall - center_height) / 2) * Box(
+            4 * radius, 4 * radius, center_height - self.case_wall
+        )
+        inside = capsule(radius - self.case_wall) & above_floor
         shell = (capsule(radius) & above_table) - copy.deepcopy(inside) - Sphere(ball.inner_diameter / 2)
         # Split at the hemisphere's center: the cylinder above, the hemisphere below
         cylinder_part = Pos(0, 0, z0 + center_height / 2) * Box(4 * radius, 4 * radius, center_height)
