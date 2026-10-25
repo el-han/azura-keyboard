@@ -262,7 +262,7 @@ class KeyboardAssembly:
         # Keep only what stands on the table (not pieces beyond the case)
         skirt = [solid for solid in skirt.solids() if solid.bounding_box().min.Z < self.table_z + 1e-3]
         # Closed at the bottom by a floor of `case_wall`, which stays out of the finger well's inside
-        floor = Pos(0, 0, self.table_z) * extrude(outside, self.case_wall)
+        floor = Pos(0, 0, self.table_z) * extrude(outside, self.case_wall, dir=(0, 0, 1))
         floor -= surface.torus(self.finger_layout, depth=self.cavity_depth)
         return (bottom + skirt + floor).fix()
 
