@@ -64,7 +64,7 @@ class KeyboardAssembly:
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
         self.trackball = TrackBall()
-        self.trackball_position = (-78.5, -26, 14)
+        self.trackball_position = (-80.25, -25, 14)
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -124,6 +124,8 @@ class KeyboardAssembly:
         cup, cup_inside = self._trackball_cup()
         bottom = (finger_bottom + thumb_bottom + (cup - finger_cavity - thumb_cavity)).fix() - cup_inside
         bottom -= copy.deepcopy(top)
+        # Where the cup's rim meets the finger well's wall, tiny loose slivers can be left; drop them.
+        bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         # The trackball well sits on the cup and just touches the top; that cut can leave a loose sliver of the plate's
         # edge, which is dropped.
         top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
@@ -284,7 +286,7 @@ class KeyboardAssembly:
         well = shell & lower_half
 
         # Screw posts from the sensor board up into the middle of the shell wall above the screw holes.
-        r = sensor.HOLE_SPACING / 2
+        r = sensor.hole_radius()
         shell_middle = -(math.sqrt(inner_radius**2 - r**2) + math.sqrt(outer_radius**2 - r**2)) / 2
         post_height = shell_middle + ball.diameter / 2 - sensor.board_face_z()
         to_sensor = Pos(0, 0, -ball.diameter / 2)
@@ -297,14 +299,17 @@ class KeyboardAssembly:
     def _trackball_cup(self) -> tuple[Part, Part]:
         """A cylindrical cup under the trackball well that encloses the sensor module, as (cup, inside).
 
-        It reaches from the well's equator down to a floor below the sensor's chip, wide enough for the sensor
-        board, and hugs the outside of the well.
+        It reaches from the well's equator down to a floor below the lowest part of the sensor board, is wide enough
+        for the board, and hugs the outside of the well.
         """
         ball = self.trackball
         clearance = 2
-        inner_radius = math.hypot(sensor.BOARD_LENGTH / 2, sensor.BOARD_WIDTH / 2) + self.case_clearance
+        board = sensor.model().bounding_box()
+        inner_radius = max(math.hypot(x, y) for x in (board.min.X, board.max.X) for y in (board.min.Y, board.max.Y))
+        # Keep clear of the well's outer sphere too: nearly coincident curved faces break the booleans.
+        inner_radius = max(inner_radius + self.case_clearance, ball.outer_diameter / 2 + 1)
         outer_radius = inner_radius + self.case_wall
-        inside_depth = ball.diameter / 2 + sensor.CHIP_TO_SURFACE + clearance
+        inside_depth = ball.diameter / 2 - board.min.Z + clearance
         depth = inside_depth + self.case_wall
         inside = Pos(0, 0, -inside_depth / 2) * Cylinder(inner_radius, inside_depth)
         cup = Pos(0, 0, -depth / 2) * Cylinder(outer_radius, depth) - inside - Sphere(ball.outer_diameter / 2)

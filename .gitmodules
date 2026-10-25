@@ -1,3 +1,6 @@
 [submodule "resources/dsa-keycap"]
 	path = resources/dsa-keycap
 	url = https://github.com/anhthang/dsa-keycap.git
+[submodule "resources/pmw3610-pcb"]
+	path = resources/pmw3610-pcb
+	url = https://github.com/siderakb/pmw3610-pcb.git

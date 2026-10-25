@@ -10,3 +10,4 @@
 __pycache__
 things/b3d/
 .venv/
+*.kicad_prl
