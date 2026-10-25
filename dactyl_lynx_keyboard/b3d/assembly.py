@@ -91,6 +91,8 @@ class KeyboardAssembly:
         "How far the skirt under the finger well stays inside the outline of the finger well's underside"
         self.dome_flat = 6
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
+        self.thumb_floor_to_skirt = not with_trackball
+        "Whether the thumb well's floor reaches past its back wall to the finger well's skirt"
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
@@ -139,6 +141,14 @@ class KeyboardAssembly:
             + thumb_walls
         ).fix()
         bottom = (finger_floor + thumb_floor).fix()
+        if self.thumb_floor_to_skirt:
+            # Only under the finger well, up to the skirt's inside
+            skirt_outline = self._skirt_outline(finger_outer)
+            under_finger_well = extrude(offset(skirt_outline, self.skirt_inset), 2 * self.max_height, both=True)
+            inside_skirt = extrude(offset(skirt_outline, -self.case_wall), 2 * self.max_height, both=True)
+            extension = (self._thumb_floor_extension() & under_finger_well) - inside_skirt
+            extension -= finger_cavity + thumb_cavity
+            bottom = (bottom + extension).fix()
         if self.with_trackball:
             # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they
             # overlap the wells' cases, the walls fall away and the insides run into each other.
@@ -161,16 +171,19 @@ class KeyboardAssembly:
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
 
+    def _skirt_outline(self, finger_outer: Part) -> Face:
+        """The skirt's outside in top view: the finger well's underside's outline, shrunk by `skirt_inset`."""
+        underside = _torus_face(finger_outer, self.finger_layout.row_radius + self.cavity_depth + self.case_wall)
+        outline = Polygon(
+            *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
+        )
+        return offset(outline, -self.skirt_inset, kind=Kind.ARC)
+
     def _with_skirt(self, bottom: Part, finger_outer: Part) -> Part:
         """Add a skirt under the finger well: a wall from the table up to the bottom half's underside, along the
         underside's outline in top view, shrunk by `skirt_inset`.
         """
-        underside = _torus_face(finger_outer, self.finger_layout.row_radius + self.cavity_depth + self.case_wall)
-        # The underside's outline in top view
-        outline = Polygon(
-            *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
-        )
-        outside = offset(outline, -self.skirt_inset, kind=Kind.ARC)
+        outside = self._skirt_outline(finger_outer)
         ring = outside - offset(outside, -self.case_wall, kind=Kind.ARC)
         skirt = Pos(0, 0, self.table_z) * extrude(ring, 2 * self.max_height, dir=(0, 0, 1)) - copy.deepcopy(bottom)
         skirt -= surface.torus(self.finger_layout, depth=self.cavity_depth + self.case_wall)
@@ -292,6 +305,13 @@ class KeyboardAssembly:
                 Pos(0, 0, -(top_depth + bottom_depth) / 2) * Box(flat, length, bottom_depth - top_depth)
             )
         return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
+
+    def _thumb_floor_extension(self) -> Part:
+        """The thumb well's floor, reaching well past the case's back end (to be cut off at the skirt)."""
+        e = 40
+        length = keyswitch.PCB_SIZE + 2 * (self.case_clearance + self.case_wall)
+        floor = self._thumb_band(self.cavity_depth, self.cavity_depth + self.case_wall, length + e)
+        return to_location(self.thumb_layout.layout_place(Transform())) * Pos(0, e / 2, 0) * floor
 
     def _thumb_above(self, depth: float) -> Part:
         """Everything of the thumb well (from almost its arc's axis) down to `depth` below its key plane."""
