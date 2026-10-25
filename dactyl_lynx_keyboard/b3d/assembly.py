@@ -99,7 +99,7 @@ class KeyboardAssembly:
         parts also give way to the finger parts.
 
         The top joins both key plates: next to the finger well, everything of the thumb well's bottom half that rises
-        above the top edge of the finger well's bottom half belongs to the top as well, which ties the two plates
+        above the top edge of the finger well's floor belongs to the top as well, which ties the two plates
         together.
         """
         finger_plate, finger_outer, finger_cavity, finger_footprint = self._finger_case()
@@ -117,14 +117,12 @@ class KeyboardAssembly:
         next_to_finger_well = extrude(
             offset(finger_footprint, self.join_margin, kind=Kind.ARC), 2 * self.max_height, both=True
         )
-        # Above the finger well's bottom half, i.e. above the finger plate's underside
-        above_finger_bottom = surface.torus(self.finger_layout, depth=self.plate_thickness)
-        joint = copy.deepcopy(thumb_bottom) & next_to_finger_well & above_finger_bottom
-        thumb_bottom -= copy.deepcopy(joint)
-
         # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
         above_finger_floor = surface.torus(self.finger_layout, depth=self.cavity_depth)
-        above_thumb_floor = self._thumb_above(self.cavity_depth)
+        # Next to the finger well, the thumb well's bottom half belongs to the top above the finger floor's top edge.
+        above_thumb_floor = self._thumb_above(self.cavity_depth) + (
+            next_to_finger_well & copy.deepcopy(above_finger_floor)
+        )
         finger_walls = copy.deepcopy(finger_bottom) & above_finger_floor
         thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
         finger_floor = finger_bottom - above_finger_floor
@@ -139,7 +137,6 @@ class KeyboardAssembly:
         top = (
             self._with_switch_holes(finger_top, self.finger_layout)
             + self._with_switch_holes(thumb_top, self.thumb_layout)
-            + joint
             + finger_walls
             + thumb_walls
         ).fix()
