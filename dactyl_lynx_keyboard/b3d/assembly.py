@@ -59,10 +59,12 @@ def _torus_face(solid: Shape, minor_radius: float) -> Face:
 
 
 class KeyboardAssembly:
-    def __init__(self, columns: int = 6, rows: int = 5):
+    def __init__(self, columns: int = 6, rows: int = 5, with_trackball: bool = True):
         k = Keyswitch()
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         self.thumb_layout = ThumbWellLayout(keyswitch=k)
+        self.with_trackball = with_trackball
+        "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
         self.trackball_position = (-80.25, -25, 14)
 
@@ -92,7 +94,8 @@ class KeyboardAssembly:
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
-        "bottom" (the floors, the trackball's hemisphere and the skirt).
+        "bottom" (the floors, the trackball's hemisphere and the skirt). Without `with_trackball`, there is no
+        trackball well, cylinder or hemisphere.
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the finger
@@ -128,11 +131,6 @@ class KeyboardAssembly:
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
 
-        # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they overlap
-        # the wells' cases, the walls fall away and the insides run into each other.
-        cylinder, hemisphere, cup_inside = self._trackball_cup()
-        trackball_well = self.trackball_part()
-
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
         top = (
             self._with_switch_holes(finger_top, self.finger_layout)
@@ -140,14 +138,20 @@ class KeyboardAssembly:
             + finger_walls
             + thumb_walls
         ).fix()
-        top = (top - copy.deepcopy(cup_inside)).fix()
-        # Join the well and its cylinder first: their outsides meet flush, which the fuse with the rest can't handle.
-        trackball_top = ((cylinder - finger_cavity - thumb_cavity) + copy.deepcopy(trackball_well)).fix()
-        top = (top + trackball_top).fix()
+        bottom = (finger_floor + thumb_floor).fix()
+        if self.with_trackball:
+            # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they
+            # overlap the wells' cases, the walls fall away and the insides run into each other.
+            cylinder, hemisphere, cup_inside = self._trackball_cup()
+            top = (top - copy.deepcopy(cup_inside)).fix()
+            # Join the well and its cylinder first: their outsides meet flush, which the fuse with the rest can't
+            # handle.
+            trackball_top = ((cylinder - finger_cavity - thumb_cavity) + self.trackball_part()).fix()
+            top = (top + trackball_top).fix()
+            bottom = (bottom + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
         # Cutting the cup's inside can leave loose slivers of the plates' edges; drop them.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
-        bottom = (finger_floor + thumb_floor + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
         bottom -= copy.deepcopy(top)
         # Where the cup meets the finger well's floor, tiny loose slivers can be left; drop them.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)

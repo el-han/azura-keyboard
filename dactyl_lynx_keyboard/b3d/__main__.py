@@ -1,8 +1,9 @@
 """Build the keyboard parts with build123d and export them to `things/b3d/`.
 
-Run with `uv run python -m dactyl_lynx_keyboard.b3d`.
+Run with `uv run python -m dactyl_lynx_keyboard.b3d`; add `--no-trackball` for the half without a trackball.
 """
 import copy
+import sys
 from os import makedirs
 from os.path import abspath, dirname, join
 
@@ -14,7 +15,9 @@ if __name__ == "__main__":
     out_dir = join(dirname(dirname(dirname(abspath(__file__)))), "things", "b3d")
     makedirs(out_dir, exist_ok=True)
 
-    assembly = KeyboardAssembly()
+    with_trackball = "--no-trackball" not in sys.argv[1:]
+    assembly = KeyboardAssembly(with_trackball=with_trackball)
+    variant = "right" if with_trackball else "right-no-trackball"
     case = assembly.case()
     # file name: (part, label, color); two shades of slate blue for the printed parts
     printed = {
@@ -29,15 +32,16 @@ if __name__ == "__main__":
 
     def not_printed():
         """Only for checking fit and collisions. Assemblies store each model once."""
-        ball = assembly.trackball_ball()
-        ball.label, ball.color = "trackball", Color(0.5, 0.05, 0.05)
-        return [
+        models = [
             Compound(label="keycaps", children=assembly.keycap_models()),
             Compound(label="keyswitches", children=assembly.switch_models()),
             Compound(label="PCBs", children=assembly.pcb_models()),
-            assembly.sensor_model(),
-            ball,
         ]
+        if with_trackball:
+            ball = assembly.trackball_ball()
+            ball.label, ball.color = "trackball", Color(0.5, 0.05, 0.05)
+            models += [assembly.sensor_model(), ball]
+        return models
 
     parts["switches"] = Compound(label="switches", children=not_printed())
     parts["combined-with-switches"] = Compound(
@@ -45,6 +49,6 @@ if __name__ == "__main__":
     )
 
     for name, part in parts.items():
-        path = join(out_dir, f"dactyl-lynx-6x5-right-{name}")
+        path = join(out_dir, f"dactyl-lynx-6x5-{variant}-{name}")
         print(f"Writing {path}.step . . .")
         export_step(part, f"{path}.step")

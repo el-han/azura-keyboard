@@ -3,7 +3,8 @@
 Checks switches, keycaps (at rest and pressed), PCBs and the trackball sensor against the printed parts in
 `things/b3d/` and the space the ball needs, and switches, keycaps and PCBs against each other.
 
-Run with `uv run python scripts/check_collisions.py` after `uv run python -m dactyl_lynx_keyboard.b3d`.
+Run with `uv run python scripts/check_collisions.py` after `uv run python -m dactyl_lynx_keyboard.b3d`; add
+`--no-trackball` to both for the half without a trackball.
 
 An MX switch's housing ribs press into its 14 mm hole by about 1 mm³; those press fits are counted but not listed.
 """
@@ -43,7 +44,9 @@ def key_of(shape: Shape) -> str:
 
 
 if __name__ == "__main__":
-    assembly = KeyboardAssembly()
+    with_trackball = "--no-trackball" not in sys.argv[1:]
+    assembly = KeyboardAssembly(with_trackball=with_trackball)
+    variant = "right" if with_trackball else "right-no-trackball"
     kinds = {
         "switch": assembly.switch_models(),
         "keycap": assembly.keycap_models(),
@@ -51,8 +54,10 @@ if __name__ == "__main__":
         "pcb": assembly.pcb_models(),
     }
     keyed = [(key_of(shape), kind, shape) for kind, shapes in kinds.items() for shape in shapes]
-    printed = {name: import_step(join(ROOT, "things", "b3d", f"dactyl-lynx-6x5-right-{name}.step")) for name in PRINTED}
-    obstacles = dict(printed, **{"ball clearance": assembly.trackball_clearance()})
+    printed = {
+        name: import_step(join(ROOT, "things", "b3d", f"dactyl-lynx-6x5-{variant}-{name}.step")) for name in PRINTED
+    }
+    obstacles = dict(printed, **({"ball clearance": assembly.trackball_clearance()} if with_trackball else {}))
     boxes: dict = {}
 
     collisions = press_fits = 0
@@ -66,12 +71,13 @@ if __name__ == "__main__":
                 continue
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
-    sensor = assembly.sensor_model()
-    for name, part in obstacles.items():
-        volume = overlap(sensor, part, boxes)
-        if volume > 0.01:
-            collisions += 1
-            print(f"sensor ∩ {name}: {volume:.2f} mm³", flush=True)
+    if with_trackball:
+        sensor = assembly.sensor_model()
+        for name, part in obstacles.items():
+            volume = overlap(sensor, part, boxes)
+            if volume > 0.01:
+                collisions += 1
+                print(f"sensor ∩ {name}: {volume:.2f} mm³", flush=True)
     for (key_a, kind_a, a), (key_b, kind_b, b) in combinations(keyed, 2):
         if key_a == key_b or {kind_a, kind_b} == {"keycap", "keycap pressed"}:
             continue
