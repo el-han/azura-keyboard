@@ -349,7 +349,7 @@ class KeyboardAssembly:
         from the well's equator down, ending in a hemisphere of the same radius that rests on the table.
 
         The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc. The
-        radius is the smallest that clears the well and leaves the sensor board `case_clearance` of room.
+        radius is the smallest that joins the well without a gap and leaves the sensor board `case_clearance` of room.
         """
         ball = self.trackball
         center_height = self._trackball_center().position.Z - self.table_z
@@ -369,8 +369,9 @@ class KeyboardAssembly:
                 inner - (math.dist((x, y, z), (0, 0, z0)) if z < z0 else math.hypot(x, y)) for (x, y, z) in corners
             )
 
-        # Keep clear of the well's outer sphere too: nearly coincident curved faces break the booleans.
-        radius = ball.outer_diameter / 2 + 1 + self.case_wall
+        # Reach a little into the well's outer sphere so the two join without a gap: nearly coincident curved faces
+        # break the booleans.
+        radius = ball.outer_diameter / 2 - 0.5 + self.case_wall
         while room(radius) < self.case_clearance:
             radius += 0.25
         z0 = hemisphere_center(radius)
