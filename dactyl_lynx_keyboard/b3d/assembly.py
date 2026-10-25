@@ -141,7 +141,9 @@ class KeyboardAssembly:
             + thumb_walls
         ).fix()
         top = (top - copy.deepcopy(cup_inside)).fix()
-        top = (top + (cylinder - finger_cavity - thumb_cavity) + copy.deepcopy(trackball_well)).fix()
+        # Join the well and its cylinder first: their outsides meet flush, which the fuse with the rest can't handle.
+        trackball_top = ((cylinder - finger_cavity - thumb_cavity) + copy.deepcopy(trackball_well)).fix()
+        top = (top + trackball_top).fix()
         # Cutting the cup's inside can leave loose slivers of the plates' edges; drop them.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
@@ -325,13 +327,20 @@ class KeyboardAssembly:
 
     def trackball_part(self) -> Part:
         """The trackball well: the lower half of a spherical shell around the ball, with an opening for the sensor's
-        lens and screw posts for its board (no supporting wall yet).
+        lens and screw posts for its board (no supporting wall yet). Its outside is flush with the cylinder below it.
         """
         ball = self.trackball
-        inner_radius, outer_radius = ball.inner_diameter / 2, ball.outer_diameter / 2
+        inner_radius, outer_radius = ball.inner_diameter / 2, self._trackball_cup_radius()
         shell = Sphere(outer_radius) - Sphere(inner_radius)
-        lower_half = Pos(0, 0, -outer_radius) * Box(*(ball.outer_diameter,) * 3)
+        lower_half = Pos(0, 0, -outer_radius) * Box(*(2 * outer_radius,) * 3)
         well = shell & lower_half
+        # Room for the sensor board, which the thick shell would reach into
+        board = sensor.model().bounding_box()
+        c = self.case_clearance
+        board_room = Pos(board.center().X, board.center().Y, (sensor.board_face_z() + c - outer_radius) / 2) * Box(
+            board.size.X + 2 * c, board.size.Y + 2 * c, sensor.board_face_z() + c + outer_radius
+        )
+        well -= Pos(0, 0, -ball.diameter / 2) * board_room
 
         # Screw posts from the sensor board up into the middle of the shell wall above the screw holes.
         r = sensor.hole_radius()
@@ -344,37 +353,43 @@ class KeyboardAssembly:
         well -= Sphere(inner_radius)
         return self._trackball_center() * well
 
-    def _trackball_cup(self) -> tuple[Part, Part, Part]:
-        """The trackball well's bottom, enclosing the sensor module, as (cylinder, hemisphere, inside): a cylinder
-        from the well's equator down, ending in a hemisphere of the same radius that rests on the table.
-
-        The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc. The
-        radius is the smallest that joins the well without a gap and leaves the sensor board `case_clearance` of room.
-        """
-        ball = self.trackball
+    def _hemisphere_center(self, radius: float) -> float:
+        """Height of the trackball cup's hemisphere center relative to the ball's center."""
         center_height = self._trackball_center().position.Z - self.table_z
+        return radius - self.dome_flat - center_height
+
+    def _trackball_cup_radius(self) -> float:
+        """Outer radius of the trackball cup (and the well): the smallest that leaves the sensor board
+        `case_clearance` of room inside a wall of `case_wall`."""
+        ball = self.trackball
         board = sensor.model().bounding_box()
         # Board corners in the ball center's frame
         corners = [(x, y, z - ball.diameter / 2) for x in (board.min.X, board.max.X)
                    for y in (board.min.Y, board.max.Y) for z in (board.min.Z, board.max.Z)]
 
-        def hemisphere_center(radius: float) -> float:
-            """Height of the hemisphere's center relative to the ball's center."""
-            return radius - self.dome_flat - center_height
-
         def room(radius: float) -> float:
             """Smallest gap between the board's corners and the inside of the cylinder and hemisphere."""
-            inner, z0 = radius - self.case_wall, hemisphere_center(radius)
+            inner, z0 = radius - self.case_wall, self._hemisphere_center(radius)
             return min(
                 inner - (math.dist((x, y, z), (0, 0, z0)) if z < z0 else math.hypot(x, y)) for (x, y, z) in corners
             )
 
-        # Reach a little into the well's outer sphere so the two join without a gap: nearly coincident curved faces
-        # break the booleans.
-        radius = ball.outer_diameter / 2 - 0.5 + self.case_wall
+        radius = ball.inner_diameter / 2 + self.case_wall
         while room(radius) < self.case_clearance:
             radius += 0.25
-        z0 = hemisphere_center(radius)
+        return radius
+
+    def _trackball_cup(self) -> tuple[Part, Part, Part]:
+        """The trackball well's bottom, enclosing the sensor module, as (cylinder, hemisphere, inside): a cylinder
+        from the well's equator down, flush with the well's outside, ending in a hemisphere of the same radius that
+        rests on the table.
+
+        The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc.
+        """
+        ball = self.trackball
+        center_height = self._trackball_center().position.Z - self.table_z
+        radius = self._trackball_cup_radius()
+        z0 = self._hemisphere_center(radius)
 
         def capsule(r: float) -> Part:
             cylinder = Pos(0, 0, z0 / 2) * Cylinder(r, -z0)
@@ -382,7 +397,7 @@ class KeyboardAssembly:
 
         above_table = Pos(0, 0, -center_height / 2) * Box(4 * radius, 4 * radius, center_height)
         inside = capsule(radius - self.case_wall) & above_table
-        shell = (capsule(radius) & above_table) - copy.deepcopy(inside) - Sphere(ball.outer_diameter / 2)
+        shell = (capsule(radius) & above_table) - copy.deepcopy(inside) - Sphere(ball.inner_diameter / 2)
         # Split at the hemisphere's center: the cylinder above, the hemisphere below
         cylinder_part = Pos(0, 0, z0 + center_height / 2) * Box(4 * radius, 4 * radius, center_height)
         return tuple(
