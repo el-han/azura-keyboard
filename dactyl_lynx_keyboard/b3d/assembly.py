@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from typing import Optional
 
 from build123d import (
-    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
+    Box, Compound, Cone, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, extrude,
     offset,
 )
 
@@ -80,6 +80,18 @@ class KeyboardAssembly:
         self.case_clearance = 0.5
         "Gap between the case's walls and the PCBs under the switches"
         self.join_margin = 15
+
+        # Stand
+        self.table_z = -4
+        "Height of the table the stand rests on"
+        self.electronics_box = ((-56, -6), (4, 50))
+        "Corners (x, y) of the electronics box under the back left of the finger well; it holds an Adafruit Feather"
+        " nRF52840 (51 x 23 mm) on its floor and a 503040 LiPo (50 x 30 x 5 mm)"
+        self.stand_wall = 2
+        self.leg_diameters = (10, 6)
+        "Bottom (room for a 10 mm adhesive pad) and top diameter of the legs"
+        self.leg_positions = ((68, -48), (68, 44), (-75, -62), (-8, -48), (-80.25, -25))
+        "Legs: front and back right under the finger well, both ends of the thumb arc, under the trackball"
         "How far past the finger well the thumb well's bottom half is joined to the top (see `case()`)"
 
     def case(self) -> dict[str, Part]:
@@ -130,8 +142,39 @@ class KeyboardAssembly:
         # edge, which is dropped.
         top = max((top - self.trackball_part()).solids(), key=lambda solid: solid.volume)
 
+        bottom = self._with_stand(bottom, finger_outer)
+
         parts = {"top": top, "bottom": bottom}
         return {name: part.fix() for name, part in parts.items()}
+
+    def _with_stand(self, bottom: Part, finger_outer: Part) -> Part:
+        """Add the stand to the bottom half: an electronics box under the back left of the finger well and slim legs
+        elsewhere, all standing on the table plane and cut off where they reach the bottom half.
+
+        The box holds the controller on its floor and the battery; its inside opens into the case for the wires.
+        """
+        envelope = copy.deepcopy(bottom)
+
+        def standing(shape: Part) -> Part:
+            """The part of `shape` below the case: what is left after cutting the case away, nearest the table."""
+            return min((shape - envelope).solids(), key=lambda solid: solid.bounding_box().min.Z)
+
+        (x0, y0), (x1, y1) = self.electronics_box
+        height = 2 * self.max_height
+        outside = Pos((x0 + x1) / 2, (y0 + y1) / 2, self.table_z + height / 2) * Box(x1 - x0, y1 - y0, height)
+        wall = self.stand_wall
+        inside = Pos((x0 + x1) / 2, (y0 + y1) / 2, self.table_z + wall + height / 2) * Box(
+            x1 - x0 - 2 * wall, y1 - y0 - 2 * wall, height
+        )
+        box = standing(outside) - inside
+        legs = [
+            standing(Pos(x, y, self.table_z + height / 2) * Cone(self.leg_diameters[0] / 2, self.leg_diameters[1] / 2, height))
+            for (x, y) in self.leg_positions
+        ]
+        # Open the finger well's floor into the box
+        bottom -= inside & finger_outer
+        return (bottom + box + legs).fix()
+
 
     def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
         # Extend the hole well beyond both sides of the plate: when it ends close to the curved surfaces, OCCT
