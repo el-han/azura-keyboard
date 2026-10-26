@@ -211,11 +211,9 @@ class KeyboardAssembly:
             trackball_top = ((cylinder - finger_cavity - thumb_cavity) + self.trackball_part()).fix()
             top = (top + trackball_top).fix()
             bottom = (bottom + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
-        # Cutting the cup's inside can leave loose slivers of the plates' edges; drop them.
-        top = max(top.solids(), key=lambda solid: solid.volume)
 
         bottom -= copy.deepcopy(top)
-        # Where the cup meets the finger well's floor, tiny loose slivers can be left; drop them.
+        # Where the thumb and finger wells meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         bottom = self._with_skirt(bottom, finger_outer)
         bottom = bottom - copy.deepcopy(top)
@@ -292,10 +290,9 @@ class KeyboardAssembly:
         """
         outside = self._skirt_outline(finger_outer)
         ring = outside - offset(outside, -self.case_wall, kind=Kind.ARC)
-        skirt = Pos(0, 0, self.table_z) * extrude(ring, 2 * self.max_height, dir=(0, 0, 1)) - copy.deepcopy(bottom)
+        # Up to `max_height`, which stays below the far side of the torus
+        skirt = Pos(0, 0, self.table_z) * extrude(ring, self.max_height, dir=(0, 0, 1)) - copy.deepcopy(bottom)
         skirt -= surface.torus(self.finger_layout, depth=self.cavity_depth + self.case_wall)
-        # Keep only what stands on the table (not pieces beyond the case)
-        skirt = [solid for solid in skirt.solids() if solid.bounding_box().min.Z < self.table_z + 1e-3]
         # Closed at the bottom by a floor of `case_wall`, which stays out of the finger well's inside
         floor = Pos(0, 0, self.table_z) * extrude(outside, self.case_wall, dir=(0, 0, 1))
         floor -= surface.torus(self.finger_layout, depth=self.cavity_depth)
@@ -315,8 +312,6 @@ class KeyboardAssembly:
         slab = extrude(footprint, self.max_height) & (
             surface.torus(layout, depth=depth + 1) - surface.torus(layout, depth=depth)
         )
-        # Drop slivers from where the torus turns over beyond the footprint; keep the key surface itself.
-        slab = max(slab.solids(), key=lambda solid: solid.volume)
         return _torus_face(slab, layout.row_radius + depth)
 
     @staticmethod
@@ -373,7 +368,13 @@ class KeyboardAssembly:
         return plate, outer, cavity, footprint
 
     def _thumb_arc(
-        self, center_x: float, start_angle: float, end_angle: float, length: float, top_depth: float, bottom_depth: float
+        self,
+        center_x: float,
+        start_angle: float,
+        end_angle: float,
+        length: float,
+        top_depth: float,
+        bottom_depth: float,
     ) -> Part:
         """An arc of the thumb well's cylinder between two depths below the key plane, in the layout's base frame.
 
