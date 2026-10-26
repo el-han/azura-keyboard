@@ -3,9 +3,9 @@
 Checks switches, keycaps (at rest and pressed), PCBs and the trackball sensor against the printed parts in
 `things/b3d/` and the space the ball needs, and switches, keycaps and PCBs against each other.
 
-Run with `uv run python scripts/check_collisions.py` after `uv run python -m dactyl_lynx_keyboard.b3d`; add
-`--no-trackball` to both for the half without a trackball. With `--simple`, switches and the sensor are checked as a
-few boxes around them, which is quicker but coarser (and shows no press fits).
+Run with `uv run python scripts/check_collisions.py [left|right]` (default right) after `uv run python -m
+dactyl_lynx_keyboard.b3d`. With `--simple`, switches and the sensor are checked as a few boxes around them, which is
+quicker but coarser (and shows no press fits).
 
 An MX switch's housing ribs press into its 14 mm hole by about 1 mm³; those press fits are counted but not listed.
 """
@@ -19,7 +19,7 @@ from build123d import Shape, import_step
 ROOT = dirname(dirname(abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from dactyl_lynx_keyboard.b3d.assembly import KeyboardAssembly  # noqa: E402
+from dactyl_lynx_keyboard.b3d.assembly import HALVES, KeyboardAssembly  # noqa: E402
 
 PRINTED = ("top", "bottom")
 
@@ -45,10 +45,11 @@ def key_of(shape: Shape) -> str:
 
 
 if __name__ == "__main__":
-    with_trackball = "--no-trackball" not in sys.argv[1:]
-    simple = "--simple" in sys.argv[1:]
-    assembly = KeyboardAssembly(with_trackball=with_trackball)
-    variant = "right" if with_trackball else "right-no-trackball"
+    args = sys.argv[1:]
+    simple = "--simple" in args
+    variant = next((arg for arg in args if arg in HALVES), "right")
+    assembly = KeyboardAssembly(**HALVES[variant])
+    with_trackball = assembly.with_trackball
     kinds = {
         "switch": assembly.switch_models(simple=simple),
         "keycap": assembly.keycap_models(),

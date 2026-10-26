@@ -6,9 +6,10 @@ from collections.abc import Iterable
 from typing import Optional
 
 from build123d import (
-    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Polygon, Pos, Rot, Shape, Solid, Sphere, Vector,
-    extrude, offset,
+    Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Plane, Polygon, Pos, Rot, Shape, Solid, Sphere,
+    Vector, extrude, mirror, offset,
 )
+from OCP.gp import gp_Trsf
 
 from ..layouts.finger_well import FingerWellLayout
 from ..layouts.keys import Keyswitch
@@ -29,17 +30,34 @@ def _instance(shape: Shape, location: Location) -> Shape:
     return instance
 
 
+def mirrored(location: Location) -> Location:
+    """The location mirrored across the YZ plane, for an unmirrored part: its position and orientation are mirrored
+    (X turned around), but it stays a rotation, so the part itself keeps its handedness."""
+    trsf = location.wrapped.Transformation()
+    sign = (-1, 1, 1, 1)  # X turned around; the last column is the translation
+    values = [sign[i] * sign[j] * trsf.Value(i + 1, j + 1) for i in range(3) for j in range(4)]
+    mirrored_trsf = gp_Trsf()
+    mirrored_trsf.SetValues(*values)
+    return Location(mirrored_trsf)
+
+
 def place_instances(
-    layout: Layout, shape: Shape, name: str, positions: Optional[Iterable[tuple[float, float]]] = None
+    layout: Layout,
+    shape: Shape,
+    name: str,
+    positions: Optional[Iterable[tuple[float, float]]] = None,
+    left: bool = False,
 ) -> list[Shape]:
-    """Place an instance of `shape` at every key position (or the given ones), sharing its geometry.
+    """Place an instance of `shape` at every key position (or the given ones), sharing its geometry; for the left
+    half, at the mirrored positions (see `mirrored()`).
 
     Exported as children of an assembly, the geometry is written to STEP only once. Each instance is labelled
     "<name> c<column> r<row>".
     """
     instances = []
     for (column, row) in layout.generate_positions() if positions is None else positions:
-        instance = _instance(shape, key_location(layout, column, row))
+        location = key_location(layout, column, row)
+        instance = _instance(shape, mirrored(location) if left else location)
         instance.label = f"{name} c{column:g} r{row:g}"
         instances.append(instance)
     return instances
@@ -68,13 +86,26 @@ def _grid(shape: Shape, n: int) -> list[Vector]:
     return [point for point in points if shape.is_inside(point)]
 
 
+HALVES = {
+    "right": dict(side="right", with_trackball=True, thumb_keys=3),
+    "left": dict(side="left", with_trackball=False, thumb_keys=5),
+}
+"The two halves that are built: keyword arguments for `KeyboardAssembly`, by name"
+
+
 class KeyboardAssembly:
-    def __init__(self, columns: int = 6, rows: int = 5, with_trackball: bool = True):
+    def __init__(
+        self, columns: int = 6, rows: int = 5, with_trackball: bool = True, thumb_keys: int = 5, side: str = "right"
+    ):
+        if side not in ("left", "right"):
+            raise ValueError(f"side must be 'left' or 'right', not {side!r}")
+        self.side = side
+        "Which half: everything is designed as the right half; the left half's case is its mirror image"
         k = Keyswitch()
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         # Low enough that the finger well's bottom half rests on the table
         self.finger_layout.placement_transform = (0, 0, 12.05)
-        self.thumb_layout = ThumbWellLayout(keyswitch=k)
+        self.thumb_layout = ThumbWellLayout(keyswitch=k, keys=thumb_keys)
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
@@ -193,6 +224,8 @@ class KeyboardAssembly:
         top = max(top.solids(), key=lambda solid: solid.volume)
 
         parts = {"top": top, "bottom": bottom}
+        if self.left:
+            parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
 
     def _cable_passages(self, finger_cavity: Part, thumb_cavity: Part) -> Part:
@@ -512,23 +545,32 @@ class KeyboardAssembly:
         """The trackball's sensor module, for collision checks (not printed); `simple` uses a few boxes around it
         instead."""
         model = sensor.envelope() if simple else sensor.model()
-        return Compound(label="sensor", children=[self._sensor_location() * child for child in model.children])
+        location = self._placed(self._sensor_location())
+        return Compound(label="sensor", children=[location * child for child in model.children])
 
     def trackball_clearance(self) -> Part:
         """The space the ball needs to turn freely (the well's inner sphere)."""
-        return self._trackball_center() * Sphere(self.trackball.inner_diameter / 2)
+        return self._placed(self._trackball_center()) * Sphere(self.trackball.inner_diameter / 2)
 
     def trackball_ball(self) -> Part:
         """The ball itself, for previews."""
-        return self._trackball_center() * Sphere(self.trackball.diameter / 2)
+        return self._placed(self._trackball_center()) * Sphere(self.trackball.diameter / 2)
+
+    @property
+    def left(self) -> bool:
+        return self.side == "left"
+
+    def _placed(self, location: Location) -> Location:
+        """Where a part that is not printed goes: at `location` in the right half, mirrored in the left."""
+        return mirrored(location) if self.left else location
 
     def switch_models(self, simple: bool = False) -> list[Shape]:
         """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed); `simple`
         uses a few boxes around each switch instead."""
         model = keyswitch.mx_switch_envelope() if simple else keyswitch.mx_switch_model()
         return (
-            place_instances(self.finger_layout, model, "finger switch")
-            + place_instances(self.thumb_layout, model, "thumb switch")
+            place_instances(self.finger_layout, model, "finger switch", left=self.left)
+            + place_instances(self.thumb_layout, model, "thumb switch", left=self.left)
         )
 
     def keycap_models(self, pressed: bool = False) -> list[Shape]:
@@ -542,10 +584,14 @@ class KeyboardAssembly:
                 by_size.setdefault(layout.key_size(column, row), []).append((column, row))
             for size, positions in by_size.items():
                 model = keyswitch.dsa_keycap_model(size, pressed)
-                keycaps += place_instances(layout, model, f"{name} keycap {size:g}u{suffix}", positions)
+                keycaps += place_instances(
+                    layout, model, f"{name} keycap {size:g}u{suffix}", positions, left=self.left
+                )
         return keycaps
 
     def pcb_models(self) -> list[Part]:
         """Single-key PCBs under every switch, for collision checks (not printed)."""
         pcb = keyswitch.single_key_board()
-        return place_instances(self.finger_layout, pcb, "finger PCB") + place_instances(self.thumb_layout, pcb, "thumb PCB")
+        return place_instances(self.finger_layout, pcb, "finger PCB", left=self.left) + place_instances(
+            self.thumb_layout, pcb, "thumb PCB", left=self.left
+        )

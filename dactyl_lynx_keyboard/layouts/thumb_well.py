@@ -12,8 +12,11 @@ from .transform import Transform
 class ThumbWellLayout(Layout):
     """The layout of a thumb well.
     """
-    def __init__(self, keyswitch: Keyswitch = Keyswitch()):
+    def __init__(self, keyswitch: Keyswitch = Keyswitch(), keys: int = 5):
         super(ThumbWellLayout, self).__init__(keyswitch=keyswitch)
+
+        self.keys = keys
+        "Number of keys on the arc, from the one next to the finger well (column -1) outward"
 
         self.rad_per_col = 2 * math.pi / 8
         "Angle between neighbouring keys on the arc"
@@ -31,14 +34,7 @@ class ThumbWellLayout(Layout):
     def generate_positions(self) -> Iterable[Tuple[float, float]]:
         """Generate the list of locations within the layout.
         """
-        return (
-            # (column, row)
-            (-1, 0),
-            (0, 0),
-            (1, 0),
-            #(2, 0),
-            #(3, 0),
-        )
+        return tuple((column, 0) for column in range(-1, self.keys - 1))
 
     def key_size(self, column: float, row: float) -> float:
         """The bottom key (column 0) is 1.25u wide."""
