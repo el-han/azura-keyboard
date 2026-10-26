@@ -113,6 +113,12 @@ class KeyboardAssembly:
         self.trackball = TrackBall()
         self.trackball_position = (-80.25, -25, 37)
         "Center of the ball"
+        self.bearing_pocket = (7.5, 4)
+        "Diameter and depth of the pockets for the ball transfer units (QB310 7.5) that hold the ball"
+        self.bearing_tilt = 60
+        "Angle of the bearings' axes from the vertical (degrees)"
+        self.bearing_azimuths = (90, 210, 330)
+        "Directions of the bearings around the ball in top view (degrees from +X), clear of the sensor's screw posts"
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -541,7 +547,8 @@ class KeyboardAssembly:
 
     def trackball_part(self) -> Part:
         """The trackball well: the lower half of a spherical shell around the ball, with an opening for the sensor's
-        lens and screw posts for its board (no supporting wall yet). Its outside is flush with the cylinder below it.
+        lens, screw posts for its board and pockets for the ball transfer units the ball rests on. Its outside is flush
+        with the cylinder below it.
         """
         ball = self.trackball
         inner_radius, outer_radius = ball.inner_diameter / 2, self._trackball_cup_radius()
@@ -565,6 +572,12 @@ class KeyboardAssembly:
         well -= to_sensor * sensor.lens_opening()
         well -= to_sensor * sensor.screw_holes()
         well -= Sphere(inner_radius)
+        # Pockets for the bearings, from the inside of the shell outward, their axes through the ball's center
+        diameter, depth = self.bearing_pocket
+        tilt = math.radians(self.bearing_tilt)
+        for azimuth in map(math.radians, self.bearing_azimuths):
+            axis = Vector(math.sin(tilt) * math.cos(azimuth), math.sin(tilt) * math.sin(azimuth), -math.cos(tilt))
+            well -= Solid.make_cylinder(diameter / 2, depth + 1, Plane(origin=axis * (inner_radius - 1), z_dir=axis))
         return self._trackball_center() * well
 
     def _hemisphere_center(self, radius: float) -> float:
