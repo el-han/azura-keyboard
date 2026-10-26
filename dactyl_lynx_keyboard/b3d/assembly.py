@@ -144,8 +144,8 @@ class KeyboardAssembly:
         self.trackball_passage = (8, 5)
         "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
 
-        # M2.5 screws from below into heat-set inserts, in bosses inside the finger well's back corners
-        self.screw_corners = ((-0.5, -0.75), (5.5, -0.75))
+        # M2.5 screws from below into heat-set inserts, in bosses inside corners of the finger well
+        self.screw_corners = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
         "Corners of the finger well's outline (column, row) with a screw"
         self.screw_hole = 2.9
         "Diameter of the screws' clearance holes"
@@ -232,20 +232,20 @@ class KeyboardAssembly:
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
-        lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer))
-        top = ((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)
-        bottom = (bottom + lower).fix() - holes
+        lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), top, bottom)
+        top = (((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)).fix()
+        bottom = ((bottom + lower).fix() - holes).fix()
 
         parts = {"top": top, "bottom": bottom}
         if self.left:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
 
-    def _screw_bosses(self, outside: Part) -> tuple[Part, Part, Part]:
+    def _screw_bosses(self, outside: Part, top: Part, bottom: Part) -> tuple[Part, Part, Part]:
         """Bosses for the screws in the finger well's `screw_corners`, as (lower parts for the bottom, upper parts for
         the top, holes).
 
-        A boss stands along the key surface's normal at its corner, like the walls, as far out as it can while it
+        A boss stands along the key surface's normal at its corner, like the walls, at the nearest place where it
         stays `screw_margin` inside the case's outside and clear of the switches and PCBs; it may reach into the
         walls. Its lower part reaches from inside the floor to a wall's thickness above it and holds the screw's
         counterbore and clearance hole, so the screw goes in from below; its upper part reaches to just below the
@@ -264,30 +264,38 @@ class KeyboardAssembly:
         def column(bottom: float, top: float, radius: float) -> Part:
             return Pos(0, 0, (bottom + top) / 2) * Cylinder(radius, top - bottom)
 
-        columns, rows = zip(*layout.outline_corners)
-        middle = to_location(layout.key_transform(sum(columns) / len(columns), sum(rows) / len(rows)))
+        # Places around a corner (in its frame, 1 mm apart, up to 15 mm away), nearest first
+        around = sorted(
+            [(dx, dy) for dx in range(-15, 16) for dy in range(-15, 16) if math.hypot(dx, dy) <= 15],
+            key=lambda offset: math.hypot(*offset),
+        )
         bosses = []
         for corner in self.screw_corners:
             at_corner = to_location(layout.key_transform(*corner))
-            toward_middle = (at_corner.inverse() * middle).position
-            inward = Vector(toward_middle.X, toward_middle.Y, 0).normalized()
-            for step in range(-20, 41):
-                frame = at_corner * Pos(inward * (step / 2))
+            for dx, dy in around:
+                frame = at_corner * Pos(dx, dy, 0)
                 whole = frame * column(bottom_z, top_z, boss)
                 stray = frame * column(bottom_z, top_z, boss + self.screw_margin) - copy.deepcopy(outside)
                 if stray is not None and stray.solids() and stray.volume > 0.01:
                     continue
-                if whole.distance_to(obstacles) >= 0.3:
+                if whole.distance_to(obstacles) < 0.3:
+                    continue
+                # Each part holds on to its part of the case
+                lower = frame * column(bottom_z, split, boss)
+                upper = frame * column(split, top_z, boss)
+                holes = frame * (
+                    column(underside - 1, underside + self.screw_head[1], head)
+                    + column(underside - 1, split, self.screw_hole / 2)
+                    + column(split, split + self.insert_hole[1], self.insert_hole[0] / 2)
+                )
+                if all(
+                    (held := part & copy.deepcopy(holder)) is not None and held.solids() and held.volume > 10
+                    for part, holder in ((lower, bottom), (upper, top))
+                ):
                     break
             else:
                 raise ValueError(f"No room for the screw at corner {corner}")
-            bosses.append(tuple(frame * shape for shape in (
-                column(bottom_z, split, boss),
-                column(split, top_z, boss),
-                column(underside - 1, underside + self.screw_head[1], head)
-                + column(underside - 1, split, self.screw_hole / 2)
-                + column(split, split + self.insert_hole[1], self.insert_hole[0] / 2),
-            )))
+            bosses.append((lower, upper, holes))
         return tuple(Compound(children=[found[i] for found in bosses]) for i in range(3))
 
     def _prism(self, face: Face) -> Part:
