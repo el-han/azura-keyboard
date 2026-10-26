@@ -29,8 +29,7 @@ def overlap(a: Shape, b: Shape, boxes: dict, tol: float = 0.01) -> float:
     (a_min, a_max), (b_min, b_max) = (boxes.setdefault(id(s), _box(s)) for s in (a, b))
     if not all(a_min[i] < b_max[i] - tol and b_min[i] < a_max[i] - tol for i in range(3)):
         return 0
-    intersection = a & b
-    return intersection.volume if intersection is not None else 0
+    return (a & b).volume
 
 
 def _box(shape: Shape):
