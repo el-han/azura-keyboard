@@ -111,7 +111,8 @@ class KeyboardAssembly:
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
-        self.trackball_position = (-80.25, -25, 10)
+        self.trackball_position = (-80.25, -25, 37)
+        "Center of the ball"
 
         self.plate_thickness = self.finger_layout.plate_thickness
         self.max_height = 120
@@ -457,7 +458,7 @@ class KeyboardAssembly:
         ))
 
     def _trackball_center(self) -> Location:
-        return Pos(*self.trackball_position) * Pos(0, 0, self.trackball.z_offset)
+        return Pos(*self.trackball_position)
 
     def _sensor_location(self) -> Location:
         """The sensor frame: the bottom of the ball, with the board's long side along X."""
