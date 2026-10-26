@@ -17,6 +17,7 @@ class ThumbWellLayout(Layout):
 
         self.keys = keys
         "Number of keys on the arc, from the one next to the finger well (column -1) outward"
+        self.outline_corners = ((-1.5, -0.5), (keys - 1.5, -0.5), (keys - 1.5, 0.5), (-1.5, 0.5))
 
         self.rad_per_col = 2 * math.pi / 8
         "Angle between neighbouring keys on the arc"

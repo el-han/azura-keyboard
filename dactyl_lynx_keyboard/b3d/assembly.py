@@ -144,6 +144,18 @@ class KeyboardAssembly:
         self.trackball_passage = (8, 5)
         "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
 
+        # M2.5 screws from below into heat-set inserts, in eyes on the outside of the walls' corners
+        self.screw_hole = 2.9
+        "Diameter of the screws' clearance holes"
+        self.screw_head = (5.0, 2.6)
+        "Diameter and depth of the counterbores for the screw heads (DIN 912: 4.5 × 2.5 mm)"
+        self.insert_hole = (3.5, 5)
+        "Diameter and depth of the holes for the heat-set inserts"
+        self.screw_boss = 7
+        "Diameter of the screw eyes"
+        self.screw_spacing = 30
+        "Smallest distance between two screws"
+
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
         "bottom" (the floors, the trackball's hemisphere and the skirt). Without `with_trackball`, there is no
@@ -180,6 +192,14 @@ class KeyboardAssembly:
         thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
+        # Where the screws go is decided on the wells as they are now.
+        wells = [
+            (*copy.deepcopy((outer, above)), layout)
+            for outer, above, layout in (
+                (finger_outer, above_finger_floor, self.finger_layout),
+                (thumb_outer, above_thumb_floor, self.thumb_layout),
+            )
+        ]
 
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
         top = (
@@ -218,10 +238,74 @@ class KeyboardAssembly:
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
+        lower, upper, holes = self._screw_bosses(wells, top, bottom)
+        bottom = (bottom + lower).fix() - copy.deepcopy(holes)
+        top = (top + upper).fix() - holes
+
         parts = {"top": top, "bottom": bottom}
         if self.left:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
+
+    def _screw_bosses(
+        self, wells: list[tuple[Part, Part, Layout]], top: Part, bottom: Part
+    ) -> tuple[Part, Part, Part]:
+        """Screw eyes on the outside of the case's corners, as (lower parts for the bottom, upper parts for the top,
+        holes).
+
+        Each well is given as (outside, everything above the walls' bottom, layout). An eye stands at each corner of
+        the layout's outline (`Layout.outline_corners`), just outside the case and reaching a little into it, along
+        the key surface's normal there, like the walls. It is split where the walls are split from the floor: its
+        upper part holds the insert, its lower part the screw's counterbore and clearance hole. As the case is its
+        outline moved along the normals, nothing of it is below an eye outside it. Corners closer than
+        `screw_spacing` to one that has an eye already, and eyes that would run into the rest of the case, are left
+        out.
+        """
+        eye, head = self.screw_boss / 2, self.screw_head[0] / 2
+        split = -self.cavity_depth
+        lower_bottom = split - self.screw_head[1] - 2.5
+        case = Compound(children=[top, bottom])
+
+        def column(bottom_z: float, top_z: float, radius: float) -> Part:
+            return Pos(0, 0, (bottom_z + top_z) / 2) * Cylinder(radius, top_z - bottom_z)
+
+        chosen: list[tuple[Vector, tuple[Part, Part, Part]]] = []
+        below_table = Pos(0, 0, self.table_z - self.max_height) * Box(*(2 * self.max_height,) * 3)
+        for outside, above, layout in wells:
+            columns, rows = zip(*layout.outline_corners)
+            middle = (sum(columns) / len(columns), sum(rows) / len(rows))
+            for column_row in layout.outline_corners:
+                at_corner = to_location(layout.key_transform(*column_row))
+                # Outward in the corner's frame: away from the outline's middle
+                inward = (at_corner.inverse() * to_location(layout.key_transform(*middle))).position
+                outward = Vector(-inward.X, -inward.Y, 0).normalized()
+                # The case's outside at the height of the split, then a little further out
+                edge = 0
+                while outside.is_inside((at_corner * Pos(outward * edge + Vector(0, 0, split))).position) and edge < 30:
+                    edge += 0.5
+                frame = at_corner * Pos(outward * (edge + eye - 1.5))
+                if any((frame.position - other).length < self.screw_spacing for other, _ in chosen):
+                    continue
+                whole = frame * column(lower_bottom, split + self.insert_hole[1] + 1.5, eye)
+                lower = copy.deepcopy(whole).cut(copy.deepcopy(above), copy.deepcopy(below_table))
+                upper = whole & copy.deepcopy(above)
+                if any(part is None or not part.solids() for part in (lower, upper)):
+                    continue
+                # Out of the way of the rest of the case
+                stray = (lower + upper) - copy.deepcopy(outside)
+                hit = stray & copy.deepcopy(case) if stray is not None and stray.solids() else None
+                if hit is not None and hit.solids() and hit.volume > 5:
+                    continue
+                holes = frame * (
+                    column(lower_bottom - 1, lower_bottom + self.screw_head[1], head)
+                    + column(lower_bottom - 1, split, self.screw_hole / 2)
+                    + column(split, split + self.insert_hole[1], self.insert_hole[0] / 2)
+                )
+                chosen.append((frame.position, (lower, upper, holes)))
+        if not chosen:
+            raise ValueError("No room for any screw")
+        lower, upper, holes = (Compound(children=[found[i] for _, found in chosen]) for i in range(3))
+        return lower, upper, holes
 
     def _prism(self, face: Face) -> Part:
         """Everything above and below a face in top view."""
