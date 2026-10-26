@@ -3,7 +3,7 @@
 import copy
 import math
 from collections.abc import Iterable
-from typing import Optional
+from typing import Callable, Optional
 
 from build123d import (
     Box, Compound, Cylinder, Face, GeomType, Kind, Location, Part, Plane, Polygon, Pos, Rot, Shape, Solid, Sphere,
@@ -46,10 +46,10 @@ def place_instances(
     shape: Shape,
     name: str,
     positions: Optional[Iterable[tuple[float, float]]] = None,
-    left: bool = False,
+    place: Callable[[Location], Location] = lambda location: location,
 ) -> list[Shape]:
-    """Place an instance of `shape` at every key position (or the given ones), sharing its geometry; for the left
-    half, at the mirrored positions (see `mirrored()`).
+    """Place an instance of `shape` at every key position (or the given ones), sharing its geometry; `place` turns
+    a key's location into the instance's (e.g. mirrored for the left half).
 
     Exported as children of an assembly, the geometry is written to STEP only once. Each instance is labelled
     "<name> c<column> r<row>".
@@ -57,7 +57,7 @@ def place_instances(
     instances = []
     for (column, row) in layout.generate_positions() if positions is None else positions:
         location = key_location(layout, column, row)
-        instance = _instance(shape, mirrored(location) if left else location)
+        instance = _instance(shape, place(location))
         instance.label = f"{name} c{column:g} r{row:g}"
         instances.append(instance)
     return instances
@@ -101,6 +101,8 @@ class KeyboardAssembly:
             raise ValueError(f"side must be 'left' or 'right', not {side!r}")
         self.side = side
         "Which half: everything is designed as the right half; the left half's case is its mirror image"
+        self.offset = Location()
+        "Where the parts that are not printed are moved to (e.g. to show both halves side by side)"
         k = Keyswitch()
         self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
         # Low enough that the finger well's bottom half rests on the table
@@ -561,16 +563,17 @@ class KeyboardAssembly:
         return self.side == "left"
 
     def _placed(self, location: Location) -> Location:
-        """Where a part that is not printed goes: at `location` in the right half, mirrored in the left."""
-        return mirrored(location) if self.left else location
+        """Where a part that is not printed goes: at `location` in the right half, mirrored in the left; moved by
+        `offset`."""
+        return self.offset * (mirrored(location) if self.left else location)
 
     def switch_models(self, simple: bool = False) -> list[Shape]:
         """Cherry MX switch models in every finger and thumb socket, for collision checks (not printed); `simple`
         uses a few boxes around each switch instead."""
         model = keyswitch.mx_switch_envelope() if simple else keyswitch.mx_switch_model()
         return (
-            place_instances(self.finger_layout, model, "finger switch", left=self.left)
-            + place_instances(self.thumb_layout, model, "thumb switch", left=self.left)
+            place_instances(self.finger_layout, model, "finger switch", place=self._placed)
+            + place_instances(self.thumb_layout, model, "thumb switch", place=self._placed)
         )
 
     def keycap_models(self, pressed: bool = False) -> list[Shape]:
@@ -585,13 +588,13 @@ class KeyboardAssembly:
             for size, positions in by_size.items():
                 model = keyswitch.dsa_keycap_model(size, pressed)
                 keycaps += place_instances(
-                    layout, model, f"{name} keycap {size:g}u{suffix}", positions, left=self.left
+                    layout, model, f"{name} keycap {size:g}u{suffix}", positions, place=self._placed
                 )
         return keycaps
 
     def pcb_models(self) -> list[Part]:
         """Single-key PCBs under every switch, for collision checks (not printed)."""
         pcb = keyswitch.single_key_board()
-        return place_instances(self.finger_layout, pcb, "finger PCB", left=self.left) + place_instances(
-            self.thumb_layout, pcb, "thumb PCB", left=self.left
+        return place_instances(self.finger_layout, pcb, "finger PCB", place=self._placed) + place_instances(
+            self.thumb_layout, pcb, "thumb PCB", place=self._placed
         )
