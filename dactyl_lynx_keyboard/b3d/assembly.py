@@ -155,6 +155,8 @@ class KeyboardAssembly:
         "Diameter and depth of the holes for the heat-set inserts"
         self.screw_boss = 7
         "Diameter of the bosses around the screws and inserts"
+        self.screw_margin = 1.5
+        "Smallest thickness of the case's outside around a boss"
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
@@ -243,11 +245,11 @@ class KeyboardAssembly:
         """Bosses for the screws in the finger well's `screw_corners`, as (lower parts for the bottom, upper parts for
         the top, holes).
 
-        A boss stands along the key surface's normal at its corner, like the walls, as far out as it can while it stays
-        inside the case and clear of the switches and PCBs; it may reach into the walls. Its lower part reaches from
-        inside the floor to a wall's thickness above it and holds the screw's counterbore and clearance hole, so the
-        screw goes in from below; its upper part reaches to just below the plate and holds the insert. None of its
-        faces lies on one of the case's curved faces.
+        A boss stands along the key surface's normal at its corner, like the walls, as far out as it can while it
+        stays `screw_margin` inside the case's outside and clear of the switches and PCBs; it may reach into the
+        walls. Its lower part reaches from inside the floor to a wall's thickness above it and holds the screw's
+        counterbore and clearance hole, so the screw goes in from below; its upper part reaches to just below the
+        plate and holds the insert. None of its faces lies on one of the case's curved faces.
         """
         layout = self.finger_layout
         boss, head = self.screw_boss / 2, self.screw_head[0] / 2
@@ -272,7 +274,7 @@ class KeyboardAssembly:
             for step in range(-20, 41):
                 frame = at_corner * Pos(inward * (step / 2))
                 whole = frame * column(bottom_z, top_z, boss)
-                stray = copy.deepcopy(whole) - copy.deepcopy(outside)
+                stray = frame * column(bottom_z, top_z, boss + self.screw_margin) - copy.deepcopy(outside)
                 if stray is not None and stray.solids() and stray.volume > 0.01:
                     continue
                 if whole.distance_to(obstacles) >= 0.3:
