@@ -1,7 +1,7 @@
 """Check the exported printed parts for collisions with the parts that are not printed.
 
 Checks switches, keycaps (at rest and pressed), PCBs and the trackball sensor against the printed parts in
-`things/b3d/` and the space the ball needs, and switches, keycaps and PCBs against each other.
+`things` and the space the ball needs, and switches, keycaps and PCBs against each other.
 
 Run with `uv run python scripts/check_collisions.py [left|right]` (default right) after `uv run python -m
 dactyl_lynx_keyboard.b3d`. With `--simple`, switches and the sensor are checked as a few boxes around them, which is
@@ -12,12 +12,12 @@ An MX switch's housing ribs press into its 14 mm hole by about 1 mm³; those pre
 import re
 import sys
 from itertools import combinations
-from os.path import abspath, dirname, join
+from pathlib import Path
 
 from build123d import Shape, import_step
 
-ROOT = dirname(dirname(abspath(__file__)))
-sys.path.insert(0, ROOT)
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from dactyl_lynx_keyboard.b3d.assembly import HALVES, KeyboardAssembly  # noqa: E402
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     }
     keyed = [(key_of(shape), kind, shape) for kind, shapes in kinds.items() for shape in shapes]
     printed = {
-        name: import_step(join(ROOT, "things", "b3d", f"dactyl-lynx-6x5-{variant}-{name}.step")) for name in PRINTED
+        name: import_step(ROOT / "things" / f"dactyl-lynx-6x5-{variant}-{name}.step") for name in PRINTED
     }
     obstacles = dict(printed, **({"ball clearance": assembly.trackball_clearance()} if with_trackball else {}))
     boxes: dict = {}

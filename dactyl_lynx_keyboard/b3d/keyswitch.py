@@ -3,14 +3,14 @@
 All shapes are in the key's local frame: the top of the plate is at Z=0 and the switch points up (+Z).
 """
 from functools import cache
-from os.path import abspath, dirname, join
+from pathlib import Path
 
 from build123d import Box, Color, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, loft
 
 from ..layouts.keys import Keyswitch
 from .step import import_step_colored, transformed
 
-MX_SWITCH_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "SW_Cherry_MX_Plate.stp")
+MX_SWITCH_STEP = Path(__file__).resolve().parents[2] / "resources" / "SW_Cherry_MX_Plate.stp"
 "Cherry MX plate-mount switch from https://github.com/kiswitch/kiswitch (MIT / CC-BY-SA 4.0)"
 MX_SWITCH_STEP_PLATE_Z = 5.0
 "Height of the plate's top surface in the STEP model's frame (whose origin is the bottom of the switch housing)"
@@ -19,7 +19,7 @@ MX_STEM_TOP = 10.44
 MX_TRAVEL = 4.0
 "Total travel of an MX switch"
 
-DSA_KEYCAP_DIR = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "dsa-keycap")
+DSA_KEYCAP_DIR = Path(__file__).resolve().parents[2] / "resources" / "dsa-keycap"
 "DSA keycaps from https://github.com/anhthang/dsa-keycap (MIT); modelled Y-up, bottom at Y=0, wide side along X"
 DSA_KEYCAP_FILES = {
     1.0: "DSA 1u.step",
@@ -101,7 +101,7 @@ def _dsa_keycap_step(size: float) -> Compound:
         file_name = DSA_KEYCAP_FILES[size]
     except KeyError:
         raise ValueError(f"No DSA keycap model for {size}u keys") from None
-    return import_step_colored(join(DSA_KEYCAP_DIR, file_name), label=f"DSA {size:g}u")
+    return import_step_colored(DSA_KEYCAP_DIR / file_name, label=f"DSA {size:g}u")
 
 
 def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:

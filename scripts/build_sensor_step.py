@@ -14,13 +14,13 @@ Dimensions are from the PixArt PMW3610DM-SUDU datasheet: the package outline (fi
 """
 import re
 import subprocess
-from os.path import abspath, dirname, join
+from pathlib import Path
 
 from build123d import Box, Color, Compound, Pos, export_step
 
-ROOT = dirname(dirname(abspath(__file__)))
-SUBMODULE = join(ROOT, "resources", "pmw3610-pcb")
-OUT = join(ROOT, "resources", "sensor")
+ROOT = Path(__file__).resolve().parents[1]
+SUBMODULE = ROOT / "resources" / "pmw3610-pcb"
+OUT = ROOT / "resources" / "sensor"
 MODEL_NAME = "PMW3610DM-SUDU_LM18-LSI.step"
 MODEL_PLACEHOLDER = "@@SENSOR_MODEL@@"
 
@@ -55,7 +55,7 @@ def sensor_model() -> Compound:
 
 def patched_board() -> str:
     """The board file with the sensor model added and the other models pointed at KiCad's STEP library."""
-    with open(join(SUBMODULE, "pmw3610_pcb.kicad_pcb")) as f:
+    with open(SUBMODULE / "pmw3610_pcb.kicad_pcb") as f:
         board = f.read()
     board = re.sub(r"\$\{KICAD\d+_3DMODEL_DIR\}", "${KICAD9_3DMODEL_DIR}", board)
     board = board.replace('.wrl"', '.step"')
@@ -75,11 +75,11 @@ def patched_board() -> str:
 
 
 if __name__ == "__main__":
-    export_step(sensor_model(), join(OUT, MODEL_NAME))
-    board_path = join(OUT, "pmw3610_pcb.kicad_pcb")
+    export_step(sensor_model(), OUT / MODEL_NAME)
+    board_path = OUT / "pmw3610_pcb.kicad_pcb"
     with open(board_path, "w") as f:
         f.write(patched_board())
     subprocess.run(
-        ["kicad-cli", "pcb", "export", "step", "-f", "--no-dnp", "-o", join(OUT, "pmw3610_pcb.step"), board_path],
+        ["kicad-cli", "pcb", "export", "step", "-f", "--no-dnp", "-o", OUT / "pmw3610_pcb.step", board_path],
         check=True,
     )

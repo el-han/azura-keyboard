@@ -5,8 +5,7 @@ name one or more halves (e.g. `right`) to build only those.
 """
 import copy
 import sys
-from os import makedirs
-from os.path import abspath, dirname, join
+from pathlib import Path
 
 from build123d import Color, Compound, Pos, export_step
 
@@ -52,13 +51,13 @@ def build(assembly: KeyboardAssembly) -> dict[str, Compound]:
 
 
 if __name__ == "__main__":
-    out_dir = join(dirname(dirname(dirname(abspath(__file__)))), "things", "b3d")
-    makedirs(out_dir, exist_ok=True)
+    out_dir = Path(__file__).resolve().parents[2] / "things" / "b3d"
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     def write(part: Compound, name: str):
-        path = join(out_dir, f"dactyl-lynx-6x5-{name}")
-        print(f"Writing {path}.step . . .")
-        export_step(part, f"{path}.step")
+        path = out_dir / f"dactyl-lynx-6x5-{name}.step"
+        print(f"Writing {path} . . .")
+        export_step(part, path)
 
     sides = sys.argv[1:] or list(HALVES)
     halves = {}

@@ -3,6 +3,8 @@
 `build123d.import_step()` gives a single shape one color (that of its largest face), which turns multi-colored
 models such as a keyswitch white. This importer keeps each solid's own color.
 """
+from pathlib import Path
+
 from build123d import Color, Compound, Location, Shape, Solid
 from OCP.collections import Sequence_TDF_Label
 from OCP.Quantity import Quantity_ColorRGBA
@@ -17,12 +19,12 @@ from OCP.XCAFDoc import XCAFDoc_ColorType, XCAFDoc_DocumentTool
 _COLOR_TYPES = (XCAFDoc_ColorType.XCAFDoc_ColorSurf, XCAFDoc_ColorType.XCAFDoc_ColorGen)
 
 
-def import_step_colored(path: str, label: str = "") -> Compound:
+def import_step_colored(path: str | Path, label: str = "") -> Compound:
     """Import a STEP file as a compound whose children are its solids, each with its own color."""
     doc = TDocStd_Document(TCollection_ExtendedString("XCAF"))
     reader = STEPCAFControl_Reader()
     reader.SetColorMode(True)
-    if not reader.ReadFile(path) or not reader.Transfer(doc):
+    if not reader.ReadFile(str(path)) or not reader.Transfer(doc):
         raise ValueError(f"Could not read STEP file {path}")
     shape_tool = XCAFDoc_DocumentTool.ShapeTool_s(doc.Main())
     color_tool = XCAFDoc_DocumentTool.ColorTool_s(doc.Main())

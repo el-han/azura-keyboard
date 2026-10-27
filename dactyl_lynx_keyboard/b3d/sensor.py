@@ -7,13 +7,13 @@ All shapes are in the sensor's frame: the navigation surface (the bottom of the 
 below it with its lens facing up (+Z), and the sensor's optical center is on the Z axis.
 """
 from functools import cache
-from os.path import abspath, dirname, join
+from pathlib import Path
 
 from build123d import Box, Compound, Cylinder, Location, Part, Pos, Rot
 
 from .step import import_step_colored, transformed
 
-BOARD_STEP = join(dirname(dirname(dirname(abspath(__file__)))), "resources", "sensor", "pmw3610_pcb.step")
+BOARD_STEP = Path(__file__).resolve().parents[2] / "resources" / "sensor" / "pmw3610_pcb.step"
 
 # Positions in the KiCad project (board coordinates; STEP Y = -KiCad Y)
 OPTICAL_CENTER_KICAD = (150.0, 100.0)
