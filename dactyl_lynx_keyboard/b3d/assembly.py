@@ -192,10 +192,11 @@ class KeyboardAssembly:
         next_to_finger_well = self._prism(offset(finger_footprint, self.join_margin, kind=Kind.ARC))
         # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
         above_finger_floor = surface.torus(self.finger_layout, depth=self.cavity_depth)
-        # Next to the finger well, the thumb well's bottom half belongs to the top above the finger floor's top edge.
-        above_thumb_floor = self._thumb_above(self.cavity_depth) + (
-            next_to_finger_well & copy.deepcopy(above_finger_floor)
-        )
+        # Next to the finger well, the thumb well's bottom half belongs to the top above the finger floor's top edge:
+        # only where the two wells meet, not where the thumb well's arc comes back up into that margin.
+        join = copy.deepcopy(thumb_bottom) & next_to_finger_well & copy.deepcopy(above_finger_floor)
+        join = [solid for solid in join.solids() if solid.distance_to(finger_outer) < 1e-3]
+        above_thumb_floor = self._thumb_above(self.cavity_depth).fuse(*join)
         finger_walls = copy.deepcopy(finger_bottom) & above_finger_floor
         thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
         finger_floor = finger_bottom - above_finger_floor
