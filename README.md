@@ -67,7 +67,7 @@ uv sync
 uv run python -m dactyl_lynx_keyboard.b3d
 ```
 
-This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/b3d/`, plus
+This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/`, plus
 models with Cherry MX switches and PCBs in place for checking collisions (not meant for printing).
 The Cherry MX model in `resources/SW_Cherry_MX_Plate.stp` is from [kiswitch](https://github.com/kiswitch/kiswitch)
 (MIT / CC-BY-SA 4.0); the DSA keycaps come from the [dsa-keycap](https://github.com/anhthang/dsa-keycap) submodule

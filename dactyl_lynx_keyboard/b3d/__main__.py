@@ -1,4 +1,4 @@
-"""Build the keyboard parts with build123d and export them to `things/b3d/`.
+"""Build the keyboard parts with build123d and export them to `things/`.
 
 Run with `uv run python -m dactyl_lynx_keyboard.b3d` for both halves (see `HALVES`) and a file with both side by side;
 name one or more halves (e.g. `right`) to build only those.
@@ -51,7 +51,7 @@ def build(assembly: KeyboardAssembly) -> dict[str, Compound]:
 
 
 if __name__ == "__main__":
-    out_dir = Path(__file__).resolve().parents[2] / "things" / "b3d"
+    out_dir = Path(__file__).resolve().parents[2] / "things"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     def write(part: Compound, name: str):
