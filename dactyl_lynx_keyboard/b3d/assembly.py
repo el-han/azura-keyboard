@@ -111,8 +111,8 @@ class KeyboardAssembly:
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
-        self.trackball_position = (-78, -24, 37)
-        "Center of the ball: as close to the finger well as the PCBs under finger c0 r3 and thumb c1 r0 allow"
+        self.trackball_position = (-80.25, -25, 37)
+        "Center of the ball"
         self.bearing_pocket = (7.5, 4)
         "Diameter and depth of the pockets for the ball transfer units (QB310 7.5) that hold the ball"
         self.bearing_tilt = 60
@@ -202,16 +202,13 @@ class KeyboardAssembly:
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
 
-        finger_top = self._with_switch_holes(finger_top, self.finger_layout)
-        thumb_top = self._with_switch_holes(thumb_top, self.thumb_layout)
-        if self.with_trackball:
-            # Before the fuse: the cut fails on the fused top. The cup stays below the finger plate.
-            cup_inside = self._trackball_cup()[2]
-            thumb_top, finger_walls, thumb_walls = (
-                part - copy.deepcopy(cup_inside) for part in (thumb_top, finger_walls, thumb_walls)
-            )
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
-        top = (finger_top + thumb_top + finger_walls + thumb_walls).fix()
+        top = (
+            self._with_switch_holes(finger_top, self.finger_layout)
+            + self._with_switch_holes(thumb_top, self.thumb_layout)
+            + finger_walls
+            + thumb_walls
+        ).fix()
         # The finger floor is open inside the skirt.
         skirt_outline = self._skirt_outline(finger_outer)
         inside_skirt = self._prism(offset(skirt_outline, -self.case_wall))
@@ -221,16 +218,15 @@ class KeyboardAssembly:
         extension = (self._thumb_floor_extension() & self._beside_skirt(skirt_outline)) - inside_skirt
         bottom = (bottom + (extension - finger_cavity - thumb_cavity)).fix()
         if self.with_trackball:
-            # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Toward the
-            # finger well, the cup's wall replaces the finger well's case; toward the thumb well, the walls fall away
-            # and the insides run into each other.
+            # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they
+            # overlap the wells' cases, the walls fall away and the insides run into each other.
             cylinder, hemisphere, cup_inside = self._trackball_cup()
+            top = (top - copy.deepcopy(cup_inside)).fix()
             # Join the well and its cylinder first: their outsides meet flush, which the fuse with the rest can't
             # handle.
-            trackball_top = ((cylinder - thumb_cavity) + self.trackball_part()).fix()
+            trackball_top = ((cylinder - finger_cavity - thumb_cavity) + self.trackball_part()).fix()
             top = (top + trackball_top).fix()
-            # Cut before the fuse here too: the cut leaves the fused bottom invalid.
-            bottom = ((bottom - copy.deepcopy(cup_inside)) + (hemisphere - thumb_cavity)).fix()
+            bottom = (bottom + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
 
         bottom -= copy.deepcopy(top)
         # Where the thumb and finger wells meet, the top cuts a bit of floor loose; drop it.
