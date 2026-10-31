@@ -145,9 +145,9 @@ class KeyboardAssembly:
         "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
         # Cable passages into the finger well, where the controller sits (in the skirt, at the back left)
-        self.thumb_passage = (10, 5)
-        "Width and height of the passage for the thumb keys' wires (about 10)"
-        self.trackball_passage = (8, 5)
+        self.thumb_passage = (12, 5)
+        "Width and height of the passage for the thumb keys' wires"
+        self.trackball_passage = (12, 5)
         "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
 
         # M2.5 screws from below into heat-set inserts, in bosses inside corners of the finger well
@@ -333,13 +333,17 @@ class KeyboardAssembly:
 
         _, p, q = copy.deepcopy(thumb_cavity).distance_to_with_closest_points(copy.deepcopy(finger_cavity))
         p, q = Vector(p), Vector(q)
-        # Just through the thin wall between them, lowered until it stays within the wells' walls and insides (and
-        # clear of the plates above)
+        # Through the middle of the wall the two wells share, lowered until it stays within the wells' walls and
+        # insides (and clear of the plates above)
         finger_outer, thumb_outer = self._finger_case()[1], self._thumb_case()[1]
+        shared = (copy.deepcopy(thumb_outer) & copy.deepcopy(finger_outer)).bounding_box().center()
+        across = Vector((q - p).X, (q - p).Y, 0).normalized()
+        along = Vector(-across.Y, across.X, 0)
+        middle = (p + q) / 2 + along * (shared - (p + q) / 2).dot(along)
         walls_and_insides = (finger_outer, thumb_outer, finger_cavity, thumb_cavity)
         for drop in [0.5 * i for i in range(21)]:
-            center = (p + q) / 2 - Vector(0, 0, drop)
-            thumb = passage(center, (q - p).normalized(), self.thumb_passage, 2 * self.case_wall)
+            center = middle - Vector(0, 0, drop)
+            thumb = passage(center, across, self.thumb_passage, 4 * self.case_wall)
             if all(any(shape.is_inside(point) for shape in walls_and_insides) for point in _grid(thumb, 5)):
                 break
         else:
