@@ -239,7 +239,7 @@ class KeyboardAssembly:
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
-        lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), top, bottom)
+        lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), copy.deepcopy(thumb_outer), top, bottom)
         top = (((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)).fix()
         bottom = ((bottom + lower).fix() - holes).fix()
 
@@ -248,25 +248,27 @@ class KeyboardAssembly:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
 
-    def _screw_bosses(self, outside: Part, top: Part, bottom: Part) -> tuple[Part, Part, Part]:
-        """Bosses for the screws in the finger well's `screw_corners`, as (lower parts for the bottom, upper parts for
-        the top, holes).
+    def _screw_bosses(
+        self, finger_outside: Part, thumb_outside: Part, top: Part, bottom: Part
+    ) -> tuple[Part, Part, Part]:
+        """Bosses for the screws in the finger well's `screw_corners` and the thumb well's gaps after its first and
+        before its last key, as (lower parts for the bottom, upper parts for the top, holes).
 
-        A boss stands along the key surface's normal at its corner, like the walls, at the nearest place where it
+        A boss stands along the key surface's normal at its place, like the walls, at the nearest place where it
         stays `screw_margin` inside the case's outside and clear of the switches and PCBs; it may reach into the
         walls. Its lower part reaches from inside the floor to a wall's thickness above it and holds the screw's
         counterbore and clearance hole, so the screw goes in from below; its upper part reaches to just below the
         plate and holds the insert. None of its faces lies on one of the case's curved faces.
         """
-        layout = self.finger_layout
         boss, head = self.screw_boss / 2, self.screw_head[0] / 2
         underside = -(self.cavity_depth + self.case_wall)
         bottom_z, split, top_z = underside + 1, -self.cavity_depth + self.case_wall, -self.plate_thickness - 0.5
         obstacles = Compound(children=[
             shape
+            for layout in (self.finger_layout, self.thumb_layout)
             for model in (keyswitch.mx_switch_envelope(), keyswitch.single_key_board())
             for shape in place_instances(layout, model, "")
-        ])
+        ] + ([self._trackball_cup()[2]] if self.with_trackball else []))
 
         def column(bottom: float, top: float, radius: float) -> Part:
             return Pos(0, 0, (bottom + top) / 2) * Cylinder(radius, top - bottom)
@@ -276,8 +278,12 @@ class KeyboardAssembly:
             [(dx, dy) for dx in range(-15, 16) for dy in range(-15, 16) if math.hypot(dx, dy) <= 15],
             key=lambda offset: math.hypot(*offset),
         )
+        thumb_columns = sorted({-0.5, self.thumb_layout.keys - 2.5})
+        places = [(self.finger_layout, finger_outside, corner) for corner in self.screw_corners] + [
+            (self.thumb_layout, thumb_outside, (column, 0)) for column in thumb_columns
+        ]
         bosses = []
-        for corner in self.screw_corners:
+        for layout, outside, corner in places:
             at_corner = to_location(layout.key_transform(*corner))
             for dx, dy in around:
                 frame = at_corner * Pos(dx, dy, 0)
@@ -301,7 +307,7 @@ class KeyboardAssembly:
                 ):
                     break
             else:
-                raise ValueError(f"No room for the screw at corner {corner}")
+                raise ValueError(f"No room for the screw at {corner}")
             bosses.append((lower, upper, holes))
         return tuple(Compound(children=[found[i] for found in bosses]) for i in range(3))
 
