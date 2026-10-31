@@ -259,6 +259,9 @@ class KeyboardAssembly:
         walls. Its lower part reaches from inside the floor to a wall's thickness above it and holds the screw's
         counterbore and clearance hole, so the screw goes in from below; its upper part reaches to just below the
         plate and holds the insert. None of its faces lies on one of the case's curved faces.
+
+        In the thumb well, a boss stands midway between the front and back walls, and a web between the keys ties its
+        upper part to the plate and the front wall; behind it, the wires pass.
         """
         boss, head = self.screw_boss / 2, self.screw_head[0] / 2
         underside = -(self.cavity_depth + self.case_wall)
@@ -279,23 +282,27 @@ class KeyboardAssembly:
             key=lambda offset: math.hypot(*offset),
         )
         thumb_columns = sorted({-0.5, self.thumb_layout.keys - 2.5})
-        places = [(self.finger_layout, finger_outside, corner) for corner in self.screw_corners] + [
-            (self.thumb_layout, thumb_outside, (column, 0)) for column in thumb_columns
+        # The web reaches into the plate and the middle of the front wall
+        web_end = self._thumb_inner_length / 2 + self.case_wall / 2
+        web_top = -self.plate_thickness + 1
+        web = Pos(0, -web_end / 2, (split + web_top) / 2) * Box(self.case_wall, web_end, web_top - split)
+        places = [(self.finger_layout, finger_outside, corner, around, None) for corner in self.screw_corners] + [
+            (self.thumb_layout, thumb_outside, (column, 0), [(0, 0)], web) for column in thumb_columns
         ]
         bosses = []
-        for layout, outside, corner in places:
+        for layout, outside, corner, offsets, tie in places:
             at_corner = to_location(layout.key_transform(*corner))
-            for dx, dy in around:
+            for dx, dy in offsets:
                 frame = at_corner * Pos(dx, dy, 0)
                 whole = frame * column(bottom_z, top_z, boss)
                 stray = frame * column(bottom_z, top_z, boss + self.screw_margin) - copy.deepcopy(outside)
                 if stray is not None and stray.solids() and stray.volume > 0.01:
                     continue
-                if whole.distance_to(obstacles) < 0.3:
+                if (frame * (column(bottom_z, top_z, boss) + tie) if tie else whole).distance_to(obstacles) < 0.3:
                     continue
                 # Each part holds on to its part of the case
                 lower = frame * column(bottom_z, split, boss)
-                upper = frame * column(split, top_z, boss)
+                upper = frame * (column(split, top_z, boss) + tie if tie else column(split, top_z, boss))
                 holes = frame * (
                     column(underside - 1, underside + self.screw_head[1], head)
                     + column(underside - 1, split, self.screw_hole / 2)
