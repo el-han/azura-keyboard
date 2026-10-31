@@ -111,7 +111,7 @@ class KeyboardAssembly:
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
-        self.trackball_position = (-80.25, -25, 37)
+        self.trackball_position = (-80.25, -25, 31)
         "Center of the ball"
         self.bearing_pocket = (7.5, 4)
         "Diameter and depth of the pockets for the ball transfer units (QB310 7.5) that hold the ball"
@@ -141,8 +141,6 @@ class KeyboardAssembly:
         "Height of the table: the thumb well touches it with the flat strip in its middle"
         self.skirt_inset = 10
         "How far the skirt under the finger well stays inside the outline of the finger well's underside"
-        self.dome_flat = 6
-        "How far the hemisphere under the trackball would reach below the table; cut off, it stands on a flat disc"
 
         # Cable passages into the finger well, where the controller sits (in the skirt, at the back left)
         self.thumb_passage = (12, 5)
@@ -166,8 +164,8 @@ class KeyboardAssembly:
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
-        "bottom" (the floors, the trackball's hemisphere and the skirt). Without `with_trackball`, there is no
-        trackball well, cylinder or hemisphere.
+        "bottom" (the floors, the foot of the trackball's cylinder and the skirt). Without `with_trackball`, there is no
+        trackball well or cylinder.
 
         Where the two wells' cases overlap, their walls fall away and their insides run into each other: each part
         loses whatever lies inside the other well's cavity (for the plates, only below the other plate), and the finger
@@ -218,15 +216,15 @@ class KeyboardAssembly:
         extension = (self._thumb_floor_extension() & self._beside_skirt(skirt_outline)) - inside_skirt
         bottom = (bottom + (extension - finger_cavity - thumb_cavity)).fix()
         if self.with_trackball:
-            # The trackball's bottom: its cylinder and the well join the top, its hemisphere the bottom. Where they
+            # The trackball's bottom: its cylinder and the well join the top, its foot the bottom. Where they
             # overlap the wells' cases, the walls fall away and the insides run into each other.
-            cylinder, hemisphere, cup_inside = self._trackball_cup()
+            cylinder, foot, cup_inside = self._trackball_cup()
             top = (top - copy.deepcopy(cup_inside)).fix()
             # Join the well and its cylinder first: their outsides meet flush, which the fuse with the rest can't
             # handle.
             trackball_top = ((cylinder - finger_cavity - thumb_cavity) + self.trackball_part()).fix()
             top = (top + trackball_top).fix()
-            bottom = (bottom + (hemisphere - finger_cavity - thumb_cavity)).fix() - cup_inside
+            bottom = (bottom + (foot - finger_cavity - thumb_cavity)).fix() - cup_inside
 
         bottom -= copy.deepcopy(top)
         # Where the thumb and finger wells meet, the top cuts a bit of floor loose; drop it.
@@ -350,14 +348,14 @@ class KeyboardAssembly:
             raise ValueError("No room for the thumb well's cable passage")
         passages = thumb
         if self.with_trackball:
-            cylinder, hemisphere, cup_inside = self._trackball_cup()
+            cylinder, foot, cup_inside = self._trackball_cup()
             _, p, q = cup_inside.distance_to_with_closest_points(copy.deepcopy(finger_cavity))
             point = (Vector(p) + Vector(q)) / 2
             outward = point - self._trackball_center().position
             outward = Vector(outward.X, outward.Y, 0).normalized()
             # Through the cup's wall and the finger well's, lowered until it comes out under the PCB there
             pcbs = Compound(children=place_instances(self.finger_layout, keyswitch.single_key_board(), ""))
-            walls_and_insides += (cylinder, hemisphere, cup_inside)
+            walls_and_insides += (cylinder, foot, cup_inside)
             for drop in [0.5 * i for i in range(41)]:
                 trackball = passage(point - Vector(0, 0, drop), outward, self.trackball_passage, 4 * self.case_wall)
                 if trackball.distance_to(pcbs) >= self.case_clearance and all(
@@ -607,61 +605,31 @@ class KeyboardAssembly:
             well -= Solid.make_cylinder(diameter / 2, depth + 1, Plane(origin=axis * (inner_radius - 1), z_dir=axis))
         return self._trackball_center() * well
 
-    def _hemisphere_center(self, radius: float) -> float:
-        """Height of the trackball cup's hemisphere center relative to the ball's center."""
-        center_height = self._trackball_center().position.Z - self.table_z
-        return radius - self.dome_flat - center_height
-
     def _trackball_cup_radius(self) -> float:
         """Outer radius of the trackball cup (and the well): the smallest that leaves the sensor board
-        `case_clearance` of room inside a wall of `case_wall`."""
-        ball = self.trackball
+        `case_clearance` of room inside a wall of `case_wall`, and the ball's clearance a wall of `case_wall`."""
         board = sensor.model().bounding_box()
-        # Board corners in the ball center's frame
-        corners = [(x, y, z - ball.diameter / 2) for x in (board.min.X, board.max.X)
-                   for y in (board.min.Y, board.max.Y) for z in (board.min.Z, board.max.Z)]
-
-        def room(radius: float) -> float:
-            """Smallest gap between the board's corners and the inside of the cylinder and hemisphere."""
-            inner, z0 = radius - self.case_wall, self._hemisphere_center(radius)
-            return min(
-                inner - (math.dist((x, y, z), (0, 0, z0)) if z < z0 else math.hypot(x, y)) for (x, y, z) in corners
-            )
-
-        radius = ball.inner_diameter / 2 + self.case_wall
-        while room(radius) < self.case_clearance:
-            radius += 0.25
-        return radius
+        reach = max(math.hypot(x, y) for x in (board.min.X, board.max.X) for y in (board.min.Y, board.max.Y))
+        return max(reach + self.case_clearance, self.trackball.inner_diameter / 2) + self.case_wall
 
     def _trackball_cup(self) -> tuple[Part, Part, Part]:
-        """The trackball well's bottom, enclosing the sensor module, as (cylinder, hemisphere, inside): a cylinder
-        from the well's equator down, flush with the well's outside, ending in a hemisphere of the same radius that
-        rests on the table.
-
-        The hemisphere reaches `dome_flat` below the table, where it is cut off flat so it stands on a small disc.
+        """The trackball well's bottom, enclosing the sensor module, as (wall, foot, inside): a cylinder from the
+        well's equator down to the table, flush with the well's outside, with a flat floor of `case_wall`. The foot
+        is the floor and the wall's lowest bit, so the seam stays clear of the floor's top.
         """
         ball = self.trackball
         center_height = self._trackball_center().position.Z - self.table_z
         radius = self._trackball_cup_radius()
-        z0 = self._hemisphere_center(radius)
 
-        def capsule(r: float) -> Part:
-            cylinder = Pos(0, 0, z0 / 2) * Cylinder(r, -z0)
-            return cylinder + Pos(0, 0, z0) * Sphere(r)
+        def column(r: float, bottom: float, top: float) -> Part:
+            """A cylinder between two heights relative to the ball's center."""
+            return Pos(0, 0, (bottom + top) / 2) * Cylinder(r, top - bottom)
 
-        def between(bottom: float, top: float) -> Part:
-            """Everything between two heights (relative to the ball's center) around the cup."""
-            return Pos(0, 0, (bottom + top) / 2) * Box(4 * radius, 4 * radius, top - bottom)
-
-        # With a floor of `case_wall` on the table
-        inside = capsule(radius - self.case_wall) & between(self.case_wall - center_height, 0)
-        shell = (capsule(radius) & between(-center_height, 0)) - copy.deepcopy(inside) - Sphere(ball.inner_diameter / 2)
-        # Split at the hemisphere's center: the cylinder above, the hemisphere below
-        cylinder_part = between(z0, z0 + center_height)
-        return tuple(
-            self._trackball_center() * shape
-            for shape in (shell & copy.deepcopy(cylinder_part), shell - cylinder_part, inside)
-        )
+        inside = column(radius - self.case_wall, self.case_wall - center_height, 0)
+        seam = 2 * self.case_wall - center_height
+        wall = column(radius, seam, 0) - copy.deepcopy(inside) - Sphere(ball.inner_diameter / 2)
+        foot = column(radius, -center_height, seam) - copy.deepcopy(inside)
+        return tuple(self._trackball_center() * shape for shape in (wall, foot, inside))
 
     def sensor_model(self, simple: bool = False) -> Compound:
         """The trackball's sensor module, for collision checks (not printed); `simple` uses a few boxes around it
