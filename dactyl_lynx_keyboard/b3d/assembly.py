@@ -352,23 +352,14 @@ class KeyboardAssembly:
             raise ValueError("No room for the thumb well's cable passage")
         passages = thumb
         if self.with_trackball:
-            cylinder, foot, cup_inside = self._trackball_cup()
-            _, p, q = cup_inside.distance_to_with_closest_points(copy.deepcopy(finger_cavity))
-            point = (Vector(p) + Vector(q)) / 2
-            outward = point - self._trackball_center().position
-            outward = Vector(outward.X, outward.Y, 0).normalized()
-            # Through the cup's wall and the finger well's, lowered until it comes out under the PCB there
-            pcbs = Compound(children=place_instances(self.finger_layout, keyswitch.single_key_board(), ""))
-            walls_and_insides += (cylinder, foot, cup_inside)
-            for drop in [0.5 * i for i in range(41)]:
-                trackball = passage(point - Vector(0, 0, drop), outward, self.trackball_passage, 4 * self.case_wall)
-                if trackball.distance_to(pcbs) >= self.case_clearance and all(
-                    any(shape.is_inside(p) for shape in walls_and_insides) for p in _grid(trackball, 5)
-                ):
-                    break
-            else:
-                raise ValueError("No room for the trackball's cable passage")
-            passages += trackball
+            # From the room under the sensor, low enough to pass below the ball's shell, straight through the cup's wall
+            # into the pocket under the finger well's floor, then up through that floor, below the PCB there
+            width, height = self.trackball_passage
+            center = self._trackball_center().position
+            wall_x = center.X + self._trackball_cup_radius()
+            low = self.table_z + self.case_wall + 0.5
+            passages += Pos(wall_x + 3, center.Y, low + height / 2) * Box(16, width, height)
+            passages += Pos(wall_x + 9, center.Y, (low + 21) / 2) * Box(7, width, 21 - low)
         return passages
 
     def _skirt_outline(self, finger_outer: Part) -> Face:
