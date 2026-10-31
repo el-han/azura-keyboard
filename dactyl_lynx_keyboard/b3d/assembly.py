@@ -350,14 +350,23 @@ class KeyboardAssembly:
             raise ValueError("No room for the thumb well's cable passage")
         passages = thumb
         if self.with_trackball:
-            cup_inside = self._trackball_cup()[2]
+            cylinder, hemisphere, cup_inside = self._trackball_cup()
             _, p, q = cup_inside.distance_to_with_closest_points(copy.deepcopy(finger_cavity))
             point = (Vector(p) + Vector(q)) / 2
             outward = point - self._trackball_center().position
-            # Through the cup's wall and the finger well's
-            passages += passage(
-                point, Vector(outward.X, outward.Y, 0).normalized(), self.trackball_passage, 4 * self.case_wall
-            )
+            outward = Vector(outward.X, outward.Y, 0).normalized()
+            # Through the cup's wall and the finger well's, lowered until it comes out under the PCB there
+            pcbs = Compound(children=place_instances(self.finger_layout, keyswitch.single_key_board(), ""))
+            walls_and_insides += (cylinder, hemisphere, cup_inside)
+            for drop in [0.5 * i for i in range(41)]:
+                trackball = passage(point - Vector(0, 0, drop), outward, self.trackball_passage, 4 * self.case_wall)
+                if trackball.distance_to(pcbs) >= self.case_clearance and all(
+                    any(shape.is_inside(p) for shape in walls_and_insides) for p in _grid(trackball, 5)
+                ):
+                    break
+            else:
+                raise ValueError("No room for the trackball's cable passage")
+            passages += trackball
         return passages
 
     def _skirt_outline(self, finger_outer: Part) -> Face:
