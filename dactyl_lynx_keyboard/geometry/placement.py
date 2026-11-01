@@ -3,8 +3,8 @@
 from build123d import Location
 from OCP.gp import gp_Trsf
 
-from ..layouts.layout import Layout
-from ..layouts.transform import Transform
+from .key_layout import KeyLayout
+from .transform import Transform
 
 
 def to_location(transform: Transform) -> Location:
@@ -15,6 +15,6 @@ def to_location(transform: Transform) -> Location:
     return Location(trsf)
 
 
-def key_location(layout: Layout, column: float, row: float) -> Location:
+def key_location(layout: KeyLayout, column: float, row: float) -> Location:
     """Return the location of the given key position in the layout."""
     return to_location(layout.key_transform(column, row))

@@ -1,6 +1,6 @@
 """Build the keyboard parts with build123d and export them to `things/`.
 
-Run with `uv run python -m dactyl_lynx_keyboard.b3d` for both halves (see `HALVES`) and a file with both side by side;
+Run with `uv run python -m dactyl_lynx_keyboard` for both halves (see `HALVES`) and a file with both side by side;
 name one or more halves (e.g. `right`) to build only those.
 """
 import copy
@@ -9,7 +9,7 @@ from pathlib import Path
 
 from build123d import Color, Compound, Pos, export_step
 
-from .assembly import HALVES, KeyboardAssembly
+from .case.keyboard import HALVES, KeyboardAssembly
 
 GAP = 40
 "Distance between the two halves' cases in the file with both (mm)"
@@ -51,7 +51,7 @@ def build(assembly: KeyboardAssembly) -> dict[str, Compound]:
 
 
 if __name__ == "__main__":
-    out_dir = Path(__file__).resolve().parents[2] / "things"
+    out_dir = Path(__file__).resolve().parents[1] / "things"
     out_dir.mkdir(parents=True, exist_ok=True)
 
     def write(part: Compound, name: str):

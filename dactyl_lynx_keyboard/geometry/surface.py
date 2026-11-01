@@ -1,29 +1,29 @@
 """The doubly-curved key surface of a layout, as an exact torus.
 
-`Layout.key_transform()` rotates each key about an X axis at `row_radius` and then about a Y axis at `column_radius`.
+`KeyLayout.key_transform()` rotates each key about an X axis at `row_radius` and then about a Y axis at `column_radius`.
 Every key position therefore lies on a torus whose axis is parallel to Y at height `column_radius`, with major
 radius `column_radius - row_radius` and minor radius `row_radius`; the keys sit on the inside of its outer equator.
 Offsetting the surface by `d` along the key normals gives the concentric torus with minor radius `row_radius + d`.
 
 This only holds while the layout's `placement_adjust()` and `layout_place()` are the same for every key, which is
-the case for `FingerWellLayout` but not for `ThumbWellLayout`.
+the case for `FingerLayout` but not for `ThumbLayout`.
 """
 import math
 from collections.abc import Sequence
 
 from build123d import Face, Location, Polygon, Pos, Rot, Solid, Torus
 
-from ..layouts.layout import Layout
-from ..layouts.transform import Transform
+from .key_layout import KeyLayout
 from .placement import to_location
+from .transform import Transform
 
 
-def surface_location(layout: Layout) -> Location:
+def surface_location(layout: KeyLayout) -> Location:
     """The placement of the whole key surface (the parts of the key transform shared by all keys)."""
     return to_location(layout.layout_place(layout.placement_adjust(0, 0, Transform())))
 
 
-def torus(layout: Layout, depth: float = 0) -> Solid:
+def torus(layout: KeyLayout, depth: float = 0) -> Solid:
     """The solid torus whose surface lies `depth` below the top of the switch plates.
 
     Everything inside it is above that surface (on the keycap side).
@@ -59,13 +59,13 @@ def _intersection(a: tuple[Point2D, Point2D], b: tuple[Point2D, Point2D]) -> Poi
 
 
 def outline(
-    layout: Layout,
+    layout: KeyLayout,
     straight_columns: Sequence[float] = (),
     straight_rows: Sequence[float] = (),
     enclose: Sequence[Point2D] = (),
     step: float = 0.25,
 ) -> Face:
-    """The footprint of the layout's plate (`Layout.outline_corners`, edges along the key surface), projected onto
+    """The footprint of the layout's plate (`KeyLayout.outline_corners`, edges along the key surface), projected onto
     the XY plane.
 
     :param straight_columns: edge columns (e.g. -0.5 for the left edge of column 0) whose boundary should be a straight

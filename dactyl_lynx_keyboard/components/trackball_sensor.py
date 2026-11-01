@@ -11,7 +11,7 @@ from pathlib import Path
 
 from build123d import Box, Compound, Cylinder, Location, Part, Pos, Rot
 
-from .step import import_step_colored, transformed
+from ..geometry.step import import_step_colored, transformed
 
 BOARD_STEP = Path(__file__).resolve().parents[2] / "resources" / "sensor" / "pmw3610_pcb.step"
 

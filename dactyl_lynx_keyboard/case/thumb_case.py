@@ -4,16 +4,16 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from .keys import Keyswitch
-from .layout import Layout
-from .transform import Transform
+from ..components.keyswitch import Keyswitch
+from ..geometry.key_layout import KeyLayout
+from ..geometry.transform import Transform
 
 
-class ThumbWellLayout(Layout):
+class ThumbLayout(KeyLayout):
     """The layout of a thumb well.
     """
     def __init__(self, keyswitch: Keyswitch = Keyswitch(), keys: int = 5):
-        super(ThumbWellLayout, self).__init__(keyswitch=keyswitch)
+        super(ThumbLayout, self).__init__(keyswitch=keyswitch)
 
         self.keys = keys
         "Number of keys on the arc, from the one next to the finger well (column -1) outward"

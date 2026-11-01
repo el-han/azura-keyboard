@@ -4,11 +4,11 @@ import math
 from collections.abc import Iterable, Sequence
 from typing import Tuple
 
-from .keys import Keyswitch
+from ..components.keyswitch import Keyswitch
 from .transform import Transform
 
 
-class Layout:
+class KeyLayout:
     """The base implementation of a layout manager.
 
     This can generate a grid of key positions.

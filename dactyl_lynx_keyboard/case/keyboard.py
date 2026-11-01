@@ -11,14 +11,15 @@ from build123d import (
 )
 from OCP.gp import gp_Trsf
 
-from ..layouts.finger_well import FingerWellLayout
-from ..layouts.keys import Keyswitch
-from ..layouts.layout import Layout
-from ..layouts.thumb_well import ThumbWellLayout
-from ..layouts.transform import Transform
-from ..trackball import TrackBall
-from . import keyswitch, sensor, surface
-from .placement import key_location, to_location
+from ..components import keyswitch, trackball_sensor
+from ..components.keyswitch import Keyswitch
+from ..components.trackball import TrackBall
+from ..geometry import surface
+from ..geometry.key_layout import KeyLayout
+from ..geometry.placement import key_location, to_location
+from ..geometry.transform import Transform
+from .finger_case import FingerLayout
+from .thumb_case import ThumbLayout
 
 
 def _instance(shape: Shape, location: Location) -> Shape:
@@ -42,7 +43,7 @@ def mirrored(location: Location) -> Location:
 
 
 def place_instances(
-    layout: Layout,
+    layout: KeyLayout,
     shape: Shape,
     name: str,
     positions: Optional[Iterable[tuple[float, float]]] = None,
@@ -63,7 +64,7 @@ def place_instances(
     return instances
 
 
-def place_all(layout: Layout, shape: Part) -> list[Part]:
+def place_all(layout: KeyLayout, shape: Part) -> list[Part]:
     """Place a copy of `shape` at every key position of the layout."""
     return [key_location(layout, column, row) * shape for (column, row) in layout.generate_positions()]
 
@@ -104,10 +105,10 @@ class KeyboardAssembly:
         self.offset = Location()
         "Where the parts that are not printed are moved to (e.g. to show both halves side by side)"
         k = Keyswitch()
-        self.finger_layout = FingerWellLayout(columns=columns, rows=rows, keyswitch=k)
+        self.finger_layout = FingerLayout(columns=columns, rows=rows, keyswitch=k)
         # Low enough that the finger well's bottom half rests on the table
         self.finger_layout.placement_transform = (0, 0, 12.05)
-        self.thumb_layout = ThumbWellLayout(keyswitch=k, keys=thumb_keys)
+        self.thumb_layout = ThumbLayout(keyswitch=k, keys=thumb_keys)
         self.with_trackball = with_trackball
         "Whether this half has the trackball, its well and its sensor"
         self.trackball = TrackBall()
@@ -473,7 +474,7 @@ class KeyboardAssembly:
         return (bottom + skirt + floor).fix()
 
 
-    def _with_switch_holes(self, plate: Part, layout: Layout) -> Part:
+    def _with_switch_holes(self, plate: Part, layout: KeyLayout) -> Part:
         # Extend the hole well beyond both sides of the plate: when it ends close to the curved surfaces, OCCT
         # sometimes keeps the cut-out piece as a separate solid.
         k = layout.keyswitch
@@ -481,7 +482,7 @@ class KeyboardAssembly:
         plate -= place_all(layout, keyswitch.switch(k))
         return plate
 
-    def _surface_face(self, layout: Layout, footprint: Face, depth: float) -> Face:
+    def _surface_face(self, layout: KeyLayout, footprint: Face, depth: float) -> Face:
         """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
         slab = extrude(footprint, self.max_height) & (
             surface.torus(layout, depth=depth + 1) - surface.torus(layout, depth=depth)
@@ -494,7 +495,7 @@ class KeyboardAssembly:
         pointing_up = face.normal_at(face.center()).Z > 0
         return Solid.thicken(face, -amount if pointing_up else amount)
 
-    def _case_inner_footprint(self, layout: Layout) -> Face:
+    def _case_inner_footprint(self, layout: KeyLayout) -> Face:
         """The inside of the case in top view: the plate outline, grown to hold every key's PCB.
 
         The PCBs hang below the keys along the surface normals, just like the case walls, so their squares projected
@@ -572,7 +573,7 @@ class KeyboardAssembly:
         """The thumb well's surface thickened between two depths along its normals, in the layout's base frame.
 
         The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
-        under the keys sitting there (see `ThumbWellLayout.placement_adjust()`). Each half reaches half a key
+        under the keys sitting there (see `ThumbLayout.placement_adjust()`). Each half reaches half a key
         spacing past its outermost key, less `inset` (mm, measured on the key plane). With `longer`, the free end
         reaches further, to take the hook there (see `_thumb_tongue()`).
         """
@@ -656,21 +657,21 @@ class KeyboardAssembly:
         lower_half = Pos(0, 0, -outer_radius) * Box(*(2 * outer_radius,) * 3)
         well = shell & lower_half
         # Room for the sensor board, which the thick shell would reach into
-        board = sensor.model().bounding_box()
+        board = trackball_sensor.model().bounding_box()
         c = self.case_clearance
-        board_room = Pos(board.center().X, board.center().Y, (sensor.board_face_z() + c - outer_radius) / 2) * Box(
-            board.size.X + 2 * c, board.size.Y + 2 * c, sensor.board_face_z() + c + outer_radius
+        board_room = Pos(board.center().X, board.center().Y, (trackball_sensor.board_face_z() + c - outer_radius) / 2) * Box(
+            board.size.X + 2 * c, board.size.Y + 2 * c, trackball_sensor.board_face_z() + c + outer_radius
         )
         well -= Pos(0, 0, -ball.diameter / 2) * board_room
 
         # Screw posts from the sensor board up into the middle of the shell wall above the screw holes.
-        r = sensor.hole_radius()
+        r = trackball_sensor.hole_radius()
         shell_middle = -(math.sqrt(inner_radius**2 - r**2) + math.sqrt(outer_radius**2 - r**2)) / 2
-        post_height = shell_middle + ball.diameter / 2 - sensor.board_face_z()
+        post_height = shell_middle + ball.diameter / 2 - trackball_sensor.board_face_z()
         to_sensor = Pos(0, 0, -ball.diameter / 2)
-        well += to_sensor * sensor.standoffs(height=post_height)
-        well -= to_sensor * sensor.lens_opening()
-        well -= to_sensor * sensor.screw_holes()
+        well += to_sensor * trackball_sensor.standoffs(height=post_height)
+        well -= to_sensor * trackball_sensor.lens_opening()
+        well -= to_sensor * trackball_sensor.screw_holes()
         well -= Sphere(inner_radius)
         # Pockets for the bearings, from the inside of the shell outward, their axes through the ball's center
         diameter, depth = self.bearing_pocket
@@ -683,7 +684,7 @@ class KeyboardAssembly:
     def _trackball_cup_radius(self) -> float:
         """Outer radius of the trackball cup (and the well): the smallest that leaves the sensor board
         `case_clearance` of room inside a wall of `case_wall`, and the ball's clearance a wall of `case_wall`."""
-        board = sensor.model().bounding_box()
+        board = trackball_sensor.model().bounding_box()
         reach = max(math.hypot(x, y) for x in (board.min.X, board.max.X) for y in (board.min.Y, board.max.Y))
         return max(reach + self.case_clearance, self.trackball.inner_diameter / 2) + self.case_wall
 
@@ -709,7 +710,7 @@ class KeyboardAssembly:
     def sensor_model(self, simple: bool = False) -> Compound:
         """The trackball's sensor module, for collision checks (not printed); `simple` uses a few boxes around it
         instead."""
-        model = sensor.envelope() if simple else sensor.model()
+        model = trackball_sensor.envelope() if simple else trackball_sensor.model()
         location = self._placed(self._sensor_location())
         return Compound(label="sensor", children=[location * child for child in model.children])
 

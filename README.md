@@ -64,7 +64,7 @@ uv sync
 #### Generating
 
 ```bash
-uv run python -m dactyl_lynx_keyboard.b3d
+uv run python -m dactyl_lynx_keyboard
 ```
 
 This writes STEP files for the finger well, thumb well, trackball well and the combined model to `things/`, plus

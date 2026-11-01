@@ -4,16 +4,16 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from .keys import Keyswitch
-from .layout import Layout
-from .transform import Transform
+from ..components.keyswitch import Keyswitch
+from ..geometry.key_layout import KeyLayout
+from ..geometry.transform import Transform
 
 
-class FingerWellLayout(Layout):
+class FingerLayout(KeyLayout):
     """The layout of a finger well.
     """
     def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = Keyswitch()):
-        super(FingerWellLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
+        super(FingerLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
 
         self.placement_transform = (0, 0, 1.6 + 3.0 + 5.0 + 9.0)
 
