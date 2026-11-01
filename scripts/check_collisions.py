@@ -4,7 +4,7 @@ Checks switches, keycaps (at rest and pressed), PCBs and the trackball sensor ag
 `things` and the space the ball needs, and switches, keycaps and PCBs against each other.
 
 Run with `uv run python scripts/check_collisions.py [left|right]` (default right) after `uv run python -m
-dactyl_lynx_keyboard`. With `--simple`, switches and the sensor are checked as a few boxes around them, which is
+azura_keyboard`. With `--simple`, switches and the sensor are checked as a few boxes around them, which is
 quicker but coarser (and shows no press fits).
 
 An MX switch's housing ribs press into its 14 mm hole by about 1 mm³; those press fits are counted but not listed.
@@ -19,7 +19,7 @@ from build123d import Shape, import_step
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dactyl_lynx_keyboard.assembly import HALVES  # noqa: E402
+from azura_keyboard.assembly import HALVES  # noqa: E402
 
 PRINTED = ("top", "bottom")
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     }
     keyed = [(key_of(shape), kind, shape) for kind, shapes in kinds.items() for shape in shapes]
     printed = {
-        name: import_step(ROOT / "things" / f"dactyl-lynx-6x5-{variant}-{name}.step") for name in PRINTED
+        name: import_step(ROOT / "things" / f"azura-6x5-{variant}-{name}.step") for name in PRINTED
     }
     obstacles = dict(printed, **({"ball clearance": keyboard.trackball_clearance()} if with_trackball else {}))
     boxes: dict = {}

@@ -1,6 +1,6 @@
 """Build the keyboard parts with build123d and export them to `things/`.
 
-Run with `uv run python -m dactyl_lynx_keyboard` for both halves (see `HALVES`) and a file with both side by side;
+Run with `uv run python -m azura_keyboard` for both halves (see `HALVES`) and a file with both side by side;
 name one or more halves (e.g. `right`) to build only those.
 """
 import copy
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     out_dir.mkdir(parents=True, exist_ok=True)
 
     def write(part: Compound, name: str):
-        path = out_dir / f"dactyl-lynx-6x5-{name}.step"
+        path = out_dir / f"azura-6x5-{name}.step"
         print(f"Writing {path} . . .")
         export_step(part, path)
 

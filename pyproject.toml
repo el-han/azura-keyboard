@@ -1,7 +1,7 @@
 [project]
-name = "dactyl-lynx-keyboard"
+name = "azura-keyboard"
 version = "0.1.0"
-description = "The Dactyl Lynx is a parameterized, split-hand, concave, columnar, ergonomic keyboard."
+description = "The Azura is a parameterized, split-hand, concave, columnar, ergonomic keyboard."
 authors = [{ name = "David H. Bronke", email = "whitelynx@gmail.com" }]
 license = "AGPL-3.0-only"
 readme = "README.md"

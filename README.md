@@ -1,8 +1,10 @@
-# The Dactyl Lynx Keyboard
+# The Azura Keyboard
 
-The Dactyl Lynx is a parameterized, split-hand, concave, columnar, ergonomic keyboard.
+The Azura is a parameterized, split-hand, concave, columnar, ergonomic keyboard.
 
-This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
+Azura builds on and is inspired by the [Dactyl Lynx][] and the wonderful work of its author, David H. Bronke. Without it, this keyboard wouldn't exist.
+
+The Dactyl Lynx is itself a fork/rewrite of [the original Dactyl][], and changed a few things:
 * Rewrote the generating code in [Python][] instead of Clojure, now using [build123d][] (originally [SolidPython2][] and [spkb][]).
 * Rotated thumb clusters to be close to vertical (inspired by [the Dactyl-ManuForm][] and the way my thumbs move; see also Viktor Eikman's [DMOTE][] and [Concertina][] keyboards)
 * Steeper tenting angle
@@ -13,6 +15,7 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 * Added support for [my single-keyswitch hot-swap PCBs][]
 * Created a new [RMK][]-based [firmware project][the dactyl-lynx-rmk repo] (RMK is a keyboard firmware system written in [Rust][], with [Vial][] support)
 
+[Dactyl Lynx]: https://github.com/whitelynx/dactyl-lynx-keyboard
 [the original Dactyl]: https://github.com/adereth/dactyl-keyboard
 [Python]: https://www.python.org/
 [SolidPython2]: https://github.com/jeff-dh/SolidPython/tree/master-2.0.0-beta-dev
@@ -29,7 +32,7 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 [Vial]: https://get.vial.today
 [Rust]: https://www.rust-lang.org/
 
-![Skeleton prototype](https://raw.githubusercontent.com/whitelynx/dactyl-lynx-keyboard/master/resources/skeleton-prototype.jpg)
+![Skeleton prototype](resources/skeleton-prototype.jpg)
 
 
 ## Future plans
@@ -43,7 +46,7 @@ This is my fork/rewrite of [the original Dactyl][]. I've changed a few things:
 [Apple Mighty Mouse]: https://en.wikipedia.org/wiki/Apple_Mighty_Mouse
 [Orbweaver]: https://www2.razer.com/au-en/gaming-keyboards-keypads/razer-orbweaver-chroma
 
-![Preview](https://raw.githubusercontent.com/whitelynx/dactyl-lynx-keyboard/master/resources/preview.png)
+![Preview](resources/preview.png)
 
 
 ## Assembly
@@ -64,7 +67,7 @@ uv sync
 #### Generating
 
 ```bash
-uv run python -m dactyl_lynx_keyboard
+uv run python -m azura_keyboard
 ```
 
 This writes STEP files for the case's top and bottom and the combined model of each half to `things/`, plus
@@ -89,7 +92,7 @@ The Cherry MX model in `resources/SW_Cherry_MX_Plate.stp` is from [kiswitch](htt
     * any other 4-pin (or more) connector, though be wary of things like USB connectors that would be easy to mistake for other buses
 * 74x [MX-style key switches][] *(or maybe Alps-style; I haven't actually checked if that will still work correctly)*
 * 74x signal diodes *(1N4148 or similar works well)*
-* 74x [Kailh hot-swap sockets][] *(optional - you can pass `socket_shape=mx_plate` to the `KeyboardAssembly` constructor in `dactyl_lynx_keyboard/dactyl_lynx.py` if you want to solder directly to the switches, or pass `socket_shape=mx_plate_with_board_mount` to use either my [MX single keyswitch hot swap board][] or my [Choc single keyswitch hot swap board][]; eventually these will be a command-line option)*
+* 74x [Kailh hot-swap sockets][] *(optional - see also the [MX single keyswitch hot swap board][] and the [Choc single keyswitch hot swap board][])*
 * A set of 74+ keycaps - symmetric unsculpted profiles work best with the sculpted form factor of Dactyl-style boards
     * 72x 1u keycaps
     * 2x 2u keycaps
@@ -113,13 +116,13 @@ The Cherry MX model in `resources/SW_Cherry_MX_Plate.stp` is from [kiswitch](htt
 
 ### Wiring
 
-This is by no means a comprehensive guide to wiring a keyboard, but here's the approach I chose when building my first Dactyl Lynx:
+This is by no means a comprehensive guide to wiring a keyboard, but here's the approach David H. Bronke chose when building the first Dactyl Lynx, which Azura is based on:
 
 * use COL2ROW diode orientation
 * solder diode leads together for the rows
 * use insulated hookup wire for the columns
 * pick a pinout for wiring the 4-pin mini-DIN connectors: 
-    ![4-pin mini-DIN pinout](https://raw.githubusercontent.com/whitelynx/dactyl-lynx-keyboard/master/resources/4-pin-mini-din-pinout.png)
+    ![4-pin mini-DIN pinout](resources/4-pin-mini-din-pinout.png)
 * connect each column and row of a side to a different color of wire: (aside from some repetition because I ran out of colors)
   |      Position | Left Side  | Right Side | Pin |
   |--------------:|------------|------------|-----|
@@ -163,9 +166,9 @@ See [the corresponding firmware in my `whitelynx/dactyl_lynx` QMK branch][QMK fi
 
 ## Customizing
 
-When customizing your keyboard, you might want to look at API docs for the classes in `dactyl_lynx_keyboard`. You can use `pdoc` for this:
+When customizing your keyboard, you might want to look at API docs for the classes in `azura_keyboard`. You can use `pdoc` for this:
 ```bash
-pdoc -t templates dactyl_lynx_keyboard
+pdoc -t templates azura_keyboard
 ```
 
 

@@ -233,7 +233,7 @@ wheels = [
 ]
 
 [[package]]
-name = "dactyl-lynx-keyboard"
+name = "azura-keyboard"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
