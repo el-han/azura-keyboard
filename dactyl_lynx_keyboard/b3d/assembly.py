@@ -151,6 +151,8 @@ class KeyboardAssembly:
         # M2.5 screws from below into heat-set inserts, in bosses inside corners of the finger well
         self.screw_corners = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
         "Corners of the finger well's outline (column, row) with a screw"
+        self.screw_corner_without_trackball = (-0.5, 3.5)
+        "One more such corner where there is no trackball cup to take a screw (in the mirrored left half, front right)"
         self.screw_hole = 2.9
         "Diameter of the screws' clearance holes"
         self.screw_head = (5.0, 2.6)
@@ -298,7 +300,8 @@ class KeyboardAssembly:
         web_end = self._thumb_inner_length / 2 + self.case_wall / 2
         web_top = -self.plate_thickness + 1
         web = Pos(0, -web_end / 2, (split + web_top) / 2) * Box(self.case_wall, web_end, web_top - split)
-        places = [(self.finger_layout, finger_outside, corner, around, None) for corner in self.screw_corners] + [
+        corners = self.screw_corners + (() if self.with_trackball else (self.screw_corner_without_trackball,))
+        places = [(self.finger_layout, finger_outside, corner, around, None) for corner in corners] + [
             (self.thumb_layout, thumb_outside, (column, 0), [(0, 0)], web) for column in thumb_columns
         ]
         bosses = []
