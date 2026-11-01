@@ -148,6 +148,14 @@ class KeyboardAssembly:
         self.trackball_passage = (12, 5)
         "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
 
+        # A hook on the bottom into a pocket in the top, at the thumb well's free end
+        self.thumb_end_extra = 4
+        "How much thicker the wall at the thumb well's free end is than `case_wall`, to take the pocket (on the key plane)"
+        self.tongue = (12, 3, 3, 3)
+        "The tongue's width across the arc, thickness and reach into the end wall, and the thickness of the arm it hangs on"
+        self.tongue_clearance = 0.3
+        "Gap around the tongue, per side: the manufacturing tolerance"
+
         # M2.5 screws from below into heat-set inserts, in bosses inside corners of the finger well
         self.screw_corners = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
         "Corners of the finger well's outline (column, row) with a screw"
@@ -253,6 +261,9 @@ class KeyboardAssembly:
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
         top = max(top.solids(), key=lambda solid: solid.volume)
 
+        hook, pocket = self._thumb_tongue()
+        top, bottom = (top - pocket).fix(), (bottom + hook).fix()
+
         lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), copy.deepcopy(thumb_outer), top, bottom)
         top = (((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)).fix()
         bottom = ((bottom + lower).fix() - holes).fix()
@@ -261,6 +272,40 @@ class KeyboardAssembly:
         if self.left:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
+
+    def _thumb_tongue(self) -> tuple[Part, Part]:
+        """The hook at the thumb well's free end and the pocket for it in the end wall, as (hook, pocket).
+
+        Past the end wall, the floor goes on as a lip with an arm standing on it, and from the arm a tongue points back
+        along the arc into the wall's end face. So the bottom can't open away from the top there; it is hung in first
+        and swung shut. It needs no spring.
+        """
+        layout = self.thumb_layout
+        width, thickness, reach, arm = self.tongue
+        gap = self.tongue_clearance
+        degrees = lambda length: math.degrees(length / layout.column_radius)
+        end = (
+            max(layout.key_angle(column, row) for column, row in layout.generate_positions())
+            + math.degrees(layout.rad_per_col) / 2
+            + degrees(self.thumb_end_extra)
+        )
+        # The tongue runs midway between the plate and the floor
+        middle = (self.plate_thickness + self.cavity_depth) / 2
+        tongue_top, tongue_bottom = middle - thickness / 2, middle + thickness / 2
+        arm_start, arm_end = end + degrees(2 * gap), end + degrees(2 * gap + arm)
+
+        def arc(start: float, stop: float, top: float, bottom: float, length: float = width) -> Part:
+            return self._thumb_placed(self._thumb_arc(-layout.flat_width() / 2, start, stop, length, top, bottom))
+
+        hook = (
+            arc(end, arm_end, self.cavity_depth, self.cavity_depth + self.case_wall)
+            + arc(arm_start, arm_end, tongue_top - gap, self.cavity_depth)
+            + arc(end - degrees(reach), arm_start, tongue_top, tongue_bottom)
+        )
+        pocket = arc(
+            end - degrees(reach + 2 * gap), end + degrees(gap), tongue_top - gap, tongue_bottom + gap, width + 2 * gap
+        )
+        return hook.fix(), pocket
 
     def _screw_bosses(
         self, finger_outside: Part, thumb_outside: Part, top: Part, bottom: Part
@@ -533,6 +578,8 @@ class KeyboardAssembly:
         angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
         flat = layout.flat_width()
         left_end = max(angles) + half_step  # toward -X
+        if not inset:
+            left_end += math.degrees(self.thumb_end_extra / layout.column_radius)
         right_end = min(angles) - half_step  # toward +X
 
         pieces = []
