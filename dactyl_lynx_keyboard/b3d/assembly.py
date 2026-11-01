@@ -566,19 +566,24 @@ class KeyboardAssembly:
         )
         return Pos(center_x, 0, radius) * Rot(90, 0, 0) * Rot(0, 0, -90 - end_angle) * tube
 
-    def _thumb_band(self, top_depth: float, bottom_depth: float, length: float, inset: float = 0) -> Part:
+    def _thumb_band(
+        self, top_depth: float, bottom_depth: float, length: float, inset: float = 0, longer: bool = True
+    ) -> Part:
         """The thumb well's surface thickened between two depths along its normals, in the layout's base frame.
 
         The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
         under the keys sitting there (see `ThumbWellLayout.placement_adjust()`). Each half reaches half a key
-        spacing past its outermost key, less `inset` (mm, measured on the key plane).
+        spacing past its outermost key, less `inset` (mm, measured on the key plane). With `longer`, the free end
+        reaches further, to take the hook there (see `_thumb_tongue()`).
         """
         layout = self.thumb_layout
         half_step = math.degrees(layout.rad_per_col) / 2 - math.degrees(inset / layout.column_radius)
         angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
         flat = layout.flat_width()
         left_end = max(angles) + half_step  # toward -X
-        left_end += math.degrees((self.thumb_cavity_extra + (0 if inset else self.thumb_end_extra)) / layout.column_radius)
+        if longer:
+            extra = self.thumb_cavity_extra + (0 if inset else self.thumb_end_extra)
+            left_end += math.degrees(extra / layout.column_radius)
         right_end = min(angles) - half_step  # toward +X
 
         pieces = []
@@ -606,7 +611,7 @@ class KeyboardAssembly:
         e = 40
         length = self._thumb_inner_length + 2 * self.case_wall + e
         return self._thumb_placed(
-            Pos(0, e / 2, 0) * self._thumb_band(self.cavity_depth, self.cavity_depth + self.case_wall, length)
+            Pos(0, e / 2, 0) * self._thumb_band(self.cavity_depth, self.cavity_depth + self.case_wall, length, longer=False)
         )
 
     def _thumb_above(self, depth: float) -> Part:
