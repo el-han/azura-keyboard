@@ -11,7 +11,7 @@ from ..components.keyswitch import Keyswitch
 from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
 from ..geometry.transform import Transform
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 
 
 class FingerLayout(KeyLayout):
@@ -95,12 +95,9 @@ class FingerLayout(KeyLayout):
 
 class FingerCase:
     """The finger keys' part of the case, following the key surface."""
-    def __init__(self, layout: FingerLayout, dimensions: CaseDimensions):
+    def __init__(self, layout: FingerLayout, dimensions: Dimensions):
         self.layout = layout
         self.dimensions = dimensions
-        self.straight_columns = (-0.5,)
-        self.straight_rows = (-0.75,)
-        "Edges that should be straight in top view (see `surface.outline()`)"
 
     def _surface_face(self, footprint: Face, depth: float) -> Face:
         """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
@@ -132,8 +129,8 @@ class FingerCase:
         # Straight edges are moved out far enough to hold the PCBs, instead of bulging around them.
         footprint = surface.outline(
             layout,
-            straight_columns=self.straight_columns,
-            straight_rows=self.straight_rows,
+            straight_columns=self.dimensions.finger_straight_columns,
+            straight_rows=self.dimensions.finger_straight_rows,
             enclose=[point for square in squares for point in square],
         ).fuse(*[Polygon(*square, align=None) for square in squares]).clean()
         # Fill the small notches between neighbouring squares

@@ -8,22 +8,12 @@ from build123d import Box, Compound, Cylinder, Part, Pos
 
 from ..geometry.key_layout import KeyLayout
 from ..geometry.placement import to_location
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 
 
 class Screws:
-    def __init__(self, dimensions: CaseDimensions):
+    def __init__(self, dimensions: Dimensions):
         self.dimensions = dimensions
-        self.hole = 2.9
-        "Diameter of the screws' clearance holes"
-        self.head = (5.0, 2.6)
-        "Diameter and depth of the counterbores for the screw heads (DIN 912: 4.5 × 2.5 mm)"
-        self.insert_hole = (3.5, 5)
-        "Diameter and depth of the holes for the heat-set inserts"
-        self.boss = 7
-        "Diameter of the bosses around the screws and inserts"
-        self.margin = 1.5
-        "Smallest thickness of the case's outside around a boss"
 
     @staticmethod
     def column(bottom: float, top: float, radius: float) -> Part:
@@ -50,13 +40,13 @@ class Screws:
         A place is (layout, the case's outside there, column and row, offsets to try in that frame, web or None).
 
         A boss stands along the key surface's normal at its place, like the walls, at the first offset where it stays
-        `margin` inside the case's outside and clear of the `obstacles`; it may reach into the walls. Its lower part
+        `screw_margin` inside the case's outside and clear of the `obstacles`; it may reach into the walls. Its lower part
         reaches from inside the floor to a wall's thickness above it and holds the screw's counterbore and clearance
         hole, so the screw goes in from below; its upper part reaches to just below the plate and holds the insert.
         None of its faces lies on one of the case's curved faces.
         """
         d, column = self.dimensions, self.column
-        boss, head = self.boss / 2, self.head[0] / 2
+        boss, head = d.screw_boss / 2, d.screw_head[0] / 2
         underside = -(d.cavity_depth + d.wall)
         bottom_z, split, top_z = underside + 1, -d.cavity_depth + d.wall, -d.plate_thickness - 0.5
         bosses = []
@@ -65,7 +55,7 @@ class Screws:
             for dx, dy in offsets:
                 frame = at_place * Pos(dx, dy, 0)
                 whole = frame * column(bottom_z, top_z, boss)
-                stray = frame * column(bottom_z, top_z, boss + self.margin) - copy.deepcopy(outside)
+                stray = frame * column(bottom_z, top_z, boss + d.screw_margin) - copy.deepcopy(outside)
                 if stray is not None and stray.solids() and stray.volume > 0.01:
                     continue
                 if (frame * (column(bottom_z, top_z, boss) + web) if web else whole).distance_to(obstacles) < 0.3:
@@ -74,9 +64,9 @@ class Screws:
                 lower = frame * column(bottom_z, split, boss)
                 upper = frame * (column(split, top_z, boss) + web if web else column(split, top_z, boss))
                 holes = frame * (
-                    column(underside - 1, underside + self.head[1], head)
-                    + column(underside - 1, split, self.hole / 2)
-                    + column(split, split + self.insert_hole[1], self.insert_hole[0] / 2)
+                    column(underside - 1, underside + d.screw_head[1], head)
+                    + column(underside - 1, split, d.screw_hole / 2)
+                    + column(split, split + d.insert_hole[1], d.insert_hole[0] / 2)
                 )
                 if all(
                     (held := part & copy.deepcopy(holder)) is not None and held.solids() and held.volume > 10

@@ -11,21 +11,13 @@ from ..components.trackball import TrackBall
 from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
 from ..geometry.placement import mirrored, place_all, place_instances
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 from .finger_case import FingerCase, FingerLayout
 from .passages import thumb_passage
 from .screws import Screws, around_a_corner
 from .skirt import Skirt
 from .thumb_case import ThumbCase, ThumbLayout
 from .trackball_case import TrackballCase
-
-JOIN_MARGIN = 15
-"How far past the finger case the thumb case's bottom half is joined to the top (see `Keyboard.case()`)"
-FINGER_SCREW_CORNERS = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
-"Corners of the finger case's outline (column, row) with a screw"
-CORNER_WITHOUT_TRACKBALL = (-0.5, 3.5)
-"One more such corner where there is no trackball cup to take a screw (in the mirrored left half, front right)"
-
 
 def _with_switch_holes(plate: Part, layout: KeyLayout) -> Part:
     # Extend the hole well beyond both sides of the plate: when it ends close to the curved surfaces, OCCT
@@ -39,7 +31,7 @@ def _with_switch_holes(plate: Part, layout: KeyLayout) -> Part:
 class Keyboard:
     def __init__(
         self, side: str = "right", thumb_keys: int = 5, trackball: Optional[TrackBall] = None, columns: int = 6,
-        rows: int = 5,
+        rows: int = 5, dimensions: Dimensions = Dimensions(),
     ):
         if side not in ("left", "right"):
             raise ValueError(f"side must be 'left' or 'right', not {side!r}")
@@ -47,11 +39,10 @@ class Keyboard:
         "Which half: everything is designed as the right half; the left half's case is its mirror image"
         self.offset = Location()
         "Where the parts that are not printed are moved to (e.g. to show both halves side by side)"
-        self.dimensions = CaseDimensions()
+        self.dimensions = dimensions
         k = Keyswitch()
         self.finger_layout = FingerLayout(columns=columns, rows=rows, keyswitch=k)
-        # Low enough that the finger case's bottom half rests on the table
-        self.finger_layout.placement_transform = (0, 0, 12.05)
+        self.finger_layout.placement_transform = dimensions.finger_placement
         self.thumb_layout = ThumbLayout(keyswitch=k, keys=thumb_keys)
         self.finger_case = FingerCase(self.finger_layout, self.dimensions)
         self.thumb_case = ThumbCase(self.thumb_layout, self.dimensions)
@@ -71,17 +62,41 @@ class Keyboard:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball's shell and cup) and
         "bottom" (the floors, the foot of the trackball's cup and the skirt).
 
-        Where the finger and thumb cases overlap, their walls fall away and their insides run into each other: each part
-        loses whatever lies inside the other's cavity (for the plates, only below the other plate), and the finger
-        parts also give way to the thumb parts.
+        Where the finger and thumb cases overlap, their walls fall away and their insides run into each other. The
+        steps' order matters: OCCT fails on some cuts and fuses once parts have been joined.
+        """
+        finger = self.finger_case.shapes()
+        thumb = self.thumb_case.shapes()
+        top_pieces, floors = self._walls_and_floors(finger, thumb)
+        top = self._joined_top(*top_pieces)
+        bottom = self._joined_floors(*floors, finger, thumb)
+        if self.trackball_case:
+            top, bottom = self._with_trackball_cup(top, bottom, thumb[2])
+        bottom = self._finished_bottom(top, bottom, finger[1])
+        top, bottom = self._with_passages(top, bottom, finger[2], thumb[2])
+        hook, pocket = self.thumb_case.hook()
+        top, bottom = (top - pocket).fix(), (bottom + hook).fix()
+        top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
+
+        parts = {"top": top, "bottom": bottom}
+        if self.left:
+            parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
+        return {name: part.fix() for name, part in parts.items()}
+
+    def _walls_and_floors(self, finger: tuple, thumb: tuple) -> tuple[tuple[Part, Part, Part, Part], tuple[Part, Part]]:
+        """The finger and thumb cases cut to fit each other, as ((finger plate, thumb plate, finger walls, thumb
+        walls), (finger floor, thumb floor)).
+
+        Each part loses whatever lies inside the other case's cavity (for the plates, only below the other plate), and
+        the finger parts also give way to the thumb parts.
 
         The top joins both key plates: next to the finger case, everything of the thumb case's bottom half that rises
         above the top edge of the finger case's floor belongs to the top as well, which ties the two plates
         together.
         """
-        d, trackball_case = self.dimensions, self.trackball_case
-        finger_plate, finger_outer, finger_cavity, finger_footprint = self.finger_case.shapes()
-        thumb_plate, thumb_outer, thumb_cavity, thumb_plate_region = self.thumb_case.shapes()
+        d = self.dimensions
+        finger_plate, finger_outer, finger_cavity, finger_footprint = finger
+        thumb_plate, thumb_outer, thumb_cavity, thumb_plate_region = thumb
         below_finger_plate = finger_cavity - surface.torus(self.finger_layout, depth=d.plate_thickness)
         below_thumb_plate = thumb_cavity - thumb_plate_region
 
@@ -92,7 +107,7 @@ class Keyboard:
         finger_top = finger_plate - below_thumb_plate - thumb_parts
         finger_bottom = finger_outer - finger_cavity - thumb_cavity - copy.deepcopy(thumb_parts)
 
-        next_to_finger_case = d.prism(offset(finger_footprint, JOIN_MARGIN, kind=Kind.ARC))
+        next_to_finger_case = d.prism(offset(finger_footprint, d.join_margin, kind=Kind.ARC))
         # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
         above_finger_floor = surface.torus(self.finger_layout, depth=d.cavity_depth)
         # Next to the finger case, the thumb case's bottom half belongs to the top above the finger floor's top edge:
@@ -104,7 +119,11 @@ class Keyboard:
         thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
+        return (finger_top, thumb_top, finger_walls, thumb_walls), (finger_floor, thumb_floor)
 
+    def _joined_top(self, finger_top: Part, thumb_top: Part, finger_walls: Part, thumb_walls: Part) -> Part:
+        """The plates, with their switch holes, and the walls, as one part, making way for the trackball."""
+        trackball_case = self.trackball_case
         if trackball_case:
             # The finger case gives way to the ball's shell all the way up. Before the switch holes and the fuse: the
             # cut fails on those.
@@ -119,53 +138,55 @@ class Keyboard:
                 part - copy.deepcopy(cup_inside) for part in (thumb_top, finger_walls, thumb_walls)
             )
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
-        top = (finger_top + thumb_top + finger_walls + thumb_walls).fix()
-        # The finger floor is open inside the skirt.
-        skirt_outline = self.skirt.outline(finger_outer)
+        return (finger_top + thumb_top + finger_walls + thumb_walls).fix()
+
+    def _joined_floors(self, finger_floor: Part, thumb_floor: Part, finger: tuple, thumb: tuple) -> Part:
+        """The floors as one part, open inside the skirt; the thumb case's reaches back to the skirt, and no further
+        toward -X than the skirt's outside."""
+        d = self.dimensions
+        finger_cavity, thumb_cavity = finger[2], thumb[2]
+        skirt_outline = self.skirt.outline(finger[1])
         inside_skirt = d.prism(offset(skirt_outline, -d.wall))
         finger_floor -= copy.deepcopy(inside_skirt)
         bottom = (finger_floor + thumb_floor).fix()
-        # The thumb case's floor reaches back to the skirt, and no further toward -X than the skirt's outside
         extension = (self.thumb_case.floor_extension() & self.skirt.beside(skirt_outline)) - inside_skirt
-        bottom = (bottom + (extension - finger_cavity - thumb_cavity)).fix()
-        if trackball_case:
-            # The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall
-            # replaces the finger case; toward the thumb case, the walls fall away and the insides run into each other.
-            cylinder, foot, cup_inside = trackball_case.cup()
-            # Join the shell and the cup's wall first: their outsides meet flush, which the fuse with the rest can't
-            # handle.
-            trackball_top = ((cylinder - thumb_cavity) + trackball_case.shell()).fix()
-            top = (top + trackball_top).fix()
-            # Cut before the fuse here too: the cut leaves the fused bottom invalid.
-            bottom = ((bottom - copy.deepcopy(cup_inside)) + (foot - thumb_cavity)).fix()
+        return (bottom + (extension - finger_cavity - thumb_cavity)).fix()
 
+    def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
+        """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall
+        replaces the finger case; toward the thumb case, the walls fall away and the insides run into each other."""
+        cylinder, foot, cup_inside = self.trackball_case.cup()
+        # Join the shell and the cup's wall first: their outsides meet flush, which the fuse with the rest can't handle.
+        trackball_top = ((cylinder - thumb_cavity) + self.trackball_case.shell()).fix()
+        top = (top + trackball_top).fix()
+        # Cut before the fuse here too: the cut leaves the fused bottom invalid.
+        return top, ((bottom - copy.deepcopy(cup_inside)) + (foot - thumb_cavity)).fix()
+
+    def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part) -> Part:
+        """The bottom clear of the top, with the skirt."""
         bottom -= copy.deepcopy(top)
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         bottom = self.skirt.added_to(bottom, finger_outer)
-        bottom = bottom - copy.deepcopy(top)
+        return bottom - copy.deepcopy(top)
 
+    def _with_passages(self, top: Part, bottom: Part, finger_cavity: Part, thumb_cavity: Part) -> tuple[Part, Part]:
+        """Both parts with the cable passages cut."""
         passages = thumb_passage(
-            self.finger_case.shapes()[1], self.thumb_case.shapes()[1], finger_cavity, thumb_cavity, d
+            self.finger_case.shapes()[1], self.thumb_case.shapes()[1], finger_cavity, thumb_cavity, self.dimensions
         )
-        if trackball_case:
-            for slot in trackball_case.passage():
+        if self.trackball_case:
+            for slot in self.trackball_case.passage():
                 passages += slot
         top, bottom = top - copy.deepcopy(passages), bottom - passages
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
-        top = max(top.solids(), key=lambda solid: solid.volume)
+        return max(top.solids(), key=lambda solid: solid.volume), bottom
 
-        hook, pocket = self.thumb_case.hook()
-        top, bottom = (top - pocket).fix(), (bottom + hook).fix()
-
+    def _with_screws(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> tuple[Part, Part]:
+        """Both parts with the screws' bosses and holes."""
         lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), copy.deepcopy(thumb_outer), top, bottom)
         top = (((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)).fix()
-        bottom = ((bottom + lower).fix() - holes).fix()
-
-        parts = {"top": top, "bottom": bottom}
-        if self.left:
-            parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
-        return {name: part.fix() for name, part in parts.items()}
+        return top, ((bottom + lower).fix() - holes).fix()
 
     def _screw_bosses(
         self, finger_outside: Part, thumb_outside: Part, top: Part, bottom: Part
@@ -180,7 +201,8 @@ class Keyboard:
             for model in (keyswitch.mx_switch_envelope(), key_pcb.single_key_board())
             for shape in place_instances(layout, model, "")
         ] + ([trackball_case.cup()[2]] if trackball_case else []))
-        corners = FINGER_SCREW_CORNERS + (() if trackball_case else (CORNER_WITHOUT_TRACKBALL,))
+        d = self.dimensions
+        corners = d.finger_screw_corners + (() if trackball_case else (d.corner_without_trackball,))
         web = self.screws.thumb_web(self.thumb_case.inner_length)
         around = around_a_corner()
         places = [(self.finger_layout, finger_outside, corner, around, None) for corner in corners] + [
@@ -189,7 +211,7 @@ class Keyboard:
         ]
         bosses = self.screws.bosses(places, obstacles, top, bottom)
         if trackball_case:
-            bosses.append(trackball_case.screw(self.screws))
+            bosses.append(trackball_case.screw())
         return tuple(Compound(children=[found[i] for found in bosses]) for i in range(3))
 
     def _placed(self, location: Location) -> Location:

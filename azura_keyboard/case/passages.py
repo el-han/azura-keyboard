@@ -6,7 +6,7 @@ import math
 
 from build123d import Box, Part, Pos, Rot, Shape, Vector
 
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 
 
 def _grid(shape: Shape, n: int) -> list[Vector]:
@@ -24,10 +24,9 @@ def thumb_passage(
     thumb_outer: Part,
     finger_cavity: Part,
     thumb_cavity: Part,
-    dimensions: CaseDimensions,
-    size: tuple[float, float] = (12, 5),
+    dimensions: Dimensions,
 ) -> Part:
-    """A slot of the given width and height for the thumb keys' wires, through the middle of the wall the two cases
+    """A slot for the thumb keys' wires, through the middle of the wall the two cases
     share, lowered until it stays within their walls and insides (and clear of the plates above)."""
     _, p, q = copy.deepcopy(thumb_cavity).distance_to_with_closest_points(copy.deepcopy(finger_cavity))
     p, q = Vector(p), Vector(q)
@@ -40,7 +39,7 @@ def thumb_passage(
     for drop in [0.5 * i for i in range(21)]:
         # Wide side horizontal
         slot = Pos(middle - Vector(0, 0, drop)) * Rot(0, 0, angle) * Box(
-            4 * dimensions.wall, size[0], size[1]
+            4 * dimensions.wall, *dimensions.thumb_passage
         )
         if all(any(shape.is_inside(point) for shape in walls_and_insides) for point in _grid(slot, 5)):
             return slot

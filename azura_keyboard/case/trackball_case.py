@@ -8,31 +8,17 @@ from build123d import Box, Cylinder, Location, Part, Plane, Pos, Solid, Sphere, 
 
 from ..components import trackball_sensor
 from ..components.trackball import TrackBall
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 from .screws import Screws
 
 
 class TrackballCase:
-    def __init__(
-        self, trackball: TrackBall, dimensions: CaseDimensions, position: tuple[float, float, float] = (-76.5, -25, 31)
-    ):
+    def __init__(self, trackball: TrackBall, dimensions: Dimensions):
         self.trackball = trackball
         self.dimensions = dimensions
-        self.position = position
-        "Center of the ball: as close to the finger case as the PCB under finger c0 r3 allows"
-        self.bearing_pocket = (7.5, 4)
-        "Diameter and depth of the pockets for the ball transfer units (QB310 7.5) that hold the ball"
-        self.bearing_tilt = 60
-        "Angle of the bearings' axes from the vertical (degrees)"
-        self.bearing_azimuths = (90, 210, 330)
-        "Directions of the bearings around the ball in top view (degrees from +X), clear of the sensor's screw posts"
-        self.passage_size = (12, 5)
-        "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
-        self.screw_inset = 17.5
-        "How far from the ball's axis the screw in the cup's floor sits, toward -X"
 
     def center(self) -> Location:
-        return Pos(*self.position)
+        return Pos(*self.dimensions.trackball_position)
 
     def sensor_location(self) -> Location:
         """The sensor frame: the bottom of the ball, with the board's long side along X."""
@@ -74,9 +60,9 @@ class TrackballCase:
         shape -= to_sensor * trackball_sensor.screw_holes()
         shape -= Sphere(inner_radius)
         # Pockets for the bearings, from the inside of the shell outward, their axes through the ball's center
-        diameter, depth = self.bearing_pocket
-        tilt = math.radians(self.bearing_tilt)
-        for azimuth in map(math.radians, self.bearing_azimuths):
+        diameter, depth = self.dimensions.bearing_pocket
+        tilt = math.radians(self.dimensions.bearing_tilt)
+        for azimuth in map(math.radians, self.dimensions.bearing_azimuths):
             axis = Vector(math.sin(tilt) * math.cos(azimuth), math.sin(tilt) * math.sin(azimuth), -math.cos(tilt))
             shape -= Solid.make_cylinder(diameter / 2, depth + 1, Plane(origin=axis * (inner_radius - 1), z_dir=axis))
         return self.center() * shape
@@ -112,7 +98,7 @@ class TrackballCase:
         through the cup's wall into the pocket under the finger case's floor, then up through that floor, below the PCB
         there."""
         d = self.dimensions
-        width, height = self.passage_size
+        width, height = d.trackball_passage
         center = self.center().position
         wall_x = center.X + self.radius()
         low = d.table_z + d.wall + 0.5
@@ -121,20 +107,20 @@ class TrackballCase:
             Pos(wall_x + 9, center.Y, (low + 21) / 2) * Box(7, width, 21 - low),
         )
 
-    def screw(self, screws: Screws) -> tuple[Part, Part, Part]:
+    def screw(self) -> tuple[Part, Part, Part]:
         """A screw from below at the cup's -X edge, between its wall and the sensor, into the shell, as (lower part of
         its boss, upper part, holes). It is vertical, unlike the others: the cup stands on the table."""
         d = self.dimensions
         center = self.center().position
-        frame = Pos(center.X - self.screw_inset, center.Y, d.table_z)
+        frame = Pos(center.X - d.trackball_screw_inset, center.Y, d.table_z)
         split = d.wall + 6
-        boss, column = screws.boss / 2, screws.column
+        boss, column = d.screw_boss / 2, Screws.column
         return (
             frame * column(1, split, boss),
-            frame * column(split, split + screws.insert_hole[1] + 4, boss),
+            frame * column(split, split + d.insert_hole[1] + 4, boss),
             frame * (
-                column(-1, screws.head[1], screws.head[0] / 2)
-                + column(-1, split, screws.hole / 2)
-                + column(split, split + screws.insert_hole[1], screws.insert_hole[0] / 2)
+                column(-1, d.screw_head[1], d.screw_head[0] / 2)
+                + column(-1, split, d.screw_hole / 2)
+                + column(split, split + d.insert_hole[1], d.insert_hole[0] / 2)
             ),
         )

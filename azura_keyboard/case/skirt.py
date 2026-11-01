@@ -7,24 +7,22 @@ from build123d import Box, Face, Kind, Part, Polygon, Pos, Rot, Vector, extrude,
 
 from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 
 
 class Skirt:
-    def __init__(self, layout: KeyLayout, dimensions: CaseDimensions):
+    def __init__(self, layout: KeyLayout, dimensions: Dimensions):
         self.layout = layout
         self.dimensions = dimensions
-        self.inset = 10
-        "How far the skirt stays inside the outline of the finger case's underside"
 
     def outline(self, finger_outer: Part) -> Face:
-        """The skirt's outside in top view: the finger case's underside's outline, shrunk by `inset`."""
+        """The skirt's outside in top view: the finger case's underside's outline, shrunk by `skirt_inset`."""
         d = self.dimensions
         underside = surface.torus_face(finger_outer, self.layout.row_radius + d.cavity_depth + d.wall)
         outline = Polygon(
             *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
         )
-        return offset(outline, -self.inset, kind=Kind.ARC)
+        return offset(outline, -d.skirt_inset, kind=Kind.ARC)
 
     def beside(self, outline: Face) -> Part:
         """Everything on the +X side of the line along the skirt's outside toward -X (from its front corner to its
@@ -42,7 +40,7 @@ class Skirt:
 
     def added_to(self, bottom: Part, finger_outer: Part) -> Part:
         """`bottom` with the skirt: a wall from the table up to the bottom half's underside, along the underside's
-        outline in top view, shrunk by `inset`, closed by a floor on the table.
+        outline in top view, shrunk by `skirt_inset`, closed by a floor on the table.
         """
         d = self.dimensions
         outside = self.outline(finger_outer)

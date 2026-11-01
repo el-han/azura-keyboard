@@ -11,7 +11,7 @@ from ..components.keyswitch import Keyswitch
 from ..geometry.key_layout import KeyLayout
 from ..geometry.placement import to_location
 from ..geometry.transform import Transform
-from .dimensions import CaseDimensions
+from .dimensions import Dimensions
 
 
 class ThumbLayout(KeyLayout):
@@ -92,17 +92,9 @@ class ThumbLayout(KeyLayout):
 
 class ThumbCase:
     """The thumb keys' part of the case: an arc, with a hook to the bottom at its free end."""
-    def __init__(self, layout: ThumbLayout, dimensions: CaseDimensions):
+    def __init__(self, layout: ThumbLayout, dimensions: Dimensions):
         self.layout = layout
         self.dimensions = dimensions
-        self.end_extra = 4
-        "How much thicker the wall at the free end is than usual, to take the hook's pocket (on the key plane)"
-        self.cavity_extra = 4
-        "How much longer the inside is at the free end, to take the hook's arm (on the key plane)"
-        self.tongue = (12, 3, 3, 3)
-        "The tongue's width across the arc, thickness and reach into the end wall, and the thickness of the arm it hangs on"
-        self.tongue_clearance = 0.3
-        "Gap around the tongue, per side: the manufacturing tolerance"
 
     def _arc(
         self,
@@ -145,7 +137,7 @@ class ThumbCase:
         flat = layout.flat_width()
         left_end = max(angles) + half_step  # toward -X
         if longer:
-            extra = self.cavity_extra + (0 if inset else self.end_extra)
+            extra = self.dimensions.thumb_cavity_extra + (0 if inset else self.dimensions.thumb_end_extra)
             left_end += math.degrees(extra / layout.column_radius)
         right_end = min(angles) - half_step  # toward +X
 
@@ -207,14 +199,14 @@ class ThumbCase:
         bottom can't open away from the top there; it is hung in first and swung shut. It needs no spring.
         """
         layout, d = self.layout, self.dimensions
-        width, thickness, reach, arm = self.tongue
-        gap = self.tongue_clearance
+        width, thickness, reach, arm = d.tongue
+        gap = d.tongue_clearance
         degrees = lambda length: math.degrees(length / layout.column_radius)
         # Where the cavity ends, on the key plane
         wall = (
             max(layout.key_angle(column, row) for column, row in layout.generate_positions())
             + math.degrees(layout.rad_per_col) / 2
-            + degrees(self.cavity_extra - d.wall)
+            + degrees(d.thumb_cavity_extra - d.wall)
         )
         # The tongue runs midway between the plate and the floor
         middle = (d.plate_thickness + d.cavity_depth) / 2
