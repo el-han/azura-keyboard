@@ -203,11 +203,11 @@ class KeyboardAssembly:
         thumb_floor = thumb_bottom - above_thumb_floor
 
         if self.with_trackball:
-            # The finger well gives way to the cup's inside all the way up. Before the switch holes and the fuse: the
+            # The finger well gives way to the ball's well all the way up. Before the switch holes and the fuse: the
             # cut fails on those.
             center = self._trackball_center().position
             shaft = Pos(center.X, center.Y, center.Z + self.max_height / 2) * Cylinder(
-                self._trackball_cup_radius() - self.case_wall, self.max_height
+                self.trackball.inner_diameter / 2, self.max_height
             )
             finger_top -= copy.deepcopy(shaft)
             finger_walls -= shaft
