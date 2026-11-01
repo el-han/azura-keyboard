@@ -161,6 +161,8 @@ class KeyboardAssembly:
         "Diameter of the bosses around the screws and inserts"
         self.screw_margin = 1.5
         "Smallest thickness of the case's outside around a boss"
+        self.trackball_screw_inset = 17.5
+        "How far from the ball's axis the screw in the trackball cup's floor sits, toward -X"
 
     def case(self) -> dict[str, Part]:
         """The keyboard's case as two parts: "top" (key plates, walls and the trackball well with its cylinder) and
@@ -200,10 +202,18 @@ class KeyboardAssembly:
         finger_floor = finger_bottom - above_finger_floor
         thumb_floor = thumb_bottom - above_thumb_floor
 
+        if self.with_trackball:
+            # The finger well gives way to the cup's inside all the way up. Before the switch holes and the fuse: the
+            # cut fails on those.
+            center = self._trackball_center().position
+            shaft = Pos(center.X, center.Y, center.Z + self.max_height / 2) * Cylinder(
+                self._trackball_cup_radius() - self.case_wall, self.max_height
+            )
+            finger_top -= copy.deepcopy(shaft)
+            finger_walls -= shaft
         finger_top = self._with_switch_holes(finger_top, self.finger_layout)
         thumb_top = self._with_switch_holes(thumb_top, self.thumb_layout)
         if self.with_trackball:
-            # Before the fuse: the cut fails on the fused top. The cup stays below the finger plate.
             cup_inside = self._trackball_cup()[2]
             thumb_top, finger_walls, thumb_walls = (
                 part - copy.deepcopy(cup_inside) for part in (thumb_top, finger_walls, thumb_walls)
@@ -318,6 +328,22 @@ class KeyboardAssembly:
             else:
                 raise ValueError(f"No room for the screw at {corner}")
             bosses.append((lower, upper, holes))
+        if self.with_trackball:
+            # One more from below at the trackball cup's -X edge, between its wall and the sensor, into the well's shell
+            # (vertical, unlike the others: the cup stands on the table)
+            center = self._trackball_center().position
+            frame = Pos(center.X - self.trackball_screw_inset, center.Y, self.table_z)
+            floor_top = self.case_wall
+            screw_split = floor_top + 6
+            bosses.append((
+                frame * column(1, screw_split, boss),
+                frame * column(screw_split, screw_split + self.insert_hole[1] + 4, boss),
+                frame * (
+                    column(-1, self.screw_head[1], head)
+                    + column(-1, screw_split, self.screw_hole / 2)
+                    + column(screw_split, screw_split + self.insert_hole[1], self.insert_hole[0] / 2)
+                ),
+            ))
         return tuple(Compound(children=[found[i] for found in bosses]) for i in range(3))
 
     def _prism(self, face: Face) -> Part:
