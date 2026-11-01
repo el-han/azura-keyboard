@@ -11,7 +11,7 @@ the case for `FingerLayout` but not for `ThumbLayout`.
 import math
 from collections.abc import Sequence
 
-from build123d import Face, Location, Polygon, Pos, Rot, Solid, Torus
+from build123d import Face, GeomType, Location, Polygon, Pos, Rot, Shape, Solid, Torus
 
 from .key_layout import KeyLayout
 from .placement import to_location
@@ -97,3 +97,11 @@ def outline(
     # Drop consecutive duplicates (from shared corners)
     points = [p for i, p in enumerate(points) if math.dist(p, points[i - 1]) > 1e-9]
     return Polygon(*points, align=None)
+
+
+def torus_face(solid: Shape, minor_radius: float) -> Face:
+    """The face of `solid` lying on the torus with the given minor radius."""
+    return next(
+        face for face in solid.faces()
+        if face.geom_type == GeomType.TORUS and abs(face.geom_adaptor().Torus().MinorRadius() - minor_radius) < 1e-6
+    )

@@ -9,29 +9,30 @@ from pathlib import Path
 
 from build123d import Color, Compound, Pos, export_step
 
-from .case.keyboard import HALVES, KeyboardAssembly
+from .assembly import HALVES
+from .case.keyboard import Keyboard
 
 GAP = 40
 "Distance between the two halves' cases in the file with both (mm)"
 
 
-def not_printed(assembly: KeyboardAssembly) -> list[Compound]:
+def not_printed(keyboard: Keyboard) -> list[Compound]:
     """Only for checking fit and collisions. Assemblies store each model once."""
     models = [
-        Compound(label="keycaps", children=assembly.keycap_models()),
-        Compound(label="keyswitches", children=assembly.switch_models()),
-        Compound(label="PCBs", children=assembly.pcb_models()),
+        Compound(label="keycaps", children=keyboard.keycap_models()),
+        Compound(label="keyswitches", children=keyboard.switch_models()),
+        Compound(label="PCBs", children=keyboard.pcb_models()),
     ]
-    if assembly.with_trackball:
-        ball = assembly.trackball_ball()
+    if keyboard.with_trackball:
+        ball = keyboard.trackball_ball()
         ball.label, ball.color = "trackball", Color(0.5, 0.05, 0.05)
-        models += [assembly.sensor_model(), ball]
+        models += [keyboard.sensor_model(), ball]
     return models
 
 
-def build(assembly: KeyboardAssembly) -> dict[str, Compound]:
+def build(keyboard: Keyboard) -> dict[str, Compound]:
     """The printed parts and the files for checking them, by file name suffix."""
-    case = assembly.case()
+    case = keyboard.case()
     # file name: (part, label, color); two shades of slate blue for the printed parts
     printed = {
         "top": (case["top"], "case top", Color(0.36, 0.47, 0.60)),
@@ -42,10 +43,10 @@ def build(assembly: KeyboardAssembly) -> dict[str, Compound]:
         part.label, part.color = label, color
         parts[name] = part
     parts["combined"] = Compound(label="combined", children=[copy.copy(part) for part in parts.values()])
-    parts["switches"] = Compound(label="switches", children=not_printed(assembly))
+    parts["switches"] = Compound(label="switches", children=not_printed(keyboard))
     parts["combined-with-switches"] = Compound(
         label="combined-with-switches",
-        children=[copy.copy(parts[name]) for name in printed] + not_printed(assembly),
+        children=[copy.copy(parts[name]) for name in printed] + not_printed(keyboard),
     )
     return parts
 
@@ -62,11 +63,11 @@ if __name__ == "__main__":
     sides = sys.argv[1:] or list(HALVES)
     halves = {}
     for side in sides:
-        assembly = KeyboardAssembly(**HALVES[side])
-        parts = build(assembly)
+        keyboard = HALVES[side]
+        parts = build(keyboard)
         for name, part in parts.items():
             write(part, f"{side}-{name}")
-        halves[side] = (assembly, parts)
+        halves[side] = (keyboard, parts)
 
     if set(halves) == {"left", "right"}:
         # Side by side, GAP apart: the right half's case reaches furthest toward -X, the left's toward +X.
@@ -75,12 +76,12 @@ if __name__ == "__main__":
             "left": -GAP / 2 - halves["left"][1]["combined"].bounding_box().max.X,
         }
         both = []
-        for side, (assembly, parts) in halves.items():
+        for side, (keyboard, parts) in halves.items():
             # The models are placed there key by key: moving them afterwards would store each instance anew (and
             # takes OCCT's STEP writer more memory than there is for the switches).
-            assembly.offset = Pos(shifts[side], 0, 0)
+            keyboard.offset = Pos(shifts[side], 0, 0)
             case = [Pos(shifts[side], 0, 0) * parts[name] for name in ("top", "bottom")]
             for moved, part in zip(case, (parts["top"], parts["bottom"])):
                 moved.label, moved.color = part.label, part.color
-            both.append(Compound(label=f"{side} half", children=case + not_printed(assembly)))
+            both.append(Compound(label=f"{side} half", children=case + not_printed(keyboard)))
         write(Compound(label="both halves", children=both), "both")

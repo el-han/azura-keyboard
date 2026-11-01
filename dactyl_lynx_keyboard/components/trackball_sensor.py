@@ -37,7 +37,7 @@ def board_face_z() -> float:
 
 def _from_kicad() -> Location:
     """From the board's STEP frame to the sensor frame: turned over so the lens faces up, optical center at the
-    origin, and turned around so the solder pads for the wires face +X (toward the finger well)."""
+    origin, and turned around so the solder pads for the wires face +X (toward the finger case)."""
     x, y = OPTICAL_CENTER_KICAD
     return Pos(0, 0, board_face_z()) * Rot(0, 0, 180) * Rot(180, 0, 0) * Pos(-x, y, 0)
 
@@ -75,7 +75,7 @@ def envelope() -> Compound:
 
 
 def lens_opening(clearance: float = 0.3, depth: float = 20) -> Part:
-    """The opening in the well for the lens (the board's topmost part), from the navigation surface downward."""
+    """The opening in the shell for the lens (the board's topmost part), from the navigation surface downward."""
     lens = max(model().children, key=lambda child: child.bounding_box().max.Z).bounding_box()
     return Pos(lens.center().X, lens.center().Y, -depth / 2) * Box(
         lens.size.X + 2 * clearance, lens.size.Y + 2 * clearance, depth
@@ -89,7 +89,7 @@ def hole_radius() -> float:
 
 
 def standoffs(diameter: float = 6.0, height: float = 12) -> Part:
-    """Screw posts reaching up from the board's ball-side face (to be trimmed to the well's outer shell)."""
+    """Screw posts reaching up from the board's ball-side face (to be trimmed to the shell's outside)."""
     post = Pos(0, 0, board_face_z() + height / 2) * Cylinder(diameter / 2, height)
     posts = [Pos(x, y, 0) * post for x, y in _hole_positions()]
     return posts[0].fuse(*posts[1:])

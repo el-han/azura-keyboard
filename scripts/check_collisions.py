@@ -19,7 +19,7 @@ from build123d import Shape, import_step
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from dactyl_lynx_keyboard.case.keyboard import HALVES, KeyboardAssembly  # noqa: E402
+from dactyl_lynx_keyboard.assembly import HALVES  # noqa: E402
 
 PRINTED = ("top", "bottom")
 
@@ -47,19 +47,19 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     simple = "--simple" in args
     variant = next((arg for arg in args if arg in HALVES), "right")
-    assembly = KeyboardAssembly(**HALVES[variant])
-    with_trackball = assembly.with_trackball
+    keyboard = HALVES[variant]
+    with_trackball = keyboard.with_trackball
     kinds = {
-        "switch": assembly.switch_models(simple=simple),
-        "keycap": assembly.keycap_models(),
-        "keycap pressed": assembly.keycap_models(pressed=True),
-        "pcb": assembly.pcb_models(),
+        "switch": keyboard.switch_models(simple=simple),
+        "keycap": keyboard.keycap_models(),
+        "keycap pressed": keyboard.keycap_models(pressed=True),
+        "pcb": keyboard.pcb_models(),
     }
     keyed = [(key_of(shape), kind, shape) for kind, shapes in kinds.items() for shape in shapes]
     printed = {
         name: import_step(ROOT / "things" / f"dactyl-lynx-6x5-{variant}-{name}.step") for name in PRINTED
     }
-    obstacles = dict(printed, **({"ball clearance": assembly.trackball_clearance()} if with_trackball else {}))
+    obstacles = dict(printed, **({"ball clearance": keyboard.trackball_clearance()} if with_trackball else {}))
     boxes: dict = {}
 
     collisions = press_fits = 0
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
     if with_trackball:
-        sensor = assembly.sensor_model(simple=simple)
+        sensor = keyboard.sensor_model(simple=simple)
         for name, part in obstacles.items():
             volume = overlap(sensor, part, boxes)
             if volume > 0.01:

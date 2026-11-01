@@ -1,11 +1,12 @@
-"""Keyswitch sockets and related shapes (originally ported from `spkb.keyswitch`).
+"""Cherry MX-style keyswitches: their measurements, the sockets for them, and models of them (originally ported from
+`spkb.keyswitch`).
 
 All shapes are in the key's local frame: the top of the plate is at Z=0 and the switch points up (+Z).
 """
 from functools import cache
 from pathlib import Path
 
-from build123d import Box, Color, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, loft
+from build123d import Box, Compound, Part, Plane, Pos, Rectangle, Rot, Solid, loft
 
 from ..geometry.step import import_step_colored, transformed
 
@@ -59,20 +60,6 @@ MX_STEM_TOP = 10.44
 MX_TRAVEL = 4.0
 "Total travel of an MX switch"
 
-DSA_KEYCAP_DIR = Path(__file__).resolve().parents[2] / "resources" / "dsa-keycap"
-"DSA keycaps from https://github.com/anhthang/dsa-keycap (MIT); modelled Y-up, bottom at Y=0, wide side along X"
-DSA_KEYCAP_FILES = {
-    1.0: "DSA 1u.step",
-    1.25: "DSA 1.25u.step",
-    1.5: "DSA 1.5u.step",
-    1.75: "DSA 1.75u.step",
-    2.0: "DSA 2u.step",
-    2.25: "DSA 2.25u.step",
-    2.75: "DSA 2.75u.step",
-}
-DSA_SOCKET_DEPTH = 4.7
-"Depth of the keycap's stem socket above its bottom edge (measured from the STEP model)"
-
 
 def _frustum_y(x0: float, z0: float, y0: float, x1: float, z1: float, y1: float) -> Solid:
     """A ruled solid between an X×Z rectangle at Y=y0 and another at Y=y1."""
@@ -117,39 +104,9 @@ def switch(k: Keyswitch) -> Solid:
     ])
 
 
-PCB_THICKNESS = 1.57
-PCB_SIZE = 19
-PCB_TOP_BELOW_PLATE = 5.08
-"Depth of the PCB's top below the plate's top: an MX switch housing ends 5 mm below the plate."
-
-
-def single_key_board() -> Box:
-    """Simplified single-key PCB (a rectangular prism)."""
-    pcb = Pos(0, 0, -(PCB_THICKNESS / 2 + PCB_TOP_BELOW_PLATE)) * Box(PCB_SIZE, PCB_SIZE, PCB_THICKNESS)
-    pcb.color = Color(0.0, 0.4, 0.15)
-    return pcb
-
-
 @cache
 def _mx_switch_step() -> Compound:
     return import_step_colored(MX_SWITCH_STEP, label="Cherry MX")
-
-
-@cache
-def _dsa_keycap_step(size: float) -> Compound:
-    try:
-        file_name = DSA_KEYCAP_FILES[size]
-    except KeyError:
-        raise ValueError(f"No DSA keycap model for {size}u keys") from None
-    return import_step_colored(DSA_KEYCAP_DIR / file_name, label=f"DSA {size:g}u")
-
-
-def dsa_keycap_model(size: float = 1.0, pressed: bool = False) -> Compound:
-    """A DSA keycap of the given width (in units) on an MX stem for collision checks (not printed), at rest or
-    bottomed out. The wide side runs along X.
-    """
-    bottom = MX_STEM_TOP - DSA_SOCKET_DEPTH - (MX_TRAVEL if pressed else 0)
-    return transformed(_dsa_keycap_step(size), Pos(0, 0, bottom) * Rot(90, 0, 0))
 
 
 def mx_switch_model() -> Compound:

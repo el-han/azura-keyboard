@@ -1,16 +1,21 @@
-"""The layout of a finger well.
+"""The finger keys: their layout and their part of the case.
 """
 import math
 from collections.abc import Iterable
 from typing import Tuple
 
+from build123d import Face, Kind, Part, Polygon, Solid, extrude, offset
+
+from ..components import key_pcb
 from ..components.keyswitch import Keyswitch
+from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
 from ..geometry.transform import Transform
+from .dimensions import CaseDimensions
 
 
 class FingerLayout(KeyLayout):
-    """The layout of a finger well.
+    """The layout of the finger keys.
     """
     def __init__(self, columns: int = 6, rows: int = 5, keyswitch: Keyswitch = Keyswitch()):
         super(FingerLayout, self).__init__(columns=columns, rows=rows, keyswitch=keyswitch)
@@ -86,3 +91,73 @@ class FingerLayout(KeyLayout):
         return transform \
             .up(self.plate_thickness) \
             .translate(self.placement_transform)
+
+
+class FingerCase:
+    """The finger keys' part of the case, following the key surface."""
+    def __init__(self, layout: FingerLayout, dimensions: CaseDimensions):
+        self.layout = layout
+        self.dimensions = dimensions
+        self.straight_columns = (-0.5,)
+        self.straight_rows = (-0.75,)
+        "Edges that should be straight in top view (see `surface.outline()`)"
+
+    def _surface_face(self, footprint: Face, depth: float) -> Face:
+        """The key surface at `depth` below the key plane, trimmed by a vertical prism over `footprint`."""
+        slab = extrude(footprint, self.dimensions.max_height) & (
+            surface.torus(self.layout, depth=depth + 1) - surface.torus(self.layout, depth=depth)
+        )
+        return surface.torus_face(slab, self.layout.row_radius + depth)
+
+    @staticmethod
+    def _thicken_down(face: Face, amount: float) -> Solid:
+        """Thicken a key surface face by `amount` along its normals, away from the keycaps."""
+        pointing_up = face.normal_at(face.center()).Z > 0
+        return Solid.thicken(face, -amount if pointing_up else amount)
+
+    def _inner_footprint(self) -> Face:
+        """The inside of the case in top view: the plate outline, grown to hold every key's PCB.
+
+        The PCBs hang below the keys along the surface normals, just like the case walls, so their squares projected
+        from the key plane are what has to fit.
+        """
+        layout = self.layout
+        half = key_pcb.PCB_SIZE / 2 + self.dimensions.clearance
+        # Counter-clockwise; the keys face up, so the projections stay counter-clockwise and fuse into one face.
+        corners = [(-half, -half, 0), (half, -half, 0), (half, half, 0), (-half, half, 0)]
+        squares = [
+            [layout.key_transform(column, row).apply(corner)[:2] for corner in corners]
+            for (column, row) in layout.generate_positions()
+        ]
+        # Straight edges are moved out far enough to hold the PCBs, instead of bulging around them.
+        footprint = surface.outline(
+            layout,
+            straight_columns=self.straight_columns,
+            straight_rows=self.straight_rows,
+            enclose=[point for square in squares for point in square],
+        ).fuse(*[Polygon(*square, align=None) for square in squares]).clean()
+        # Fill the small notches between neighbouring squares
+        smoothing = 3
+        return offset(offset(footprint, smoothing, kind=Kind.ARC), -smoothing, kind=Kind.ARC)
+
+    def shapes(self) -> tuple[Part, Part, Part, Face]:
+        """The case as (plate, bottom outside, cavity, footprint in top view), without any holes.
+
+        The top half is the key plate. The bottom half is a copy of it moved down along the surface normals,
+        joined to the plate's rim by walls that also run along the normals, so the whole case follows the key
+        surface.
+        """
+        layout, d = self.layout, self.dimensions
+        inner_footprint = self._inner_footprint()
+        footprint = offset(inner_footprint, d.wall, kind=Kind.ARC)
+
+        # Everything is trimmed on the key plane and then thickened along the surface normals, so all edges follow
+        # the normals and the two halves meet flush.
+        plate = self._thicken_down(self._surface_face(footprint, 0), d.plate_thickness)
+        plate_underside = surface.torus_face(plate, layout.row_radius + d.plate_thickness)
+
+        # Below the plate down to the outside of the floor, hollowed out by the space inside the walls. The cavity
+        # starts at the key plane, above the plate's underside, so the two never share a face.
+        outer = self._thicken_down(plate_underside, d.cavity_depth + d.wall - d.plate_thickness)
+        cavity = self._thicken_down(self._surface_face(inner_footprint, 0), d.cavity_depth)
+        return plate, outer, cavity, footprint
