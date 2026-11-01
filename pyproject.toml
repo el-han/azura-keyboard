@@ -2,7 +2,7 @@
 name = "azura-keyboard"
 version = "0.1.0"
 description = "The Azura is a parameterized, split-hand, concave, columnar, ergonomic keyboard."
-authors = [{ name = "David H. Bronke", email = "whitelynx@gmail.com" }]
+authors = [{ name = "Hannes Ellinger", email = "hannes.ellinger@posteo.de" }]
 license = "AGPL-3.0-only"
 readme = "README.md"
 requires-python = ">=3.12,<3.15"

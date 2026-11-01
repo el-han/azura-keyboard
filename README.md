@@ -175,5 +175,6 @@ pdoc -t templates azura_keyboard
 ## License
 
 Copyright © 2015-2024 Matthew Adereth and David H. Bronke
+Copyright © 2026 Hannes Ellinger
 
 The source code for generating the models (everything excluding the [things/](things/) and [resources/](resources/) directories) is distributed under the [GNU AFFERO GENERAL PUBLIC LICENSE Version 3](LICENSE).  The generated models and PCB designs are distributed under the [Creative Commons Attribution-ShareAlike License Version 4.0](LICENSE-models).
