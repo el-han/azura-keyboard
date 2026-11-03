@@ -3,7 +3,7 @@
 import copy
 from typing import Optional
 
-from build123d import Compound, Kind, Location, Part, Plane, Shape, Sphere, mirror, offset
+from build123d import Compound, Kind, Location, Part, Plane, Polygon, Shape, Sphere, mirror, offset
 
 from ..components import key_pcb, keycap, keyswitch, trackball_sensor
 from ..components.keyswitch import Keyswitch
@@ -65,11 +65,13 @@ class Keyboard:
         Where the finger and thumb cases overlap, their walls fall away and their insides run into each other. The
         steps' order matters: OCCT fails on some cuts and fuses once parts have been joined.
         """
-        finger = self.finger_case.shapes()
         thumb = self.thumb_case.shapes()
+        finger, raised_wall = self._finger_behind_thumb(self.finger_case.shapes())
         top_pieces, floors = self._walls_and_floors(finger, thumb)
-        top = self._joined_top(*top_pieces)
-        bottom = self._joined_floors(*floors, finger, thumb)
+        # The floors first, from copies: joining the top alters shapes they share with it, and the joined floors lose
+        # the finger case's.
+        bottom = self._joined_floors(*copy.deepcopy(floors), copy.deepcopy(finger), copy.deepcopy(thumb))
+        top = (self._joined_top(*top_pieces) + raised_wall).fix()
         if self.trackball_case:
             top, bottom = self._with_trackball_cup(top, bottom, thumb[2])
         bottom = self._finished_bottom(top, bottom, finger[1])
@@ -82,6 +84,30 @@ class Keyboard:
         if self.left:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}
         return {name: part.fix() for name, part in parts.items()}
+
+    def _finger_behind_thumb(self, finger: tuple) -> tuple[tuple, Part]:
+        """The finger case cut off where the thumb case's back wall stands, and that wall raised to the finger case's
+        key plane, which makes it the finger case's front wall there.
+
+        Where the thumb case's top rises above the finger case's key plane, nothing is left of the raised wall: the
+        thumb case's own wall closes the finger case there.
+        """
+        plate, outer, cavity, footprint = finger
+        fc, d = self.finger_case, self.dimensions
+        # Left of the step between columns 2 and 3
+        xy = lambda column, row: self.finger_layout.key_transform(column, row).apply((0, 0, 0))[:2]
+        (x0, y0), (x1, y1) = xy(2.5, 2.5), xy(2.5, 6)
+        beside_thumb = d.prism(Polygon((x0, y0), (x1, y1), (x1 - 300, y1), (x0 - 300, y0), align=None))
+        # Trimmed like the finger case's walls, along the key surface's normals, so it runs flush into them
+        under_finger_case = fc._thicken_down(fc._surface_face(footprint, 0), d.cavity_depth + d.wall + 30)
+        wall = self.thumb_case.back_wall() & under_finger_case & beside_thumb
+        wall = wall - surface.torus(self.finger_layout, depth=0) - copy.deepcopy(self.thumb_case.shapes()[1])
+        # The finger case gives way to the thumb case and the room above its keys, nothing more. Its outside is left
+        # alone: `_walls_and_floors()` cuts it to fit, and cutting it here too leaves faces that make later fuses fail.
+        _, thumb_outer, thumb_cavity, above_thumb_plate = self.thumb_case.shapes()
+        plate = plate - copy.deepcopy(above_thumb_plate)
+        cavity = cavity - (above_thumb_plate + thumb_outer + thumb_cavity)
+        return (plate, outer, cavity, footprint), wall
 
     def _walls_and_floors(self, finger: tuple, thumb: tuple) -> tuple[tuple[Part, Part, Part, Part], tuple[Part, Part]]:
         """The finger and thumb cases cut to fit each other, as ((finger plate, thumb plate, finger walls, thumb
@@ -145,12 +171,13 @@ class Keyboard:
         toward -X than the skirt's outside."""
         d = self.dimensions
         finger_cavity, thumb_cavity = finger[2], thumb[2]
-        skirt_outline = self.skirt.outline(finger[1])
+        skirt_outline = self.skirt.outline(copy.deepcopy(finger[1]))
         inside_skirt = d.prism(offset(skirt_outline, -d.wall))
         finger_floor -= copy.deepcopy(inside_skirt)
         bottom = (finger_floor + thumb_floor).fix()
-        extension = (self.thumb_case.floor_extension() & self.skirt.beside(skirt_outline)) - inside_skirt
-        return (bottom + (extension - finger_cavity - thumb_cavity)).fix()
+        extension = (self.thumb_case.floor_extension() & self.skirt.beside(copy.deepcopy(skirt_outline))) - inside_skirt
+        # Cut with copies: OCCT can alter a boolean's tool shape.
+        return (bottom + (extension - copy.deepcopy(finger_cavity) - copy.deepcopy(thumb_cavity))).fix()
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall

@@ -173,6 +173,13 @@ class ThumbCase:
         length = 2 * (self.inner_length + 2 * self.dimensions.wall)
         return self._placed(self._band(1 - self.layout.column_radius, depth, length))
 
+    def back_wall(self) -> Part:
+        """The case's back wall (toward the finger case), raised to (almost) the arc's axis: a flat slab across the
+        arc, to be cut down to the finger case's key plane."""
+        d = self.dimensions
+        length = self.inner_length + 2 * d.wall
+        return self._placed(Pos(0, (length - d.wall) / 2, 0) * self._band(1 - self.layout.column_radius, d.cavity_depth + d.wall, d.wall))
+
     def shapes(self) -> tuple[Part, Part, Part, Part]:
         """The case as (plate, bottom outside, cavity, everything above the plate's underside), built like
         `FingerCase.shapes()`, without any holes.

@@ -22,12 +22,14 @@ class FingerLayout(KeyLayout):
 
         self.placement_transform = (0, 0, 1.6 + 3.0 + 5.0 + 9.0)
 
-        self.positions_to_skip = ((0, 4), (1, 4), (2, 4))
+        self.positions_to_skip = ((0, 4), (1, 4), (2, 4), (5, 4))
         "Grid positions without a key: the bottom row under the index and middle fingers, where the thumb goes"
 
         self.outline_corners = (
             (-0.5, -0.75),
-            (-0.5, 3.5),
+            (-0.5, 3.75),
+            (1.5, 3.75),
+            (1.5, 3.5),
             (2.5, 3.5),
             (2.5, 4.75),
             (5.5, 4.75),
@@ -76,10 +78,14 @@ class FingerLayout(KeyLayout):
             for row in range(self.rows):
                 if (column, row) in self.positions_to_skip:
                     continue
+                if column <= 0:
+                    row += 0.125
                 if column == 2:
                     row += -0.25
-                elif column >= 4:
+                elif column == 4:
                     row += 0.25
+                elif column >= 5:
+                    row += 0.5
                 positions.append((column, row))
         return positions
 

@@ -63,7 +63,7 @@ class Dimensions:
     # Screws
     finger_screw_corners: tuple[tuple[float, float], ...] = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
     "Corners of the finger case's outline (column, row) with a screw"
-    corner_without_trackball: tuple[float, float] = (-0.5, 3.5)
+    corner_without_trackball: tuple[float, float] = (-0.5, 3.75)
     "One more such corner where there is no trackball cup to take a screw (in the mirrored left half, front right)"
     screw_hole: float = 2.9
     "Diameter of the screws' clearance holes"
