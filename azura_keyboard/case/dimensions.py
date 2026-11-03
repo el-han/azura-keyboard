@@ -61,7 +61,7 @@ class Dimensions:
     "How far the skirt stays inside the outline of the finger case's underside"
 
     # Screws
-    finger_screw_corners: tuple[tuple[float, float], ...] = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75))
+    finger_screw_corners: tuple[tuple[float, float], ...] = ((-0.5, -0.75), (5.5, -0.75), (2.5, 4.75), (5.5, 4.75))
     "Corners of the finger case's outline (column, row) with a screw"
     corner_without_trackball: tuple[float, float] = (-0.5, 3.75)
     "One more such corner where there is no trackball cup to take a screw (in the mirrored left half, front right)"
