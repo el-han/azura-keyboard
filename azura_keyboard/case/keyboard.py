@@ -133,7 +133,11 @@ class Keyboard:
         finger_top = finger_plate - below_thumb_plate - thumb_parts
         finger_bottom = finger_outer - finger_cavity - thumb_cavity - copy.deepcopy(thumb_parts)
 
-        next_to_finger_case = d.prism(offset(finger_footprint, d.join_margin, kind=Kind.ARC))
+        # (grown in steps: OCCT's offset of the finger case's many-sided outline in one go comes out invalid)
+        grown = finger_footprint
+        for _ in range(3):
+            grown = offset(grown, d.join_margin / 3, kind=Kind.ARC)
+        next_to_finger_case = d.prism(grown)
         # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
         above_finger_floor = surface.torus(self.finger_layout, depth=d.cavity_depth)
         # Next to the finger case, the thumb case's bottom half belongs to the top above the finger floor's top edge:
