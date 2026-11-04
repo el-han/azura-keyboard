@@ -54,7 +54,3 @@ class Skirt:
         # share the wall's outside faces, and the fuse drops it.) Healed: the fuse leaves it invalid.
         floor = Pos(0, 0, d.table_z) * extrude(self.inside(finger_outer), d.wall, dir=(0, 0, 1))
         return (wall + floor).fix()
-
-    def added_to(self, bottom: Part, finger_outer: Part) -> Part:
-        """`bottom` with the skirt (see `skirt()`)."""
-        return (bottom + self.skirt(finger_outer)).fix()

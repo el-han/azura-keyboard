@@ -78,7 +78,8 @@ class Keyboard:
         top = (top + self._plate_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
         top = (top + self._front_wall_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
         if self.trackball_case:
-            top, bottom = self._with_trackball_cup(top, bottom, thumb[2])
+            # (from copies: OCCT alters the shapes it cuts with, and the fuses after fail on what it leaves)
+            top, bottom = self._with_trackball_cup(copy.deepcopy(top), copy.deepcopy(bottom), copy.deepcopy(thumb[2]))
         bottom = self._finished_bottom(top, bottom, finger[1])
         # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
         # `TrackballCase.passage()`.)
@@ -259,14 +260,29 @@ class Keyboard:
         return piece - copy.deepcopy(finger[0]) - copy.deepcopy(finger[1])
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
-        """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall
-        replaces the finger case; toward the thumb case, the walls fall away and the insides run into each other."""
+        """The cup above the finger floor's top and the shell join the top, the cup below it the bottom. Toward the
+        finger case, the cup's wall replaces the finger case; toward the thumb case, the walls fall away and the
+        insides run into each other."""
         cylinder, foot, cup_inside = self.trackball_case.cup()
+        # Split like the finger case, at its floor's top (the torus), so the seams run on into each other; but a ring
+        # of `wall` below the equator stays with the top all round, for the shell to sit on
+        d = self.dimensions
+        whole = (cylinder + foot).fix()
+        height = Pos(0, 0, d.max_height / 2) * Box(4 * d.max_height, 4 * d.max_height, d.max_height)
+        ring = Pos(0, 0, self.trackball_case.center().position.Z - d.wall + d.max_height / 2) * Box(
+            4 * d.max_height, 4 * d.max_height, d.max_height
+        )
+        above = (surface.torus(self.finger_layout, depth=d.cavity_depth) & height) + ring
+        cylinder = copy.deepcopy(whole) & copy.deepcopy(above)
+        foot = whole - above
         # Join the shell and the cup's wall first: their outsides meet flush, which the fuse with the rest can't handle.
-        trackball_top = ((cylinder - thumb_cavity) + self.trackball_case.shell()).fix()
+        # (cut with copies: OCCT can alter a boolean's tool shape, and the thumb case's cavity cuts twice)
+        trackball_top = ((cylinder - copy.deepcopy(thumb_cavity)) + self.trackball_case.shell()).fix()
         top = (top + trackball_top).fix()
-        # Cut before the fuse here too: the cut leaves the fused bottom invalid.
-        return top, ((bottom - copy.deepcopy(cup_inside)) + (foot - thumb_cavity)).fix()
+        # Cut before the fuse here too: the cut leaves the fused bottom invalid. Healed before the fuse: the cut leaves
+        # small topology errors, and the fuse then comes out far too big.
+        bottom = (bottom - copy.deepcopy(cup_inside)).fix()
+        return top, (bottom + (foot - copy.deepcopy(thumb_cavity))).fix()
 
     def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part) -> Part:
         """The bottom clear of the top, with the skirt."""
@@ -274,14 +290,24 @@ class Keyboard:
         bottom = (bottom - copy.deepcopy(top)).fix()
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
-        bottom = self.skirt.added_to(bottom, finger_outer)
-        return (bottom - copy.deepcopy(top)).fix()
+        # The skirt clear of the top as well, before it joins the bottom: cutting the top from the bottom again after
+        # leaves it invalid. (Only where the two meet at all.)
+        skirt = self.skirt.skirt(finger_outer)
+        overlap = copy.deepcopy(skirt) & copy.deepcopy(top)
+        if overlap and overlap.solids() and overlap.volume > 1e-6:
+            skirt = (skirt - copy.deepcopy(top)).fix()
+        return (bottom + skirt).fix()
 
     def _with_screws(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> tuple[Part, Part]:
         """Both parts with the screws' bosses and holes."""
         lower, upper, holes = self._screw_bosses(copy.deepcopy(finger_outer), copy.deepcopy(thumb_outer), top, bottom)
-        top = (((top - copy.deepcopy(lower)) + upper).fix() - copy.deepcopy(holes)).fix()
-        return top, ((bottom + lower).fix() - holes).fix()
+        # (on copies, healed after each step: OCCT alters the shapes of a boolean, and a cut leaves small topology
+        # errors that make the next fuse fail)
+        top = (copy.deepcopy(top) - copy.deepcopy(lower)).fix()
+        top = (top + copy.deepcopy(upper)).fix()
+        top = (top - copy.deepcopy(holes)).fix()
+        bottom = (copy.deepcopy(bottom) + copy.deepcopy(lower)).fix()
+        return top, (bottom - copy.deepcopy(holes)).fix()
 
     def _screw_bosses(
         self, finger_outside: Part, thumb_outside: Part, top: Part, bottom: Part
@@ -305,7 +331,7 @@ class Keyboard:
         ]
         bosses = self.screws.bosses(places, obstacles, top, bottom)
         if trackball_case:
-            bosses.append(trackball_case.screw())
+            bosses.extend(trackball_case.screws())
         return tuple(Compound(children=[found[i] for found in bosses]) for i in range(3))
 
     def _placed(self, location: Location) -> Location:

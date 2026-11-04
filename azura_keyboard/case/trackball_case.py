@@ -107,12 +107,17 @@ class TrackballCase:
             Pos(wall_x + 9, center.Y, (low + 21) / 2) * Box(7, width, 21 - low),
         )
 
-    def screw(self) -> tuple[Part, Part, Part]:
-        """A screw from below at the cup's -X edge, between its wall and the sensor, into the shell, as (lower part of
-        its boss, upper part, holes). It is vertical, unlike the others: the cup stands on the table."""
+    def screws(self) -> list[tuple[Part, Part, Part]]:
+        """The cup's screws, one on each side of the sensor."""
+        return [self.screw(-1), self.screw(1)]
+
+    def screw(self, side: int = -1) -> tuple[Part, Part, Part]:
+        """A screw from below at the cup's -X (side -1) or +X (side 1) edge, between its wall and the sensor, into the
+        shell, as (lower part of its boss, upper part, holes). It is vertical, unlike the others: the cup stands on the
+        table."""
         d = self.dimensions
         center = self.center().position
-        frame = Pos(center.X - d.trackball_screw_inset, center.Y, d.table_z)
+        frame = Pos(center.X + side * d.trackball_screw_inset, center.Y, d.table_z)
         split = d.wall + 6
         boss, column = d.screw_boss / 2, Screws.column
         return (
