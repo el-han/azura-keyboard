@@ -39,8 +39,7 @@ class Skirt:
         """The skirt on its own: a wall a wall's thickness inside its outline, from the table up to the finger case's
         underside (the torus at the floor's underside), closed by a floor on the table."""
         d = self.dimensions
-        outside = self.outline(finger_outer)
-        ring = outside - self.inside(finger_outer)
+        ring = self.outline(finger_outer) - self.inside(finger_outer)
         # Extruded up until the finger case's underside: `Until.FIRST` extrudes against `dir`, here up, to the
         # farthest surface of the target there, which is the underside, the target's only face. (The whole torus as
         # target, or `Until.NEXT` up, ends up on the torus's far side.)
@@ -51,9 +50,9 @@ class Skirt:
         wall = extrude(
             Pos(0, 0, d.table_z) * ring, until=Until.FIRST, target=Compound([underside_face]), dir=(0, 0, -1)
         )
-        # Closed at the bottom by a floor of `wall`, which stays out of the finger case's inside
-        floor = Pos(0, 0, d.table_z) * extrude(outside, d.wall, dir=(0, 0, 1))
-        floor -= surface.torus(self.layout, depth=d.cavity_depth)
+        # Closed by a floor of `wall` on the table, within the wall's inside. (A floor over the whole outside would
+        # share the wall's outside faces, and the fuse drops it.) Healed: the fuse leaves it invalid.
+        floor = Pos(0, 0, d.table_z) * extrude(self.inside(finger_outer), d.wall, dir=(0, 0, 1))
         return (wall + floor).fix()
 
     def added_to(self, bottom: Part, finger_outer: Part) -> Part:
