@@ -172,17 +172,12 @@ class Keyboard:
         return (finger_top + thumb_top + finger_walls + thumb_walls).fix()
 
     def _joined_floors(self, finger_floor: Part, thumb_floor: Part, finger: tuple, thumb: tuple) -> Part:
-        """The floors as one part, open inside the skirt; the thumb case's reaches back to the skirt, and no further
-        toward -X than the skirt's outside."""
+        """The floors as one part, open inside the skirt."""
         d = self.dimensions
-        finger_cavity, thumb_cavity = finger[2], thumb[2]
         skirt_outline = self.skirt.outline(copy.deepcopy(finger[1]))
         inside_skirt = d.prism(offset(skirt_outline, -d.wall))
         finger_floor -= copy.deepcopy(inside_skirt)
-        bottom = (finger_floor + thumb_floor).fix()
-        extension = (self.thumb_case.floor_extension() & self.skirt.beside(copy.deepcopy(skirt_outline))) - inside_skirt
-        # Cut with copies: OCCT can alter a boolean's tool shape.
-        return (bottom + (extension - copy.deepcopy(finger_cavity) - copy.deepcopy(thumb_cavity))).fix()
+        return (finger_floor + thumb_floor).fix()
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall

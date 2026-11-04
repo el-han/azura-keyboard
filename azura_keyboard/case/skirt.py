@@ -1,9 +1,8 @@
 """The skirt under the finger case, which the keyboard stands on.
 """
 import copy
-import math
 
-from build123d import Box, Face, Kind, Part, Polygon, Pos, Rot, Vector, extrude, offset
+from build123d import Face, Kind, Part, Polygon, Pos, extrude, offset
 
 from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
@@ -23,20 +22,6 @@ class Skirt:
             *[(p.X, p.Y) for p in underside.outer_wire().positions([i / 400 for i in range(400)])], align=None
         )
         return offset(outline, -d.skirt_inset, kind=Kind.ARC)
-
-    def beside(self, outline: Face) -> Part:
-        """Everything on the +X side of the line along the skirt's outside toward -X (from its front corner to its
-        back end)."""
-        points = [v.center() for v in outline.vertices()]
-        front = min(points, key=lambda p: p.X)
-        back_y = max(p.Y for p in points)
-        back = min((p for p in points if p.Y > back_y - 0.5), key=lambda p: p.X)
-        along = (back - front).normalized()
-        normal = Vector(along.Y, -along.X, 0)  # toward +X
-        size = 4 * self.dimensions.max_height
-        return Pos(front + normal * (size / 2)) * Rot(0, 0, math.degrees(math.atan2(normal.Y, normal.X))) * Box(
-            size, size, size
-        )
 
     def added_to(self, bottom: Part, finger_outer: Part) -> Part:
         """`bottom` with the skirt: a wall from the table up to the bottom half's underside, along the underside's

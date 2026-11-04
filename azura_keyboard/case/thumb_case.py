@@ -186,13 +186,6 @@ class ThumbCase:
         """A shape from the layout's base frame, where it goes."""
         return to_location(self.layout.layout_place(Transform())) * band
 
-    def floor_extension(self) -> Part:
-        """The floor, reaching well past the case's back end (to be cut off at the skirt)."""
-        d = self.dimensions
-        e = 40
-        length = self.inner_length + 2 * d.wall + e
-        return self._placed(Pos(0, e / 2, 0) * self._band(d.cavity_depth, d.cavity_depth + d.wall, length, longer=False))
-
     def above(self, depth: float) -> Part:
         """Everything of the case (from almost its arc's axis) down to `depth` below its key plane."""
         length = 2 * (self.inner_length + 2 * self.dimensions.wall)
