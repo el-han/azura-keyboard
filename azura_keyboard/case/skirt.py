@@ -2,29 +2,11 @@
 """
 import copy
 
-from build123d import Compound, Edge, Face, Kind, Part, Pos, Until, Wire, extrude, offset
-from OCP.BRepAdaptor import BRepAdaptor_Curve
-from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
-from OCP.Geom import Geom_Plane
-from OCP.GeomConvert import GeomConvert
-from OCP.GeomProjLib import GeomProjLib
-from OCP.gp import gp_Dir, gp_Pln, gp_Pnt
+from build123d import Compound, Face, Kind, Part, Pos, Rectangle, Until, Wire, extrude, offset
 
 from ..geometry import surface
 from ..geometry.key_layout import KeyLayout
 from .dimensions import Dimensions
-
-
-def _shrunk(face: Face, amount: float) -> Face:
-    """A face shrunk by `amount` all round, its edges as plain B-splines (OCCT's offset gives offset curves)."""
-    shrunk = offset(face, -amount, kind=Kind.ARC)
-    edges = [
-        Edge(BRepBuilderAPI_MakeEdge(GeomConvert.CurveToBSplineCurve_s(
-            BRepAdaptor_Curve(e.wrapped).Curve().Curve()), e.param_at(0), e.param_at(1)).Edge())
-        if e.geom_type.name == "OFFSET" else e
-        for e in shrunk.faces()[0].outer_wire().order_edges()
-    ]
-    return Face(Wire.combine(edges, tol=1e-4)[0])
 
 
 class Skirt:
@@ -33,38 +15,25 @@ class Skirt:
         self.dimensions = dimensions
 
     def underside_outline(self, finger_outer: Part) -> Face:
-        """The finger case's underside projected straight down onto the table plane.
-
-        The underside's edges run along the torus's parallels and meridians; each is projected as it is (a line,
-        circle or ellipse arc), not sampled.
-        """
+        """The finger case's underside projected straight down onto the table plane."""
         d = self.dimensions
-        underside = surface.torus_face(finger_outer, self.layout.row_radius + d.cavity_depth + d.wall)
-        table = Geom_Plane(gp_Pln(gp_Pnt(0, 0, 0), gp_Dir(0, 0, 1)))
-        down = lambda p: gp_Pnt(p.X, p.Y, 0)
-        edges = []
-        for edge in underside.outer_wire().order_edges():
-            adaptor = BRepAdaptor_Curve(edge.wrapped)
-            first, last = adaptor.FirstParameter(), adaptor.LastParameter()
-            try:
-                # (keeping the parametrization, so the edge's own range ends right below its ends)
-                flat = GeomProjLib.ProjectOnPlane_s(adaptor.Curve().Curve(), table, gp_Dir(0, 0, 1), True)
-                edges.append(Edge(BRepBuilderAPI_MakeEdge(flat, first, last).Edge()))
-            except Exception:
-                # A circle in an upright plane (a meridian seen from above) projects onto a line
-                edges.append(Edge(BRepBuilderAPI_MakeEdge(down(edge.position_at(0)), down(edge.position_at(1))).Edge()))
-        # Joined end to end (the projected ends match to within the curves' tolerance)
-        return Face(Wire.combine(edges, tol=1e-4)[0])
+        underside = surface.torus_face(
+            copy.deepcopy(finger_outer), self.layout.row_radius + d.cavity_depth + d.wall
+        )
+        table = Rectangle(10 * d.max_height, 10 * d.max_height).faces()[0]  # the XY plane; moved to the table later
+        projected = underside.outer_wire().project_to_shape(table, (0, 0, -1))
+        # Joined end to end (the projected ends match to within the projection's tolerance)
+        return Face(Wire.combine([edge for wire in projected for edge in wire.edges()], tol=1e-4)[0])
 
     def outline(self, finger_outer: Part) -> Face:
         """The skirt's outside in top view: the underside's projection, shrunk by `skirt_inset`."""
-        return _shrunk(self.underside_outline(finger_outer), self.dimensions.skirt_inset)
+        return offset(self.underside_outline(finger_outer), -self.dimensions.skirt_inset, kind=Kind.ARC)
 
     def inside(self, finger_outer: Part) -> Face:
         """The skirt's inside in top view: the underside's projection, shrunk by `skirt_inset` and a wall (from the
         projection, not from the outside: offsetting that again gives curves OCCT's booleans fail on)."""
         d = self.dimensions
-        return _shrunk(self.underside_outline(finger_outer), d.skirt_inset + d.wall)
+        return offset(self.underside_outline(finger_outer), -(d.skirt_inset + d.wall), kind=Kind.ARC)
 
     def skirt(self, finger_outer: Part) -> Part:
         """The skirt on its own: a wall a wall's thickness inside its outline, from the table up to the finger case's

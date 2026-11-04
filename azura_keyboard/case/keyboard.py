@@ -3,6 +3,7 @@
 import copy
 from typing import Optional
 
+from OCP.BRepBuilderAPI import BRepBuilderAPI_NurbsConvert
 from build123d import Compound, Kind, Location, Part, Plane, Polygon, Shape, Sphere, mirror, offset
 
 from ..components import key_pcb, keycap, keyswitch, trackball_sensor
@@ -79,6 +80,8 @@ class Keyboard:
         top, bottom = (top - pocket).fix(), (bottom + hook).fix()
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
 
+        # The skirt's walls are extrusions of offset curves, which OCCT's STEP writer drops: as NURBS they come through
+        bottom = Part(BRepBuilderAPI_NurbsConvert(bottom.wrapped, True).Shape())
         parts = {"top": top, "bottom": bottom}
         if self.left:
             parts = {name: mirror(part, Plane.YZ) for name, part in parts.items()}

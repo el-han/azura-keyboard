@@ -4,14 +4,13 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from build123d import Face, Part, Polygon, Solid, extrude
+from build123d import Face, Part, Polygon, Pos, Rot, Solid, extrude
 from OCP.BRep import BRep_Tool
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace, BRepBuilderAPI_MakeWire
 from OCP.BRepLib import BRepLib
 from OCP.Geom2d import Geom2d_Line
-from OCP.ShapeAnalysis import ShapeAnalysis_Surface
 from OCP.ShapeFix import ShapeFix_Face
-from OCP.gp import gp_Dir2d, gp_Pnt, gp_Pnt2d, gp_Vec
+from OCP.gp import gp_Dir2d, gp_Pnt2d
 
 from ..components import key_pcb
 from ..components.keyswitch import Keyswitch
@@ -204,34 +203,49 @@ class FingerCase:
         return Solid.thicken(face, -amount if pointing_up else amount)
 
     def _key_surface(self):
-        """The key plane's torus as an OCCT surface, and the linear map from grid positions (column, row) to its
-        parameters: columns run along its parallels (u), rows along its meridians (v)."""
-        torus = BRep_Tool.Surface_s(surface.torus(self.layout, 0).faces()[0].wrapped)
-        analysis = ShapeAnalysis_Surface(torus)
-        uv = lambda c, r: analysis.ValueOfUV(gp_Pnt(*self.layout.key_transform(c, r).apply((0, 0, 0))), 1e-9)
-        (u0, v0), (u1, _), (_, v1) = ((p.X(), p.Y()) for p in (uv(0, 0), uv(1, 0), uv(0, 1)))
-        # Unwrapped across the torus's seam, within the face's parameter range (see `surface.torus()`)
-        wrap = lambda v: v + 2 * math.pi if v < math.pi else v
-        v0, v1 = wrap(v0), wrap(v1)
-        return torus, (lambda c, r: (u0 + c * (u1 - u0), v0 + r * (v1 - v0))), analysis
+        """The key plane's torus: its OCCT surface (for faces on it), its parameters (u, v) of a point, and the linear
+        map from grid positions (column, row) to them. Columns run along its parallels (u, the angle around its
+        axis), rows along its meridians (v, the angle around its tube), so the map is linear."""
+        layout = self.layout
+        torus = BRep_Tool.Surface_s(surface.torus(layout, 0).faces()[0].wrapped)
+        # The torus's own frame (see `surface.torus()`): its axis along Z, its tube's center circle in the XY plane
+        frame = (surface.surface_location(layout) * Pos(0, 0, layout.column_radius) * Rot(90, 0, 0)).inverse()
+        major = layout.column_radius - layout.row_radius
+
+        def parameters(point) -> tuple[float, float]:
+            local = (frame * Pos(*point)).position
+            u = math.atan2(local.Y, local.X) % (2 * math.pi)
+            v = math.atan2(local.Z, math.hypot(local.X, local.Y) - major) % (2 * math.pi)
+            # Unwrapped across the seam, within the face's parameter range (from pi on)
+            return u, v + 2 * math.pi if v < math.pi else v
+
+        at = lambda c, r: parameters(layout.key_transform(c, r).apply((0, 0, 0)))
+        (u0, v0), (u1, _), (_, v1) = at(0, 0), at(1, 0), at(0, 1)
+        return torus, (lambda c, r: (u0 + c * (u1 - u0), v0 + r * (v1 - v0))), parameters
+
+    def _lengths(self, v: float) -> tuple[float, float]:
+        """Length on the key plane per radian of u (along a parallel) and of v (along a meridian) at `v`: a
+        parallel's radius, and the tube's."""
+        layout = self.layout
+        major, minor = layout.column_radius - layout.row_radius, layout.row_radius
+        return major + minor * math.cos(v), minor
 
     def _inner_region(self) -> list[tuple[float, float]]:
         """The inside on the key surface, as a polygon in the torus's parameters (u, v) whose edges run along its
         parallels and meridians: the plate outline and every key's room for its PCB (the PCB plus clearance,
         projected onto the surface)."""
-        torus, uv, analysis = self._key_surface()
+        _, uv, parameters = self._key_surface()
         layout, d = self.layout, self.dimensions
         half = key_pcb.PCB_SIZE / 2 + d.clearance
-        wrap = lambda v: v + 2 * math.pi if v < math.pi else v
         rectangles = []
         for column, row in layout.generate_positions():
             # The PCB's room as a rectangle along parallels and meridians around the key, just enclosing the flat
             # square projected onto the surface (which comes out a little skewed)
             key = layout.key_transform(column, row)
             u, v = uv(column, row)
-            corners = [analysis.ValueOfUV(gp_Pnt(*key.apply((x, y, 0))), 1e-9) for x in (-half, half) for y in (-half, half)]
-            du = max(abs(p.X() - u) for p in corners)
-            dv = max(abs(wrap(p.Y()) - v) for p in corners)
+            corners = [parameters(key.apply((x, y, 0))) for x in (-half, half) for y in (-half, half)]
+            du = max(abs(cu - u) for cu, _ in corners)
+            dv = max(abs(cv - v) for _, cv in corners)
             rectangles.append((u - du, v - dv, u + du, v + dv))
         outline = [uv(c, r) for c, r in layout.outline_corners]
         points = _union_outline(outline, rectangles)
@@ -245,7 +259,6 @@ class FingerCase:
         and moves out to the next one a wall away: along a meridian the distance between parallels is the same
         everywhere, along a parallel the distance between meridians shrinks toward the torus's axis, so those
         edges are a wall away at their middle."""
-        torus, _, _ = self._key_surface()
         d = self.dimensions
         n = len(inner)
         moved = []
@@ -253,15 +266,11 @@ class FingerCase:
             (u0, v0), (u1, v1) = inner[k], inner[(k + 1) % n]
             if abs(v1 - v0) < 1e-12:
                 # Along a parallel (constant v): move in v, a wall along the meridian
-                p, du, dv = gp_Pnt(), gp_Vec(), gp_Vec()
-                torus.D1((u0 + u1) / 2, v0, p, du, dv)
-                step = d.wall / dv.Magnitude()
+                step = d.wall / self._lengths(v0)[1]
                 # Counter-clockwise: the outside is to the right of the edge's direction
                 moved.append(("v", v0 - step if u1 > u0 else v0 + step))
             else:
-                p, du, dv = gp_Pnt(), gp_Vec(), gp_Vec()
-                torus.D1(u0, (v0 + v1) / 2, p, du, dv)
-                step = d.wall / du.Magnitude()
+                step = d.wall / self._lengths((v0 + v1) / 2)[0]
                 moved.append(("u", u0 + step if v1 > v0 else u0 - step))
         # Each edge's strip out to its moved line, and a corner piece at each corner; their union with the inside is
         # the outside (short edges between near steps of the PCBs' rooms would turn over when moved on their own)
