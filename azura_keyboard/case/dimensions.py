@@ -28,14 +28,6 @@ class Dimensions:
     "Where the finger keys are placed: low enough that the finger case's bottom half rests on the table"
 
     # Thumb case
-    thumb_end_extra: float = 4
-    "How much thicker the wall at the free end is than usual, to take the hook's pocket (on the key plane)"
-    thumb_cavity_extra: float = 4
-    "How much longer the inside is at the free end, to take the hook's arm (on the key plane)"
-    tongue: tuple[float, float, float, float] = (12, 3, 3, 3)
-    "The tongue's width across the arc, thickness and reach into the end wall, and the thickness of the arm it hangs on"
-    tongue_clearance: float = 0.3
-    "Gap around the tongue, per side: the manufacturing tolerance"
     thumb_passage: tuple[float, float] = (12, 5)
     "Width and height of the passage for the thumb keys' wires"
 

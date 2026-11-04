@@ -82,8 +82,6 @@ class Keyboard:
         bottom = self._finished_bottom(top, bottom, finger[1])
         # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
         # `TrackballCase.passage()`.)
-        hook, pocket = self.thumb_case.hook()
-        top, bottom = (top - pocket).fix(), (bottom + hook).fix()
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
 
         # The skirt's walls are extrusions of offset curves, which OCCT's STEP writer drops: as NURBS they come through

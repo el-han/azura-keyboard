@@ -110,7 +110,7 @@ class ThumbLayout(KeyLayout):
 
 
 class ThumbCase:
-    """The thumb keys' part of the case: an arc, with a hook to the bottom at its free end."""
+    """The thumb keys' part of the case: an arc."""
     def __init__(self, layout: ThumbLayout, dimensions: Dimensions):
         self.layout = layout
         self.dimensions = dimensions
@@ -142,22 +142,18 @@ class ThumbCase:
         return Pos(center[0], 0, radius + center[1]) * Rot(90, 0, 0) * Rot(0, 0, -90 - end_angle) * tube
 
     def _band(
-        self, top_depth: float, bottom_depth: float, length: float, inset: float = 0, longer: bool = True
+        self, top_depth: float, bottom_depth: float, length: float, inset: float = 0
     ) -> Part:
         """The key surface thickened between two depths along its normals, in the layout's base frame.
 
         The arc is split at each wider key and its pieces are moved apart by straight strips under them (see
         `ThumbLayout.shift()`). Each end reaches half a key spacing past its outermost key, less `inset` (mm,
-        measured on the key plane). With `longer`, the free end reaches further, to take the hook there (see
-        `hook()`).
+        measured on the key plane).
         """
         layout = self.layout
         half_step = math.degrees(layout.rad_per_col) / 2 - math.degrees(inset / layout.column_radius)
         angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
         left_end = max(angles) + half_step  # toward -X
-        if longer:
-            extra = self.dimensions.thumb_cavity_extra + (0 if inset else self.dimensions.thumb_end_extra)
-            left_end += math.degrees(extra / layout.column_radius)
         right_end = min(angles) - half_step  # toward +X
 
         wide = [(at, extra) for at, extra in layout.wide_keys() if right_end < at < left_end]
@@ -257,35 +253,3 @@ class ThumbCase:
             # Everything from (almost) the arc's axis down to the plate's underside
             self._band(1 - self.layout.column_radius, d.plate_thickness, length),
         ))
-
-    def hook(self) -> tuple[Part, Part]:
-        """The hook at the free end and the pocket for it in the end wall, as (hook, pocket).
-
-        Inside the case, an arm stands on the floor, and from it a tongue points along the arc into the end wall. So the
-        bottom can't open away from the top there; it is hung in first and swung shut. It needs no spring.
-        """
-        layout, d = self.layout, self.dimensions
-        width, thickness, reach, arm = d.tongue
-        gap = d.tongue_clearance
-        degrees = lambda length: math.degrees(length / layout.column_radius)
-        # Where the cavity ends, on the key plane
-        wall = (
-            max(layout.key_angle(column, row) for column, row in layout.generate_positions())
-            + math.degrees(layout.rad_per_col) / 2
-            + degrees(d.thumb_cavity_extra - d.wall)
-        )
-        # The tongue runs midway between the plate and the floor
-        middle = (d.plate_thickness + d.cavity_depth) / 2
-        tongue_top, tongue_bottom = middle - thickness / 2, middle + thickness / 2
-        arm_end = wall - degrees(2 * gap)
-        arm_start = arm_end - degrees(arm)
-
-        def arc(start: float, stop: float, top: float, bottom: float, length: float = width) -> Part:
-            return self._placed(self._arc(layout.shift((start + stop) / 2), start, stop, length, top, bottom))
-
-        hook = (
-            arc(arm_start, arm_end, tongue_top - gap, d.cavity_depth + 1)
-            + arc(arm_start, wall + degrees(reach), tongue_top, tongue_bottom)
-        )
-        pocket = arc(wall - degrees(1), wall + degrees(reach + 2 * gap), tongue_top - gap, tongue_bottom + gap, width + 2 * gap)
-        return hook.fix(), pocket
