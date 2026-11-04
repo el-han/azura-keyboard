@@ -122,9 +122,9 @@ class Keyboard:
         Each part loses whatever lies inside the other case's cavity (for the plates, only below the other plate), and
         the finger parts also give way to the thumb parts.
 
-        The top joins both key plates: next to the finger case, everything of the thumb case's bottom half that rises
-        above the top edge of the finger case's floor belongs to the top as well, which ties the two plates
-        together.
+        The top joins both key plates: next to the finger case, the thumb case's side walls above the finger floor's
+        top belong to the top as well, which ties the two plates together, and its floor above the finger plate's
+        underside; the floor between those two falls away, inside the case.
         """
         d = self.dimensions
         finger_plate, finger_outer, finger_cavity, finger_footprint = finger
@@ -146,11 +146,28 @@ class Keyboard:
         next_to_finger_case = d.prism(grown)
         # The walls (everything above the cavities' floor) belong to the top, the floors to the bottom.
         above_finger_floor = surface.torus(self.finger_layout, depth=d.cavity_depth)
-        # Next to the finger case, the thumb case's bottom half belongs to the top above the finger floor's top edge:
-        # only where the two meet, not where the thumb case's arc comes back up into that margin.
-        join = copy.deepcopy(thumb_bottom) & next_to_finger_case & copy.deepcopy(above_finger_floor)
-        join = [solid for solid in join.solids() if solid.distance_to(finger_outer) < 1e-3]
-        above_thumb_floor = self.thumb_case.above(d.cavity_depth).fuse(*join)
+        # Next to the finger case, the thumb case's bottom half belongs to the top above the finger floor's top: its
+        # side walls all of it, its floor (the arc's cylinder piece between the side walls) only above the finger
+        # plate's underside; between that and the finger floor's top the floor lies inside the case and falls away.
+        # Only where the two meet, not where the thumb case's arc comes back up into that margin.
+        above_plate_underside = surface.torus(self.finger_layout, depth=d.plate_thickness)
+        tc = self.thumb_case
+        thumb_floor_arc = tc._placed(tc._band(d.cavity_depth, d.cavity_depth + d.wall, tc.inner_length))
+
+        def meeting(part: Part) -> list:
+            return [solid for solid in part.solids() if solid.distance_to(finger_outer) < 1e-3] if part else []
+
+        near = copy.deepcopy(thumb_bottom) & next_to_finger_case
+        near_floor = copy.deepcopy(near) & copy.deepcopy(thumb_floor_arc)
+        near_sides = copy.deepcopy(near) - copy.deepcopy(thumb_floor_arc)
+        join = meeting(copy.deepcopy(near_sides) & copy.deepcopy(above_finger_floor))
+        join += meeting(copy.deepcopy(near_floor) & copy.deepcopy(above_plate_underside))
+        inside = meeting(
+            copy.deepcopy(near_floor) & copy.deepcopy(above_finger_floor) - copy.deepcopy(above_plate_underside)
+        )
+        if inside:
+            thumb_bottom = thumb_bottom - Compound(children=inside)
+        above_thumb_floor = self.thumb_case.above(d.cavity_depth).fuse(*join) if join else self.thumb_case.above(d.cavity_depth)
         finger_walls = copy.deepcopy(finger_bottom) & above_finger_floor
         thumb_walls = copy.deepcopy(thumb_bottom) & above_thumb_floor
         finger_floor = finger_bottom - above_finger_floor
