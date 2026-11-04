@@ -42,8 +42,8 @@ class ThumbLayout(KeyLayout):
         return tuple((column, 0) for column in range(-1, self.keys - 1))
 
     def key_size(self, column: float, row: float) -> float:
-        """The bottom key (column 0) is 1.25u wide."""
-        return 1.25 if column == 0 else 1.0
+        """Keys 0 (the bottom one) and 2 are 1.25u wide."""
+        return 1.25 if column in (0, 2) else 1.0
 
     def extra_width(self, column: float, row: float) -> float:
         """How much wider than 1u the key at the given position is (mm)."""
@@ -53,32 +53,51 @@ class ThumbLayout(KeyLayout):
         """The angle of the key around the thumb arc (degrees); 0 is the bottom, positive angles go toward -X."""
         return self.column_angle(column)
 
-    def flat_width(self, row: float = 0) -> float:
-        """Width of the flat strip at the bottom of the arc (mm): the combined extra width of the keys sitting there."""
-        return sum(
-            self.extra_width(column, key_row)
+    def wide_keys(self, row: float = 0) -> list[tuple[float, float]]:
+        """The wider keys on the arc as (angle, extra width), by angle."""
+        return sorted(
+            (self.key_angle(column, key_row), self.extra_width(column, key_row))
             for (column, key_row) in self.generate_positions()
-            if key_row == row and abs(self.key_angle(column, key_row)) < 1e-9
+            if key_row == row and self.extra_width(column, key_row) > 0
         )
 
-    def side_shift(self, column: float, row: float) -> float:
-        """X shift of the key's side of the arc: the arc is split at the bottom and pulled apart by the flat strip."""
-        angle = self.key_angle(column, row)
-        if abs(angle) < 1e-9:
-            return 0
-        return math.copysign(self.flat_width(row) / 2, -angle)
+    @staticmethod
+    def tangent(angle: float) -> tuple[float, float]:
+        """The arc's direction toward larger angles at `angle`, as (x, z) in the layout's base frame."""
+        a = math.radians(angle)
+        return -math.cos(a), math.sin(a)
+
+    def shift(self, angle: float, row: float = 0) -> tuple[float, float]:
+        """How far the arc at `angle` is moved, as (x, z) in the layout's base frame, to make room for the wider keys.
+
+        The arc is split at each wider key, and a straight strip as long as the key's extra width goes in along the
+        arc's direction there; everything further from the bottom moves on by that much, the key itself by half. A
+        strip at the bottom pushes both halves apart, half each way.
+        """
+        x = z = 0.0
+        for at, extra in self.wide_keys(row):
+            if abs(at) < 1e-9:
+                share = 0 if abs(angle) < 1e-9 else math.copysign(0.5, angle)
+            elif abs(angle - at) < 1e-9:
+                share = math.copysign(0.5, at)
+            elif (at > 0 and angle > at) or (at < 0 and angle < at):
+                share = math.copysign(1, at)
+            else:
+                share = 0
+            tx, tz = self.tangent(at)
+            x, z = x + share * extra * tx, z + share * extra * tz
+        return x, z
 
     def placement_adjust(self, column: float, row: float, transform: Transform) -> Transform:
-        """Make room for wider keys at the bottom of the arc.
-
-        Keys at the bottom of the circle sit centered on a flat strip as wide as their extra width; the two halves of
-        the arc on either side are moved apart by that much.
+        """Make room for wider keys: each sits centered on a straight strip of the arc as long as its extra width
+        (see `shift()`).
 
         :param column: the column to place the key in
         :param row: the row to place the key in
         :param transform: the placement so far
         """
-        return transform.translate((self.side_shift(column, row), 0, 0))
+        x, z = self.shift(self.key_angle(column, row), row)
+        return transform.translate((x, 0, z))
 
     def layout_place(self, transform: Transform) -> Transform:
         """Place the layout.
@@ -98,7 +117,7 @@ class ThumbCase:
 
     def _arc(
         self,
-        center_x: float,
+        center: tuple[float, float],
         start_angle: float,
         end_angle: float,
         length: float,
@@ -108,7 +127,8 @@ class ThumbCase:
         """An arc of the case's cylinder between two depths below the key plane, in the layout's base frame.
 
         Angles are column angles (degrees): 0 is the bottom of the circle, positive angles go toward -X. The arc's
-        ends are radial planes, so they follow the surface normals.
+        ends are radial planes, so they follow the surface normals. `center` moves it, as (x, z) (see
+        `ThumbLayout.shift()`).
         """
         radius = self.layout.column_radius
         arc = end_angle - start_angle
@@ -119,36 +139,41 @@ class ThumbCase:
             Cylinder(radius + bottom_depth, length, arc_size=arc, align=None)
             - Cylinder(radius + top_depth, length, arc_size=arc, align=None)
         )
-        return Pos(center_x, 0, radius) * Rot(90, 0, 0) * Rot(0, 0, -90 - end_angle) * tube
+        return Pos(center[0], 0, radius + center[1]) * Rot(90, 0, 0) * Rot(0, 0, -90 - end_angle) * tube
 
     def _band(
         self, top_depth: float, bottom_depth: float, length: float, inset: float = 0, longer: bool = True
     ) -> Part:
         """The key surface thickened between two depths along its normals, in the layout's base frame.
 
-        The arc is split at the bottom of the circle (angle 0) and its halves are moved apart by the flat strip
-        under the keys sitting there (see `ThumbLayout.placement_adjust()`). Each half reaches half a key
-        spacing past its outermost key, less `inset` (mm, measured on the key plane). With `longer`, the free end
-        reaches further, to take the hook there (see `hook()`).
+        The arc is split at each wider key and its pieces are moved apart by straight strips under them (see
+        `ThumbLayout.shift()`). Each end reaches half a key spacing past its outermost key, less `inset` (mm,
+        measured on the key plane). With `longer`, the free end reaches further, to take the hook there (see
+        `hook()`).
         """
         layout = self.layout
         half_step = math.degrees(layout.rad_per_col) / 2 - math.degrees(inset / layout.column_radius)
         angles = [layout.key_angle(column, row) for (column, row) in layout.generate_positions()]
-        flat = layout.flat_width()
         left_end = max(angles) + half_step  # toward -X
         if longer:
             extra = self.dimensions.thumb_cavity_extra + (0 if inset else self.dimensions.thumb_end_extra)
             left_end += math.degrees(extra / layout.column_radius)
         right_end = min(angles) - half_step  # toward +X
 
-        pieces = []
-        if left_end > 0:
-            pieces.append(self._arc(-flat / 2, max(right_end, 0), left_end, length, top_depth, bottom_depth))
-        if right_end < 0:
-            pieces.append(self._arc(flat / 2, right_end, min(left_end, 0), length, top_depth, bottom_depth))
-        if flat > 0:
+        wide = [(at, extra) for at, extra in layout.wide_keys() if right_end < at < left_end]
+        breaks = [right_end] + [at for at, _ in wide] + [left_end]
+        pieces = [
+            self._arc(layout.shift((a + b) / 2), a, b, length, top_depth, bottom_depth)
+            for a, b in zip(breaks, breaks[1:])
+        ]
+        radius, middle = layout.column_radius, (top_depth + bottom_depth) / 2
+        for at, extra in wide:
+            # The strip, centered where the key's middle sits, along the arc's direction there
+            x, z = layout.shift(at)
+            a = math.radians(at)
             pieces.append(
-                Pos(0, 0, -(top_depth + bottom_depth) / 2) * Box(flat, length, bottom_depth - top_depth)
+                Pos(x - (radius + middle) * math.sin(a), 0, z + radius - (radius + middle) * math.cos(a))
+                * Rot(0, at, 0) * Box(extra, length, bottom_depth - top_depth)
             )
         return pieces[0].fuse(*pieces[1:]) if len(pieces) > 1 else pieces[0]
 
@@ -228,7 +253,7 @@ class ThumbCase:
         arm_start = arm_end - degrees(arm)
 
         def arc(start: float, stop: float, top: float, bottom: float, length: float = width) -> Part:
-            return self._placed(self._arc(-layout.flat_width() / 2, start, stop, length, top, bottom))
+            return self._placed(self._arc(layout.shift((start + stop) / 2), start, stop, length, top, bottom))
 
         hook = (
             arc(arm_start, arm_end, tongue_top - gap, d.cavity_depth + 1)
