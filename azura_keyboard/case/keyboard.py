@@ -75,7 +75,8 @@ class Keyboard:
         if self.trackball_case:
             top, bottom = self._with_trackball_cup(top, bottom, thumb[2])
         bottom = self._finished_bottom(top, bottom, finger[1])
-        top, bottom = self._with_passages(top, bottom, finger[2], thumb[2])
+        # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
+        # `TrackballCase.passage()`.)
         hook, pocket = self.thumb_case.hook()
         top, bottom = (top - pocket).fix(), (bottom + hook).fix()
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
@@ -200,17 +201,6 @@ class Keyboard:
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         bottom = self.skirt.added_to(bottom, finger_outer)
         return (bottom - copy.deepcopy(top)).fix()
-
-    def _with_passages(self, top: Part, bottom: Part, finger_cavity: Part, thumb_cavity: Part) -> tuple[Part, Part]:
-        """Both parts with the cable passages cut: to the trackball, if there is one. (The passage to the thumb case
-        is left out for now; see `thumb_passage()`.)"""
-        if not self.trackball_case:
-            return top, bottom
-        slots = self.trackball_case.passage()
-        passages = slots[0].fuse(*slots[1:]) if len(slots) > 1 else slots[0]
-        top, bottom = top - copy.deepcopy(passages), bottom - passages
-        # A passage can cut off the bit of wall between it and the bottom part; drop it.
-        return max(top.solids(), key=lambda solid: solid.volume), bottom
 
     def _with_screws(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> tuple[Part, Part]:
         """Both parts with the screws' bosses and holes."""
