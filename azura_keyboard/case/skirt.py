@@ -1,5 +1,7 @@
 """The skirt under the finger case, which the keyboard stands on.
 """
+import copy
+
 from build123d import Compound, Edge, Face, Kind, Part, Pos, Until, Wire, extrude, offset
 from OCP.BRepAdaptor import BRepAdaptor_Curve
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
@@ -58,19 +60,25 @@ class Skirt:
         """The skirt's outside in top view: the underside's projection, shrunk by `skirt_inset`."""
         return _shrunk(self.underside_outline(finger_outer), self.dimensions.skirt_inset)
 
+    def inside(self, finger_outer: Part) -> Face:
+        """The skirt's inside in top view: the underside's projection, shrunk by `skirt_inset` and a wall (from the
+        projection, not from the outside: offsetting that again gives curves OCCT's booleans fail on)."""
+        d = self.dimensions
+        return _shrunk(self.underside_outline(finger_outer), d.skirt_inset + d.wall)
+
     def skirt(self, finger_outer: Part) -> Part:
         """The skirt on its own: a wall a wall's thickness inside its outline, from the table up to the finger case's
         underside (the torus at the floor's underside), closed by a floor on the table."""
         d = self.dimensions
-        underside = self.underside_outline(finger_outer)
-        outside = _shrunk(underside, d.skirt_inset)
-        # The inside a wall's thickness further in, shrunk from the underside's projection too (offsetting the
-        # outside again gives curves OCCT's booleans silently fail on)
-        ring = outside - _shrunk(underside, d.skirt_inset + d.wall)
+        outside = self.outline(finger_outer)
+        ring = outside - self.inside(finger_outer)
         # Extruded up until the finger case's underside: `Until.FIRST` extrudes against `dir`, here up, to the
         # farthest surface of the target there, which is the underside, the target's only face. (The whole torus as
         # target, or `Until.NEXT` up, ends up on the torus's far side.)
-        underside_face = surface.torus_face(finger_outer, self.layout.row_radius + d.cavity_depth + d.wall)
+        # (from a copy: the extrusion's booleans alter the target, which shares its faces with the case's floors)
+        underside_face = surface.torus_face(
+            copy.deepcopy(finger_outer), self.layout.row_radius + d.cavity_depth + d.wall
+        )
         wall = extrude(
             Pos(0, 0, d.table_z) * ring, until=Until.FIRST, target=Compound([underside_face]), dir=(0, 0, -1)
         )

@@ -174,8 +174,8 @@ class Keyboard:
     def _joined_floors(self, finger_floor: Part, thumb_floor: Part, finger: tuple, thumb: tuple) -> Part:
         """The floors as one part, open inside the skirt."""
         d = self.dimensions
-        skirt_outline = self.skirt.outline(copy.deepcopy(finger[1]))
-        inside_skirt = d.prism(offset(skirt_outline, -d.wall))
+        # Open within the skirt's inside, the very same curves as the skirt's, so the two meet exactly
+        inside_skirt = d.prism(self.skirt.inside(copy.deepcopy(finger[1])))
         finger_floor -= copy.deepcopy(inside_skirt)
         return (finger_floor + thumb_floor).fix()
 
@@ -191,11 +191,12 @@ class Keyboard:
 
     def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part) -> Part:
         """The bottom clear of the top, with the skirt."""
-        bottom -= copy.deepcopy(top)
+        # (healed after each cut: the cuts leave small topology errors the next fuse fails on)
+        bottom = (bottom - copy.deepcopy(top)).fix()
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         bottom = self.skirt.added_to(bottom, finger_outer)
-        return bottom - copy.deepcopy(top)
+        return (bottom - copy.deepcopy(top)).fix()
 
     def _with_passages(self, top: Part, bottom: Part, finger_cavity: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """Both parts with the cable passages cut: to the trackball, if there is one. (The passage to the thumb case
