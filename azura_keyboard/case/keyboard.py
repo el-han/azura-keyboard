@@ -71,7 +71,10 @@ class Keyboard:
         # The floors first, from copies: joining the top alters shapes they share with it, and the joined floors lose
         # the finger case's.
         bottom = self._joined_floors(*copy.deepcopy(floors), copy.deepcopy(finger), copy.deepcopy(thumb))
-        top = (self._joined_top(*top_pieces) + raised_wall).fix()
+        # The finger case's corner that now lies inside the keyboard falls away
+        finger_top, thumb_top, finger_walls, thumb_walls = top_pieces
+        finger_walls = finger_walls - self._corner_inside_thumb_room()
+        top = (self._joined_top(finger_top, thumb_top, finger_walls, thumb_walls) + raised_wall).fix()
         top = (top + self._plate_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
         top = (top + self._front_wall_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
         if self.trackball_case:
@@ -221,6 +224,18 @@ class Keyboard:
         return self._beside_thumb(
             finger, thumb, d.plate_thickness, d.cavity_depth, within=self.thumb_case.front_wall_slab()
         )
+
+    def _corner_inside_thumb_room(self) -> Part:
+        """The finger case's corner that now lies inside the keyboard: the thumb case's cylindrical room carried on
+        past its free end (see `ThumbCase.inside_carried_on()`), up to the finger plate's underside (if the thumb
+        case's end wall doesn't bound it first) and down to the finger floor's top."""
+        d, layout = self.dimensions, self.finger_layout
+        room = self.thumb_case.inside_carried_on()
+        room = room & surface.torus(layout, depth=d.cavity_depth) - surface.torus(layout, depth=d.plate_thickness)
+        # (the torus comes round again far above: only the case's height)
+        room = room & Pos(0, 0, d.max_height / 2) * Box(4 * d.max_height, 4 * d.max_height, d.max_height)
+        # Only the piece toward +X, at the corner (the room also comes out on the far side of the arc's axis)
+        return max(room.solids(), key=lambda solid: solid.bounding_box().max.X)
 
     def _beside_thumb(
         self, finger: tuple, thumb: tuple, top_depth: float, bottom_depth: float, within: Part | None = None

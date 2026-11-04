@@ -4,7 +4,7 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from build123d import Box, Cylinder, Part, Pos, Rot
+from build123d import Box, Cylinder, Location, Part, Plane, Pos, Rot, Vector
 
 from ..components import key_pcb
 from ..components.keyswitch import Keyswitch
@@ -209,6 +209,28 @@ class ThumbCase:
         size = 4000
         front = -(self.inner_length + 2 * d.wall) / 2
         return self._placed(Pos(0, front + d.wall / 2, 0) * Box(size, d.wall, size))
+
+    def inside_carried_on(self) -> Part:
+        """The room inside the case carried on toward +X past its free end: everything between the planes of the
+        insides of its front and back walls, below the plane of the inside of its free end's wall (on the keys' side
+        of it: the end plane slopes down toward +X, so below it reaches on past the end) and outside the cylinder of
+        its top, where the switches sit."""
+        layout, d = self.layout, self.dimensions
+        radius = layout.column_radius
+        half_step = math.degrees(layout.rad_per_col) / 2 - math.degrees(d.wall / radius)
+        end = min(layout.key_angle(column, row) for column, row in layout.generate_positions()) - half_step
+        x, z = layout.shift(end + 1e-6)  # the arc piece the end is on
+        axis = Vector(x, 0, radius + z)
+        a = math.radians(end)
+        size = 4000
+        # A column angle's direction from the axis is (-sin a, 0, -cos a); toward the keys it turns along
+        # (-cos a, 0, sin a)
+        toward_keys = Vector(-math.cos(a), 0, math.sin(a))
+        below_end = Location(Plane(origin=axis, z_dir=toward_keys)) * Pos(0, 0, size / 2) * Box(size, size, size)
+        between_walls = Box(size, self.inner_length, size)
+        # and outside the cylinder of the case's top (its key plane), carried on round the same axis
+        top = Pos(axis) * Rot(90, 0, 0) * Cylinder(radius, size)
+        return self._placed(between_walls & below_end - top)
 
     def back_wall(self) -> Part:
         """The case's back wall (toward the finger case), raised to (almost) the arc's axis: a flat slab across the
