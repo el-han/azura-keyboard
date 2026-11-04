@@ -72,6 +72,7 @@ class Keyboard:
         # the finger case's.
         bottom = self._joined_floors(*copy.deepcopy(floors), copy.deepcopy(finger), copy.deepcopy(thumb))
         top = (self._joined_top(*top_pieces) + raised_wall).fix()
+        top = (top + self._plate_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
         if self.trackball_case:
             top, bottom = self._with_trackball_cup(top, bottom, thumb[2])
         bottom = self._finished_bottom(top, bottom, finger[1])
@@ -185,21 +186,33 @@ class Keyboard:
 
     def _floor_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
         """At the finger case's middle corner, beside the thumb case's free end: the finger case's floor (the torus
-        band of its floor) carried on until it meets the thumb case's bottom part, between the planes of the outsides
-        of the thumb case's front and back walls."""
+        band of its floor) carried on until it meets the thumb case's bottom part (see `_beside_thumb()`)."""
+        d = self.dimensions
+        return self._beside_thumb(finger, thumb, d.cavity_depth, d.cavity_depth + d.wall)
+
+    def _plate_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
+        """At the finger case's middle corner, beside the thumb case's free end: the finger case's plate (the torus
+        band of its plate) carried on until it meets the thumb case's top part (see `_beside_thumb()`)."""
+        return self._beside_thumb(finger, thumb, 0, self.dimensions.plate_thickness)
+
+    def _beside_thumb(self, finger: tuple, thumb: tuple, top_depth: float, bottom_depth: float) -> Part:
+        """The finger case's torus band between two depths below its key plane, carried on beside the thumb case's
+        free end until it meets the thumb case, between the planes of the outsides of the thumb case's front and back
+        walls, and only outside the finger case as it is."""
         d, layout = self.dimensions, self.finger_layout
-        floor = surface.torus(layout, depth=d.cavity_depth + d.wall) - surface.torus(layout, depth=d.cavity_depth)
+        band = surface.torus(layout, depth=bottom_depth) - surface.torus(layout, depth=top_depth)
         # Around the corner: from column 1 to inside column 3, from inside the finger case to past the thumb
         # case's front (the thumb case's side planes and the thumb case itself bound it there)
         xy = lambda column, row: layout.key_transform(column, row).apply((0, 0, 0))[:2]
         around = d.prism(Polygon(*[xy(c, r) for c, r in ((1, 3), (3, 3), (3, 7), (1, 7))], align=None))
-        thumb_plate, thumb_outer, thumb_cavity, above_thumb_plate = (copy.deepcopy(shape) for shape in thumb)
         # (the torus band comes round again far above: only the case's height)
         height = Pos(0, 0, d.max_height / 2) * Box(4 * d.max_height, 4 * d.max_height, d.max_height)
-        piece = floor & around & height & self.thumb_case.between_sides()
-        # Only outside the finger case as it is: within it, the floor is there already (or left open inside the skirt)
-        piece = piece - thumb_outer - thumb_cavity - above_thumb_plate - copy.deepcopy(finger[1])
-        return piece
+        piece = band & around & height & self.thumb_case.between_sides()
+        # The thumb case, and the room above its keys
+        thumb_plate, thumb_outer, thumb_cavity, above_thumb_plate = (copy.deepcopy(shape) for shape in thumb)
+        piece = piece - thumb_plate - thumb_outer - thumb_cavity - above_thumb_plate
+        # Only outside the finger case as it is: within it, the band is there already (or left open inside the skirt)
+        return piece - copy.deepcopy(finger[0]) - copy.deepcopy(finger[1])
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall
