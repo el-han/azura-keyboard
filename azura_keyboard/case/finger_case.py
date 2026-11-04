@@ -4,7 +4,7 @@ import math
 from collections.abc import Iterable
 from typing import Tuple
 
-from build123d import Face, Part, Polygon, Solid, Vector, extrude
+from build123d import Face, Part, Polygon, Solid, extrude
 from OCP.BRep import BRep_Tool
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeFace, BRepBuilderAPI_MakeWire
 from OCP.BRepLib import BRepLib
