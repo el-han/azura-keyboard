@@ -1,6 +1,6 @@
 """The skirt under the finger case, which the keyboard stands on.
 """
-from build123d import Edge, Face, Kind, Part, Pos, Wire, extrude, offset
+from build123d import Compound, Edge, Face, Kind, Part, Pos, Until, Wire, extrude, offset
 from OCP.BRepAdaptor import BRepAdaptor_Curve
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeEdge
 from OCP.Geom import Geom_Plane
@@ -67,9 +67,13 @@ class Skirt:
         # The inside a wall's thickness further in, shrunk from the underside's projection too (offsetting the
         # outside again gives curves OCCT's booleans silently fail on)
         ring = outside - _shrunk(underside, d.skirt_inset + d.wall)
-        # Up to the underside: a prism up to `max_height` (which stays below the far side of the torus), less the torus
-        wall = Pos(0, 0, d.table_z) * extrude(ring, d.max_height, dir=(0, 0, 1))
-        wall -= surface.torus(self.layout, depth=d.cavity_depth + d.wall)
+        # Extruded up until the finger case's underside: `Until.FIRST` extrudes against `dir`, here up, to the
+        # farthest surface of the target there, which is the underside, the target's only face. (The whole torus as
+        # target, or `Until.NEXT` up, ends up on the torus's far side.)
+        underside_face = surface.torus_face(finger_outer, self.layout.row_radius + d.cavity_depth + d.wall)
+        wall = extrude(
+            Pos(0, 0, d.table_z) * ring, until=Until.FIRST, target=Compound([underside_face]), dir=(0, 0, -1)
+        )
         # Closed at the bottom by a floor of `wall`, which stays out of the finger case's inside
         floor = Pos(0, 0, d.table_z) * extrude(outside, d.wall, dir=(0, 0, 1))
         floor -= surface.torus(self.layout, depth=d.cavity_depth)
