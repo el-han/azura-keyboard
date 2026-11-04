@@ -4,7 +4,7 @@ import copy
 from typing import Optional
 
 from OCP.BRepBuilderAPI import BRepBuilderAPI_NurbsConvert
-from build123d import Compound, Kind, Location, Part, Plane, Polygon, Shape, Sphere, mirror, offset
+from build123d import Box, Compound, Kind, Location, Part, Plane, Polygon, Pos, Shape, Sphere, mirror, offset
 
 from ..components import key_pcb, keycap, keyswitch, trackball_sensor
 from ..components.keyswitch import Keyswitch
@@ -181,7 +181,25 @@ class Keyboard:
         # Open within the skirt's inside, the very same curves as the skirt's, so the two meet exactly
         inside_skirt = d.prism(self.skirt.inside(copy.deepcopy(finger[1])))
         finger_floor -= copy.deepcopy(inside_skirt)
-        return (finger_floor + thumb_floor).fix()
+        return (finger_floor + thumb_floor + self._floor_beside_thumb(finger, thumb)).fix()
+
+    def _floor_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
+        """At the finger case's middle corner, beside the thumb case's free end: the finger case's floor (the torus
+        band of its floor) carried on until it meets the thumb case's bottom part, between the planes of the outsides
+        of the thumb case's front and back walls."""
+        d, layout = self.dimensions, self.finger_layout
+        floor = surface.torus(layout, depth=d.cavity_depth + d.wall) - surface.torus(layout, depth=d.cavity_depth)
+        # Around the corner: from column 1 to inside column 3, from inside the finger case to past the thumb
+        # case's front (the thumb case's side planes and the thumb case itself bound it there)
+        xy = lambda column, row: layout.key_transform(column, row).apply((0, 0, 0))[:2]
+        around = d.prism(Polygon(*[xy(c, r) for c, r in ((1, 3), (3, 3), (3, 7), (1, 7))], align=None))
+        thumb_plate, thumb_outer, thumb_cavity, above_thumb_plate = (copy.deepcopy(shape) for shape in thumb)
+        # (the torus band comes round again far above: only the case's height)
+        height = Pos(0, 0, d.max_height / 2) * Box(4 * d.max_height, 4 * d.max_height, d.max_height)
+        piece = floor & around & height & self.thumb_case.between_sides()
+        # Only outside the finger case as it is: within it, the floor is there already (or left open inside the skirt)
+        piece = piece - thumb_outer - thumb_cavity - above_thumb_plate - copy.deepcopy(finger[1])
+        return piece
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """The cup's wall and the shell join the top, its foot the bottom. Toward the finger case, the cup's wall

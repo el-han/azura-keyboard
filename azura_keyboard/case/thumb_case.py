@@ -197,6 +197,12 @@ class ThumbCase:
         d = self.dimensions
         return self._placed(self._band(1 - self.layout.column_radius, d.cavity_depth, self.inner_length, inset=d.wall))
 
+    def between_sides(self) -> Part:
+        """Everything between the planes of the outsides of the case's front and back walls."""
+        d = self.dimensions
+        size = 4000
+        return self._placed(Box(size, self.inner_length + 2 * d.wall, size))
+
     def back_wall(self) -> Part:
         """The case's back wall (toward the finger case), raised to (almost) the arc's axis: a flat slab across the
         arc, to be cut down to the finger case's key plane."""
