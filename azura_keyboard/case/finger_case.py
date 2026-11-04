@@ -83,7 +83,7 @@ class FingerLayout(KeyLayout):
                 if (column, row) in self.positions_to_skip:
                     continue
                 if column <= 0:
-                    row += 0.125
+                    row += 0.25
                 if column == 2:
                     row += -0.25
                 elif column == 4:

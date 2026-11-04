@@ -299,10 +299,9 @@ class Keyboard:
             for shape in place_instances(layout, model, "")
         ] + ([trackball_case.cup()[2]] if trackball_case else []))
         d = self.dimensions
-        corners = d.finger_screw_corners + (() if trackball_case else (d.corner_without_trackball,))
         web = self.screws.thumb_web(self.thumb_case.inner_length)
         around = around_a_corner()
-        places = [(self.finger_layout, finger_outside, corner, around, None) for corner in corners] + [
+        places = [(self.finger_layout, finger_outside, corner, around, None) for corner in d.finger_screw_corners] + [
             (self.thumb_layout, thumb_outside, (column, 0), [(0, 0)], web)
             for column in sorted({-0.5, self.thumb_layout.keys - 2.5})
         ]
