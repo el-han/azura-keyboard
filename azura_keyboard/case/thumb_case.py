@@ -173,6 +173,12 @@ class ThumbCase:
         length = 2 * (self.inner_length + 2 * self.dimensions.wall)
         return self._placed(self._band(1 - self.layout.column_radius, depth, length))
 
+    def inside_and_above(self) -> Part:
+        """Everything above the inside of the case's walls: its inside, and the room above its keys up to (almost)
+        the arc's axis."""
+        d = self.dimensions
+        return self._placed(self._band(1 - self.layout.column_radius, d.cavity_depth, self.inner_length, inset=d.wall))
+
     def back_wall(self) -> Part:
         """The case's back wall (toward the finger case), raised to (almost) the arc's axis: a flat slab across the
         arc, to be cut down to the finger case's key plane."""

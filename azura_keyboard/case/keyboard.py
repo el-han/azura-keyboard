@@ -13,7 +13,6 @@ from ..geometry.key_layout import KeyLayout
 from ..geometry.placement import mirrored, place_all, place_instances
 from .dimensions import Dimensions
 from .finger_case import FingerCase, FingerLayout
-from .passages import thumb_passage
 from .screws import Screws, around_a_corner
 from .skirt import Skirt
 from .thumb_case import ThumbCase, ThumbLayout
@@ -99,14 +98,16 @@ class Keyboard:
         (x0, y0), (x1, y1) = xy(2.5, 2.5), xy(2.5, 6)
         beside_thumb = d.prism(Polygon((x0, y0), (x1, y1), (x1 - 300, y1), (x0 - 300, y0), align=None))
         # Trimmed like the finger case's walls, along the key surface's normals, so it runs flush into them
-        under_finger_case = fc._thicken_down(fc._surface_face(footprint, 0), d.cavity_depth + d.wall + 30)
+        under_finger_case = fc._thicken_down(fc.key_plane_face, d.cavity_depth + d.wall + 30)
         wall = self.thumb_case.back_wall() & under_finger_case & beside_thumb
         wall = wall - surface.torus(self.finger_layout, depth=0) - copy.deepcopy(self.thumb_case.shapes()[1])
-        # The finger case gives way to the thumb case and the room above its keys, nothing more. Its outside is left
-        # alone: `_walls_and_floors()` cuts it to fit, and cutting it here too leaves faces that make later fuses fail.
+        # The finger case gives way to the thumb case and the room above its keys; `_walls_and_floors()` cuts the rest
+        # of its outside to fit
         _, thumb_outer, thumb_cavity, above_thumb_plate = self.thumb_case.shapes()
         plate = plate - copy.deepcopy(above_thumb_plate)
         cavity = cavity - (above_thumb_plate + thumb_outer + thumb_cavity)
+        # Nor does its front stay above the inside of the thumb case's walls, where the thumb keys need room
+        outer = outer - self.thumb_case.inside_and_above()
         return (plate, outer, cavity, footprint), wall
 
     def _walls_and_floors(self, finger: tuple, thumb: tuple) -> tuple[tuple[Part, Part, Part, Part], tuple[Part, Part]]:
@@ -202,13 +203,12 @@ class Keyboard:
         return bottom - copy.deepcopy(top)
 
     def _with_passages(self, top: Part, bottom: Part, finger_cavity: Part, thumb_cavity: Part) -> tuple[Part, Part]:
-        """Both parts with the cable passages cut."""
-        passages = thumb_passage(
-            self.finger_case.shapes()[1], self.thumb_case.shapes()[1], finger_cavity, thumb_cavity, self.dimensions
-        )
-        if self.trackball_case:
-            for slot in self.trackball_case.passage():
-                passages += slot
+        """Both parts with the cable passages cut: to the trackball, if there is one. (The passage to the thumb case
+        is left out for now; see `thumb_passage()`.)"""
+        if not self.trackball_case:
+            return top, bottom
+        slots = self.trackball_case.passage()
+        passages = slots[0].fuse(*slots[1:]) if len(slots) > 1 else slots[0]
         top, bottom = top - copy.deepcopy(passages), bottom - passages
         # A passage can cut off the bit of wall between it and the bottom part; drop it.
         return max(top.solids(), key=lambda solid: solid.volume), bottom

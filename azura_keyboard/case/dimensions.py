@@ -26,11 +26,6 @@ class Dimensions:
     # Finger case
     finger_placement: tuple[float, float, float] = (0, 0, 12.05)
     "Where the finger keys are placed: low enough that the finger case's bottom half rests on the table"
-    finger_straight_columns: tuple[float, ...] = (-0.5,)
-    finger_straight_rows: tuple[float, ...] = (-0.75,)
-    "Edges of the finger case that should be straight in top view (see `surface.outline()`)"
-    finger_pcb_sides: tuple[float, ...] = (2.5,)
-    "Column edges of the plate outline (inside the outline, between two of its corners) whose wall runs along the PCBs beside them instead"
 
     # Thumb case
     thumb_end_extra: float = 4
