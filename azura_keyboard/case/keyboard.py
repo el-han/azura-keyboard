@@ -80,12 +80,13 @@ class Keyboard:
         finger_top, thumb_top, finger_walls, thumb_walls = top_pieces
         finger_walls = finger_walls - self._corner_inside_thumb_room()
         top = (self._joined_top(finger_top, thumb_top, finger_walls, thumb_walls) + raised_wall).fix()
-        top = (top + self._plate_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
-        top = (top + self._front_wall_beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))).fix()
+        for beside_thumb in (self._plate_beside_thumb, self._front_wall_beside_thumb):
+            if (piece := beside_thumb(copy.deepcopy(finger), copy.deepcopy(thumb))) is not None:
+                top = (top + piece).fix()
         if self.trackball_case:
             # (from copies: OCCT alters the shapes it cuts with, and the fuses after fail on what it leaves)
             top, bottom = self._with_trackball_cup(copy.deepcopy(top), copy.deepcopy(bottom), copy.deepcopy(thumb[2]))
-        bottom = self._finished_bottom(top, bottom, whole_finger_outer, copy.deepcopy(thumb[1]))
+        bottom = self._finished_bottom(top, bottom, whole_finger_outer, copy.deepcopy(thumb[1]), copy.deepcopy(thumb[2]))
         # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
         # `TrackballCase.passage()`.)
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
@@ -209,20 +210,23 @@ class Keyboard:
         # Open within the skirt's inside, the very same curves as the skirt's, so the two meet exactly
         inside_skirt = d.prism(self.skirt.inside(copy.deepcopy(whole_finger_outer)))
         finger_floor -= copy.deepcopy(inside_skirt)
-        return (finger_floor + thumb_floor + self._floor_beside_thumb(finger, thumb)).fix()
+        floors = finger_floor + thumb_floor
+        if (piece := self._floor_beside_thumb(finger, thumb)) is not None:
+            floors += piece
+        return floors.fix()
 
-    def _floor_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
+    def _floor_beside_thumb(self, finger: tuple, thumb: tuple) -> Part | None:
         """At the finger case's middle corner, beside the thumb case's free end: the finger case's floor (the torus
         band of its floor) carried on until it meets the thumb case's bottom part (see `_beside_thumb()`)."""
         d = self.dimensions
         return self._beside_thumb(finger, thumb, d.cavity_depth, d.cavity_depth + d.wall)
 
-    def _plate_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
+    def _plate_beside_thumb(self, finger: tuple, thumb: tuple) -> Part | None:
         """At the finger case's middle corner, beside the thumb case's free end: the finger case's plate (the torus
         band of its plate) carried on until it meets the thumb case's top part (see `_beside_thumb()`)."""
         return self._beside_thumb(finger, thumb, 0, self.dimensions.plate_thickness)
 
-    def _front_wall_beside_thumb(self, finger: tuple, thumb: tuple) -> Part:
+    def _front_wall_beside_thumb(self, finger: tuple, thumb: tuple) -> Part | None:
         """At the finger case's middle corner, beside the thumb case's free end: the thumb case's front wall carried
         on, from the plate carried on there down to the floor carried on there (see `_beside_thumb()`), until it
         meets the finger case's wall."""
@@ -245,7 +249,7 @@ class Keyboard:
 
     def _beside_thumb(
         self, finger: tuple, thumb: tuple, top_depth: float, bottom_depth: float, within: Part | None = None
-    ) -> Part:
+    ) -> Part | None:
         """The finger case's torus band between two depths below its key plane, carried on beside the thumb case's
         free end until it meets the thumb case, between the planes of the outsides of the thumb case's front and back
         walls (and `within`), and only outside the finger case as it is."""
@@ -264,7 +268,12 @@ class Keyboard:
         thumb_plate, thumb_outer, thumb_cavity, above_thumb_plate = (copy.deepcopy(shape) for shape in thumb)
         piece = piece - thumb_plate - thumb_outer - thumb_cavity - above_thumb_plate
         # Only outside the finger case as it is: within it, the band is there already (or left open inside the skirt)
-        return piece - copy.deepcopy(finger[0]) - copy.deepcopy(finger[1])
+        for shape in (finger[0], finger[1]):
+            # (nothing may be left, depending on the outline: then there is nothing to add)
+            if not piece.solids():
+                return None
+            piece = piece - copy.deepcopy(shape)
+        return piece if piece.solids() else None
 
     def _with_trackball_cup(self, top: Part, bottom: Part, thumb_cavity: Part) -> tuple[Part, Part]:
         """The cup above the finger floor's top and the shell join the top, the cup below it the bottom. Toward the
@@ -291,16 +300,18 @@ class Keyboard:
         bottom = (bottom - copy.deepcopy(cup_inside)).fix()
         return top, (bottom + (foot - copy.deepcopy(thumb_cavity))).fix()
 
-    def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> Part:
+    def _finished_bottom(
+        self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part, thumb_cavity: Part
+    ) -> Part:
         """The bottom clear of the top, with the skirt (of the whole finger case, `finger_outer`, less the thumb
-        case's outside)."""
+        case's outside and inside)."""
         # (healed after each cut: the cuts leave small topology errors the next fuse fails on)
         bottom = (bottom - copy.deepcopy(top)).fix()
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         # The skirt clear of the top as well, before it joins the bottom: cutting the top from the bottom again after
         # leaves it invalid. (Only where the two meet at all.)
-        skirt = (self.skirt.skirt(finger_outer) - thumb_outer).fix()
+        skirt = (self.skirt.skirt(finger_outer) - thumb_outer - thumb_cavity).fix()
         overlap = copy.deepcopy(skirt) & copy.deepcopy(top)
         if overlap and overlap.solids() and overlap.volume > 1e-6:
             skirt = (skirt - copy.deepcopy(top)).fix()
@@ -321,8 +332,8 @@ class Keyboard:
         self, finger_outside: Part, thumb_outside: Part, top: Part, bottom: Part
     ) -> tuple[Part, Part, Part]:
         """The screws' bosses and holes as (lower parts for the bottom, upper parts for the top, holes): in the finger
-        case's corners, in the thumb case's gaps after its first and before its last key (midway between its front and
-        back walls), and on the trackball's cup if there is one, otherwise in one more corner."""
+        case's corners, in the thumb case's gaps before its first key, between its first two and before its last key
+        (midway between its front and back walls), and on the trackball's cup if there is one, otherwise in one more corner."""
         trackball_case = self.trackball_case
         obstacles = Compound(children=[
             shape
@@ -335,7 +346,7 @@ class Keyboard:
         around = around_a_corner()
         places = [(self.finger_layout, finger_outside, corner, around, None) for corner in d.finger_screw_corners] + [
             (self.thumb_layout, thumb_outside, (column, 0), [(0, 0)], web)
-            for column in sorted({-0.5, self.thumb_layout.keys - 2.5})
+            for column in sorted({-0.5, 0.5, self.thumb_layout.keys - 2.5})
         ]
         bosses = self.screws.bosses(places, obstacles, top, bottom)
         if trackball_case:
