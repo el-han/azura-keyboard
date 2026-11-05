@@ -40,8 +40,8 @@ class Dimensions:
     "Angle of the bearings' axes from the vertical (degrees)"
     bearing_azimuths: tuple[float, ...] = (90, 210, 330)
     "Directions of the bearings around the ball in top view (degrees from +X), clear of the sensor's screw posts"
-    trackball_passage: tuple[float, float] = (12, 5)
-    "Width and height of the passage for the sensor's wires (one per pin of its 7-pin header)"
+    trackball_tunnel: float = 6
+    "Inside width of the tunnel for the sensor's wires from the cup to the skirt, toward +X on the ball's axis"
     trackball_screw_inset: float = 17.5
     "How far from the ball's axis the screw in the cup's floor sits, toward -X"
 

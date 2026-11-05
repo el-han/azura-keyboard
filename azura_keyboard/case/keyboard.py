@@ -3,7 +3,7 @@
 import copy
 from typing import Optional
 
-from build123d import Box, Compound, Kind, Location, Part, Plane, Polygon, Pos, Shape, Sphere, mirror, offset
+from build123d import Box, Compound, Cylinder, Kind, Location, Part, Plane, Polygon, Pos, Shape, Sphere, mirror, offset
 
 from ..components import key_pcb, keycap, keyswitch, trackball_sensor
 from ..components.keyswitch import Keyswitch
@@ -86,8 +86,9 @@ class Keyboard:
             # (from copies: OCCT alters the shapes it cuts with, and the fuses after fail on what it leaves)
             top, bottom = self._with_trackball_cup(copy.deepcopy(top), copy.deepcopy(bottom), copy.deepcopy(thumb[2]))
         bottom = self._finished_bottom(top, bottom, whole_finger_outer, copy.deepcopy(thumb[1]), copy.deepcopy(thumb[2]))
-        # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
-        # `TrackballCase.passage()`.)
+        if self.trackball_case:
+            bottom = self._with_trackball_tunnel(top, bottom)
+        # (No cable passage to the thumb case for now: see `thumb_passage()`.)
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
 
         parts = {"top": top, "bottom": bottom}
@@ -301,6 +302,38 @@ class Keyboard:
         # small topology errors, and the fuse then comes out far too big.
         bottom = (bottom - copy.deepcopy(cup_inside)).fix()
         return top, (bottom + foot).fix()
+
+    def _with_trackball_tunnel(self, top: Part, bottom: Part) -> Part:
+        """The bottom with a tunnel for the sensor's wires from the cup toward +X to the skirt: from the table up to
+        the finger floor's underside, with the cup's and skirt's floors under it, open into both."""
+        d, tc = self.dimensions, self.trackball_case
+        center, radius = tc.center().position, tc.radius()
+        width = d.trackball_tunnel
+        height = Pos(0, 0, d.max_height / 2) * Box(4 * d.max_height, 4 * d.max_height, d.max_height)
+
+        def run(start: float, end: float, across: float, bottom_z: float, depth: float) -> Part:
+            """A slab along X from `start` to `end` on the ball's axis, `across` wide, from `bottom_z` up to `depth`
+            below the finger case's key plane."""
+            slab = Pos((start + end) / 2, center.Y, (bottom_z + d.max_height) / 2) * Box(
+                end - start, across, d.max_height - bottom_z
+            )
+            return slab & height - surface.torus(self.finger_layout, depth=depth)
+
+        # The walls: into the floor by half its thickness (not up to its underside, whose face they would share),
+        # between the cup's inside and the skirt's. Only the piece next to the cup: the slab comes out again on the
+        # skirt's far side.
+        cup_inside = Pos(center.X, center.Y, d.max_height / 2) * Cylinder(radius - d.wall, d.max_height)
+        walls = run(center.X, center.X + 2 * d.max_height, width + 2 * d.wall, d.table_z, d.cavity_depth + d.wall / 2)
+        walls = walls - cup_inside - d.prism(self.skirt.inside(copy.deepcopy(self.finger_case.shapes()[1])))
+        walls = min(walls.solids(), key=lambda solid: solid.bounding_box().min.X)
+        # Clear of the top (the ball's shell reaches out into the cup's wall)
+        walls = (walls - copy.deepcopy(top)).fix()
+        bottom = (bottom + walls).fix()
+        # The room inside, above the floors, up to the finger floor's underside: from within the cup through its wall
+        # and the skirt's into the skirt, a wall's thickness past each
+        inner_x = walls.bounding_box().min.X - d.wall
+        outer_x = walls.bounding_box().max.X + d.wall
+        return (bottom - run(inner_x, outer_x, width, d.table_z + d.wall, d.cavity_depth + d.wall)).fix()
 
     def _finished_bottom(
         self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part, thumb_cavity: Part

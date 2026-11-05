@@ -93,23 +93,9 @@ class TrackballCase:
             self.trackball.inner_diameter / 2, max_height
         )
 
-    def passage(self) -> tuple[Part, Part]:
-        """The sensor's wires: from the room under the sensor, low enough to pass below the ball's shell, straight
-        through the cup's wall into the pocket under the finger case's floor, then up through that floor, below the PCB
-        there."""
-        d = self.dimensions
-        width, height = d.trackball_passage
-        center = self.center().position
-        wall_x = center.X + self.radius()
-        low = d.table_z + d.wall + 0.5
-        return (
-            Pos(wall_x + 3, center.Y, low + height / 2) * Box(16, width, height),
-            Pos(wall_x + 9, center.Y, (low + 21) / 2) * Box(7, width, 21 - low),
-        )
-
     def screws(self) -> list[tuple[Part, Part, Part]]:
-        """The cup's screws, one on each side of the sensor."""
-        return [self.screw(-1), self.screw(1)]
+        """The cup's screws: one at -X (+X is where the wires' tunnel leaves the cup)."""
+        return [self.screw(-1)]
 
     def screw(self, side: int = -1) -> tuple[Part, Part, Part]:
         """A screw from below at the cup's -X (side -1) or +X (side 1) edge, between its wall and the sensor, into the
