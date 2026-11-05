@@ -74,10 +74,11 @@ if __name__ == "__main__":
                 continue
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
-    # From the volumes, not the common: OCCT's common of the two comes out empty where they do overlap
+    # From the volumes, not the common: OCCT's common of the two has come out empty where they did overlap. The volumes
+    # come from numerical integration, good to about ±0.1 mm³ on these parts: hence the higher threshold.
     top, bottom = printed["top"], printed["bottom"]
     volume = top.volume + bottom.volume - (top + bottom).volume
-    if volume > 0.01:
+    if volume > 1.0:
         collisions += 1
         print(f"top ∩ bottom: {volume:.2f} mm³", flush=True)
     if with_trackball:
