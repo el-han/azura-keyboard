@@ -74,7 +74,9 @@ if __name__ == "__main__":
                 continue
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
-    volume = overlap(printed["top"], printed["bottom"], boxes)
+    # From the volumes, not the common: OCCT's common of the two comes out empty where they do overlap
+    top, bottom = printed["top"], printed["bottom"]
+    volume = top.volume + bottom.volume - (top + bottom).volume
     if volume > 0.01:
         collisions += 1
         print(f"top ∩ bottom: {volume:.2f} mm³", flush=True)

@@ -293,12 +293,17 @@ class Keyboard:
         foot = whole - above
         # Join the shell and the cup's wall first: their outsides meet flush, which the fuse with the rest can't handle.
         # (cut with copies: OCCT can alter a boolean's tool shape, and the thumb case's cavity cuts twice)
-        trackball_top = ((cylinder - copy.deepcopy(thumb_cavity)) + self.trackball_case.shell()).fix()
+        shell = self.trackball_case.shell()
+        trackball_top = ((cylinder - copy.deepcopy(thumb_cavity)) + copy.deepcopy(shell)).fix()
+        # The foot clear of the shell, which reaches down into it. Where it meets the thumb case, the foot wins: the
+        # top gives way to it.
+        foot = (foot - copy.deepcopy(thumb_cavity) - shell).fix()
+        top = (top - copy.deepcopy(foot)).fix()
         top = (top + trackball_top).fix()
         # Cut before the fuse here too: the cut leaves the fused bottom invalid. Healed before the fuse: the cut leaves
         # small topology errors, and the fuse then comes out far too big.
         bottom = (bottom - copy.deepcopy(cup_inside)).fix()
-        return top, (bottom + (foot - copy.deepcopy(thumb_cavity))).fix()
+        return top, (bottom + foot).fix()
 
     def _finished_bottom(
         self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part, thumb_cavity: Part
@@ -310,11 +315,9 @@ class Keyboard:
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         # The skirt clear of the top as well, before it joins the bottom: cutting the top from the bottom again after
-        # leaves it invalid. (Only where the two meet at all.)
+        # leaves it invalid. (Always: OCCT's common of the two comes out empty where they do overlap.)
         skirt = (self.skirt.skirt(finger_outer) - thumb_outer - thumb_cavity).fix()
-        overlap = copy.deepcopy(skirt) & copy.deepcopy(top)
-        if overlap and overlap.solids() and overlap.volume > 1e-6:
-            skirt = (skirt - copy.deepcopy(top)).fix()
+        skirt = (skirt - copy.deepcopy(top)).fix()
         return (bottom + skirt).fix()
 
     def _with_screws(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> tuple[Part, Part]:
