@@ -323,7 +323,9 @@ class Keyboard:
         # (on copies, healed after each step: OCCT alters the shapes of a boolean, and a cut leaves small topology
         # errors that make the next fuse fail)
         top = (copy.deepcopy(top) - copy.deepcopy(lower)).fix()
-        top = (top + copy.deepcopy(upper)).fix()
+        # The upper parts clear of the bottom (on the trackball's cup, they reach into its foot)
+        upper = (copy.deepcopy(upper) - copy.deepcopy(bottom)).fix()
+        top = (top + upper).fix()
         top = (top - copy.deepcopy(holes)).fix()
         bottom = (copy.deepcopy(bottom) + copy.deepcopy(lower)).fix()
         return top, (bottom - copy.deepcopy(holes)).fix()

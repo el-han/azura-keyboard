@@ -29,7 +29,8 @@ def overlap(a: Shape, b: Shape, boxes: dict, tol: float = 0.01) -> float:
     (a_min, a_max), (b_min, b_max) = (boxes.setdefault(id(s), _box(s)) for s in (a, b))
     if not all(a_min[i] < b_max[i] - tol and b_min[i] < a_max[i] - tol for i in range(3)):
         return 0
-    return (a & b).volume
+    common = a & b
+    return common.volume if common else 0
 
 
 def _box(shape: Shape):
@@ -73,6 +74,10 @@ if __name__ == "__main__":
                 continue
             collisions += 1
             print(f"{key} {kind} ∩ {name}: {volume:.2f} mm³", flush=True)
+    volume = overlap(printed["top"], printed["bottom"], boxes)
+    if volume > 0.01:
+        collisions += 1
+        print(f"top ∩ bottom: {volume:.2f} mm³", flush=True)
     if with_trackball:
         sensor = keyboard.sensor_model(simple=simple)
         for name, part in obstacles.items():
