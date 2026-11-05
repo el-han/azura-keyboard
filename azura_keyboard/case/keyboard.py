@@ -66,11 +66,16 @@ class Keyboard:
         steps' order matters: OCCT fails on some cuts and fuses once parts have been joined.
         """
         thumb = self.thumb_case.shapes()
+        # The skirt follows the finger case as a whole, not as cut for the thumb case: cut, it would give way by its
+        # inset there
+        whole_finger_outer = copy.deepcopy(self.finger_case.shapes()[1])
         finger, raised_wall = self._finger_behind_thumb(self.finger_case.shapes())
         top_pieces, floors = self._walls_and_floors(finger, thumb)
         # The floors first, from copies: joining the top alters shapes they share with it, and the joined floors lose
         # the finger case's.
-        bottom = self._joined_floors(*copy.deepcopy(floors), copy.deepcopy(finger), copy.deepcopy(thumb))
+        bottom = self._joined_floors(
+            *copy.deepcopy(floors), copy.deepcopy(finger), copy.deepcopy(thumb), copy.deepcopy(whole_finger_outer)
+        )
         # The finger case's corner that now lies inside the keyboard falls away
         finger_top, thumb_top, finger_walls, thumb_walls = top_pieces
         finger_walls = finger_walls - self._corner_inside_thumb_room()
@@ -80,7 +85,7 @@ class Keyboard:
         if self.trackball_case:
             # (from copies: OCCT alters the shapes it cuts with, and the fuses after fail on what it leaves)
             top, bottom = self._with_trackball_cup(copy.deepcopy(top), copy.deepcopy(bottom), copy.deepcopy(thumb[2]))
-        bottom = self._finished_bottom(top, bottom, finger[1])
+        bottom = self._finished_bottom(top, bottom, whole_finger_outer, copy.deepcopy(thumb[1]))
         # (No cable passages for now, to the thumb case or the trackball: see `thumb_passage()` and
         # `TrackballCase.passage()`.)
         top, bottom = self._with_screws(top, bottom, finger[1], thumb[1])
@@ -196,11 +201,13 @@ class Keyboard:
         # Heal before further cuts: the fuse leaves small topology errors that make the next cut fail.
         return (finger_top + thumb_top + finger_walls + thumb_walls).fix()
 
-    def _joined_floors(self, finger_floor: Part, thumb_floor: Part, finger: tuple, thumb: tuple) -> Part:
+    def _joined_floors(
+        self, finger_floor: Part, thumb_floor: Part, finger: tuple, thumb: tuple, whole_finger_outer: Part
+    ) -> Part:
         """The floors as one part, open inside the skirt."""
         d = self.dimensions
         # Open within the skirt's inside, the very same curves as the skirt's, so the two meet exactly
-        inside_skirt = d.prism(self.skirt.inside(copy.deepcopy(finger[1])))
+        inside_skirt = d.prism(self.skirt.inside(copy.deepcopy(whole_finger_outer)))
         finger_floor -= copy.deepcopy(inside_skirt)
         return (finger_floor + thumb_floor + self._floor_beside_thumb(finger, thumb)).fix()
 
@@ -284,15 +291,16 @@ class Keyboard:
         bottom = (bottom - copy.deepcopy(cup_inside)).fix()
         return top, (bottom + (foot - copy.deepcopy(thumb_cavity))).fix()
 
-    def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part) -> Part:
-        """The bottom clear of the top, with the skirt."""
+    def _finished_bottom(self, top: Part, bottom: Part, finger_outer: Part, thumb_outer: Part) -> Part:
+        """The bottom clear of the top, with the skirt (of the whole finger case, `finger_outer`, less the thumb
+        case's outside)."""
         # (healed after each cut: the cuts leave small topology errors the next fuse fails on)
         bottom = (bottom - copy.deepcopy(top)).fix()
         # Where the thumb and finger cases meet, the top cuts a bit of floor loose; drop it.
         bottom = max(bottom.solids(), key=lambda solid: solid.volume)
         # The skirt clear of the top as well, before it joins the bottom: cutting the top from the bottom again after
         # leaves it invalid. (Only where the two meet at all.)
-        skirt = self.skirt.skirt(finger_outer)
+        skirt = (self.skirt.skirt(finger_outer) - thumb_outer).fix()
         overlap = copy.deepcopy(skirt) & copy.deepcopy(top)
         if overlap and overlap.solids() and overlap.volume > 1e-6:
             skirt = (skirt - copy.deepcopy(top)).fix()
