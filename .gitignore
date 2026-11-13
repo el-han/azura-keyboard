@@ -10,3 +10,6 @@
 __pycache__
 .venv/
 *.kicad_prl
+
+# Generated models: build them with `uv run python -m azura_keyboard`
+/things/

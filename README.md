@@ -47,7 +47,8 @@ uv run python -m azura_keyboard
 ```
 
 This writes STEP files for the case's top and bottom and the combined model of each half to `things/`, plus
-models with Cherry MX switches and PCBs in place for checking collisions (not meant for printing).
+models with Cherry MX switches and PCBs in place for checking collisions (not meant for printing). The repository
+doesn't contain them: generate them yourself.
 The Cherry MX model in `resources/SW_Cherry_MX_Plate.stp` is from [kiswitch](https://github.com/kiswitch/kiswitch)
 (MIT / CC-BY-SA 4.0); the DSA keycaps come from the [dsa-keycap](https://github.com/anhthang/dsa-keycap) submodule
 (MIT) and the trackball sensor's board from the [pmw3610-pcb](https://github.com/siderakb/pmw3610-pcb)
@@ -67,4 +68,4 @@ pdoc -t templates azura_keyboard
 Copyright © 2015-2024 Matthew Adereth and David H. Bronke  
 Copyright © 2026 Hannes Ellinger
 
-The source code for generating the models (everything excluding the [things/](things/) and [resources/](resources/) directories) is distributed under the [GNU AFFERO GENERAL PUBLIC LICENSE Version 3](LICENSE).  The generated models and PCB designs are distributed under the [Creative Commons Attribution-ShareAlike License Version 4.0](LICENSE-models).
+The source code for generating the models (everything excluding the generated `things/` and the [resources/](resources/) directories) is distributed under the [GNU AFFERO GENERAL PUBLIC LICENSE Version 3](LICENSE).  The generated models and PCB designs are distributed under the [Creative Commons Attribution-ShareAlike License Version 4.0](LICENSE-models).
